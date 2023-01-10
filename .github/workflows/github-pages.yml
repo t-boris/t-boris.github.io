@@ -9,7 +9,11 @@ jobs:
   github-pages:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
+      - name: Install Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
       - uses: helaili/jekyll-action@v2
         with:
           token: ${{ secrets.CUSTOM_GITHUB_TOKEN }}
