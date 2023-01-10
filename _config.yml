@@ -28,8 +28,8 @@ twitter_username: tboris
 github_username:  t-boris
 
 # Build settings
-# theme: jekyll-theme-hacker
-theme: minima
+theme: jekyll-theme-hacker
+# theme: minima
 # plugins:
 #  - jekyll-remote-theme
 #  - jekyll-feed
