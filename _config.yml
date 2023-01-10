@@ -28,10 +28,11 @@ twitter_username: tboris
 github_username:  t-boris
 
 # Build settings
-theme: jekyll-theme-hacker
+# theme: jekyll-theme-hacker
+remote_theme: pages-themes/hacker@v0.2.0
 # theme: minima
-# plugins:
-#  - jekyll-remote-theme
+plugins:
+  - jekyll-remote-theme
 #  - jekyll-feed
 
 # Exclude from processing.
