@@ -28,7 +28,7 @@ twitter_username: tboris
 github_username:  t-boris
 
 # Build settings
-theme: minima
+theme: hacker
 plugins:
   - jekyll-feed
 
