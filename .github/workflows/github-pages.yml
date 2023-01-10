@@ -16,5 +16,5 @@ jobs:
           node-version: '16'
       - uses: helaili/jekyll-action@v2
         with:
-          token: ${{ secrets.CUSTOM_GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           target_branch: gh-pages
