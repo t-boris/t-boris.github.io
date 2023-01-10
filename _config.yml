@@ -28,9 +28,9 @@ twitter_username: tboris
 github_username:  t-boris
 
 # Build settings
-theme: hacker
+remote_theme: pages-themes/hacker@v0.2.0
 plugins:
-  - jekyll-feed
+  - jekyll-remote-theme
 
 # Exclude from processing.
 # The following items will not be processed, by default.
