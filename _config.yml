@@ -23,7 +23,7 @@ email: boris@tsekinovsky.me
 description: >- # this means to ignore newlines until "baseurl:"
   Personal blog
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://blog.tsekinovsky.me" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: tboris
 github_username:  t-boris
 
