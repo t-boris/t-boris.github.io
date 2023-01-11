@@ -1,0 +1,9 @@
+- title: Email
+  url: mailto:boris@tsekinovsky.me
+  icon: fas fa-envelope
+#- title: Twitter
+#  url: https://twitter.com/tboris
+#  icon: fab fa-twitter
+- title: GitHub
+  url: https://github.com/t-boris
+  icon: fab fa-github
