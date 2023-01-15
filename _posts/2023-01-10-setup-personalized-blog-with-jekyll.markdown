@@ -2,8 +2,10 @@
 layout: post
 title:  "Blog with GitHub Pages and Jekyll"
 date:   2023-01-10
-categories: config
-tags: github jekyll workflow
+categories: [config]
+tags: [github, jekyll, workflow]
+excerpt: "In this article I show how to set up a blog using GitHub Pages and Jekyll tool"
+comments: true
 ---
 
 # Introduction
@@ -112,7 +114,7 @@ Change `_config.yml`
 ```yaml
 # Build settings
 theme: jekyll-theme-tao
-# plugins:
+# _plugins:
 #  - jekyll-remote-theme
 #  - jekyll-feed
 ```
@@ -131,7 +133,7 @@ GitHub provides an "actions" functionality, that allows to execute a build/task 
 write a workflow that builds the site, merges the changes to `gh-pages` branch, and deploy the site to GitHub pages.
 
 But before that ensure that in your repository -> `Settings` `gh-pages` branch is selected:
-![gh-pages branch](/assets/gh-pages-branch.png)
+![gh-pages branch](/assets/gh-pages-branch.png){: width="500" }
 
 Create file `./github/workflows/github-pages.yml` with content:
 
