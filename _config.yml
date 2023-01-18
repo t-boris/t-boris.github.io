@@ -45,7 +45,8 @@ google_analytics:
 # theme: minima
 # theme: jekyll-theme-tao
 theme: jekyll-theme-chirpy
-# _plugins:
+plugins:
+  - jekyll-seo-tag
 #  - jekyll-remote-theme
 #  - jekyll-feed
 

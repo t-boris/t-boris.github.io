@@ -12,6 +12,7 @@ gem "jekyll", "~> 4.3.1"
 # gem "minima", "~> 2.5"
 gem "jekyll-theme-tao"
 gem "jekyll-text-theme"
+gem 'jekyll-seo-tag'
 gem "jekyll-theme-chirpy", "~> 5.4", ">= 5.4.0"
 # gem "jekyll-theme-hacker"
 # If you want to use GitHub Pages, remove the "gem "jekyll"" above and
