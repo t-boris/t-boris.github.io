@@ -570,6 +570,7 @@ html {
 }
 
 /* Sidebar bottom icons - ALL same style (gray by default, purple on hover) */
+/* Force override FontAwesome brand colors for GitHub and Twitter */
 #sidebar .sidebar-bottom a {
   background: transparent !important;
   padding: 0.4rem !important;
@@ -580,8 +581,11 @@ html {
 }
 
 #sidebar .sidebar-bottom a,
-#sidebar .sidebar-bottom a i {
+#sidebar .sidebar-bottom a i,
+#sidebar .sidebar-bottom a svg,
+#sidebar .sidebar-bottom a svg path {
   color: var(--color-text-muted) !important;
+  fill: var(--color-text-muted) !important;
 }
 
 #sidebar .sidebar-bottom a:hover {
@@ -590,8 +594,11 @@ html {
 }
 
 #sidebar .sidebar-bottom a:hover,
-#sidebar .sidebar-bottom a:hover i {
+#sidebar .sidebar-bottom a:hover i,
+#sidebar .sidebar-bottom a:hover svg,
+#sidebar .sidebar-bottom a:hover svg path {
   color: var(--color-primary) !important;
+  fill: var(--color-primary) !important;
 }
 
 #sidebar .sidebar-bottom h3,
