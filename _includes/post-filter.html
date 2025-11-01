@@ -1,0 +1,53 @@
+<!-- Post Filter and Sort Component -->
+<div class="post-filter-container" data-aos="fade-down">
+  <div class="filter-controls">
+
+    <!-- Search -->
+    <div class="filter-group">
+      <input type="text" id="post-search" class="filter-input" placeholder="Search posts...">
+    </div>
+
+    <!-- Category Filter -->
+    <div class="filter-group">
+      <select id="category-filter" class="filter-select">
+        <option value="">All Categories</option>
+        {% assign categories = site.categories | sort %}
+        {% for category in categories %}
+        <option value="{{ category[0] }}">{{ category[0] }} ({{ category[1].size }})</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <!-- Tag Filter -->
+    <div class="filter-group">
+      <select id="tag-filter" class="filter-select">
+        <option value="">All Tags</option>
+        {% assign tags = site.tags | sort %}
+        {% for tag in tags %}
+        <option value="{{ tag[0] }}">{{ tag[0] }} ({{ tag[1].size }})</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <!-- Sort -->
+    <div class="filter-group">
+      <select id="sort-posts" class="filter-select">
+        <option value="date-desc">Newest First</option>
+        <option value="date-asc">Oldest First</option>
+        <option value="title-asc">Title (A-Z)</option>
+        <option value="title-desc">Title (Z-A)</option>
+      </select>
+    </div>
+
+    <!-- Reset Button -->
+    <button id="reset-filters" class="filter-button">
+      <i class="fas fa-redo"></i> Reset
+    </button>
+
+  </div>
+
+  <!-- Results Count -->
+  <div class="filter-results">
+    <span id="results-count"></span>
+  </div>
+</div>

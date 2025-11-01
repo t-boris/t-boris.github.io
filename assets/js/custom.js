@@ -20,6 +20,7 @@
     initSmartNavbar();
     initThemeToggle();
     initCurrentDate();
+    initPostFilter();
   }
 
   /**
@@ -241,6 +242,94 @@
       }
     });
   });
+
+  /**
+   * Post Filter and Sort
+   */
+  function initPostFilter() {
+    const searchInput = document.getElementById('post-search');
+    const categoryFilter = document.getElementById('category-filter');
+    const tagFilter = document.getElementById('tag-filter');
+    const sortSelect = document.getElementById('sort-posts');
+    const resetButton = document.getElementById('reset-filters');
+    const resultsCount = document.getElementById('results-count');
+    const postList = document.getElementById('post-list');
+
+    if (!searchInput || !categoryFilter || !tagFilter || !sortSelect || !postList) return;
+
+    const posts = Array.from(postList.querySelectorAll('.post-preview'));
+
+    function filterAndSort() {
+      const searchTerm = searchInput.value.toLowerCase();
+      const selectedCategory = categoryFilter.value.toLowerCase();
+      const selectedTag = tagFilter.value.toLowerCase();
+      const sortBy = sortSelect.value;
+
+      // Filter posts
+      let visiblePosts = posts.filter(post => {
+        const title = post.dataset.title || '';
+        const categories = (post.dataset.categories || '').split(',');
+        const tags = (post.dataset.tags || '').split(',');
+
+        const matchesSearch = !searchTerm || title.includes(searchTerm);
+        const matchesCategory = !selectedCategory || categories.includes(selectedCategory);
+        const matchesTag = !selectedTag || tags.includes(selectedTag);
+
+        return matchesSearch && matchesCategory && matchesTag;
+      });
+
+      // Sort posts
+      visiblePosts.sort((a, b) => {
+        switch (sortBy) {
+          case 'date-desc':
+            return (b.dataset.date || '').localeCompare(a.dataset.date || '');
+          case 'date-asc':
+            return (a.dataset.date || '').localeCompare(b.dataset.date || '');
+          case 'title-asc':
+            return (a.dataset.title || '').localeCompare(b.dataset.title || '');
+          case 'title-desc':
+            return (b.dataset.title || '').localeCompare(a.dataset.title || '');
+          default:
+            return 0;
+        }
+      });
+
+      // Hide/show posts
+      posts.forEach(post => {
+        if (visiblePosts.includes(post)) {
+          post.classList.remove('filtered-out');
+        } else {
+          post.classList.add('filtered-out');
+        }
+      });
+
+      // Reorder posts
+      visiblePosts.forEach(post => {
+        postList.appendChild(post);
+      });
+
+      // Update results count
+      resultsCount.textContent = `Showing ${visiblePosts.length} of ${posts.length} posts`;
+    }
+
+    function resetFilters() {
+      searchInput.value = '';
+      categoryFilter.value = '';
+      tagFilter.value = '';
+      sortSelect.value = 'date-desc';
+      filterAndSort();
+    }
+
+    // Event listeners
+    searchInput.addEventListener('input', filterAndSort);
+    categoryFilter.addEventListener('change', filterAndSort);
+    tagFilter.addEventListener('change', filterAndSort);
+    sortSelect.addEventListener('change', filterAndSort);
+    resetButton.addEventListener('click', resetFilters);
+
+    // Initial count
+    filterAndSort();
+  }
 
   console.log('✨ Custom enhancements loaded');
 
