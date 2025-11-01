@@ -251,8 +251,6 @@
     const categoryFilter = document.getElementById('category-filter');
     const tagFilter = document.getElementById('tag-filter');
     const sortSelect = document.getElementById('sort-posts');
-    const resetButton = document.getElementById('reset-filters');
-    const resultsCount = document.getElementById('results-count');
     const postList = document.getElementById('post-list');
 
     if (!searchInput || !categoryFilter || !tagFilter || !sortSelect || !postList) return;
@@ -307,17 +305,6 @@
       visiblePosts.forEach(post => {
         postList.appendChild(post);
       });
-
-      // Update results count
-      resultsCount.textContent = `Showing ${visiblePosts.length} of ${posts.length} posts`;
-    }
-
-    function resetFilters() {
-      searchInput.value = '';
-      categoryFilter.value = '';
-      tagFilter.value = '';
-      sortSelect.value = 'date-desc';
-      filterAndSort();
     }
 
     // Event listeners
@@ -325,9 +312,8 @@
     categoryFilter.addEventListener('change', filterAndSort);
     tagFilter.addEventListener('change', filterAndSort);
     sortSelect.addEventListener('change', filterAndSort);
-    resetButton.addEventListener('click', resetFilters);
 
-    // Initial count
+    // Initial filter
     filterAndSort();
   }
 

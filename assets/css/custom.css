@@ -365,7 +365,7 @@ h3 {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  padding: 1.5rem;
+  padding: 1rem;
   margin-bottom: 2rem;
 }
 
@@ -400,28 +400,6 @@ h3 {
   box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
 }
 
-.filter-button {
-  padding: 0.6rem 1.2rem;
-  background: var(--color-primary);
-  color: white;
-  border: none;
-  border-radius: var(--radius-md);
-  cursor: pointer;
-  font-size: 0.9rem;
-  transition: all 0.2s ease;
-  white-space: nowrap;
-}
-
-.filter-button:hover {
-  background: var(--color-primary-hover);
-  transform: translateY(-1px);
-}
-
-.filter-results {
-  margin-top: 1rem;
-  color: var(--color-text-muted);
-  font-size: 0.85rem;
-}
 
 /* Hide filtered posts */
 .post-preview.filtered-out {
@@ -591,7 +569,7 @@ html {
   gap: 0.8rem !important;
 }
 
-/* Sidebar bottom icons - remove background box, simple hover animation */
+/* Sidebar bottom icons - ALL same style (dark by default, purple on hover) */
 #sidebar .sidebar-bottom a {
   background: transparent !important;
   padding: 0.4rem !important;
@@ -599,12 +577,21 @@ html {
   border-radius: 50% !important;
   transition: all 0.2s ease !important;
   color: var(--color-text-muted) !important;
+  opacity: 1 !important;
+}
+
+#sidebar .sidebar-bottom a i {
+  color: var(--color-text-muted) !important;
 }
 
 #sidebar .sidebar-bottom a:hover {
   color: var(--color-primary) !important;
   transform: translateY(-2px) scale(1.1) !important;
   background: transparent !important;
+}
+
+#sidebar .sidebar-bottom a:hover i {
+  color: var(--color-primary) !important;
 }
 
 #sidebar .sidebar-bottom h3,

@@ -47,8 +47,8 @@ google_analytics:
 theme: jekyll-theme-chirpy
 plugins:
   - jekyll-seo-tag
+  - jekyll-feed
 #  - jekyll-remote-theme
-#  - jekyll-feed
 
 # Exclude from processing.
 # The following items will not be processed, by default.
