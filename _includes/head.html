@@ -100,6 +100,17 @@
     <link rel="stylesheet" href="{{ site.data.assets[origin].bootstrap-toc.css | relative_url }}">
     {% endif %}
 
+    <!-- Modern Typography - Inter & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- AOS - Animate On Scroll -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}">
+
     {% if page.layout == 'page' or page.layout == 'post' %}
     <!-- Manific Popup -->
     <link rel="stylesheet" href="{{ site.data.assets[origin].magnific-popup.css | relative_url }}">
@@ -112,6 +123,12 @@
     {% unless site.theme_mode %}
     {% include mode-toggle.html %}
     {% endunless %}
+
+    <!-- AOS JavaScript -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="{{ '/assets/js/custom.js' | relative_url }}" defer></script>
 
     <!-- {% seo %} -->
 </head>

@@ -1,0 +1,101 @@
+<!-- Floating Action Button Menu -->
+<div class="fab-container" data-aos="fade-left" data-aos-delay="1000">
+  <!-- Main FAB Button -->
+  <button class="fab fab--main" id="fab-main" aria-label="Actions menu" title="Quick Actions">
+    <i class="fas fa-bars"></i>
+  </button>
+
+  <!-- FAB Menu Items -->
+  <div class="fab-menu" id="fab-menu">
+    <button class="fab fab--action" onclick="scrollToTop()" aria-label="Scroll to top" title="Scroll to Top">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <button class="fab fab--action" onclick="sharePost()" aria-label="Share" title="Share">
+      <i class="fas fa-share-alt"></i>
+    </button>
+
+    <button class="fab fab--action" onclick="window.print()" aria-label="Print" title="Print Page">
+      <i class="fas fa-print"></i>
+    </button>
+
+    <button class="fab fab--action" onclick="toggleTheme()" aria-label="Toggle theme" title="Toggle Theme">
+      <i class="fas fa-adjust"></i>
+    </button>
+  </div>
+</div>
+
+<script>
+  // FAB Menu Toggle
+  (function() {
+    const fabMain = document.getElementById('fab-main');
+    const fabMenu = document.getElementById('fab-menu');
+    let isOpen = false;
+
+    if (fabMain && fabMenu) {
+      fabMain.addEventListener('click', function() {
+        isOpen = !isOpen;
+
+        if (isOpen) {
+          fabMenu.classList.add('active');
+          fabMain.classList.add('active');
+          fabMain.querySelector('i').className = 'fas fa-times';
+        } else {
+          fabMenu.classList.remove('active');
+          fabMain.classList.remove('active');
+          fabMain.querySelector('i').className = 'fas fa-bars';
+        }
+      });
+
+      // Close menu when clicking action button
+      fabMenu.querySelectorAll('.fab--action').forEach(btn => {
+        btn.addEventListener('click', function() {
+          isOpen = false;
+          fabMenu.classList.remove('active');
+          fabMain.classList.remove('active');
+          fabMain.querySelector('i').className = 'fas fa-bars';
+        });
+      });
+
+      // Show/hide based on scroll position
+      let lastScrollTop = 0;
+      window.addEventListener('scroll', function() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (scrollTop > 300) {
+          document.querySelector('.fab-container').style.opacity = '1';
+          document.querySelector('.fab-container').style.pointerEvents = 'all';
+        } else {
+          document.querySelector('.fab-container').style.opacity = '0';
+          document.querySelector('.fab-container').style.pointerEvents = 'none';
+        }
+
+        lastScrollTop = scrollTop;
+      });
+    }
+
+    // Share function
+    window.sharePost = function() {
+      if (navigator.share) {
+        navigator.share({
+          title: document.title,
+          text: 'Check out this post!',
+          url: window.location.href
+        }).catch(err => console.log('Share failed:', err));
+      } else {
+        // Fallback: Copy URL to clipboard
+        navigator.clipboard.writeText(window.location.href).then(() => {
+          showToast('Link copied to clipboard!', 'success');
+        });
+      }
+    };
+
+    // Toggle theme function
+    window.toggleTheme = function() {
+      const themeToggle = document.querySelector('[data-toggle-mode]');
+      if (themeToggle) {
+        themeToggle.click();
+      }
+    };
+  })();
+</script>

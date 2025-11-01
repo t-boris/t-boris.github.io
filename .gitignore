@@ -3,3 +3,9 @@ _site
 .jekyll-cache
 .jekyll-metadata
 vendor
+/.idea/
+/MODERNIZATION_PLAN.md
+/IMPLEMENTATION_PROGRESS.md
+/ARCHITECTURE.md
+/MODERNIZATION_README.md
+/MODERNIZATION_SUMMARY.md
