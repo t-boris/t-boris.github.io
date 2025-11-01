@@ -1,0 +1,25 @@
+---
+layout: page
+---
+
+<!--
+  Event Day Archive Layout
+  Displays archived events for a specific date
+-->
+
+<div class="event-day-archive">
+
+  <!-- Back Button -->
+  <div class="archive-navigation" data-aos="fade-right">
+    <a href="{{ '/events' | relative_url }}" class="back-btn">
+      <i class="fas fa-arrow-left"></i>
+      Back to Events
+    </a>
+  </div>
+
+  <!-- Archive Content -->
+  <article class="archive-content" data-aos="fade-up">
+    {{ content }}
+  </article>
+
+</div>

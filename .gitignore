@@ -9,3 +9,10 @@ vendor
 /ARCHITECTURE.md
 /MODERNIZATION_README.md
 /MODERNIZATION_SUMMARY.md
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python

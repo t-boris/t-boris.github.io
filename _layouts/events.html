@@ -1,0 +1,149 @@
+---
+layout: page
+---
+
+<!--
+  Events Page Layout
+  Displays current and upcoming events from _data/events.json
+-->
+
+<div class="events-container">
+
+  <!-- Page Header -->
+  <section class="events-header" data-aos="fade-down">
+    <h1 class="events-title">
+      <i class="fas fa-calendar-alt"></i>
+      What's Happening Around
+    </h1>
+    <p class="events-subtitle">Local events, news, and updates from the Gurnee area</p>
+  </section>
+
+  <!-- Main Content Grid -->
+  <div class="events-main-grid">
+
+    <!-- Left Column: Current & Upcoming Events -->
+    <div class="events-content-column">
+
+      <!-- Category Filters -->
+      <div class="category-filters" id="category-filters" data-aos="fade-right">
+        <button class="filter-btn active" data-category="all">
+          <i class="fas fa-th"></i> All
+        </button>
+        <!-- Dynamic category buttons will be added by JavaScript -->
+      </div>
+
+      <!-- Current Events Section -->
+      <section class="events-section current-events" data-aos="fade-up">
+        <h2 class="section-title">
+          <i class="fas fa-clock"></i>
+          Today's Events
+        </h2>
+
+        <div id="current-events-list" class="events-list">
+          {% assign today = site.time | date: '%Y-%m-%d' %}
+          {% assign current_events = site.data.events[today] %}
+
+          {% if current_events and current_events.size > 0 %}
+            {% for event in current_events %}
+              {% include event-card.html event=event %}
+            {% endfor %}
+          {% else %}
+            <div class="no-events-message">
+              <i class="fas fa-calendar-times"></i>
+              <p>No events found for today</p>
+            </div>
+          {% endif %}
+        </div>
+      </section>
+
+      <!-- Upcoming Events Section -->
+      <section class="events-section upcoming-events" data-aos="fade-up" data-aos-delay="100">
+        <h2 class="section-title">
+          <i class="fas fa-arrow-right"></i>
+          Upcoming Events
+        </h2>
+
+        <div id="upcoming-events-list" class="events-list">
+          {% assign today = site.time | date: '%Y-%m-%d' %}
+          {% assign upcoming_found = false %}
+
+          {% for date_events in site.data.events %}
+            {% assign event_date = date_events[0] %}
+            {% if event_date > today %}
+              {% for event in date_events[1] %}
+                {% assign event_event_date = event.event_date %}
+                {% if event_event_date == 'unknown' or event_event_date >= today %}
+                  {% assign upcoming_found = true %}
+                  {% include event-card.html event=event show_date=true %}
+                {% endif %}
+              {% endfor %}
+            {% endif %}
+          {% endfor %}
+
+          {% unless upcoming_found %}
+            <div class="no-events-message">
+              <i class="fas fa-calendar-check"></i>
+              <p>No upcoming events at this time</p>
+            </div>
+          {% endunless %}
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Right Column: Calendar/Archive -->
+    <aside class="events-sidebar-column" data-aos="fade-left">
+
+      <!-- Calendar Widget -->
+      <div class="calendar-widget card">
+        <h3 class="calendar-title">
+          <i class="fas fa-archive"></i>
+          Event Archive
+        </h3>
+
+        <!-- Month/Year Selector -->
+        <div class="calendar-selector">
+          <select id="archive-month" class="calendar-select">
+            <!-- Populated by JavaScript -->
+          </select>
+          <select id="archive-year" class="calendar-select">
+            <!-- Populated by JavaScript -->
+          </select>
+        </div>
+
+        <!-- Available Dates List -->
+        <div id="archive-dates-list" class="archive-dates-list">
+          <!-- Populated by JavaScript -->
+        </div>
+
+        <!-- No Archives Message -->
+        <div id="no-archives-message" class="no-archives-message" style="display: none;">
+          <i class="fas fa-inbox"></i>
+          <p>No archived events yet</p>
+        </div>
+      </div>
+
+      <!-- Quick Stats (Optional) -->
+      <div class="events-stats card" data-aos="fade-left" data-aos-delay="100">
+        <h3 class="stats-title">
+          <i class="fas fa-chart-bar"></i>
+          Stats
+        </h3>
+        <div class="stat-item">
+          <span class="stat-label">Total Events:</span>
+          <span class="stat-value" id="total-events-count">0</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Categories:</span>
+          <span class="stat-value" id="total-categories-count">0</span>
+        </div>
+      </div>
+
+    </aside>
+
+  </div>
+
+</div>
+
+<!-- Include Events JavaScript -->
+<script src="{{ '/assets/js/events.js' | relative_url }}" defer></script>

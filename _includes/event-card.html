@@ -1,0 +1,64 @@
+<!--
+  Event Card Component
+  Usage: {% include event-card.html event=event show_date=true %}
+-->
+
+{% assign event = include.event %}
+{% assign show_date = include.show_date | default: false %}
+
+<article class="event-card card hover-lift"
+         data-category="{{ event.category | downcase }}"
+         data-event-date="{{ event.event_date }}">
+
+  <!-- Event Header -->
+  <div class="event-card__header">
+    <!-- Category Badge -->
+    <span class="event-category badge badge-primary">
+      <i class="fas fa-tag"></i>
+      {{ event.category }}
+    </span>
+
+    <!-- Event Date (if available and show_date is true) -->
+    {% if show_date and event.event_date != 'unknown' %}
+      <span class="event-date">
+        <i class="far fa-calendar"></i>
+        {{ event.event_date | date: "%b %d, %Y" }}
+      </span>
+    {% endif %}
+  </div>
+
+  <!-- Event Title -->
+  <h3 class="event-card__title">
+    <a href="{{ event.link }}" target="_blank" rel="noopener noreferrer">
+      {{ event.title }}
+    </a>
+  </h3>
+
+  <!-- Event Description -->
+  <p class="event-card__description">
+    {{ event.description }}
+  </p>
+
+  <!-- Event Footer -->
+  <div class="event-card__footer">
+    <!-- Tags -->
+    {% if event.tags and event.tags.size > 0 %}
+      <div class="event-tags">
+        {% for tag in event.tags limit: 3 %}
+          <span class="event-tag">{{ tag }}</span>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    <!-- External Link Icon -->
+    <a href="{{ event.link }}"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="event-link-btn"
+       aria-label="Read more">
+      <i class="fas fa-external-link-alt"></i>
+      Read More
+    </a>
+  </div>
+
+</article>

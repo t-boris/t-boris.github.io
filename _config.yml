@@ -118,6 +118,8 @@ collections:
   tabs:
     output: true
     sort_by: order
+  event_archives:
+    output: true
 
 defaults:
   - scope:
@@ -140,6 +142,12 @@ defaults:
     values:
       layout: page
       permalink: /:title/
+  - scope:
+      path: _event_archives
+      type: event_archives
+    values:
+      layout: event-day
+      permalink: /events/archive/:name/
   - scope:
       path: assets/img/favicons
     values:
