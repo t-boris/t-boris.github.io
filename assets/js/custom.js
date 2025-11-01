@@ -19,6 +19,7 @@
     initSmoothScroll();
     initSmartNavbar();
     initThemeToggle();
+    initCurrentDate();
   }
 
   /**
@@ -140,6 +141,27 @@
         document.documentElement.style.removeProperty('--transition-speed');
       }, 300);
     });
+  }
+
+  /**
+   * Display Current Date
+   */
+  function initCurrentDate() {
+    const dateElement = document.getElementById('current-date-text');
+
+    if (!dateElement) return;
+
+    const options = {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    };
+
+    const today = new Date();
+    const formattedDate = today.toLocaleDateString('en-US', options);
+
+    dateElement.textContent = formattedDate;
   }
 
   /**

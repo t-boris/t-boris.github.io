@@ -177,6 +177,52 @@ h3 {
 }
 
 /* ============================================
+   Current Date Display
+   ============================================ */
+
+.current-date {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  font-size: var(--text-base);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-lg);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  border-left: 3px solid var(--color-primary);
+}
+
+.current-date i {
+  color: var(--color-primary);
+}
+
+/* ============================================
+   Post Grid Layout
+   ============================================ */
+
+.post-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-xl);
+  margin-bottom: var(--spacing-2xl);
+}
+
+/* 2 columns on tablet */
+@media (min-width: 768px) {
+  .post-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 3 columns on desktop */
+@media (min-width: 1200px) {
+  .post-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ============================================
    Modern Post Cards
    ============================================ */
 
@@ -187,7 +233,7 @@ h3 {
   transition: transform var(--transition-base), box-shadow var(--transition-base);
   border: 1px solid var(--color-border) !important;
   background: var(--color-surface) !important;
-  margin-bottom: var(--spacing-xl);
+  margin-bottom: 0;
 }
 
 .card:hover,
@@ -521,13 +567,13 @@ textarea:focus-visible {
 
 .hero {
   position: relative;
-  min-height: 60vh;
+  min-height: 20vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: var(--spacing-2xl) var(--spacing-md);
-  margin-bottom: var(--spacing-2xl);
+  padding: var(--spacing-xl) var(--spacing-md);
+  margin-bottom: var(--spacing-xl);
   overflow: hidden;
 }
 
@@ -549,86 +595,10 @@ textarea:focus-visible {
 }
 
 .hero__title {
-  font-size: clamp(2rem, 6vw, 4rem);
+  font-size: clamp(1.75rem, 5vw, 3rem);
   font-weight: 900;
-  margin-bottom: var(--spacing-lg);
-  line-height: 1.1;
-}
-
-.hero__subtitle {
-  font-size: clamp(var(--text-lg), 2vw, var(--text-xl));
-  color: var(--color-text-secondary);
-  margin-bottom: var(--spacing-xl);
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.hero__cta {
-  display: flex;
-  gap: var(--spacing-md);
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.hero__cta .btn {
-  padding: 0.875rem 2rem;
-  font-size: var(--text-lg);
-}
-
-/* Scroll Indicator */
-.hero__scroll-indicator {
-  position: absolute;
-  bottom: var(--spacing-xl);
-  left: 50%;
-  transform: translateX(-50%);
-  opacity: 0.6;
-  transition: opacity var(--transition-base);
-}
-
-.hero__scroll-indicator:hover {
-  opacity: 1;
-}
-
-.mouse {
-  width: 26px;
-  height: 40px;
-  border: 2px solid var(--color-text-secondary);
-  border-radius: 13px;
-  position: relative;
-  animation: mouse-float 2s infinite ease-in-out;
-}
-
-.mouse .wheel {
-  width: 4px;
-  height: 8px;
-  background: var(--color-text-secondary);
-  border-radius: 2px;
-  position: absolute;
-  top: 6px;
-  left: 50%;
-  transform: translateX(-50%);
-  animation: mouse-scroll 1.5s infinite;
-}
-
-@keyframes mouse-float {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-@keyframes mouse-scroll {
-  0% {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
-  }
-  100% {
-    opacity: 0;
-    transform: translateX(-50%) translateY(16px);
-  }
+  margin: 0;
+  line-height: 1.2;
 }
 
 /* ============================================
@@ -904,20 +874,12 @@ textarea:focus-visible {
 
   /* Hero adjustments */
   .hero {
-    min-height: 50vh;
-    padding: var(--spacing-xl) var(--spacing-md);
+    min-height: 15vh;
+    padding: var(--spacing-md);
   }
 
   .hero__title {
-    font-size: clamp(1.75rem, 8vw, 2.5rem);
-  }
-
-  .hero__subtitle {
-    font-size: var(--text-base);
-  }
-
-  .hero__scroll-indicator {
-    display: none;
+    font-size: clamp(1.5rem, 6vw, 2rem);
   }
 
   /* FAB menu adjustments */

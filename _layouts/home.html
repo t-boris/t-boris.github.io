@@ -4,25 +4,12 @@ layout: page
 ---
 
 <!-- Hero Section -->
-<section class="hero" data-aos="fade-in" data-aos-duration="1000">
+<section class="hero" data-aos="fade-in" data-aos-duration="800">
   <div class="hero__background"></div>
   <div class="hero__content">
-    <h1 class="hero__title" data-aos="fade-up" data-aos-delay="200">
+    <h1 class="hero__title" data-aos="fade-up" data-aos-delay="100">
       Info worth <span class="gradient-text">sharing</span>
     </h1>
-    <p class="hero__subtitle" data-aos="fade-up" data-aos-delay="300">
-      Technical blog about DevOps, System Design, and Software Engineering
-    </p>
-    <div class="hero__cta" data-aos="fade-up" data-aos-delay="400">
-      <a href="#post-list" class="btn btn-primary btn-lg">
-        <i class="fas fa-book-reader"></i> Explore Posts
-      </a>
-    </div>
-  </div>
-  <div class="hero__scroll-indicator">
-    <div class="mouse">
-      <div class="wheel"></div>
-    </div>
   </div>
 </section>
 
@@ -61,7 +48,13 @@ layout: page
 {% endfor %}
 {% endif %}
 
-<div id="post-list">
+<!-- Current Date -->
+<div class="current-date" data-aos="fade-right">
+  <i class="far fa-calendar-alt"></i>
+  <span id="current-date-text"></span>
+</div>
+
+<div id="post-list" class="post-grid">
 
     {% for post in posts %}
 
