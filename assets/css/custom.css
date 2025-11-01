@@ -254,10 +254,10 @@ h3 {
   transform: scale(1.05);
 }
 
-/* Post Preview Image */
+/* Post Preview Image - Make cards more square */
 .post-preview__image {
   position: relative;
-  height: 240px;
+  height: 180px;
   overflow: hidden;
   background: var(--color-surface-elevated);
 }
@@ -442,6 +442,26 @@ html {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* ============================================
+   Main Content & Sidebar Layout Adjustments
+   ============================================ */
+
+/* Make main content wider, sidebar narrower */
+#main-wrapper {
+  max-width: none !important;
+}
+
+#core-wrapper {
+  max-width: 75% !important;
+  flex: 0 0 75% !important;
+}
+
+#panel-wrapper {
+  max-width: 22% !important;
+  flex: 0 0 22% !important;
+  margin-left: 3% !important;
 }
 
 /* ============================================
@@ -937,11 +957,15 @@ textarea:focus-visible {
   }
 
   .post-preview__image {
-    height: 200px;
+    height: 160px;
   }
 
   .post-preview__title {
-    font-size: var(--text-xl);
+    font-size: var(--text-lg);
+  }
+
+  .post-content p {
+    font-size: 0.9rem !important;
   }
 
   /* Improve touch targets */
@@ -983,11 +1007,22 @@ textarea:focus-visible {
 /* Tablet adjustments */
 @media (min-width: 769px) and (max-width: 1024px) {
   .hero {
-    min-height: 55vh;
+    min-height: auto;
+    padding: 1rem;
   }
 
   .post-preview__image {
-    height: 220px;
+    height: 170px;
+  }
+
+  #core-wrapper {
+    max-width: 70% !important;
+    flex: 0 0 70% !important;
+  }
+
+  #panel-wrapper {
+    max-width: 27% !important;
+    flex: 0 0 27% !important;
   }
 }
 
