@@ -222,6 +222,10 @@ h3 {
 
 .card,
 .post-preview {
+  display: flex;
+  flex-direction: column;
+  height: 100% !important;
+  min-height: 600px !important;
   border-radius: var(--radius-lg) !important;
   overflow: hidden;
   transition: transform var(--transition-base), box-shadow var(--transition-base);
@@ -320,17 +324,21 @@ h3 {
 }
 
 .post-tags .tag {
-  font-size: 0.7rem !important;
-  padding: 0.15rem 0.4rem !important;
-  opacity: 0.8;
+  font-size: 0.55rem !important;
+  padding: 0.1rem 0.3rem !important;
+  opacity: 0.7;
+  display: inline-block !important;
+  line-height: 1.2 !important;
 }
 
-/* Post Content - Make text bigger and more visible */
+/* Post Content - Smaller font, but MUCH more text */
 .post-preview .post-content p {
-  font-size: 0.95rem !important;
-  line-height: 1.6 !important;
+  font-size: 0.8rem !important;
+  line-height: 1.5 !important;
   margin: 1rem 0 !important;
   color: var(--color-text-primary) !important;
+  max-height: none !important;
+  overflow: visible !important;
 }
 
 /* ============================================
