@@ -569,27 +569,27 @@ html {
   gap: 0.8rem !important;
 }
 
-/* Sidebar bottom icons - ALL same style (dark by default, purple on hover) */
+/* Sidebar bottom icons - ALL same style (gray by default, purple on hover) */
 #sidebar .sidebar-bottom a {
   background: transparent !important;
   padding: 0.4rem !important;
   margin: 0 !important;
   border-radius: 50% !important;
   transition: all 0.2s ease !important;
-  color: var(--color-text-muted) !important;
   opacity: 1 !important;
 }
 
+#sidebar .sidebar-bottom a,
 #sidebar .sidebar-bottom a i {
   color: var(--color-text-muted) !important;
 }
 
 #sidebar .sidebar-bottom a:hover {
-  color: var(--color-primary) !important;
   transform: translateY(-2px) scale(1.1) !important;
   background: transparent !important;
 }
 
+#sidebar .sidebar-bottom a:hover,
 #sidebar .sidebar-bottom a:hover i {
   color: var(--color-primary) !important;
 }
