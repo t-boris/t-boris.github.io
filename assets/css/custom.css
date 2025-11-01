@@ -569,28 +569,32 @@ html {
   gap: 0.8rem !important;
 }
 
-/* Sidebar bottom icons - ALL same style (gray by default, purple on hover) */
-/* Force override FontAwesome brand colors for GitHub and Twitter */
+/* Sidebar bottom icons - ALL same style (purple background, white on hover) */
 #sidebar .sidebar-bottom a {
-  background: transparent !important;
-  padding: 0.4rem !important;
+  background: var(--color-primary) !important;
+  padding: 0.5rem !important;
   margin: 0 !important;
   border-radius: 50% !important;
   transition: all 0.2s ease !important;
   opacity: 1 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 2.2rem !important;
+  height: 2.2rem !important;
 }
 
 #sidebar .sidebar-bottom a,
 #sidebar .sidebar-bottom a i,
 #sidebar .sidebar-bottom a svg,
 #sidebar .sidebar-bottom a svg path {
-  color: var(--color-text-muted) !important;
-  fill: var(--color-text-muted) !important;
+  color: white !important;
+  fill: white !important;
 }
 
 #sidebar .sidebar-bottom a:hover {
   transform: translateY(-2px) scale(1.1) !important;
-  background: transparent !important;
+  background: white !important;
 }
 
 #sidebar .sidebar-bottom a:hover,
