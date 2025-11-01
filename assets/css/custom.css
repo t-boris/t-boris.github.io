@@ -225,7 +225,7 @@ h3 {
   display: flex;
   flex-direction: column;
   height: 100% !important;
-  min-height: 600px !important;
+  min-height: 450px !important;
   border-radius: var(--radius-lg) !important;
   overflow: hidden;
   transition: transform var(--transition-base), box-shadow var(--transition-base);
@@ -278,9 +278,12 @@ h3 {
   opacity: 1;
 }
 
-/* Post Preview Content */
+/* Post Preview Content - Push categories/tags to bottom */
 .post-preview__content {
   position: relative;
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 !important;
 }
 
 .post-preview__title {
@@ -332,6 +335,10 @@ h3 {
 }
 
 /* Post Content - Smaller font, but MUCH more text */
+.post-preview .post-content {
+  flex: 1 !important;
+}
+
 .post-preview .post-content p {
   font-size: 0.8rem !important;
   line-height: 1.5 !important;
@@ -339,6 +346,15 @@ h3 {
   color: var(--color-text-primary) !important;
   max-height: none !important;
   overflow: visible !important;
+}
+
+/* Push categories and tags to bottom */
+.post-meta-footer {
+  margin-top: auto !important;
+}
+
+.post-tags {
+  margin-bottom: 0 !important;
 }
 
 /* ============================================
