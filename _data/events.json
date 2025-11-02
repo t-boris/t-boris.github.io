@@ -261,11 +261,11 @@
     {
       "category": "Business",
       "title": "New Coffee Shop Opening",
-      "description": "Brew & Co. is opening its doors in downtown Gurnee, offering specialty coffee and pastries.",
+      "description": "Bean There, a new local coffee shop, is set to open its doors in downtown Gurnee, offering specialty drinks and pastries.",
       "link": "https://www.dailyherald.com/business/",
       "tags": [
-        "coffee",
-        "business",
+        "coffee shop",
+        "new business",
         "opening"
       ],
       "event_date": "2025-11-15",
@@ -278,6 +278,32 @@
       "link": "https://www.lakecountyjournal.com/business/",
       "tags": [
         "manufacturing",
+        "expansion",
+        "jobs"
+      ],
+      "event_date": "2025-11-02",
+      "found_date": "2025-11-02"
+    },
+    {
+      "category": "Politics",
+      "title": "Gurnee City Council Meeting",
+      "description": "The Gurnee City Council will discuss upcoming budget proposals and community development projects.",
+      "link": "https://www.gurnee.il.us/government/city_council/",
+      "tags": [
+        "city council",
+        "meeting",
+        "politics"
+      ],
+      "event_date": "2025-11-10",
+      "found_date": "2025-11-02"
+    },
+    {
+      "category": "Manufacturing",
+      "title": "Expansion of Gurnee Industrial Park",
+      "description": "Gurnee Industrial Park announces a major expansion, adding new facilities and creating job opportunities.",
+      "link": "https://www.lakecountyil.gov/industrial-development/",
+      "tags": [
+        "industrial park",
         "expansion",
         "jobs"
       ],
