@@ -143,6 +143,12 @@
     const filtersContainer = document.getElementById('category-filters');
     if (!filtersContainer) return;
 
+    // Add click handler to "All" button
+    const allBtn = filtersContainer.querySelector('[data-category="all"]');
+    if (allBtn) {
+      allBtn.addEventListener('click', () => filterByCategory('all'));
+    }
+
     categories.forEach(category => {
       const btn = document.createElement('button');
       btn.className = 'filter-btn';
