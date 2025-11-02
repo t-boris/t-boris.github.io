@@ -44,9 +44,13 @@
       events.forEach(event => {
         const eventDate = event.event_date;
 
-        // Skip events in the past
-        if (eventDate !== 'unknown' && eventDate < today) {
-          return; // Skip past events
+        // Skip events in the past (older than 1 year for archive purposes)
+        const oneYearAgo = new Date();
+        oneYearAgo.setFullYear(oneYearAgo.getFullYear() - 1);
+        const oneYearAgoStr = oneYearAgo.toISOString().split('T')[0];
+
+        if (eventDate < oneYearAgoStr) {
+          return; // Skip very old events
         }
 
         // Show in "Today's Events" if event is happening today
@@ -54,8 +58,8 @@
           currentList.appendChild(createEventCard(event, true));
           currentCount++;
         }
-        // Show in "Upcoming Events" if event is in the future OR unknown date
-        else if (eventDate > today || eventDate === 'unknown') {
+        // Show in "Upcoming Events" if event is in the future
+        else if (eventDate > today) {
           upcomingList.appendChild(createEventCard(event, true));
           upcomingCount++;
         }

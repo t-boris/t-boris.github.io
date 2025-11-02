@@ -361,6 +361,10 @@ Return JSON array of events:"""
                         print(f"  ⚠ Skipping past event ({event_date}): {event.get('title', 'N/A')}")
                         continue
 
+                    # If date is unknown, use found_date as event_date
+                    if event_date == 'unknown':
+                        event['event_date'] = current_date
+
                     # Add found_date
                     event['found_date'] = current_date
                     validated_events.append(event)
@@ -382,125 +386,6 @@ Return JSON array of events:"""
 
     print(f"✗ Failed to analyze results after {max_retries} attempts\n")
     return []
-
-
-def fetch_and_extract_date(event: Dict[str, Any], api_key: str) -> str:
-    """
-    Fetch event page and try to extract specific date using OpenAI
-
-    Args:
-        event: Event dictionary with 'link' and 'title'
-        api_key: OpenAI API key
-
-    Returns:
-        str: Extracted date in YYYY-MM-DD format or 'unknown'
-    """
-    try:
-        # Fetch the page content
-        response = requests.get(event['link'], timeout=10, headers={
-            'User-Agent': 'Mozilla/5.0 (compatible; EventBot/1.0)'
-        })
-        response.raise_for_status()
-
-        # Get text content (first 3000 chars to save tokens)
-        content = response.text[:3000]
-
-        # Ask OpenAI to extract the date
-        from openai import OpenAI
-        client = OpenAI(api_key=api_key)
-
-        today = datetime.now().strftime('%Y-%m-%d')
-
-        prompt = f"""Current date: {today}
-
-Event title: {event['title']}
-
-Extract the specific event date from this webpage content. Look for dates in formats like:
-- "November 15, 2025"
-- "Nov 15, 2025"
-- "11/15/2025"
-- "Friday, November 15"
-- etc.
-
-IMPORTANT: Only return dates that are today or in the future. If the event already happened or no date found, return "unknown".
-
-Return ONLY the date in YYYY-MM-DD format or the word "unknown". Nothing else.
-
-Content:
-{content}
-
-Date:"""
-
-        completion = client.chat.completions.create(
-            model="gpt-5-mini",
-            messages=[
-                {"role": "user", "content": prompt}
-            ],
-            max_completion_tokens=50
-        )
-
-        extracted_date = completion.choices[0].message.content.strip()
-
-        # Validate format
-        if extracted_date != 'unknown':
-            try:
-                # Check if it's valid YYYY-MM-DD format and >= today
-                datetime.strptime(extracted_date, '%Y-%m-%d')
-                if extracted_date >= today:
-                    return extracted_date
-            except ValueError:
-                pass
-
-        return 'unknown'
-
-    except Exception as e:
-        print(f"  ⚠ Could not fetch date for {event['title'][:40]}: {e}")
-        return 'unknown'
-
-
-def enrich_events_with_dates(
-    events: List[Dict[str, Any]],
-    api_key: str,
-    max_attempts: int = 5
-) -> List[Dict[str, Any]]:
-    """
-    For events with unknown dates, try to fetch and extract specific dates
-
-    Args:
-        events: List of events
-        api_key: OpenAI API key
-        max_attempts: Maximum number of events to try enriching
-
-    Returns:
-        list: Events with updated dates where possible
-    """
-    unknown_events = [e for e in events if e.get('event_date') == 'unknown']
-
-    if not unknown_events:
-        return events
-
-    print(f"\n📅 Attempting to extract dates for {min(len(unknown_events), max_attempts)} unknown events...")
-
-    enriched_count = 0
-    for i, event in enumerate(unknown_events[:max_attempts]):
-        print(f"  [{i+1}/{min(len(unknown_events), max_attempts)}] Checking: {event['title'][:50]}...")
-
-        extracted_date = fetch_and_extract_date(event, api_key)
-
-        if extracted_date != 'unknown':
-            event['event_date'] = extracted_date
-            enriched_count += 1
-            print(f"    ✓ Found date: {extracted_date}")
-        else:
-            print(f"    ℹ No date found")
-
-        # Rate limiting
-        time.sleep(1)
-
-    if enriched_count > 0:
-        print(f"✓ Enriched {enriched_count} events with specific dates\n")
-
-    return events
 
 
 # ============================================================================
@@ -743,13 +628,6 @@ def main():
             events_dict = load_events_json()
             save_events_json(events_dict)
             return 0
-
-        # 5.5. Try to enrich unknown dates by fetching pages
-        new_events = enrich_events_with_dates(
-            events=new_events,
-            api_key=secrets['openai_api_key'],
-            max_attempts=5
-        )
 
         # 6. Load existing events and merge
         events_dict = load_events_json()
