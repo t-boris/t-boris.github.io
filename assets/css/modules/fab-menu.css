@@ -7,8 +7,8 @@
   bottom: var(--spacing-xl);
   right: var(--spacing-xl);
   z-index: 1000;
-  opacity: 0;
-  pointer-events: none;
+  opacity: 1;
+  pointer-events: all;
   transition: opacity var(--transition-base);
 }
 
