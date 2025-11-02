@@ -41,19 +41,15 @@ layout: page
 
         <div id="current-events-list" class="events-list">
           {% assign today = site.time | date: '%Y-%m-%d' %}
-          {% assign current_count = 0 %}
+          {% assign todays_events = site.data.events[today] %}
 
-          {% for date_entry in site.data.events %}
-            {% assign events_list = date_entry[1] %}
-            {% for event in events_list %}
+          {% if todays_events.size > 0 %}
+            {% for event in todays_events %}
               {% if event.event_date == today %}
-                {% assign current_count = current_count | plus: 1 %}
                 {% include event-card.html event=event %}
               {% endif %}
             {% endfor %}
-          {% endfor %}
-
-          {% if current_count == 0 %}
+          {% else %}
             <div class="no-events-message">
               <i class="fas fa-calendar-times"></i>
               <p>No events found for today</p>
@@ -73,13 +69,18 @@ layout: page
           {% assign today = site.time | date: '%Y-%m-%d' %}
           {% assign upcoming_count = 0 %}
 
-          {% for date_entry in site.data.events %}
-            {% assign events_list = date_entry[1] %}
-            {% for event in events_list %}
-              {% assign event_date = event.event_date %}
-              {% if event_date != 'unknown' and event_date > today %}
-                {% assign upcoming_count = upcoming_count | plus: 1 %}
-                {% include event-card.html event=event show_date=true %}
+          {% comment %} Iterate through all dates in the events hash {% endcomment %}
+          {% for found_date_key in site.data.events %}
+            {% assign found_date = found_date_key[0] %}
+            {% assign events_on_date = found_date_key[1] %}
+
+            {% comment %} Check each event on this found_date {% endcomment %}
+            {% for evt in events_on_date %}
+              {% if evt.event_date != "unknown" %}
+                {% if evt.event_date > today %}
+                  {% assign upcoming_count = upcoming_count | plus: 1 %}
+                  {% include event-card.html event=evt show_date=true %}
+                {% endif %}
               {% endif %}
             {% endfor %}
           {% endfor %}
