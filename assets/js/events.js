@@ -14,9 +14,115 @@
   }
 
   function init() {
+    renderEvents();
     initCategoryFilters();
     initCalendar();
     updateStats();
+  }
+
+  /**
+   * Render Events from JSON data
+   */
+  function renderEvents() {
+    if (!window.eventsData) {
+      showNoEventsMessage('current');
+      showNoEventsMessage('upcoming');
+      return;
+    }
+
+    const today = new Date().toISOString().split('T')[0]; // YYYY-MM-DD
+    const currentList = document.getElementById('current-events-list');
+    const upcomingList = document.getElementById('upcoming-events-list');
+
+    let currentCount = 0;
+    let upcomingCount = 0;
+
+    // Iterate through all dates in events data
+    Object.keys(window.eventsData).forEach(foundDate => {
+      const events = window.eventsData[foundDate];
+
+      events.forEach(event => {
+        if (event.event_date === today) {
+          currentList.appendChild(createEventCard(event, false));
+          currentCount++;
+        } else if (event.event_date !== 'unknown' && event.event_date > today) {
+          upcomingList.appendChild(createEventCard(event, true));
+          upcomingCount++;
+        }
+      });
+    });
+
+    if (currentCount === 0) showNoEventsMessage('current');
+    if (upcomingCount === 0) showNoEventsMessage('upcoming');
+  }
+
+  function createEventCard(event, showDate) {
+    const card = document.createElement('article');
+    card.className = 'event-card card hover-lift';
+    card.dataset.category = event.category.toLowerCase();
+    card.dataset.eventDate = event.event_date;
+
+    card.innerHTML = `
+      <div class="event-card__header">
+        <span class="event-category badge badge-primary">
+          <i class="fas fa-tag"></i>
+          ${event.category}
+        </span>
+        ${showDate && event.event_date !== 'unknown' ?
+          `<span class="event-date">
+            <i class="far fa-calendar"></i>
+            ${formatEventDate(event.event_date)}
+          </span>` : ''}
+      </div>
+      <h3 class="event-card__title">
+        <a href="${event.link}" target="_blank" rel="noopener noreferrer">
+          ${event.title}
+        </a>
+      </h3>
+      <p class="event-card__description">
+        ${event.description}
+      </p>
+      <div class="event-card__footer">
+        ${event.tags && event.tags.length > 0 ? `
+          <div class="event-tags">
+            ${event.tags.slice(0, 3).map(tag => `<span class="event-tag">${tag}</span>`).join('')}
+          </div>
+        ` : ''}
+        <a href="${event.link}" target="_blank" rel="noopener noreferrer" class="event-link-btn" aria-label="Read more">
+          <i class="fas fa-external-link-alt"></i>
+          Read More
+        </a>
+      </div>
+    `;
+
+    return card;
+  }
+
+  function showNoEventsMessage(type) {
+    const container = type === 'current' ?
+      document.getElementById('current-events-list') :
+      document.getElementById('upcoming-events-list');
+
+    const icon = type === 'current' ? 'calendar-times' : 'calendar-check';
+    const message = type === 'current' ?
+      'No events found for today' :
+      'No upcoming events at this time';
+
+    container.innerHTML = `
+      <div class="no-events-message">
+        <i class="fas fa-${icon}"></i>
+        <p>${message}</p>
+      </div>
+    `;
+  }
+
+  function formatEventDate(dateStr) {
+    const date = new Date(dateStr + 'T00:00:00');
+    return date.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric'
+    });
   }
 
   /**

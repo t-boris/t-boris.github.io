@@ -40,10 +40,7 @@ layout: page
         </h2>
 
         <div id="current-events-list" class="events-list">
-          <div class="no-events-message">
-            <i class="fas fa-calendar-times"></i>
-            <p>No events found for today (temporarily disabled)</p>
-          </div>
+          <!-- Events will be rendered by JavaScript -->
         </div>
       </section>
 
@@ -55,10 +52,7 @@ layout: page
         </h2>
 
         <div id="upcoming-events-list" class="events-list">
-          <div class="no-events-message">
-            <i class="fas fa-calendar-check"></i>
-            <p>No upcoming events at this time (temporarily disabled)</p>
-          </div>
+          <!-- Events will be rendered by JavaScript -->
         </div>
       </section>
 
@@ -117,6 +111,11 @@ layout: page
   </div>
 
 </div>
+
+<!-- Pass events data to JavaScript -->
+<script>
+  window.eventsData = {{ site.data.events | jsonify }};
+</script>
 
 <!-- Include Events JavaScript -->
 <script src="{{ '/assets/js/events.js' | relative_url }}" defer></script>
