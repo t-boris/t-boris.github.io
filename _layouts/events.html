@@ -40,21 +40,10 @@ layout: page
         </h2>
 
         <div id="current-events-list" class="events-list">
-          {% assign today = site.time | date: '%Y-%m-%d' %}
-          {% assign todays_events = site.data.events[today] %}
-
-          {% if todays_events.size > 0 %}
-            {% for event in todays_events %}
-              {% if event.event_date == today %}
-                {% include event-card.html event=event %}
-              {% endif %}
-            {% endfor %}
-          {% else %}
-            <div class="no-events-message">
-              <i class="fas fa-calendar-times"></i>
-              <p>No events found for today</p>
-            </div>
-          {% endif %}
+          <div class="no-events-message">
+            <i class="fas fa-calendar-times"></i>
+            <p>No events found for today (temporarily disabled)</p>
+          </div>
         </div>
       </section>
 
@@ -66,31 +55,10 @@ layout: page
         </h2>
 
         <div id="upcoming-events-list" class="events-list">
-          {% assign today = site.time | date: '%Y-%m-%d' %}
-          {% assign upcoming_count = 0 %}
-
-          {% comment %} Iterate through all dates in the events hash {% endcomment %}
-          {% for found_date_key in site.data.events %}
-            {% assign found_date = found_date_key[0] %}
-            {% assign events_on_date = found_date_key[1] %}
-
-            {% comment %} Check each event on this found_date {% endcomment %}
-            {% for evt in events_on_date %}
-              {% if evt.event_date != "unknown" %}
-                {% if evt.event_date > today %}
-                  {% assign upcoming_count = upcoming_count | plus: 1 %}
-                  {% include event-card.html event=evt show_date=true %}
-                {% endif %}
-              {% endif %}
-            {% endfor %}
-          {% endfor %}
-
-          {% if upcoming_count == 0 %}
-            <div class="no-events-message">
-              <i class="fas fa-calendar-check"></i>
-              <p>No upcoming events at this time</p>
-            </div>
-          {% endif %}
+          <div class="no-events-message">
+            <i class="fas fa-calendar-check"></i>
+            <p>No upcoming events at this time (temporarily disabled)</p>
+          </div>
         </div>
       </section>
 
