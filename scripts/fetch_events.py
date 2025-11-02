@@ -330,7 +330,7 @@ Return JSON array of events:"""
                     }
                 ],
                 temperature=0.3,
-                max_tokens=4000
+                max_completion_tokens=4000
             )
 
             # Parse the response
