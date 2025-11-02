@@ -356,6 +356,12 @@ Return JSON array of events:"""
 
             for event in events:
                 if all(field in event for field in required_fields):
+                    # Filter out past events (except "unknown" dates)
+                    event_date = event.get('event_date', 'unknown')
+                    if event_date != 'unknown' and event_date < current_date:
+                        print(f"  ⚠ Skipping past event ({event_date}): {event.get('title', 'N/A')}")
+                        continue
+
                     # Add found_date
                     event['found_date'] = current_date
                     validated_events.append(event)
