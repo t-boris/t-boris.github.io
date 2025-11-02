@@ -16,14 +16,14 @@
     {
       "category": "Culture",
       "title": "Grayslake Central to Present 'Sideways Stories' Production",
-      "description": "Grayslake Central High School will be presenting a production of 'Sideways Stories' from November 12, 2025. This engaging performance is based on the popular children's book series and promises to entertain audiences of all ages.",
+      "description": "Grayslake Central High School will be presenting a theatrical production of 'Sideways Stories' as part of their cultural programming. This event showcases student talent and creativity.",
       "link": "https://patch.com/illinois/grayslake/grayslake-central-to-present-sideways-stories-production",
       "tags": [
         "theater",
-        "education",
+        "students",
         "Grayslake"
       ],
-      "event_date": "2025-11-12",
+      "event_date": "unknown",
       "found_date": "2025-11-02"
     },
     {
@@ -40,16 +40,55 @@
       "found_date": "2025-11-02"
     },
     {
-      "category": "Business",
-      "title": "Medline Celebrates New Flagship Distribution Center",
-      "description": "Medline Industries has officially opened its new flagship distribution center in Grayslake, enhancing local employment opportunities and contributing to the local economy.",
+      "category": "News",
+      "title": "Medline Celebrates New Flagship Distribution Center in Grayslake",
+      "description": "Medline has opened a new flagship distribution center in Grayslake, enhancing local employment opportunities and supporting the community's economy.",
       "link": "https://newsroom.medline.com/company-news/medline-celebrates-new-flagship-distribution-center-in-grayslake-illinois/",
       "tags": [
         "business",
-        "economy",
+        "employment",
         "Grayslake"
       ],
       "event_date": "2022-08-03",
+      "found_date": "2025-11-02"
+    },
+    {
+      "category": "Community",
+      "title": "Grayslake Community Garden",
+      "description": "The Grayslake Community Garden is a local initiative aimed at promoting gardening and community involvement. Residents are encouraged to participate and grow their own plants in a supportive environment.",
+      "link": "https://www.villageofgrayslake.com/CivicAlerts.aspx",
+      "tags": [
+        "community",
+        "gardening",
+        "Grayslake"
+      ],
+      "event_date": "unknown",
+      "found_date": "2025-11-02"
+    },
+    {
+      "category": "Business",
+      "title": "Building Pathways: Grayslake D127's Summer Manufacturing Camps",
+      "description": "Grayslake D127 is hosting summer manufacturing camps aimed at empowering students and strengthening ties with the local industry. This initiative focuses on education and career readiness.",
+      "link": "https://www.lakecountypartners.com/building-pathways-grayslake-d127s-summer-manufacturing-camps-empower-students-and-strengthen-industry-ties/",
+      "tags": [
+        "education",
+        "manufacturing",
+        "students"
+      ],
+      "event_date": "2025-08-25",
+      "found_date": "2025-11-02"
+    },
+    {
+      "category": "Community",
+      "title": "Grayslake Chamber Of Commerce Events",
+      "description": "The Grayslake Chamber of Commerce is organizing various events to foster community growth and business connections. These events are designed to engage local residents and businesses.",
+      "link": "https://grayslakechamber.com/",
+      "tags": [
+        "community",
+        "business",
+        "events"
+      ],
+      "event_date": "unknown",
       "found_date": "2025-11-02"
     }
   ]
