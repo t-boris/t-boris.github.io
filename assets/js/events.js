@@ -247,91 +247,80 @@
   /**
    * Calendar / Archive
    */
+  let currentCalendarDate = new Date();
+
   function initCalendar() {
-    // This would need access to the events.json data
-    // For now, we'll generate the selectors and populate available dates
+    if (!window.eventsData) return;
 
-    const monthSelect = document.getElementById('archive-month');
-    const yearSelect = document.getElementById('archive-year');
-    const datesList = document.getElementById('archive-dates-list');
+    const prevBtn = document.getElementById('calendar-prev');
+    const nextBtn = document.getElementById('calendar-next');
 
-    if (!monthSelect || !yearSelect || !datesList) return;
+    if (prevBtn) prevBtn.addEventListener('click', () => changeMonth(-1));
+    if (nextBtn) nextBtn.addEventListener('click', () => changeMonth(1));
 
-    // Populate month selector
-    const months = [
-      'January', 'February', 'March', 'April', 'May', 'June',
-      'July', 'August', 'September', 'October', 'November', 'December'
-    ];
-
-    months.forEach((month, index) => {
-      const option = document.createElement('option');
-      option.value = index + 1;
-      option.textContent = month;
-      monthSelect.appendChild(option);
-    });
-
-    // Set current month
-    const now = new Date();
-    monthSelect.value = now.getMonth() + 1;
-
-    // Populate year selector (current year and previous years)
-    const currentYear = now.getFullYear();
-    for (let year = currentYear; year >= currentYear - 2; year--) {
-      const option = document.createElement('option');
-      option.value = year;
-      option.textContent = year;
-      yearSelect.appendChild(option);
-    }
-
-    // Event listeners
-    monthSelect.addEventListener('change', updateArchiveDates);
-    yearSelect.addEventListener('change', updateArchiveDates);
-
-    // Initial population
-    updateArchiveDates();
+    renderCalendar();
   }
 
-  function updateArchiveDates() {
-    const datesList = document.getElementById('archive-dates-list');
-    const noArchivesMsg = document.getElementById('no-archives-message');
-    const monthSelect = document.getElementById('archive-month');
-    const yearSelect = document.getElementById('archive-year');
+  function changeMonth(delta) {
+    currentCalendarDate.setMonth(currentCalendarDate.getMonth() + delta);
+    renderCalendar();
+  }
 
-    if (!datesList || !window.eventsData) return;
+  function renderCalendar() {
+    const monthYearEl = document.getElementById('calendar-month-year');
+    const daysEl = document.getElementById('calendar-days');
 
-    // Get selected month and year
-    const selectedMonth = parseInt(monthSelect.value);
-    const selectedYear = parseInt(yearSelect.value);
+    if (!monthYearEl || !daysEl || !window.eventsData) return;
 
-    // Clear current list
-    datesList.innerHTML = '';
+    // Update month/year display
+    monthYearEl.textContent = currentCalendarDate.toLocaleDateString('en-US', {
+      month: 'long',
+      year: 'numeric'
+    });
 
-    // Get all dates from eventsData that match selected month/year
-    const matchingDates = Object.keys(window.eventsData)
-      .filter(dateStr => {
-        const date = new Date(dateStr + 'T00:00:00');
-        return date.getMonth() + 1 === selectedMonth && date.getFullYear() === selectedYear;
-      })
-      .sort()
-      .reverse(); // Most recent first
+    // Clear days
+    daysEl.innerHTML = '';
 
-    if (matchingDates.length > 0) {
-      if (noArchivesMsg) noArchivesMsg.style.display = 'none';
+    // Get first day of month and number of days
+    const year = currentCalendarDate.getFullYear();
+    const month = currentCalendarDate.getMonth();
+    const firstDay = new Date(year, month, 1).getDay();
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
 
-      matchingDates.forEach(dateStr => {
-        const eventCount = window.eventsData[dateStr].length;
-        const dateLink = document.createElement('a');
-        dateLink.href = `/events/archive/${dateStr}/`;
-        dateLink.className = 'archive-date-link';
-        dateLink.innerHTML = `
-          <i class="far fa-calendar"></i>
-          <span>${formatDate(dateStr)} (${eventCount} events)</span>
-          <i class="fas fa-chevron-right"></i>
-        `;
-        datesList.appendChild(dateLink);
-      });
-    } else {
-      if (noArchivesMsg) noArchivesMsg.style.display = 'block';
+    // Add empty cells for days before month starts
+    for (let i = 0; i < firstDay; i++) {
+      const emptyDay = document.createElement('div');
+      emptyDay.className = 'calendar-day empty';
+      daysEl.appendChild(emptyDay);
+    }
+
+    // Add day cells
+    for (let day = 1; day <= daysInMonth; day++) {
+      const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+      const hasEvents = window.eventsData[dateStr];
+
+      const dayEl = document.createElement('div');
+      dayEl.className = 'calendar-day';
+      dayEl.textContent = day;
+
+      if (hasEvents) {
+        dayEl.classList.add('has-events');
+        dayEl.title = `${hasEvents.length} events`;
+
+        const link = document.createElement('a');
+        link.href = `/events/archive/${dateStr}/`;
+        link.textContent = day;
+        dayEl.textContent = '';
+        dayEl.appendChild(link);
+      }
+
+      // Highlight today
+      const today = new Date().toISOString().split('T')[0];
+      if (dateStr === today) {
+        dayEl.classList.add('today');
+      }
+
+      daysEl.appendChild(dayEl);
     }
   }
 
