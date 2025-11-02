@@ -57,9 +57,7 @@ def load_secrets() -> Dict[str, str]:
         ValueError: If required secrets are missing
     """
     secrets = {
-        'google_api_key': os.getenv('GOOGLE_API_KEY'),
-        'google_search_engine_id': os.getenv('GOOGLE_SEARCH_ENGINE_ID'),
-        'openai_api_key': os.getenv('OPENAI_API_KEY')
+        'xai_api_key': os.getenv('XAI_API_KEY')
     }
 
     # Validate all secrets are present
@@ -132,7 +130,151 @@ def build_queries(cities: List[str], config: Dict[str, Any]) -> List[str]:
 
 
 # ============================================================================
-# Google Custom Search API Integration
+# X.AI (Grok) Search Integration
+# ============================================================================
+
+def fetch_events_with_xai(
+    location: str,
+    categories: List[str],
+    api_key: str,
+    current_date: str,
+    max_retries: int = 3
+) -> List[Dict[str, Any]]:
+    """
+    Fetch events using X.AI (Grok) with real-time search capabilities
+
+    Args:
+        location: Address or location string
+        categories: List of event categories
+        api_key: X.AI API key
+        current_date: Current date in YYYY-MM-DD format
+        max_retries: Maximum retry attempts
+
+    Returns:
+        list: List of extracted events
+    """
+    print(f"\n🤖 Fetching events using X.AI (Grok)...")
+
+    categories_str = ', '.join(categories)
+
+    prompt = f"""Current date: {current_date}
+
+Search and collect all events, incidents, and happenings within 15 miles of: {location}
+
+Categories to include:
+- Social events (community gatherings, festivals, concerts, shows)
+- Crime/Safety incidents (police reports, accidents, safety alerts)
+- Political & Economic news (local government, elections, economic developments)
+- Business updates (new businesses, closures, expansions, job fairs)
+- Manufacturing & Industry (factory news, industrial developments)
+
+Sources: News articles, social media, blogs, forums, municipal reports, event calendars
+
+Requirements:
+- ONLY include events from TODAY ({current_date}) or FUTURE dates
+- Skip past events completely
+- Extract specific dates when available
+- If no specific date mentioned, use "unknown"
+
+Return ONLY a valid JSON array with this exact structure:
+[
+  {{
+    "category": "one of: {categories_str}",
+    "title": "clear, concise event name",
+    "description": "2-3 sentences about the event",
+    "link": "source URL",
+    "tags": ["keyword1", "keyword2", "keyword3"],
+    "event_date": "YYYY-MM-DD or 'unknown'"
+  }}
+]
+
+IMPORTANT: Return ONLY the JSON array. No markdown, no code blocks, no explanations."""
+
+    for attempt in range(max_retries):
+        try:
+            response = requests.post(
+                'https://api.x.ai/v1/chat/completions',
+                headers={
+                    'Authorization': f'Bearer {api_key}',
+                    'Content-Type': 'application/json'
+                },
+                json={
+                    'model': 'grok-beta',
+                    'messages': [
+                        {
+                            'role': 'system',
+                            'content': 'You are a helpful assistant that searches for and extracts local events. Always return valid JSON arrays.'
+                        },
+                        {
+                            'role': 'user',
+                            'content': prompt
+                        }
+                    ],
+                    'temperature': 0.3
+                },
+                timeout=120
+            )
+
+            response.raise_for_status()
+            result = response.json()
+
+            # Parse the response
+            content = result['choices'][0]['message']['content'].strip()
+
+            # Remove markdown code blocks if present
+            if content.startswith('```'):
+                content = content.split('```')[1]
+                if content.startswith('json'):
+                    content = content[4:]
+                content = content.strip()
+
+            # Parse JSON
+            events = json.loads(content)
+
+            if not isinstance(events, list):
+                raise ValueError("X.AI did not return a list")
+
+            # Validate and filter events
+            required_fields = ['category', 'title', 'description', 'link', 'tags', 'event_date']
+            validated_events = []
+
+            for event in events:
+                if all(field in event for field in required_fields):
+                    # Filter out past events
+                    event_date = event.get('event_date', 'unknown')
+                    if event_date != 'unknown' and event_date < current_date:
+                        print(f"  ⚠ Skipping past event ({event_date}): {event.get('title', 'N/A')}")
+                        continue
+
+                    # If date is unknown, use current_date
+                    if event_date == 'unknown':
+                        event['event_date'] = current_date
+
+                    # Add found_date
+                    event['found_date'] = current_date
+                    validated_events.append(event)
+                else:
+                    print(f"  ⚠ Skipping invalid event (missing fields): {event.get('title', 'N/A')}")
+
+            print(f"✓ Extracted {len(validated_events)} valid events from X.AI\n")
+            return validated_events
+
+        except json.JSONDecodeError as e:
+            print(f"  ⚠ Attempt {attempt + 1}/{max_retries} - JSON parse error: {e}")
+            if attempt < max_retries - 1:
+                time.sleep(2)
+
+        except Exception as e:
+            print(f"  ⚠ Attempt {attempt + 1}/{max_retries} - X.AI API error: {e}")
+            if attempt < max_retries - 1:
+                time.sleep(2)
+
+    print(f"✗ Failed to fetch events from X.AI after {max_retries} attempts\n")
+    return []
+
+
+# ============================================================================
+# Google Custom Search API Integration (DEPRECATED - keeping for reference)
 # ============================================================================
 
 def fetch_google_results(
@@ -598,28 +740,15 @@ def main():
         # 1. Load configuration and secrets
         config = load_config()
         secrets = load_secrets()
-
-        # 2. Determine cities for today
-        cities = get_cities_for_today(config)
-
-        # 3. Build search queries
-        queries = build_queries(cities, config)
-
-        # 4. Fetch search results from Google
-        search_results = fetch_all_search_results(
-            queries=queries,
-            api_key=secrets['google_api_key'],
-            search_engine_id=secrets['google_search_engine_id'],
-            config=config
-        )
-
-        # 5. Analyze results with OpenAI
         current_date = datetime.now().strftime('%Y-%m-%d')
-        new_events = analyze_with_openai(
-            results=search_results,
+
+        # 2. Fetch events using X.AI (Grok) with real-time search
+        new_events = fetch_events_with_xai(
+            location=config['location']['address'],
+            categories=config['categories'],
+            api_key=secrets['xai_api_key'],
             current_date=current_date,
-            api_key=secrets['openai_api_key'],
-            config=config
+            max_retries=3
         )
 
         if not new_events:
@@ -629,7 +758,7 @@ def main():
             save_events_json(events_dict)
             return 0
 
-        # 6. Load existing events and merge
+        # 3. Load existing events and merge
         events_dict = load_events_json()
         events_dict = merge_events(events_dict, new_events, current_date)
 
