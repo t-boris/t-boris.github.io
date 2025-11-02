@@ -42,10 +42,12 @@
       const events = window.eventsData[foundDate];
 
       events.forEach(event => {
-        if (event.event_date === today) {
-          currentList.appendChild(createEventCard(event, false));
+        // Show events from today's fetch in "Current Events"
+        if (foundDate === today) {
+          currentList.appendChild(createEventCard(event, true));
           currentCount++;
         } else if (event.event_date !== 'unknown' && event.event_date > today) {
+          // Show future events in "Upcoming Events"
           upcomingList.appendChild(createEventCard(event, true));
           upcomingCount++;
         }
