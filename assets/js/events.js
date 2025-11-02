@@ -25,6 +25,7 @@
    */
   function renderEvents() {
     if (!window.eventsData) {
+      console.error('❌ No eventsData found');
       showNoEventsMessage('current');
       showNoEventsMessage('upcoming');
       return;
@@ -33,6 +34,9 @@
     const today = new Date().toISOString().split('T')[0]; // YYYY-MM-DD
     const currentList = document.getElementById('current-events-list');
     const upcomingList = document.getElementById('upcoming-events-list');
+
+    console.log('📅 Today:', today);
+    console.log('📊 Events data:', window.eventsData);
 
     let currentCount = 0;
     let upcomingCount = 0;
@@ -55,11 +59,13 @@
 
         // Show in "Today's Events" if event is happening today
         if (eventDate === today) {
+          console.log('✅ Today:', event.title);
           currentList.appendChild(createEventCard(event, true));
           currentCount++;
         }
         // Show in "Upcoming Events" if event is in the future
         else if (eventDate > today) {
+          console.log('🔜 Upcoming:', event.title, 'on', eventDate);
           upcomingList.appendChild(createEventCard(event, true));
           upcomingCount++;
         }
