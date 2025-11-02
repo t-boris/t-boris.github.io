@@ -14,3 +14,8 @@
   transform: scale(1.05);
 }
 
+/* Hide back-to-top button from Chirpy theme */
+#back-to-top {
+  display: none !important;
+}
+
