@@ -1,13 +1,21 @@
 ---
-layout: page
-panel_includes:
-  - events-panel
+layout: default
 ---
+
+{% include assets-origin.html %}
 
 <!--
   Events Page Layout
   Displays current and upcoming events from _data/events.json
 -->
+
+<div class="row">
+
+  <!-- core -->
+  <div id="core-wrapper" class="col-12 col-lg-11 col-xl-9 pr-xl-4">
+    <div class="post pl-1 pr-1 pl-md-2 pr-md-2">
+      <h1 class="dynamic-title">Events</h1>
+      <div class="post-content">
 
 <div class="events-container">
 
@@ -51,6 +59,17 @@ panel_includes:
       <!-- Events will be rendered by JavaScript -->
     </div>
   </section>
+
+</div>
+
+      </div><!-- .post-content -->
+    </div>
+  </div> <!-- #core-wrapper -->
+
+  <!-- panel -->
+  <div id="panel-wrapper" class="col-xl-3 pl-2 text-muted">
+    {% include events-panel.html %}
+  </div>
 
 </div>
 
