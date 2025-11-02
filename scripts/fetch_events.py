@@ -199,7 +199,7 @@ IMPORTANT: Return ONLY the JSON array. No markdown, no code blocks, no explanati
                     'Content-Type': 'application/json'
                 },
                 json={
-                    'model': 'grok-beta',
+                    'model': 'grok-2-1212',
                     'messages': [
                         {
                             'role': 'system',
