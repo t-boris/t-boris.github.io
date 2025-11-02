@@ -35,7 +35,7 @@
   ],
   "google_config": {
     "results_per_query": 10,
-    "total_results_limit": 50
+    "total_results_limit": 280
   },
   "openai_config": {
     "model": "gpt-4o-mini",

@@ -62,40 +62,64 @@
     card.dataset.category = event.category.toLowerCase();
     card.dataset.eventDate = event.event_date;
 
+    const categoryIcon = getCategoryIcon(event.category);
+
     card.innerHTML = `
-      <div class="event-card__header">
-        <span class="event-category badge badge-primary">
-          <i class="fas fa-tag"></i>
-          ${event.category}
-        </span>
-        ${showDate && event.event_date !== 'unknown' ?
-          `<span class="event-date">
-            <i class="far fa-calendar"></i>
-            ${formatEventDate(event.event_date)}
-          </span>` : ''}
+      <div class="event-card__icon-wrapper">
+        <div class="event-card__icon ${event.category.toLowerCase()}">
+          <i class="${categoryIcon}"></i>
+        </div>
       </div>
-      <h3 class="event-card__title">
-        <a href="${event.link}" target="_blank" rel="noopener noreferrer">
-          ${event.title}
-        </a>
-      </h3>
-      <p class="event-card__description">
-        ${event.description}
-      </p>
-      <div class="event-card__footer">
-        ${event.tags && event.tags.length > 0 ? `
-          <div class="event-tags">
-            ${event.tags.slice(0, 3).map(tag => `<span class="event-tag">${tag}</span>`).join('')}
-          </div>
-        ` : ''}
-        <a href="${event.link}" target="_blank" rel="noopener noreferrer" class="event-link-btn" aria-label="Read more">
-          <i class="fas fa-external-link-alt"></i>
-          Read More
-        </a>
+      <div class="event-card__content">
+        <div class="event-card__header">
+          <span class="event-category badge badge-primary">
+            <i class="fas fa-tag"></i>
+            ${event.category}
+          </span>
+          ${showDate && event.event_date !== 'unknown' ?
+            `<span class="event-date">
+              <i class="far fa-calendar"></i>
+              ${formatEventDate(event.event_date)}
+            </span>` : ''}
+        </div>
+        <h3 class="event-card__title">
+          <a href="${event.link}" target="_blank" rel="noopener noreferrer">
+            ${event.title}
+          </a>
+        </h3>
+        <p class="event-card__description">
+          ${event.description}
+        </p>
+        <div class="event-card__footer">
+          ${event.tags && event.tags.length > 0 ? `
+            <div class="event-tags">
+              ${event.tags.slice(0, 3).map(tag => `<span class="event-tag">${tag}</span>`).join('')}
+            </div>
+          ` : ''}
+          <a href="${event.link}" target="_blank" rel="noopener noreferrer" class="event-link-btn" aria-label="Read more">
+            <i class="fas fa-external-link-alt"></i>
+            Read More
+          </a>
+        </div>
       </div>
     `;
 
     return card;
+  }
+
+  function getCategoryIcon(category) {
+    const icons = {
+      'Culture': 'fas fa-theater-masks',
+      'Community': 'fas fa-users',
+      'News': 'fas fa-newspaper',
+      'Food': 'fas fa-utensils',
+      'Entertainment': 'fas fa-music',
+      'Business': 'fas fa-briefcase',
+      'Manufacturing': 'fas fa-industry',
+      'Politics': 'fas fa-landmark',
+      'Economy': 'fas fa-chart-line'
+    };
+    return icons[category] || 'fas fa-calendar-alt';
   }
 
   function showNoEventsMessage(type) {
