@@ -18,103 +18,105 @@ layout: page
     <p class="events-subtitle">Local events, news, and updates from the Gurnee area</p>
   </section>
 
-  <!-- Main Content Grid -->
-  <div class="events-main-grid">
-
-    <!-- Left Column: Current & Upcoming Events -->
-    <div class="events-content-column">
-
-      <!-- Category Filters -->
-      <div class="category-filters" id="category-filters" data-aos="fade-right">
-        <button class="filter-btn active" data-category="all">
-          <i class="fas fa-th"></i> All
-        </button>
-        <!-- Dynamic category buttons will be added by JavaScript -->
-      </div>
-
-      <!-- Current Events Section -->
-      <section class="events-section current-events" data-aos="fade-up">
-        <h2 class="section-title">
-          <i class="fas fa-clock"></i>
-          Today's Events
-        </h2>
-
-        <div id="current-events-list" class="events-list">
-          <!-- Events will be rendered by JavaScript -->
-        </div>
-      </section>
-
-      <!-- Upcoming Events Section -->
-      <section class="events-section upcoming-events" data-aos="fade-up" data-aos-delay="100">
-        <h2 class="section-title">
-          <i class="fas fa-arrow-right"></i>
-          Upcoming Events
-        </h2>
-
-        <div id="upcoming-events-list" class="events-list">
-          <!-- Events will be rendered by JavaScript -->
-        </div>
-      </section>
-
-    </div>
-
-    <!-- Right Column: Calendar/Archive -->
-    <aside class="events-sidebar-column" data-aos="fade-left">
-
-      <!-- Calendar Widget -->
-      <div class="calendar-widget card">
-        <h3 class="calendar-title">
-          <i class="fas fa-archive"></i>
-          Event Archive
-        </h3>
-
-        <!-- Month/Year Selector -->
-        <div class="calendar-selector">
-          <select id="archive-month" class="calendar-select">
-            <!-- Populated by JavaScript -->
-          </select>
-          <select id="archive-year" class="calendar-select">
-            <!-- Populated by JavaScript -->
-          </select>
-        </div>
-
-        <!-- Available Dates List -->
-        <div id="archive-dates-list" class="archive-dates-list">
-          <!-- Populated by JavaScript -->
-        </div>
-
-        <!-- No Archives Message -->
-        <div id="no-archives-message" class="no-archives-message" style="display: none;">
-          <i class="fas fa-inbox"></i>
-          <p>No archived events yet</p>
-        </div>
-      </div>
-
-      <!-- Quick Stats (Optional) -->
-      <div class="events-stats card" data-aos="fade-left" data-aos-delay="100">
-        <h3 class="stats-title">
-          <i class="fas fa-chart-bar"></i>
-          Stats
-        </h3>
-        <div class="stat-item">
-          <span class="stat-label">Total Events:</span>
-          <span class="stat-value" id="total-events-count">0</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-label">Categories:</span>
-          <span class="stat-value" id="total-categories-count">0</span>
-        </div>
-      </div>
-
-    </aside>
-
+  <!-- Category Filters -->
+  <div class="category-filters" id="category-filters" data-aos="fade-right">
+    <button class="filter-btn active" data-category="all">
+      <i class="fas fa-th"></i> All
+    </button>
+    <!-- Dynamic category buttons will be added by JavaScript -->
   </div>
 
+  <!-- Current Events Section -->
+  <section class="events-section current-events" data-aos="fade-up">
+    <h2 class="section-title">
+      <i class="fas fa-clock"></i>
+      Today's Events
+    </h2>
+
+    <div id="current-events-list" class="events-list">
+      <!-- Events will be rendered by JavaScript -->
+    </div>
+  </section>
+
+  <!-- Upcoming Events Section -->
+  <section class="events-section upcoming-events" data-aos="fade-up" data-aos-delay="100">
+    <h2 class="section-title">
+      <i class="fas fa-arrow-right"></i>
+      Upcoming Events
+    </h2>
+
+    <div id="upcoming-events-list" class="events-list">
+      <!-- Events will be rendered by JavaScript -->
+    </div>
+  </section>
+
+</div>
+
+<!-- Events Sidebar Widgets (shown in right panel) -->
+<div id="events-widgets" style="display: none;">
+  <!-- Calendar Widget -->
+  <div class="calendar-widget card">
+    <h3 class="calendar-title">
+      <i class="fas fa-archive"></i>
+      Event Archive
+    </h3>
+
+    <!-- Month/Year Selector -->
+    <div class="calendar-selector">
+      <select id="archive-month" class="calendar-select">
+        <!-- Populated by JavaScript -->
+      </select>
+      <select id="archive-year" class="calendar-select">
+        <!-- Populated by JavaScript -->
+      </select>
+    </div>
+
+    <!-- Available Dates List -->
+    <div id="archive-dates-list" class="archive-dates-list">
+      <!-- Populated by JavaScript -->
+    </div>
+
+    <!-- No Archives Message -->
+    <div id="no-archives-message" class="no-archives-message" style="display: none;">
+      <i class="fas fa-inbox"></i>
+      <p>No archived events yet</p>
+    </div>
+  </div>
+
+  <!-- Quick Stats -->
+  <div class="events-stats card">
+    <h3 class="stats-title">
+      <i class="fas fa-chart-bar"></i>
+      Stats
+    </h3>
+    <div class="stat-item">
+      <span class="stat-label">Total Events:</span>
+      <span class="stat-value" id="total-events-count">0</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-label">Categories:</span>
+      <span class="stat-value" id="total-categories-count">0</span>
+    </div>
+  </div>
 </div>
 
 <!-- Pass events data to JavaScript -->
 <script>
   window.eventsData = {{ site.data.events | jsonify }};
+
+  // Move events widgets to panel-wrapper on page load
+  document.addEventListener('DOMContentLoaded', function() {
+    const panelWrapper = document.getElementById('panel-wrapper');
+    const eventsWidgets = document.getElementById('events-widgets');
+
+    if (panelWrapper && eventsWidgets) {
+      // Move widgets to panel
+      while (eventsWidgets.firstChild) {
+        panelWrapper.appendChild(eventsWidgets.firstChild);
+      }
+      eventsWidgets.remove();
+    }
+  });
 </script>
 
 <!-- Include Events JavaScript -->

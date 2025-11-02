@@ -158,11 +158,14 @@
     const eventCards = document.querySelectorAll('.event-card');
     if (!eventCards.length) return;
 
-    // Extract unique categories from events
+    // Extract unique categories from events by reading the category badge
     const categories = new Set();
     eventCards.forEach(card => {
-      const category = card.dataset.category;
-      if (category) categories.add(category);
+      const categoryBadge = card.querySelector('.event-category');
+      if (categoryBadge) {
+        const categoryText = categoryBadge.textContent.trim();
+        categories.add(categoryText);
+      }
     });
 
     // Create filter buttons
@@ -175,11 +178,14 @@
       allBtn.addEventListener('click', () => filterByCategory('all'));
     }
 
-    categories.forEach(category => {
+    // Sort categories alphabetically
+    const sortedCategories = Array.from(categories).sort();
+
+    sortedCategories.forEach(category => {
       const btn = document.createElement('button');
       btn.className = 'filter-btn';
       btn.dataset.category = category;
-      btn.innerHTML = `<i class="fas fa-tag"></i> ${capitalizeFirst(category)}`;
+      btn.innerHTML = `<i class="fas fa-tag"></i> ${category}`;
       filtersContainer.appendChild(btn);
 
       btn.addEventListener('click', () => filterByCategory(category));
@@ -205,9 +211,12 @@
       }
     });
 
-    // Filter cards
+    // Filter cards by category badge text
     eventCards.forEach(card => {
-      if (category === 'all' || card.dataset.category === category) {
+      const categoryBadge = card.querySelector('.event-category');
+      const cardCategory = categoryBadge ? categoryBadge.textContent.trim() : '';
+
+      if (category === 'all' || cardCategory === category) {
         card.style.display = '';
         card.classList.add('fade-in');
       } else {
