@@ -690,6 +690,7 @@ def create_markdown_for_date(date: str, events: List[Dict[str, Any]]):
         "---",
         "layout: event-day",
         f"date: {date}",
+        f"permalink: /events/archive/{date}/",
         "---",
         "",
         f"# Events Archive - {date}",
