@@ -1,15 +1,15 @@
 {
   "2025-11-02": [
     {
-      "category": "Community",
-      "title": "Village of Grayslake — News & Civic Alerts",
-      "description": "Official village news, announcements, reminders and trending topics for Grayslake residents, including public notices and community updates. Use the Civic Alerts feed to find current items and event notices.",
+      "category": "News",
+      "title": "Village of Grayslake — Civic Alerts (News Flash)",
+      "description": "CivicAlerts page listing the village's current events, reminders, and community notifications. Residents can review recent and ongoing notices including roadwork, public meetings, and service updates. ",
       "link": "https://www.villageofgrayslake.com/CivicAlerts.aspx?sort=date",
       "tags": [
-        "Grayslake",
-        "announcements",
-        "public-notices",
-        "community"
+        "alerts",
+        "public notices",
+        "village updates",
+        "Grayslake"
       ],
       "event_date": "2025-11-02",
       "found_date": "2025-11-02"
@@ -28,15 +28,15 @@
       "found_date": "2025-11-02"
     },
     {
-      "category": "Culture",
-      "title": "Visit Lake County — Events Calendar",
-      "description": "County-wide events calendar listing festivals, seasonal exhibits, and cultural activities across Lake County. The calendar is updated regularly with upcoming events and visitor information.",
+      "category": "Entertainment",
+      "title": "Visit Lake County — Regional Events Calendar",
+      "description": "Visit Lake County's events calendar aggregates festivals, performances, and seasonal attractions across Lake County. Use this calendar to find upcoming entertainment, family activities, and ticketed events. ",
       "link": "https://www.visitlakecounty.org/events",
       "tags": [
-        "events",
         "Lake County",
         "calendar",
-        "culture"
+        "festivals",
+        "tourism"
       ],
       "event_date": "2025-11-02",
       "found_date": "2025-11-02"
@@ -82,13 +82,14 @@
     },
     {
       "category": "Business",
-      "title": "Grayslake Chamber of Commerce — Events & Networking",
-      "description": "The Grayslake Chamber posts upcoming business networking, marketing and community involvement events that support local businesses and foster connections. See the chamber site for event listings and membership opportunities.",
+      "title": "Grayslake Chamber of Commerce — Events & Business Programming",
+      "description": "Grayslake Chamber provides networking, promotional programs, and an events calendar for local businesses and community members. Visit the chamber site for upcoming mixers, expos, and member events. ",
       "link": "https://grayslakechamber.com/",
       "tags": [
+        "chamber",
         "business",
         "networking",
-        "local-events"
+        "events"
       ],
       "event_date": "2025-11-02",
       "found_date": "2025-11-02"
@@ -108,41 +109,43 @@
       "found_date": "2025-11-02"
     },
     {
-      "category": "Environment",
-      "title": "SWALCO — Shoes, Shred & Seeds community collection (Wauconda partnership)",
-      "description": "The Solid Waste Agency of Lake County (SWALCO) partners with local municipalities like Wauconda to run community collection events offering shoe recycling, confidential paper shredding and seeds/plant giveaways. Check SWALCO for current schedules and locations.",
+      "category": "Community",
+      "title": "SWALCO — Shoes, Shred, and Seeds Partnership with Village of Wauconda",
+      "description": "The Solid Waste Agency of Lake County (SWALCO) is partnering with the Village of Wauconda on a Shoes, Shred, and Seeds community recycling event. Check SWALCO for scheduling, drop-off details, and participation instructions. ",
       "link": "https://www.swalco.org/",
       "tags": [
         "recycling",
-        "shredding",
-        "community-event",
-        "sustainability"
+        "community event",
+        "Wauconda",
+        "SWALCO"
       ],
       "event_date": "2025-11-02",
       "found_date": "2025-11-02"
     },
     {
       "category": "Business",
-      "title": "Central Range Development Project (Grayslake)",
-      "description": "Village information on the Central Range development area describing proposed development activity in Grayslake and projected long-term fiscal impacts, including an estimated property tax surplus. Ongoing planning and development updates are posted by the village.",
+      "title": "Grayslake Central Range Development — Project Updates",
+      "description": "Village page for the Central Range area outlines ongoing development plans expected to generate significant property tax revenue and economic activity. The project page provides updates on planning, approvals, and anticipated local impacts. ",
       "link": "https://www.villageofgrayslake.com/100/Central-Range",
       "tags": [
         "development",
-        "economic-development",
-        "tax-revenue"
+        "economic development",
+        "Grayslake",
+        "planning"
       ],
       "event_date": "2025-11-02",
       "found_date": "2025-11-02"
     },
     {
-      "category": "Education",
-      "title": "College of Lake County — News, Events & Advanced Technology Center",
-      "description": "CLC publishes ongoing campus news and community event listings and operates the Advanced Technology Center in Gurnee, which provides manufacturing workforce training and industry programs for Lake County residents. Check CLC for class schedules and upcoming public events.",
+      "category": "News",
+      "title": "College of Lake County — News & Events (Grayslake Campus)",
+      "description": "College of Lake County posts campus news, exhibitions, and upcoming programs at its Grayslake campus and other sites. The news & events page lists academic events, community offerings, and public lectures. ",
       "link": "https://www.clcillinois.edu/news-and-events",
       "tags": [
         "education",
-        "workforce",
-        "manufacturing"
+        "college events",
+        "Grayslake",
+        "community"
       ],
       "event_date": "2025-11-02",
       "found_date": "2025-11-02"
@@ -150,25 +153,27 @@
     {
       "category": "Community",
       "title": "Grayslake Community Grant Program",
-      "description": "Village-run program offering public support and grants to nonprofit organizations serving Grayslake to fund community projects and local events. Information and application details are posted on the village site.",
+      "description": "Ongoing Village of Grayslake program providing public support to local nonprofit organizations delivering services to residents. Application and program details are maintained on the village site for upcoming grant cycles. ",
       "link": "http://www.villageofgrayslake.com/588/Community-Grant-Program",
       "tags": [
-        "grants",
+        "grant",
         "nonprofit",
-        "community-support"
+        "funding",
+        "community"
       ],
       "event_date": "2025-11-02",
       "found_date": "2025-11-02"
     },
     {
       "category": "Culture",
-      "title": "Lake County Forest Preserves — Programs & Recreation Events",
-      "description": "The Lake County Forest Preserves host recurring nature programs, guided walks, seasonal festivals and recreation events across local preserves; schedules and registrations are posted on the preserves site.",
+      "title": "Lake County Forest Preserves — Events & Recreation",
+      "description": "Lake County Forest Preserves maintains listings of nature programs, facility reservations, and seasonal events across county preserves. Check the site for upcoming guided hikes, educational programs, and outdoor events. ",
       "link": "https://www.lcfpd.org/",
       "tags": [
-        "nature",
-        "recreation",
-        "parks"
+        "outdoors",
+        "nature programs",
+        "Lake County",
+        "events"
       ],
       "event_date": "2025-11-02",
       "found_date": "2025-11-02"
@@ -182,6 +187,34 @@
         "entertainment",
         "family",
         "attractions"
+      ],
+      "event_date": "2025-11-02",
+      "found_date": "2025-11-02"
+    },
+    {
+      "category": "Community",
+      "title": "Village of Grayslake — News & Trending Topics",
+      "description": "Official Village of Grayslake news page with current announcements, community updates, and municipal information. Check the site for rotating alerts, seasonal programs, and upcoming local items. ",
+      "link": "https://www.villageofgrayslake.com/",
+      "tags": [
+        "Grayslake",
+        "municipal",
+        "announcements",
+        "community"
+      ],
+      "event_date": "2025-11-02",
+      "found_date": "2025-11-02"
+    },
+    {
+      "category": "Community",
+      "title": "Wauconda Area Chamber — Community Events Calendar",
+      "description": "Local events calendar listing business and community events in the Wauconda area, including expos, park district activities, and seasonal programming. Use the calendar to discover upcoming local happenings and registration info. ",
+      "link": "https://business.waucondachamber.org/events/catgid/3",
+      "tags": [
+        "Wauconda",
+        "calendar",
+        "community events",
+        "chamber"
       ],
       "event_date": "2025-11-02",
       "found_date": "2025-11-02"
