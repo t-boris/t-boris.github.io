@@ -44,18 +44,18 @@
       events.forEach(event => {
         const eventDate = event.event_date;
 
-        // Skip events in the past (but keep unknown dates)
+        // Skip events in the past
         if (eventDate !== 'unknown' && eventDate < today) {
           return; // Skip past events
         }
 
-        // Show in "Today's Events" if event is happening today or has unknown date
-        if (eventDate === today || eventDate === 'unknown') {
+        // Show in "Today's Events" if event is happening today
+        if (eventDate === today) {
           currentList.appendChild(createEventCard(event, true));
           currentCount++;
         }
-        // Show in "Upcoming Events" if event is in the future
-        else if (eventDate > today) {
+        // Show in "Upcoming Events" if event is in the future OR unknown date
+        else if (eventDate > today || eventDate === 'unknown') {
           upcomingList.appendChild(createEventCard(event, true));
           upcomingCount++;
         }
