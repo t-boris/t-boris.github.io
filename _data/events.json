@@ -1,16 +1,16 @@
 {
   "2025-11-02": [
     {
-      "category": "Community",
-      "title": "Grayslake Community Garden Updates",
-      "description": "The Grayslake Community Garden is now open for the season, providing residents with a space to grow their own vegetables and flowers. Community members are encouraged to participate and enjoy the benefits of gardening.",
+      "category": "News",
+      "title": "Village of Grayslake Civic Alerts & News",
+      "description": "The Village of Grayslake posts ongoing community alerts, announcements, and reminders (including community garden updates and service notices) on its CivicAlerts page. Residents can check the page for the latest local government news and upcoming municipal events.",
       "link": "https://www.villageofgrayslake.com/CivicAlerts.aspx?sort=date",
       "tags": [
-        "gardening",
-        "community",
-        "Grayslake"
+        "local government",
+        "Grayslake",
+        "announcements"
       ],
-      "event_date": "2025-11-02",
+      "event_date": "unknown",
       "found_date": "2025-11-02"
     },
     {
@@ -27,14 +27,15 @@
       "found_date": "2025-11-02"
     },
     {
-      "category": "News",
-      "title": "Lake County Events Calendar",
-      "description": "The Lake County Events Calendar is now live, showcasing a variety of activities and events happening throughout the county. Residents can explore local happenings and plan their weekends accordingly.",
+      "category": "Entertainment",
+      "title": "Visit Lake County events calendar (ongoing listings)",
+      "description": "Visit Lake County maintains a public events calendar listing festivals, exhibits, and seasonal events across Lake County. The calendar is the primary source for upcoming county-wide entertainment and tourism events.",
       "link": "https://www.visitlakecounty.org/events",
       "tags": [
         "events",
         "Lake County",
-        "community"
+        "calendar",
+        "tourism"
       ],
       "event_date": "unknown",
       "found_date": "2025-11-02"
@@ -87,6 +88,61 @@
         "community",
         "business",
         "events"
+      ],
+      "event_date": "unknown",
+      "found_date": "2025-11-02"
+    },
+    {
+      "category": "Manufacturing",
+      "title": "Governor Pritzker announces Cache Energy expansion in Illinois",
+      "description": "State press release: Cache Energy plans an expansion that includes new manufacturing equipment and an on-site production line, emphasizing use of Illinois-based vendors and boosting local workforce opportunities. The announcement highlights state support for manufacturing growth in the region.",
+      "link": "https://www.illinois.gov/news/release.html",
+      "tags": [
+        "manufacturing",
+        "economic development",
+        "jobs",
+        "Cache Energy"
+      ],
+      "event_date": "unknown",
+      "found_date": "2025-11-02"
+    },
+    {
+      "category": "Community",
+      "title": "SWALCO 'Shoes, Shred, and Seeds' community collection (Wauconda partnership)",
+      "description": "The Solid Waste Agency of Lake County (SWALCO) is partnering with the Village of Wauconda for a Shoes, Shred, and Seeds event offering shoe collection, document shredding, and seed/plant related activities for residents. Details and participation instructions are posted on the SWALCO site.",
+      "link": "https://www.swalco.org/",
+      "tags": [
+        "recycling",
+        "community",
+        "shredding",
+        "Wauconda"
+      ],
+      "event_date": "unknown",
+      "found_date": "2025-11-02"
+    },
+    {
+      "category": "Economy",
+      "title": "Central Range redevelopment project in Grayslake",
+      "description": "The Village of Grayslake's Central Range redevelopment project is an ongoing land-use initiative expected to generate significant property tax revenue and spur local economic development. Project pages provide updates on planning, expected impacts, and next steps.",
+      "link": "https://www.villageofgrayslake.com/100/Central-Range",
+      "tags": [
+        "development",
+        "real estate",
+        "economy",
+        "Grayslake"
+      ],
+      "event_date": "unknown",
+      "found_date": "2025-11-02"
+    },
+    {
+      "category": "News",
+      "title": "College of Lake County — News & Events (Grayslake campus updates)",
+      "description": "College of Lake County's News & Events page posts ongoing campus news, installations, and program announcements for the Grayslake campus and other locations. The page is a source for upcoming college events, public programs, and institutional updates.",
+      "link": "https://www.clcillinois.edu/news-and-events",
+      "tags": [
+        "education",
+        "community",
+        "College of Lake County"
       ],
       "event_date": "unknown",
       "found_date": "2025-11-02"
