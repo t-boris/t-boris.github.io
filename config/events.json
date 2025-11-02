@@ -38,7 +38,7 @@
     "total_results_limit": 280
   },
   "openai_config": {
-    "model": "gpt-4o",
+    "model": "gpt-5-mini",
     "max_retries": 3,
     "retry_delay_seconds": 2
   },
