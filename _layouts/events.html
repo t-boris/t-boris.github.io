@@ -41,20 +41,19 @@ layout: page
 
         <div id="current-events-list" class="events-list">
           {% assign today = site.time | date: '%Y-%m-%d' %}
-          {% assign current_events_array = "" | split: "" %}
+          {% assign current_count = 0 %}
 
           {% for date_entry in site.data.events %}
-            {% assign date_key = date_entry[0] %}
             {% assign events_list = date_entry[1] %}
             {% for event in events_list %}
               {% if event.event_date == today %}
-                {% assign current_events_array = current_events_array | push: event %}
+                {% assign current_count = current_count | plus: 1 %}
                 {% include event-card.html event=event %}
               {% endif %}
             {% endfor %}
           {% endfor %}
 
-          {% if current_events_array.size == 0 %}
+          {% if current_count == 0 %}
             <div class="no-events-message">
               <i class="fas fa-calendar-times"></i>
               <p>No events found for today</p>
@@ -72,21 +71,20 @@ layout: page
 
         <div id="upcoming-events-list" class="events-list">
           {% assign today = site.time | date: '%Y-%m-%d' %}
-          {% assign upcoming_events_array = "" | split: "" %}
+          {% assign upcoming_count = 0 %}
 
           {% for date_entry in site.data.events %}
-            {% assign date_key = date_entry[0] %}
             {% assign events_list = date_entry[1] %}
             {% for event in events_list %}
               {% assign event_date = event.event_date %}
               {% if event_date != 'unknown' and event_date > today %}
-                {% assign upcoming_events_array = upcoming_events_array | push: event %}
+                {% assign upcoming_count = upcoming_count | plus: 1 %}
                 {% include event-card.html event=event show_date=true %}
               {% endif %}
             {% endfor %}
           {% endfor %}
 
-          {% if upcoming_events_array.size == 0 %}
+          {% if upcoming_count == 0 %}
             <div class="no-events-message">
               <i class="fas fa-calendar-check"></i>
               <p>No upcoming events at this time</p>
