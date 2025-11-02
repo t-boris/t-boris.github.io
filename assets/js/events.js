@@ -294,52 +294,45 @@
   function updateArchiveDates() {
     const datesList = document.getElementById('archive-dates-list');
     const noArchivesMsg = document.getElementById('no-archives-message');
+    const monthSelect = document.getElementById('archive-month');
+    const yearSelect = document.getElementById('archive-year');
 
-    if (!datesList) return;
+    if (!datesList || !window.eventsData) return;
+
+    // Get selected month and year
+    const selectedMonth = parseInt(monthSelect.value);
+    const selectedYear = parseInt(yearSelect.value);
 
     // Clear current list
     datesList.innerHTML = '';
 
-    // Get markdown files from _data/events/
-    // In a real implementation, this would fetch from events.json
-    // For now, we'll show a placeholder
+    // Get all dates from eventsData that match selected month/year
+    const matchingDates = Object.keys(window.eventsData)
+      .filter(dateStr => {
+        const date = new Date(dateStr + 'T00:00:00');
+        return date.getMonth() + 1 === selectedMonth && date.getFullYear() === selectedYear;
+      })
+      .sort()
+      .reverse(); // Most recent first
 
-    // Check if there are any markdown files
-    const hasArchives = checkForArchives();
-
-    if (hasArchives) {
+    if (matchingDates.length > 0) {
       if (noArchivesMsg) noArchivesMsg.style.display = 'none';
 
-      // Example: Populate with dates
-      // This should be populated from actual data
-      populateExampleDates(datesList);
+      matchingDates.forEach(dateStr => {
+        const eventCount = window.eventsData[dateStr].length;
+        const dateLink = document.createElement('a');
+        dateLink.href = `/events/archive/${dateStr}/`;
+        dateLink.className = 'archive-date-link';
+        dateLink.innerHTML = `
+          <i class="far fa-calendar"></i>
+          <span>${formatDate(dateStr)} (${eventCount} events)</span>
+          <i class="fas fa-chevron-right"></i>
+        `;
+        datesList.appendChild(dateLink);
+      });
     } else {
       if (noArchivesMsg) noArchivesMsg.style.display = 'block';
     }
-  }
-
-  function checkForArchives() {
-    // This would check if _data/events/*.md files exist
-    // For now, return false as placeholder
-    return false;
-  }
-
-  function populateExampleDates(container) {
-    // This is a placeholder - in real implementation,
-    // this would read from events.json and create links to markdown files
-    const exampleDates = ['2025-11-01', '2025-10-31', '2025-10-30'];
-
-    exampleDates.forEach(date => {
-      const dateLink = document.createElement('a');
-      dateLink.href = `/events/archive/${date}/`;
-      dateLink.className = 'archive-date-link';
-      dateLink.innerHTML = `
-        <i class="far fa-calendar"></i>
-        <span>${formatDate(date)}</span>
-        <i class="fas fa-chevron-right"></i>
-      `;
-      container.appendChild(dateLink);
-    });
   }
 
   /**
