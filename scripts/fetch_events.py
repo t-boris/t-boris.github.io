@@ -768,10 +768,13 @@ def main():
         # 8. Save updated events.json
         save_events_json(events_dict)
 
-        # 9. Create markdown archive for yesterday (if not exists)
-        yesterday = (datetime.now() - timedelta(days=1)).strftime('%Y-%m-%d')
-        if yesterday in events_dict:
-            create_markdown_for_date(yesterday, events_dict[yesterday])
+        # 9. Create markdown archives for all dates in events_dict
+        print("\n📝 Creating markdown archives...")
+        archive_count = 0
+        for date_str in sorted(events_dict.keys()):
+            create_markdown_for_date(date_str, events_dict[date_str])
+            archive_count += 1
+        print(f"✓ Created {archive_count} markdown archive files\n")
 
         print()
         print("=" * 70)
