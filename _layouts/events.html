@@ -41,23 +41,25 @@ layout: page
 
         <div id="current-events-list" class="events-list">
           {% assign today = site.time | date: '%Y-%m-%d' %}
-          {% assign current_found = false %}
+          {% assign current_events_array = "" | split: "" %}
 
-          {% for date_events in site.data.events %}
-            {% for event in date_events[1] %}
+          {% for date_entry in site.data.events %}
+            {% assign date_key = date_entry[0] %}
+            {% assign events_list = date_entry[1] %}
+            {% for event in events_list %}
               {% if event.event_date == today %}
-                {% assign current_found = true %}
+                {% assign current_events_array = current_events_array | push: event %}
                 {% include event-card.html event=event %}
               {% endif %}
             {% endfor %}
           {% endfor %}
 
-          {% unless current_found %}
+          {% if current_events_array.size == 0 %}
             <div class="no-events-message">
               <i class="fas fa-calendar-times"></i>
               <p>No events found for today</p>
             </div>
-          {% endunless %}
+          {% endif %}
         </div>
       </section>
 
@@ -70,24 +72,26 @@ layout: page
 
         <div id="upcoming-events-list" class="events-list">
           {% assign today = site.time | date: '%Y-%m-%d' %}
-          {% assign upcoming_found = false %}
+          {% assign upcoming_events_array = "" | split: "" %}
 
-          {% for date_events in site.data.events %}
-            {% for event in date_events[1] %}
-              {% assign event_event_date = event.event_date %}
-              {% if event_event_date != 'unknown' and event_event_date > today %}
-                {% assign upcoming_found = true %}
+          {% for date_entry in site.data.events %}
+            {% assign date_key = date_entry[0] %}
+            {% assign events_list = date_entry[1] %}
+            {% for event in events_list %}
+              {% assign event_date = event.event_date %}
+              {% if event_date != 'unknown' and event_date > today %}
+                {% assign upcoming_events_array = upcoming_events_array | push: event %}
                 {% include event-card.html event=event show_date=true %}
               {% endif %}
             {% endfor %}
           {% endfor %}
 
-          {% unless upcoming_found %}
+          {% if upcoming_events_array.size == 0 %}
             <div class="no-events-message">
               <i class="fas fa-calendar-check"></i>
               <p>No upcoming events at this time</p>
             </div>
-          {% endunless %}
+          {% endif %}
         </div>
       </section>
 
