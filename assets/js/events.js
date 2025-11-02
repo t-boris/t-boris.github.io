@@ -347,9 +347,49 @@
   function updateStats() {
     const eventCards = document.querySelectorAll('.event-card');
     const totalCount = document.getElementById('total-events-count');
+    const categoryStatsEl = document.getElementById('category-stats');
 
     if (totalCount) {
       totalCount.textContent = eventCards.length;
+    }
+
+    // Count events by category
+    if (categoryStatsEl && window.eventsData) {
+      const categoryCounts = {};
+
+      // Iterate through all events in eventsData
+      Object.keys(window.eventsData).forEach(date => {
+        const events = window.eventsData[date];
+        events.forEach(event => {
+          const category = event.category;
+          categoryCounts[category] = (categoryCounts[category] || 0) + 1;
+        });
+      });
+
+      // Sort categories by count (descending) then alphabetically
+      const sortedCategories = Object.keys(categoryCounts).sort((a, b) => {
+        const countDiff = categoryCounts[b] - categoryCounts[a];
+        if (countDiff !== 0) return countDiff;
+        return a.localeCompare(b);
+      });
+
+      // Render category stats
+      categoryStatsEl.innerHTML = '';
+      sortedCategories.forEach(category => {
+        const count = categoryCounts[category];
+        const categoryIcon = getCategoryIcon(category);
+
+        const statItem = document.createElement('div');
+        statItem.className = 'stat-item category-stat';
+        statItem.innerHTML = `
+          <span class="stat-label">
+            <i class="${categoryIcon}"></i>
+            ${category}:
+          </span>
+          <span class="stat-value">${count}</span>
+        `;
+        categoryStatsEl.appendChild(statItem);
+      });
     }
   }
 
