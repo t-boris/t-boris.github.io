@@ -6,6 +6,9 @@
 (function() {
   'use strict';
 
+  // Calendar state
+  let currentCalendarDate = new Date();
+
   // Initialize when DOM is ready
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
@@ -247,11 +250,7 @@
   /**
    * Calendar / Archive
    */
-  let currentCalendarDate = new Date();
-
   function initCalendar() {
-    if (!window.eventsData) return;
-
     const prevBtn = document.getElementById('calendar-prev');
     const nextBtn = document.getElementById('calendar-next');
 
@@ -270,7 +269,14 @@
     const monthYearEl = document.getElementById('calendar-month-year');
     const daysEl = document.getElementById('calendar-days');
 
-    if (!monthYearEl || !daysEl || !window.eventsData) return;
+    if (!monthYearEl || !daysEl) {
+      console.error('❌ Calendar elements not found');
+      return;
+    }
+
+    if (!window.eventsData) {
+      console.warn('⚠️ No eventsData, rendering calendar anyway');
+    }
 
     // Update month/year display
     monthYearEl.textContent = currentCalendarDate.toLocaleDateString('en-US', {
@@ -287,6 +293,13 @@
     const firstDay = new Date(year, month, 1).getDay();
     const daysInMonth = new Date(year, month + 1, 0).getDate();
 
+    console.log('📅 Rendering calendar:', {
+      year,
+      month: month + 1,
+      firstDay,
+      daysInMonth
+    });
+
     // Add empty cells for days before month starts
     for (let i = 0; i < firstDay; i++) {
       const emptyDay = document.createElement('div');
@@ -295,9 +308,10 @@
     }
 
     // Add day cells
+    let daysWithEvents = 0;
     for (let day = 1; day <= daysInMonth; day++) {
       const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
-      const hasEvents = window.eventsData[dateStr];
+      const hasEvents = window.eventsData && window.eventsData[dateStr];
 
       const dayEl = document.createElement('div');
       dayEl.className = 'calendar-day';
@@ -312,6 +326,7 @@
         link.textContent = day;
         dayEl.textContent = '';
         dayEl.appendChild(link);
+        daysWithEvents++;
       }
 
       // Highlight today
@@ -322,6 +337,8 @@
 
       daysEl.appendChild(dayEl);
     }
+
+    console.log(`✅ Rendered ${daysInMonth} days, ${daysWithEvents} have events`);
   }
 
   /**
