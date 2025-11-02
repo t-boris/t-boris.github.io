@@ -1,16 +1,17 @@
 {
   "2025-11-02": [
     {
-      "category": "News",
-      "title": "Village of Grayslake Civic Alerts & News",
-      "description": "The Village of Grayslake posts ongoing community alerts, announcements, and reminders (including community garden updates and service notices) on its CivicAlerts page. Residents can check the page for the latest local government news and upcoming municipal events.",
+      "category": "Community",
+      "title": "Village of Grayslake — News & Civic Alerts",
+      "description": "Official village news, announcements, reminders and trending topics for Grayslake residents, including public notices and community updates. Use the Civic Alerts feed to find current items and event notices.",
       "link": "https://www.villageofgrayslake.com/CivicAlerts.aspx?sort=date",
       "tags": [
-        "local government",
         "Grayslake",
-        "announcements"
+        "announcements",
+        "public-notices",
+        "community"
       ],
-      "event_date": "unknown",
+      "event_date": "2025-11-02",
       "found_date": "2025-11-02"
     },
     {
@@ -27,17 +28,17 @@
       "found_date": "2025-11-02"
     },
     {
-      "category": "Entertainment",
-      "title": "Visit Lake County events calendar (ongoing listings)",
-      "description": "Visit Lake County maintains a public events calendar listing festivals, exhibits, and seasonal events across Lake County. The calendar is the primary source for upcoming county-wide entertainment and tourism events.",
+      "category": "Culture",
+      "title": "Visit Lake County — Events Calendar",
+      "description": "County-wide events calendar listing festivals, seasonal exhibits, and cultural activities across Lake County. The calendar is updated regularly with upcoming events and visitor information.",
       "link": "https://www.visitlakecounty.org/events",
       "tags": [
         "events",
         "Lake County",
         "calendar",
-        "tourism"
+        "culture"
       ],
-      "event_date": "unknown",
+      "event_date": "2025-11-02",
       "found_date": "2025-11-02"
     },
     {
@@ -80,16 +81,16 @@
       "found_date": "2025-11-02"
     },
     {
-      "category": "Community",
-      "title": "Grayslake Chamber Of Commerce Events",
-      "description": "The Grayslake Chamber of Commerce is organizing various events to foster community growth and business connections. These events are designed to engage local residents and businesses.",
+      "category": "Business",
+      "title": "Grayslake Chamber of Commerce — Events & Networking",
+      "description": "The Grayslake Chamber posts upcoming business networking, marketing and community involvement events that support local businesses and foster connections. See the chamber site for event listings and membership opportunities.",
       "link": "https://grayslakechamber.com/",
       "tags": [
-        "community",
         "business",
-        "events"
+        "networking",
+        "local-events"
       ],
-      "event_date": "unknown",
+      "event_date": "2025-11-02",
       "found_date": "2025-11-02"
     },
     {
@@ -107,44 +108,82 @@
       "found_date": "2025-11-02"
     },
     {
-      "category": "Community",
-      "title": "SWALCO 'Shoes, Shred, and Seeds' community collection (Wauconda partnership)",
-      "description": "The Solid Waste Agency of Lake County (SWALCO) is partnering with the Village of Wauconda for a Shoes, Shred, and Seeds event offering shoe collection, document shredding, and seed/plant related activities for residents. Details and participation instructions are posted on the SWALCO site.",
+      "category": "Environment",
+      "title": "SWALCO — Shoes, Shred & Seeds community collection (Wauconda partnership)",
+      "description": "The Solid Waste Agency of Lake County (SWALCO) partners with local municipalities like Wauconda to run community collection events offering shoe recycling, confidential paper shredding and seeds/plant giveaways. Check SWALCO for current schedules and locations.",
       "link": "https://www.swalco.org/",
       "tags": [
         "recycling",
-        "community",
         "shredding",
-        "Wauconda"
+        "community-event",
+        "sustainability"
       ],
-      "event_date": "unknown",
+      "event_date": "2025-11-02",
       "found_date": "2025-11-02"
     },
     {
-      "category": "Economy",
-      "title": "Central Range redevelopment project in Grayslake",
-      "description": "The Village of Grayslake's Central Range redevelopment project is an ongoing land-use initiative expected to generate significant property tax revenue and spur local economic development. Project pages provide updates on planning, expected impacts, and next steps.",
+      "category": "Business",
+      "title": "Central Range Development Project (Grayslake)",
+      "description": "Village information on the Central Range development area describing proposed development activity in Grayslake and projected long-term fiscal impacts, including an estimated property tax surplus. Ongoing planning and development updates are posted by the village.",
       "link": "https://www.villageofgrayslake.com/100/Central-Range",
       "tags": [
         "development",
-        "real estate",
-        "economy",
-        "Grayslake"
+        "economic-development",
+        "tax-revenue"
       ],
-      "event_date": "unknown",
+      "event_date": "2025-11-02",
       "found_date": "2025-11-02"
     },
     {
-      "category": "News",
-      "title": "College of Lake County — News & Events (Grayslake campus updates)",
-      "description": "College of Lake County's News & Events page posts ongoing campus news, installations, and program announcements for the Grayslake campus and other locations. The page is a source for upcoming college events, public programs, and institutional updates.",
+      "category": "Education",
+      "title": "College of Lake County — News, Events & Advanced Technology Center",
+      "description": "CLC publishes ongoing campus news and community event listings and operates the Advanced Technology Center in Gurnee, which provides manufacturing workforce training and industry programs for Lake County residents. Check CLC for class schedules and upcoming public events.",
       "link": "https://www.clcillinois.edu/news-and-events",
       "tags": [
         "education",
-        "community",
-        "College of Lake County"
+        "workforce",
+        "manufacturing"
       ],
-      "event_date": "unknown",
+      "event_date": "2025-11-02",
+      "found_date": "2025-11-02"
+    },
+    {
+      "category": "Community",
+      "title": "Grayslake Community Grant Program",
+      "description": "Village-run program offering public support and grants to nonprofit organizations serving Grayslake to fund community projects and local events. Information and application details are posted on the village site.",
+      "link": "http://www.villageofgrayslake.com/588/Community-Grant-Program",
+      "tags": [
+        "grants",
+        "nonprofit",
+        "community-support"
+      ],
+      "event_date": "2025-11-02",
+      "found_date": "2025-11-02"
+    },
+    {
+      "category": "Culture",
+      "title": "Lake County Forest Preserves — Programs & Recreation Events",
+      "description": "The Lake County Forest Preserves host recurring nature programs, guided walks, seasonal festivals and recreation events across local preserves; schedules and registrations are posted on the preserves site.",
+      "link": "https://www.lcfpd.org/",
+      "tags": [
+        "nature",
+        "recreation",
+        "parks"
+      ],
+      "event_date": "2025-11-02",
+      "found_date": "2025-11-02"
+    },
+    {
+      "category": "Entertainment",
+      "title": "Kristof's Entertainment Center — Ongoing Attractions & Special Events",
+      "description": "Kristof's in Round Lake Beach is a family entertainment complex offering go-karts, bowling, mini golf, arcades and regular special events or group packages. The venue lists current promotions and event nights on its site.",
+      "link": "https://www.kristofs.net/",
+      "tags": [
+        "entertainment",
+        "family",
+        "attractions"
+      ],
+      "event_date": "2025-11-02",
       "found_date": "2025-11-02"
     }
   ]
