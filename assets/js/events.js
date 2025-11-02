@@ -42,20 +42,20 @@
       const events = window.eventsData[foundDate];
 
       events.forEach(event => {
-        const isToday = foundDate === today;
-        const isFuture = event.event_date !== 'unknown' && event.event_date > today;
-        const isUnknownDate = event.event_date === 'unknown';
+        const eventDate = event.event_date;
 
-        // Show events from today's fetch in "Current Events"
-        if (isToday) {
+        // Skip events in the past (but keep unknown dates)
+        if (eventDate !== 'unknown' && eventDate < today) {
+          return; // Skip past events
+        }
+
+        // Show in "Today's Events" if event is happening today or has unknown date
+        if (eventDate === today || eventDate === 'unknown') {
           currentList.appendChild(createEventCard(event, true));
           currentCount++;
         }
-
-        // Show in "Upcoming Events" if:
-        // 1. Has a future date (even if also in current)
-        // 2. Has unknown date but NOT from today (to avoid duplicates)
-        if (isFuture || (isUnknownDate && !isToday)) {
+        // Show in "Upcoming Events" if event is in the future
+        else if (eventDate > today) {
           upcomingList.appendChild(createEventCard(event, true));
           upcomingCount++;
         }

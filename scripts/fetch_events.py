@@ -285,13 +285,18 @@ def analyze_with_openai(
 
 Analyze these search results and extract local events, news, and updates.
 
-For each event or news item you find, provide:
+IMPORTANT RULES:
+- SKIP events that already happened (dates before {current_date})
+- ONLY include current events, upcoming events, or events without specific dates
+- Focus on recent news and future happenings
+
+For each relevant event or news item you find, provide:
 - category: Choose from [{categories_list}] or create a new appropriate category
 - title: Clear, concise event name or headline
 - description: Brief description (2-3 sentences maximum)
 - link: Source URL
 - tags: Array of 2-5 relevant keywords
-- event_date: YYYY-MM-DD format if date is mentioned in text, otherwise "unknown"
+- event_date: YYYY-MM-DD format if specific date is mentioned AND it's today or in the future, otherwise "unknown"
 
 IMPORTANT: Return ONLY a valid JSON array. No markdown formatting, no code blocks, no explanations.
 
