@@ -41,18 +41,23 @@ layout: page
 
         <div id="current-events-list" class="events-list">
           {% assign today = site.time | date: '%Y-%m-%d' %}
-          {% assign current_events = site.data.events[today] %}
+          {% assign current_found = false %}
 
-          {% if current_events and current_events.size > 0 %}
-            {% for event in current_events %}
-              {% include event-card.html event=event %}
+          {% for date_events in site.data.events %}
+            {% for event in date_events[1] %}
+              {% if event.event_date == today %}
+                {% assign current_found = true %}
+                {% include event-card.html event=event %}
+              {% endif %}
             {% endfor %}
-          {% else %}
+          {% endfor %}
+
+          {% unless current_found %}
             <div class="no-events-message">
               <i class="fas fa-calendar-times"></i>
               <p>No events found for today</p>
             </div>
-          {% endif %}
+          {% endunless %}
         </div>
       </section>
 
@@ -68,16 +73,13 @@ layout: page
           {% assign upcoming_found = false %}
 
           {% for date_events in site.data.events %}
-            {% assign event_date = date_events[0] %}
-            {% if event_date > today %}
-              {% for event in date_events[1] %}
-                {% assign event_event_date = event.event_date %}
-                {% if event_event_date == 'unknown' or event_event_date >= today %}
-                  {% assign upcoming_found = true %}
-                  {% include event-card.html event=event show_date=true %}
-                {% endif %}
-              {% endfor %}
-            {% endif %}
+            {% for event in date_events[1] %}
+              {% assign event_event_date = event.event_date %}
+              {% if event_event_date != 'unknown' and event_event_date > today %}
+                {% assign upcoming_found = true %}
+                {% include event-card.html event=event show_date=true %}
+              {% endif %}
+            {% endfor %}
           {% endfor %}
 
           {% unless upcoming_found %}
