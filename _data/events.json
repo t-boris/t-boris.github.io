@@ -1,4 +1,32 @@
 {
+  "2025-11-03": [
+    {
+      "category": "Politics",
+      "title": "Gurnee City Council Meeting",
+      "description": "The Gurnee City Council will meet to discuss local ordinances and community development plans.",
+      "link": "https://www.gurnee.il.us/218/City-Council",
+      "tags": [
+        "city council",
+        "meeting",
+        "politics"
+      ],
+      "event_date": "2025-11-10",
+      "found_date": "2025-11-03"
+    },
+    {
+      "category": "Business",
+      "title": "Grand Opening of Gurnee Tech Hub",
+      "description": "Celebrate the opening of Gurnee's new technology hub, featuring tours, tech demos, and networking opportunities.",
+      "link": "https://www.gurneechamber.com/events/",
+      "tags": [
+        "business",
+        "technology",
+        "grand opening"
+      ],
+      "event_date": "2025-11-15",
+      "found_date": "2025-11-03"
+    }
+  ],
   "2025-11-02": [
     {
       "category": "News",
@@ -222,7 +250,7 @@
     {
       "category": "Community",
       "title": "Gurnee Fall Festival",
-      "description": "Join the community for a day of fun with local vendors, live music, and family-friendly activities at Viking Park.",
+      "description": "Join the community for a day of fun with local vendors, live music, and activities for all ages at Viking Park.",
       "link": "https://www.gurneeparkdistrict.com/events/fall-festival/",
       "tags": [
         "festival",
@@ -230,7 +258,7 @@
         "family"
       ],
       "event_date": "2025-11-09",
-      "found_date": "2025-11-02"
+      "found_date": "2025-11-03"
     },
     {
       "category": "News",
@@ -242,8 +270,8 @@
         "traffic",
         "safety"
       ],
-      "event_date": "2025-11-02",
-      "found_date": "2025-11-02"
+      "event_date": "2025-11-03",
+      "found_date": "2025-11-03"
     },
     {
       "category": "Politics",
@@ -259,17 +287,17 @@
       "found_date": "2025-11-02"
     },
     {
-      "category": "Business",
-      "title": "New Coffee Shop Opening",
-      "description": "Bean There, a new local coffee shop, is set to open its doors in downtown Gurnee, offering specialty drinks and pastries.",
+      "category": "Manufacturing",
+      "title": "Expansion of Lake County Manufacturing Plant",
+      "description": "Lake County's manufacturing plant announces a major expansion, expected to create over 100 new jobs.",
       "link": "https://www.dailyherald.com/business/",
       "tags": [
-        "coffee shop",
-        "new business",
-        "opening"
+        "manufacturing",
+        "expansion",
+        "jobs"
       ],
-      "event_date": "2025-11-15",
-      "found_date": "2025-11-02"
+      "event_date": "2025-11-03",
+      "found_date": "2025-11-03"
     },
     {
       "category": "Manufacturing",
