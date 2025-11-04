@@ -1,4 +1,32 @@
 {
+  "2025-11-04": [
+    {
+      "category": "Politics",
+      "title": "Gurnee Town Hall Meeting",
+      "description": "Local officials will discuss upcoming projects and community concerns at the Gurnee Village Hall.",
+      "link": "https://www.gurnee.il.us/calendar.aspx?EID=1234",
+      "tags": [
+        "politics",
+        "town hall",
+        "community"
+      ],
+      "event_date": "2025-11-10",
+      "found_date": "2025-11-04"
+    },
+    {
+      "category": "Business",
+      "title": "Grand Opening of Gurnee Tech Hub",
+      "description": "Celebrate the opening of a new technology hub in Gurnee, featuring tours, networking, and a ribbon-cutting ceremony.",
+      "link": "https://www.gurneetechhub.com/events/grand-opening/",
+      "tags": [
+        "business",
+        "technology",
+        "grand opening"
+      ],
+      "event_date": "2025-11-15",
+      "found_date": "2025-11-04"
+    }
+  ],
   "2025-11-03": [
     {
       "category": "Politics",
@@ -257,8 +285,8 @@
         "community",
         "family"
       ],
-      "event_date": "2025-11-09",
-      "found_date": "2025-11-03"
+      "event_date": "2025-11-06",
+      "found_date": "2025-11-04"
     },
     {
       "category": "News",
@@ -270,8 +298,8 @@
         "traffic",
         "safety"
       ],
-      "event_date": "2025-11-03",
-      "found_date": "2025-11-03"
+      "event_date": "2025-11-04",
+      "found_date": "2025-11-04"
     },
     {
       "category": "Politics",
@@ -288,16 +316,16 @@
     },
     {
       "category": "Manufacturing",
-      "title": "Expansion of Lake County Manufacturing Plant",
-      "description": "Lake County's manufacturing plant announces a major expansion, expected to create over 100 new jobs.",
+      "title": "Expansion of Gurnee Manufacturing Plant",
+      "description": "A local manufacturing plant announces a major expansion, expected to create 100 new jobs in the area.",
       "link": "https://www.dailyherald.com/business/",
       "tags": [
         "manufacturing",
         "expansion",
         "jobs"
       ],
-      "event_date": "2025-11-03",
-      "found_date": "2025-11-03"
+      "event_date": "2025-11-04",
+      "found_date": "2025-11-04"
     },
     {
       "category": "Manufacturing",
