@@ -1,4 +1,45 @@
 {
+  "2025-11-05": [
+    {
+      "category": "Politics",
+      "title": "Gurnee Town Hall Meeting",
+      "description": "Local officials will discuss upcoming projects and community concerns at the Gurnee Village Hall.",
+      "link": "https://www.gurnee.il.us/calendar/",
+      "tags": [
+        "politics",
+        "town hall",
+        "community"
+      ],
+      "event_date": "2025-11-10",
+      "found_date": "2025-11-05"
+    },
+    {
+      "category": "Business",
+      "title": "New Coffee Shop Opening",
+      "description": "Bean There, a new artisan coffee shop, is set to open its doors in downtown Gurnee.",
+      "link": "https://www.dailyherald.com/",
+      "tags": [
+        "business",
+        "coffee",
+        "opening"
+      ],
+      "event_date": "2025-11-20",
+      "found_date": "2025-11-05"
+    },
+    {
+      "category": "Manufacturing",
+      "title": "Expansion of Local Factory",
+      "description": "A local manufacturing plant announced plans to expand its facilities, creating new job opportunities.",
+      "link": "https://www.lakecountyjournal.com/",
+      "tags": [
+        "manufacturing",
+        "expansion",
+        "jobs"
+      ],
+      "event_date": "2025-11-05",
+      "found_date": "2025-11-05"
+    }
+  ],
   "2025-11-04": [
     {
       "category": "Politics",
@@ -278,15 +319,15 @@
     {
       "category": "Community",
       "title": "Gurnee Fall Festival",
-      "description": "Join the community for a day of fun with local vendors, live music, and activities for all ages at Viking Park.",
+      "description": "Join the community for a day of fun with local vendors, live music, and family-friendly activities at Viking Park.",
       "link": "https://www.gurneeparkdistrict.com/events/fall-festival/",
       "tags": [
         "festival",
         "community",
         "family"
       ],
-      "event_date": "2025-11-06",
-      "found_date": "2025-11-04"
+      "event_date": "2025-11-15",
+      "found_date": "2025-11-05"
     },
     {
       "category": "News",
@@ -296,10 +337,10 @@
       "tags": [
         "accident",
         "traffic",
-        "safety"
+        "police"
       ],
-      "event_date": "2025-11-04",
-      "found_date": "2025-11-04"
+      "event_date": "2025-11-05",
+      "found_date": "2025-11-05"
     },
     {
       "category": "Politics",
