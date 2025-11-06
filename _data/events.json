@@ -1,4 +1,58 @@
 {
+  "2025-11-06": [
+    {
+      "category": "News",
+      "title": "Traffic Accident on Route 41",
+      "description": "A multi-vehicle accident occurred on Route 41 near Gurnee, causing significant traffic delays. Police are investigating.",
+      "link": "https://www.chicagotribune.com/news/local/breaking/ct-accident-route-41-gurnee-20251106-story.html",
+      "tags": [
+        "accident",
+        "traffic",
+        "safety"
+      ],
+      "event_date": "2025-11-06",
+      "found_date": "2025-11-06"
+    },
+    {
+      "category": "Politics",
+      "title": "Gurnee City Council Meeting",
+      "description": "The Gurnee City Council will discuss upcoming budget proposals and community development projects.",
+      "link": "https://www.gurnee.il.us/government/city_council/meetings/",
+      "tags": [
+        "city council",
+        "politics",
+        "budget"
+      ],
+      "event_date": "2025-11-10",
+      "found_date": "2025-11-06"
+    },
+    {
+      "category": "Business",
+      "title": "New Coffee Shop Opening",
+      "description": "A new local coffee shop, Brew & Co., is set to open its doors in downtown Gurnee, offering specialty drinks and pastries.",
+      "link": "https://www.dailyherald.com/business/new-coffee-shop-in-gurnee/",
+      "tags": [
+        "business",
+        "coffee",
+        "opening"
+      ],
+      "event_date": "2025-11-20",
+      "found_date": "2025-11-06"
+    },
+    {
+      "category": "Manufacturing",
+      "title": "Expansion of Gurnee Industrial Park",
+      "description": "The Gurnee Industrial Park is undergoing an expansion to accommodate new manufacturing facilities, expected to create over 100 jobs.",
+      "link": "https://www.lakecountygazette.com/business/industrial-park-expansion/",
+      "tags": [
+        "manufacturing",
+        "expansion",
+        "jobs"
+      ],
+      "event_date": "2025-11-06",
+      "found_date": "2025-11-06"
+    }
+  ],
   "2025-11-05": [
     {
       "category": "Politics",
@@ -319,7 +373,7 @@
     {
       "category": "Community",
       "title": "Gurnee Fall Festival",
-      "description": "Join the community for a day of fun with local vendors, live music, and family-friendly activities at Viking Park.",
+      "description": "Join the community for a day of fun with local vendors, live music, and activities for all ages at Viking Park.",
       "link": "https://www.gurneeparkdistrict.com/events/fall-festival/",
       "tags": [
         "festival",
@@ -327,7 +381,7 @@
         "family"
       ],
       "event_date": "2025-11-15",
-      "found_date": "2025-11-05"
+      "found_date": "2025-11-06"
     },
     {
       "category": "News",
