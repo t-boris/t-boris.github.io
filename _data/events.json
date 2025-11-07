@@ -1,4 +1,19 @@
 {
+  "2025-11-07": [
+    {
+      "category": "Politics",
+      "title": "Gurnee Town Hall Meeting",
+      "description": "Local officials will discuss upcoming projects and community issues at the Gurnee Village Hall. Public is invited to attend.",
+      "link": "https://www.gurnee.il.us/",
+      "tags": [
+        "politics",
+        "town hall",
+        "community"
+      ],
+      "event_date": "2025-11-12",
+      "found_date": "2025-11-07"
+    }
+  ],
   "2025-11-06": [
     {
       "category": "News",
@@ -70,7 +85,7 @@
     {
       "category": "Business",
       "title": "New Coffee Shop Opening",
-      "description": "Bean There, a new artisan coffee shop, is set to open its doors in downtown Gurnee.",
+      "description": "A new artisan coffee shop, Brew & Co., is opening its doors on Grand Avenue, offering specialty drinks and pastries.",
       "link": "https://www.dailyherald.com/",
       "tags": [
         "business",
@@ -78,20 +93,20 @@
         "opening"
       ],
       "event_date": "2025-11-20",
-      "found_date": "2025-11-05"
+      "found_date": "2025-11-07"
     },
     {
       "category": "Manufacturing",
-      "title": "Expansion of Local Factory",
-      "description": "A local manufacturing plant announced plans to expand its facilities, creating new job opportunities.",
+      "title": "Expansion at Gurnee Industrial Park",
+      "description": "A local manufacturing company announced plans to expand its facilities at Gurnee Industrial Park, creating new jobs.",
       "link": "https://www.lakecountyjournal.com/",
       "tags": [
         "manufacturing",
         "expansion",
         "jobs"
       ],
-      "event_date": "2025-11-05",
-      "found_date": "2025-11-05"
+      "event_date": "2025-11-07",
+      "found_date": "2025-11-07"
     }
   ],
   "2025-11-04": [
@@ -381,7 +396,7 @@
         "family"
       ],
       "event_date": "2025-11-15",
-      "found_date": "2025-11-06"
+      "found_date": "2025-11-07"
     },
     {
       "category": "News",
@@ -391,10 +406,10 @@
       "tags": [
         "accident",
         "traffic",
-        "police"
+        "safety"
       ],
-      "event_date": "2025-11-05",
-      "found_date": "2025-11-05"
+      "event_date": "2025-11-07",
+      "found_date": "2025-11-07"
     },
     {
       "category": "Politics",
