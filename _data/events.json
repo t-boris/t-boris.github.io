@@ -100,28 +100,28 @@
     {
       "category": "Business",
       "title": "New Coffee Shop Opening",
-      "description": "A new coffee shop, Brew & Co., is opening its doors in downtown Gurnee, offering specialty drinks and pastries.",
+      "description": "Bean There, a new artisan coffee shop, is set to open its doors in downtown Gurnee, offering a variety of specialty drinks.",
       "link": "https://www.dailyherald.com/",
       "tags": [
-        "business",
         "coffee",
+        "business",
         "opening"
       ],
-      "event_date": "2025-11-18",
-      "found_date": "2025-11-10"
+      "event_date": "2025-11-20",
+      "found_date": "2025-11-11"
     },
     {
       "category": "Manufacturing",
-      "title": "Expansion at Gurnee Industrial Park",
-      "description": "A local manufacturing company announced plans to expand its facilities at Gurnee Industrial Park, creating new jobs.",
+      "title": "Expansion of Local Factory",
+      "description": "A local manufacturing plant in Gurnee announced plans to expand its facilities, creating new job opportunities.",
       "link": "https://www.lakecountyjournal.com/",
       "tags": [
         "manufacturing",
         "expansion",
         "jobs"
       ],
-      "event_date": "2025-11-07",
-      "found_date": "2025-11-07"
+      "event_date": "2025-11-11",
+      "found_date": "2025-11-11"
     }
   ],
   "2025-11-04": [
@@ -403,7 +403,7 @@
     {
       "category": "Community",
       "title": "Gurnee Fall Festival",
-      "description": "Join the community for a day of fun with local vendors, live music, and activities for all ages at Viking Park.",
+      "description": "Join the community for a day of fun with local vendors, live music, and family-friendly activities at Viking Park.",
       "link": "https://www.gurneeparkdistrict.com/events/fall-festival/",
       "tags": [
         "festival",
@@ -411,20 +411,20 @@
         "family"
       ],
       "event_date": "2025-11-15",
-      "found_date": "2025-11-10"
+      "found_date": "2025-11-11"
     },
     {
       "category": "News",
       "title": "Traffic Accident on Route 41",
-      "description": "A multi-vehicle accident occurred on Route 41 near Gurnee, causing significant delays. Police are investigating.",
+      "description": "A multi-vehicle accident occurred on Route 41 near Grand Avenue, causing significant delays. Police are investigating.",
       "link": "https://www.chicagotribune.com/suburbs/lake-county-news-sun/",
       "tags": [
         "accident",
         "traffic",
-        "safety"
+        "police"
       ],
-      "event_date": "2025-11-10",
-      "found_date": "2025-11-10"
+      "event_date": "2025-11-11",
+      "found_date": "2025-11-11"
     },
     {
       "category": "Politics",
@@ -468,15 +468,15 @@
     {
       "category": "Politics",
       "title": "Gurnee City Council Meeting",
-      "description": "The Gurnee City Council will discuss upcoming budget proposals and community development projects.",
+      "description": "The Gurnee City Council will discuss local ordinances and community development plans at the next public meeting.",
       "link": "https://www.gurnee.il.us/government/city_council/",
       "tags": [
-        "politics",
         "city council",
-        "budget"
+        "meeting",
+        "politics"
       ],
-      "event_date": "2025-11-12",
-      "found_date": "2025-11-10"
+      "event_date": "2025-11-18",
+      "found_date": "2025-11-11"
     },
     {
       "category": "Manufacturing",
