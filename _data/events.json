@@ -1,4 +1,32 @@
 {
+  "2025-11-12": [
+    {
+      "category": "Politics",
+      "title": "Gurnee City Council Meeting",
+      "description": "The Gurnee City Council will discuss upcoming budget proposals and community development projects.",
+      "link": "https://www.gurnee.il.us/289/City-Council",
+      "tags": [
+        "city council",
+        "politics",
+        "budget"
+      ],
+      "event_date": "2025-11-13",
+      "found_date": "2025-11-12"
+    },
+    {
+      "category": "Manufacturing",
+      "title": "Expansion of Local Factory",
+      "description": "A local manufacturing plant in Gurnee is expanding its facilities, expected to create new job opportunities.",
+      "link": "https://www.manufacturing.net/",
+      "tags": [
+        "manufacturing",
+        "expansion",
+        "jobs"
+      ],
+      "event_date": "2025-11-12",
+      "found_date": "2025-11-12"
+    }
+  ],
   "2025-11-10": [
     {
       "category": "Manufacturing",
@@ -411,20 +439,20 @@
         "family"
       ],
       "event_date": "2025-11-15",
-      "found_date": "2025-11-11"
+      "found_date": "2025-11-12"
     },
     {
       "category": "News",
       "title": "Traffic Accident on Route 41",
-      "description": "A multi-vehicle accident occurred on Route 41 near Grand Avenue, causing significant delays. Police are investigating.",
+      "description": "A multi-vehicle accident occurred on Route 41 near Gurnee, causing significant delays. Police are investigating the cause.",
       "link": "https://www.chicagotribune.com/suburbs/lake-county-news-sun/",
       "tags": [
         "accident",
         "traffic",
-        "police"
+        "safety"
       ],
-      "event_date": "2025-11-11",
-      "found_date": "2025-11-11"
+      "event_date": "2025-11-12",
+      "found_date": "2025-11-12"
     },
     {
       "category": "Politics",
@@ -442,15 +470,15 @@
     {
       "category": "Business",
       "title": "New Coffee Shop Opening",
-      "description": "A new coffee shop, 'Brew & Co.', is set to open its doors in downtown Gurnee, offering specialty drinks and pastries.",
+      "description": "A new coffee shop, Brew & Co., is opening its doors in downtown Gurnee with a special ribbon-cutting ceremony.",
       "link": "https://www.dailyherald.com/business/",
       "tags": [
         "business",
         "coffee shop",
         "opening"
       ],
-      "event_date": "2025-11-20",
-      "found_date": "2025-11-09"
+      "event_date": "2025-11-14",
+      "found_date": "2025-11-12"
     },
     {
       "category": "Manufacturing",
