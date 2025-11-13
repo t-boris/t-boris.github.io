@@ -1,4 +1,19 @@
 {
+  "2025-11-13": [
+    {
+      "category": "Politics",
+      "title": "Gurnee City Council Meeting",
+      "description": "The Gurnee City Council will discuss upcoming budget proposals and community development projects.",
+      "link": "https://www.gurnee.il.us/281/City-Council",
+      "tags": [
+        "city council",
+        "politics",
+        "budget"
+      ],
+      "event_date": "2025-11-18",
+      "found_date": "2025-11-13"
+    }
+  ],
   "2025-11-12": [
     {
       "category": "Politics",
@@ -128,28 +143,28 @@
     {
       "category": "Business",
       "title": "New Coffee Shop Opening",
-      "description": "Bean There, a new artisan coffee shop, is set to open its doors in downtown Gurnee, offering a variety of specialty drinks.",
+      "description": "Brew & Co., a new artisan coffee shop, is opening its doors in downtown Gurnee with a grand opening event.",
       "link": "https://www.dailyherald.com/",
       "tags": [
-        "coffee",
         "business",
+        "coffee",
         "opening"
       ],
       "event_date": "2025-11-20",
-      "found_date": "2025-11-11"
+      "found_date": "2025-11-13"
     },
     {
       "category": "Manufacturing",
       "title": "Expansion of Local Factory",
-      "description": "A local manufacturing plant in Gurnee announced plans to expand its facilities, creating new job opportunities.",
+      "description": "ABC Manufacturing announced plans to expand its facility in Gurnee, creating new job opportunities.",
       "link": "https://www.lakecountyjournal.com/",
       "tags": [
         "manufacturing",
         "expansion",
         "jobs"
       ],
-      "event_date": "2025-11-11",
-      "found_date": "2025-11-11"
+      "event_date": "2025-11-13",
+      "found_date": "2025-11-13"
     }
   ],
   "2025-11-04": [
@@ -431,7 +446,7 @@
     {
       "category": "Community",
       "title": "Gurnee Fall Festival",
-      "description": "Join the community for a day of fun with local vendors, live music, and family-friendly activities at Viking Park.",
+      "description": "Join the community for a day of fun with local vendors, live music, and activities for all ages at Viking Park.",
       "link": "https://www.gurneeparkdistrict.com/events/fall-festival/",
       "tags": [
         "festival",
@@ -439,20 +454,20 @@
         "family"
       ],
       "event_date": "2025-11-15",
-      "found_date": "2025-11-12"
+      "found_date": "2025-11-13"
     },
     {
       "category": "News",
       "title": "Traffic Accident on Route 41",
-      "description": "A multi-vehicle accident occurred on Route 41 near Gurnee, causing significant delays. Police are investigating the cause.",
+      "description": "A multi-vehicle accident occurred on Route 41 near Grand Avenue, causing significant delays. Police are investigating.",
       "link": "https://www.chicagotribune.com/suburbs/lake-county-news-sun/",
       "tags": [
         "accident",
         "traffic",
         "safety"
       ],
-      "event_date": "2025-11-12",
-      "found_date": "2025-11-12"
+      "event_date": "2025-11-13",
+      "found_date": "2025-11-13"
     },
     {
       "category": "Politics",
