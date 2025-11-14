@@ -1,4 +1,19 @@
 {
+  "2025-11-14": [
+    {
+      "category": "Politics",
+      "title": "Gurnee City Council Meeting",
+      "description": "The Gurnee City Council will discuss upcoming budget proposals and community development projects.",
+      "link": "https://www.gurnee.il.us/185/City-Council",
+      "tags": [
+        "city council",
+        "politics",
+        "budget"
+      ],
+      "event_date": "2025-11-18",
+      "found_date": "2025-11-14"
+    }
+  ],
   "2025-11-13": [
     {
       "category": "Politics",
@@ -143,7 +158,7 @@
     {
       "category": "Business",
       "title": "New Coffee Shop Opening",
-      "description": "Brew & Co., a new artisan coffee shop, is opening its doors in downtown Gurnee with a grand opening event.",
+      "description": "Bean There, Done That, a new coffee shop, is opening its doors in downtown Gurnee with a grand opening event.",
       "link": "https://www.dailyherald.com/",
       "tags": [
         "business",
@@ -151,20 +166,20 @@
         "opening"
       ],
       "event_date": "2025-11-20",
-      "found_date": "2025-11-13"
+      "found_date": "2025-11-14"
     },
     {
       "category": "Manufacturing",
       "title": "Expansion of Local Factory",
-      "description": "ABC Manufacturing announced plans to expand its facility in Gurnee, creating new job opportunities.",
+      "description": "A local manufacturing plant in Gurnee is set to expand its operations, creating new job opportunities.",
       "link": "https://www.lakecountyjournal.com/",
       "tags": [
         "manufacturing",
         "expansion",
         "jobs"
       ],
-      "event_date": "2025-11-13",
-      "found_date": "2025-11-13"
+      "event_date": "2025-12-01",
+      "found_date": "2025-11-14"
     }
   ],
   "2025-11-04": [
@@ -454,7 +469,7 @@
         "family"
       ],
       "event_date": "2025-11-15",
-      "found_date": "2025-11-13"
+      "found_date": "2025-11-14"
     },
     {
       "category": "News",
@@ -466,8 +481,8 @@
         "traffic",
         "safety"
       ],
-      "event_date": "2025-11-13",
-      "found_date": "2025-11-13"
+      "event_date": "2025-11-14",
+      "found_date": "2025-11-14"
     },
     {
       "category": "Politics",
