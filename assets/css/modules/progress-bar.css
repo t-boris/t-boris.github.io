@@ -1,0 +1,27 @@
+/* ============================================
+   Reading Progress Bar
+   ============================================ */
+
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: rgba(0, 0, 0, 0.05);
+  z-index: 9999;
+  pointer-events: none;
+}
+
+[data-mode="dark"] .reading-progress {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.reading-progress__bar {
+  height: 100%;
+  background: var(--gradient-primary);
+  width: 0%;
+  transition: width 0.1s ease;
+  box-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
+}
+

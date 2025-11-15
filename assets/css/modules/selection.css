@@ -1,0 +1,13 @@
+/* ============================================
+   Selection
+   ============================================ */
+
+::selection {
+  background: var(--color-primary);
+  color: white;
+}
+
+::-moz-selection {
+  background: var(--color-primary);
+  color: white;
+}
