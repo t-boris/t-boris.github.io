@@ -1,4 +1,19 @@
 {
+  "2025-11-15": [
+    {
+      "category": "Business",
+      "title": "New Coffee Shop Opening",
+      "description": "A new artisan coffee shop, Brew & Co., is opening its doors in downtown Gurnee with a grand opening event.",
+      "link": "https://www.gurneechamber.com/new-businesses/",
+      "tags": [
+        "business",
+        "coffee",
+        "opening"
+      ],
+      "event_date": "2025-11-22",
+      "found_date": "2025-11-15"
+    }
+  ],
   "2025-11-14": [
     {
       "category": "Politics",
@@ -468,21 +483,21 @@
         "community",
         "family"
       ],
-      "event_date": "2025-11-15",
-      "found_date": "2025-11-14"
+      "event_date": "2025-11-20",
+      "found_date": "2025-11-15"
     },
     {
       "category": "News",
       "title": "Traffic Accident on Route 41",
-      "description": "A multi-vehicle accident occurred on Route 41 near Grand Avenue, causing significant delays. Police are investigating.",
+      "description": "A multi-vehicle accident occurred on Route 41 near Gurnee, causing significant traffic delays. Police are investigating.",
       "link": "https://www.chicagotribune.com/suburbs/lake-county-news-sun/",
       "tags": [
         "accident",
         "traffic",
         "safety"
       ],
-      "event_date": "2025-11-14",
-      "found_date": "2025-11-14"
+      "event_date": "2025-11-15",
+      "found_date": "2025-11-15"
     },
     {
       "category": "Politics",
@@ -526,28 +541,28 @@
     {
       "category": "Politics",
       "title": "Gurnee City Council Meeting",
-      "description": "The Gurnee City Council will discuss local ordinances and community development plans at the next public meeting.",
+      "description": "The Gurnee City Council will discuss upcoming budget proposals and community development projects.",
       "link": "https://www.gurnee.il.us/government/city_council/",
       "tags": [
+        "politics",
         "city council",
-        "meeting",
-        "politics"
+        "budget"
       ],
-      "event_date": "2025-11-18",
-      "found_date": "2025-11-11"
+      "event_date": "2025-11-17",
+      "found_date": "2025-11-15"
     },
     {
       "category": "Manufacturing",
       "title": "Expansion of Gurnee Industrial Park",
-      "description": "Gurnee Industrial Park announces a major expansion, adding new facilities and creating job opportunities.",
+      "description": "The Gurnee Industrial Park is set to expand, adding new facilities and creating job opportunities.",
       "link": "https://www.lakecountyil.gov/industrial-development/",
       "tags": [
-        "industrial park",
+        "manufacturing",
         "expansion",
         "jobs"
       ],
-      "event_date": "2025-11-02",
-      "found_date": "2025-11-02"
+      "event_date": "2025-11-15",
+      "found_date": "2025-11-15"
     }
   ]
 }
