@@ -173,28 +173,28 @@
     {
       "category": "Business",
       "title": "New Coffee Shop Opening",
-      "description": "Bean There, Done That, a new coffee shop, is opening its doors in downtown Gurnee with a grand opening event.",
+      "description": "A new coffee shop, Brew & Co., is opening its doors in downtown Gurnee with a special opening event.",
       "link": "https://www.dailyherald.com/",
       "tags": [
         "business",
         "coffee",
         "opening"
       ],
-      "event_date": "2025-11-20",
-      "found_date": "2025-11-14"
+      "event_date": "2025-11-22",
+      "found_date": "2025-11-16"
     },
     {
       "category": "Manufacturing",
       "title": "Expansion of Local Factory",
-      "description": "A local manufacturing plant in Gurnee is set to expand its operations, creating new job opportunities.",
+      "description": "The ABC Manufacturing plant in Gurnee is expanding its facilities, expected to create new job opportunities.",
       "link": "https://www.lakecountyjournal.com/",
       "tags": [
         "manufacturing",
         "expansion",
         "jobs"
       ],
-      "event_date": "2025-12-01",
-      "found_date": "2025-11-14"
+      "event_date": "2025-11-16",
+      "found_date": "2025-11-16"
     }
   ],
   "2025-11-04": [
@@ -476,7 +476,7 @@
     {
       "category": "Community",
       "title": "Gurnee Fall Festival",
-      "description": "Join the community for a day of fun with local vendors, live music, and activities for all ages at Viking Park.",
+      "description": "Join the community for a day of fun with local vendors, live music, and family-friendly activities at Viking Park.",
       "link": "https://www.gurneeparkdistrict.com/events/fall-festival/",
       "tags": [
         "festival",
@@ -484,20 +484,20 @@
         "family"
       ],
       "event_date": "2025-11-20",
-      "found_date": "2025-11-15"
+      "found_date": "2025-11-16"
     },
     {
       "category": "News",
       "title": "Traffic Accident on Route 41",
-      "description": "A multi-vehicle accident occurred on Route 41 near Gurnee, causing significant traffic delays. Police are investigating.",
+      "description": "A multi-vehicle accident occurred on Route 41 near Grand Avenue, causing significant delays. Police are investigating.",
       "link": "https://www.chicagotribune.com/suburbs/lake-county-news-sun/",
       "tags": [
         "accident",
         "traffic",
         "safety"
       ],
-      "event_date": "2025-11-15",
-      "found_date": "2025-11-15"
+      "event_date": "2025-11-16",
+      "found_date": "2025-11-16"
     },
     {
       "category": "Politics",
@@ -509,8 +509,8 @@
         "meeting",
         "politics"
       ],
-      "event_date": "2025-11-10",
-      "found_date": "2025-11-02"
+      "event_date": "2025-11-18",
+      "found_date": "2025-11-16"
     },
     {
       "category": "Business",
