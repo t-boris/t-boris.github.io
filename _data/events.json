@@ -1,4 +1,84 @@
 {
+  "2025-11-17": [
+    {
+      "category": "Community",
+      "title": "Gurnee Community Thanksgiving Dinner",
+      "description": "Join the Gurnee community for a free Thanksgiving dinner at the local community center. All are welcome to share in the festivities and enjoy a warm meal together.",
+      "link": "https://www.gurneecommunitycenter.org/events/thanksgiving-dinner",
+      "tags": [
+        "Thanksgiving",
+        "community",
+        "dinner"
+      ],
+      "event_date": "2025-11-28",
+      "found_date": "2025-11-17"
+    },
+    {
+      "category": "Entertainment",
+      "title": "Winter Lights Festival",
+      "description": "Experience the magic of the Winter Lights Festival at Six Flags Great America. Enjoy dazzling light displays, live performances, and seasonal treats.",
+      "link": "https://www.sixflags.com/greatamerica/events/winter-lights",
+      "tags": [
+        "festival",
+        "lights",
+        "winter"
+      ],
+      "event_date": "2025-12-01",
+      "found_date": "2025-11-17"
+    },
+    {
+      "category": "News",
+      "title": "Traffic Accident on Route 41",
+      "description": "A multi-vehicle accident occurred on Route 41 near Gurnee. Police are advising drivers to seek alternative routes due to road closures.",
+      "link": "https://www.chicagotribune.com/news/local/breaking/ct-gurnee-accident-route-41-20251117-story.html",
+      "tags": [
+        "accident",
+        "traffic",
+        "police"
+      ],
+      "event_date": "2025-11-17",
+      "found_date": "2025-11-17"
+    },
+    {
+      "category": "Politics",
+      "title": "Gurnee City Council Meeting",
+      "description": "The Gurnee City Council will hold its regular meeting to discuss local governance issues, including budget planning and community development projects.",
+      "link": "https://www.gurnee.il.us/government/city-council/meetings",
+      "tags": [
+        "city council",
+        "meeting",
+        "politics"
+      ],
+      "event_date": "2025-11-20",
+      "found_date": "2025-11-17"
+    },
+    {
+      "category": "Business",
+      "title": "Grand Opening of Gurnee Tech Hub",
+      "description": "Celebrate the grand opening of Gurnee's new technology hub, featuring tours, tech demonstrations, and networking opportunities for local entrepreneurs and businesses.",
+      "link": "https://www.gurneetechhub.com/events/grand-opening",
+      "tags": [
+        "technology",
+        "business",
+        "grand opening"
+      ],
+      "event_date": "2025-11-25",
+      "found_date": "2025-11-17"
+    },
+    {
+      "category": "Manufacturing",
+      "title": "Expansion of Gurnee Industrial Park",
+      "description": "Gurnee Industrial Park announces a major expansion project, adding new facilities and creating job opportunities in the manufacturing sector.",
+      "link": "https://www.gurneeindustrialpark.com/news/expansion-2025",
+      "tags": [
+        "manufacturing",
+        "expansion",
+        "jobs"
+      ],
+      "event_date": "2025-12-15",
+      "found_date": "2025-11-17"
+    }
+  ],
   "2025-11-15": [
     {
       "category": "Business",
