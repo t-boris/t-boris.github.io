@@ -1,4 +1,71 @@
 {
+  "2025-11-18": [
+    {
+      "category": "Community",
+      "title": "Gurnee Holiday Market",
+      "description": "Join the Gurnee Holiday Market for a day of shopping local crafts, enjoying seasonal treats, and festive activities. The event is free and open to the public.",
+      "link": "https://www.gurneeholidaymarket.com/event-details",
+      "tags": [
+        "holiday",
+        "market",
+        "community"
+      ],
+      "event_date": "2025-12-05",
+      "found_date": "2025-11-18"
+    },
+    {
+      "category": "News",
+      "title": "Traffic Accident on Route 41",
+      "description": "A multi-vehicle accident occurred on Route 41 near Gurnee. Police are advising drivers to seek alternate routes as the road is partially closed.",
+      "link": "https://www.lakecountynews.com/traffic-accident-route-41",
+      "tags": [
+        "accident",
+        "traffic",
+        "safety"
+      ],
+      "event_date": "2025-11-18",
+      "found_date": "2025-11-18"
+    },
+    {
+      "category": "Politics",
+      "title": "Gurnee City Council Meeting",
+      "description": "The Gurnee City Council will hold its regular meeting to discuss local governance issues, including budget planning and community development projects.",
+      "link": "https://www.gurnee.il.us/city-council-meeting",
+      "tags": [
+        "city council",
+        "meeting",
+        "politics"
+      ],
+      "event_date": "2025-11-20",
+      "found_date": "2025-11-18"
+    },
+    {
+      "category": "Business",
+      "title": "Grand Opening of Gurnee Tech Hub",
+      "description": "Celebrate the grand opening of Gurnee's new technology hub, featuring tours, tech demonstrations, and networking opportunities for local entrepreneurs.",
+      "link": "https://www.gurneetechhub.com/grand-opening",
+      "tags": [
+        "business",
+        "technology",
+        "grand opening"
+      ],
+      "event_date": "2025-11-22",
+      "found_date": "2025-11-18"
+    },
+    {
+      "category": "Manufacturing",
+      "title": "Expansion of Gurnee Manufacturing Plant",
+      "description": "Gurnee Manufacturing Inc. announces the expansion of its facility, expected to create 50 new jobs and increase production capacity.",
+      "link": "https://www.gurneemanufacturing.com/expansion-announcement",
+      "tags": [
+        "manufacturing",
+        "expansion",
+        "jobs"
+      ],
+      "event_date": "2025-11-18",
+      "found_date": "2025-11-18"
+    }
+  ],
   "2025-11-17": [
     {
       "category": "Community",
