@@ -1,4 +1,58 @@
 {
+  "2025-11-19": [
+    {
+      "category": "Community",
+      "title": "Gurnee Holiday Market",
+      "description": "Join the Gurnee Holiday Market for a festive shopping experience featuring local vendors and artisans. Enjoy holiday treats and live music.",
+      "link": "https://www.gurneeholidaymarket.com",
+      "tags": [
+        "holiday",
+        "market",
+        "local"
+      ],
+      "event_date": "2025-12-05",
+      "found_date": "2025-11-19"
+    },
+    {
+      "category": "News",
+      "title": "Traffic Accident on Route 41",
+      "description": "A multi-vehicle accident occurred on Route 41 near Gurnee, causing significant traffic delays. No serious injuries reported.",
+      "link": "https://www.chicagotribune.com/local/gurnee-accident-20251119",
+      "tags": [
+        "accident",
+        "traffic",
+        "safety"
+      ],
+      "event_date": "2025-11-19",
+      "found_date": "2025-11-19"
+    },
+    {
+      "category": "Business",
+      "title": "New Coffee Shop Opening",
+      "description": "A new coffee shop, 'Brew & Co.', is opening its doors in downtown Gurnee, offering specialty drinks and pastries.",
+      "link": "https://www.gurneenews.com/new-coffee-shop-2025",
+      "tags": [
+        "coffee",
+        "new business",
+        "opening"
+      ],
+      "event_date": "2025-11-28",
+      "found_date": "2025-11-19"
+    },
+    {
+      "category": "Manufacturing",
+      "title": "Expansion of Gurnee Industrial Park",
+      "description": "The Gurnee Industrial Park is set to expand, adding new facilities and creating job opportunities in the area.",
+      "link": "https://www.gurneeindustry.com/expansion-2025",
+      "tags": [
+        "industrial",
+        "expansion",
+        "jobs"
+      ],
+      "event_date": "2026-01-15",
+      "found_date": "2025-11-19"
+    }
+  ],
   "2025-11-18": [
     {
       "category": "Community",
@@ -29,15 +83,15 @@
     {
       "category": "Politics",
       "title": "Gurnee City Council Meeting",
-      "description": "The Gurnee City Council will hold its regular meeting to discuss local governance issues, including budget planning and community development projects.",
+      "description": "The Gurnee City Council will discuss upcoming budget proposals and community development projects.",
       "link": "https://www.gurnee.il.us/city-council-meeting",
       "tags": [
         "city council",
-        "meeting",
-        "politics"
+        "budget",
+        "development"
       ],
-      "event_date": "2025-11-20",
-      "found_date": "2025-11-18"
+      "event_date": "2025-11-25",
+      "found_date": "2025-11-19"
     },
     {
       "category": "Business",
