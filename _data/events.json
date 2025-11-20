@@ -1,4 +1,19 @@
 {
+  "2025-11-20": [
+    {
+      "category": "Community",
+      "title": "Gurnee Holiday Market",
+      "description": "Join the Gurnee Holiday Market for a day of shopping local crafts, enjoying seasonal treats, and festive activities. Located at Viking Park, this event is perfect for holiday shopping and family fun.",
+      "link": "https://www.gurneeparkdistrict.com/events/holiday-market/",
+      "tags": [
+        "holiday",
+        "market",
+        "family"
+      ],
+      "event_date": "2025-12-05",
+      "found_date": "2025-11-20"
+    }
+  ],
   "2025-11-19": [
     {
       "category": "Community",
@@ -277,15 +292,15 @@
     {
       "category": "Manufacturing",
       "title": "Expansion of Gurnee Industrial Park",
-      "description": "The Gurnee Industrial Park is set to expand, adding new facilities and creating job opportunities in the area.",
+      "description": "The Gurnee Industrial Park is undergoing a significant expansion, adding new facilities and creating job opportunities in the manufacturing sector.",
       "link": "https://www.lakecountyil.gov/",
       "tags": [
-        "manufacturing",
+        "industrial",
         "expansion",
         "jobs"
       ],
-      "event_date": "2025-11-10",
-      "found_date": "2025-11-10"
+      "event_date": "2025-11-20",
+      "found_date": "2025-11-20"
     }
   ],
   "2025-11-07": [
@@ -374,15 +389,15 @@
     {
       "category": "Business",
       "title": "New Coffee Shop Opening",
-      "description": "A new coffee shop, Brew & Co., is opening its doors in downtown Gurnee with a special opening event.",
+      "description": "A new coffee shop, 'Brew & Co.', is set to open its doors in downtown Gurnee. The shop will feature local art and offer a variety of specialty drinks.",
       "link": "https://www.dailyherald.com/",
       "tags": [
-        "business",
         "coffee",
+        "new business",
         "opening"
       ],
-      "event_date": "2025-11-22",
-      "found_date": "2025-11-16"
+      "event_date": "2025-12-01",
+      "found_date": "2025-11-20"
     },
     {
       "category": "Manufacturing",
@@ -690,28 +705,28 @@
     {
       "category": "News",
       "title": "Traffic Accident on Route 41",
-      "description": "A multi-vehicle accident occurred on Route 41 near Grand Avenue, causing significant delays. Police are investigating.",
+      "description": "A multi-vehicle accident occurred on Route 41 near Grand Avenue. Police are advising drivers to seek alternate routes as the road may be closed for several hours.",
       "link": "https://www.chicagotribune.com/suburbs/lake-county-news-sun/",
       "tags": [
         "accident",
         "traffic",
         "safety"
       ],
-      "event_date": "2025-11-16",
-      "found_date": "2025-11-16"
+      "event_date": "2025-11-20",
+      "found_date": "2025-11-20"
     },
     {
       "category": "Politics",
       "title": "Gurnee City Council Meeting",
-      "description": "The Gurnee City Council will discuss upcoming budget proposals and community development projects.",
+      "description": "The Gurnee City Council will hold its regular meeting to discuss local governance issues, including budget planning and community development projects.",
       "link": "https://www.gurnee.il.us/27/Government",
       "tags": [
         "city council",
         "meeting",
-        "politics"
+        "local government"
       ],
-      "event_date": "2025-11-18",
-      "found_date": "2025-11-16"
+      "event_date": "2025-11-25",
+      "found_date": "2025-11-20"
     },
     {
       "category": "Business",
