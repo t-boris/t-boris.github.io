@@ -1,4 +1,45 @@
 {
+  "2025-11-22": [
+    {
+      "category": "News",
+      "title": "Traffic Accident on Route 41",
+      "description": "A multi-vehicle accident occurred on Route 41 near Gurnee. Police are advising drivers to seek alternate routes due to road closures.",
+      "link": "https://www.lakecountyjournal.com/traffic-accident-route-41",
+      "tags": [
+        "accident",
+        "traffic",
+        "safety"
+      ],
+      "event_date": "2025-11-22",
+      "found_date": "2025-11-22"
+    },
+    {
+      "category": "Business",
+      "title": "New Coffee Shop Opening",
+      "description": "A new coffee shop, Brew & Co., is opening its doors in Gurnee. They will offer a variety of specialty drinks and pastries.",
+      "link": "https://www.gurneenews.com/new-coffee-shop-opening",
+      "tags": [
+        "coffee",
+        "new business",
+        "opening"
+      ],
+      "event_date": "2025-12-01",
+      "found_date": "2025-11-22"
+    },
+    {
+      "category": "Manufacturing",
+      "title": "Expansion of Gurnee Industrial Park",
+      "description": "The Gurnee Industrial Park is set to expand, adding new facilities and creating job opportunities in the manufacturing sector.",
+      "link": "https://www.industrialnews.com/gurnee-industrial-park-expansion",
+      "tags": [
+        "industrial",
+        "expansion",
+        "manufacturing"
+      ],
+      "event_date": "2025-11-22",
+      "found_date": "2025-11-22"
+    }
+  ],
   "2025-11-21": [
     {
       "category": "Business",
@@ -46,7 +87,7 @@
     {
       "category": "Community",
       "title": "Gurnee Holiday Market",
-      "description": "Join the Gurnee Holiday Market for a festive shopping experience with local vendors. Enjoy holiday treats and live music.",
+      "description": "Join the Gurnee Holiday Market for a day of shopping local crafts and enjoying seasonal treats. The event will feature over 50 vendors and live music.",
       "link": "https://www.gurneeholidaymarket.com",
       "tags": [
         "holiday",
@@ -54,7 +95,7 @@
         "local"
       ],
       "event_date": "2025-12-05",
-      "found_date": "2025-11-21"
+      "found_date": "2025-11-22"
     },
     {
       "category": "News",
@@ -126,15 +167,15 @@
     {
       "category": "Politics",
       "title": "Gurnee City Council Meeting",
-      "description": "The Gurnee City Council will discuss upcoming budget proposals and community development projects.",
+      "description": "The Gurnee City Council will hold its regular meeting to discuss local ordinances and community development projects.",
       "link": "https://www.gurnee.il.us/city-council-meeting",
       "tags": [
         "city council",
-        "budget",
-        "development"
+        "meeting",
+        "politics"
       ],
       "event_date": "2025-11-25",
-      "found_date": "2025-11-21"
+      "found_date": "2025-11-22"
     },
     {
       "category": "Business",
