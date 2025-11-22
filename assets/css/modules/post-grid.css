@@ -1,0 +1,19 @@
+/* ============================================
+   Post Grid Layout - FORCE OVERRIDE - ONLY 2 COLUMNS MAX
+   ============================================ */
+
+#post-list {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 2rem !important;
+  margin-bottom: 3rem !important;
+}
+
+/* 2 columns ONLY on desktop (wider cards, more space for content) */
+@media (min-width: 900px) {
+  #post-list {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 2.5rem !important;
+  }
+}
+

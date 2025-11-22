@@ -1,0 +1,58 @@
+/* ============================================
+   EVENTS PAGE STYLES
+   ============================================ */
+
+/* Events Container */
+.events-container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* Events Header */
+.events-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 2rem 1rem;
+  background: var(--gradient-mesh);
+  border-radius: var(--radius-xl);
+}
+
+.events-title {
+  font-size: var(--text-4xl);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--color-text-primary);
+}
+
+.events-title i {
+  color: var(--color-primary);
+  margin-right: 0.5rem;
+}
+
+.events-subtitle {
+  font-size: var(--text-lg);
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+/* Main Grid Layout */
+.events-main-grid {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+/* Content Column */
+.events-content-column {
+  min-width: 0; /* Prevents grid blowout */
+}
+
+/* Sidebar Column */
+.events-sidebar-column {
+  position: sticky;
+  top: 100px;
+  height: fit-content;
+}
+

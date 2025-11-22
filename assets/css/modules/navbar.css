@@ -1,0 +1,14 @@
+/* ============================================
+   Smart Navbar Enhancements
+   ============================================ */
+
+#topbar-wrapper {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+#topbar-wrapper.navbar--scrolled {
+  box-shadow: var(--shadow-lg);
+}
+

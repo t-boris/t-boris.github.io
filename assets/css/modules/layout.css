@@ -1,0 +1,20 @@
+/* ============================================
+   Main Content & Sidebar Layout Adjustments
+   ============================================ */
+
+/* Make main content wider, sidebar narrower */
+#main-wrapper {
+  max-width: none !important;
+}
+
+#core-wrapper {
+  max-width: 75% !important;
+  flex: 0 0 75% !important;
+}
+
+#panel-wrapper {
+  max-width: 22% !important;
+  flex: 0 0 22% !important;
+  margin-left: 3% !important;
+}
+

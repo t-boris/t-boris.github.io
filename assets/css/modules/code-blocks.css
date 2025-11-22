@@ -1,0 +1,39 @@
+/* ============================================
+   Code Blocks Enhancements
+   ============================================ */
+
+pre {
+  border-radius: var(--radius-lg) !important;
+  position: relative;
+  box-shadow: var(--shadow-md);
+}
+
+.code-copy-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  padding: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-sm);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  opacity: 0;
+  transition: all var(--transition-base);
+  z-index: 10;
+}
+
+pre:hover .code-copy-btn {
+  opacity: 1;
+}
+
+.code-copy-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+.code-copy-btn.copied {
+  background: var(--color-accent);
+  color: white;
+}
+
