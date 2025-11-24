@@ -1,4 +1,32 @@
 {
+  "2025-11-24": [
+    {
+      "category": "News",
+      "title": "Road Closure on Grand Avenue",
+      "description": "Due to construction, Grand Avenue will be closed from November 24th to December 1st. Motorists are advised to seek alternative routes.",
+      "link": "https://www.gurneenews.com/road-closure",
+      "tags": [
+        "road",
+        "closure",
+        "construction"
+      ],
+      "event_date": "2025-11-24",
+      "found_date": "2025-11-24"
+    },
+    {
+      "category": "Politics",
+      "title": "Gurnee City Council Meeting",
+      "description": "The Gurnee City Council will hold its regular meeting to discuss local governance issues. The public is welcome to attend.",
+      "link": "https://www.gurnee.il.us/city-council",
+      "tags": [
+        "city",
+        "council",
+        "meeting"
+      ],
+      "event_date": "2025-12-02",
+      "found_date": "2025-11-24"
+    }
+  ],
   "2025-11-22": [
     {
       "category": "News",
@@ -44,15 +72,15 @@
     {
       "category": "Business",
       "title": "New Coffee Shop Opening",
-      "description": "A new coffee shop, Brew & Co., is opening its doors in Gurnee. They will offer a variety of specialty drinks and pastries.",
+      "description": "A new coffee shop, 'Brew & Co.', is opening its doors in Gurnee. They will offer a variety of coffee drinks and pastries.",
       "link": "https://www.brewandco.com/opening",
       "tags": [
         "coffee",
-        "new business",
+        "shop",
         "opening"
       ],
       "event_date": "2025-12-10",
-      "found_date": "2025-11-23"
+      "found_date": "2025-11-24"
     },
     {
       "category": "Manufacturing",
@@ -64,8 +92,8 @@
         "expansion",
         "jobs"
       ],
-      "event_date": "2025-11-23",
-      "found_date": "2025-11-23"
+      "event_date": "2026-01-15",
+      "found_date": "2025-11-24"
     }
   ],
   "2025-11-20": [
@@ -87,15 +115,15 @@
     {
       "category": "Community",
       "title": "Gurnee Holiday Market",
-      "description": "Join the Gurnee Holiday Market for a festive shopping experience with local vendors. Enjoy holiday treats and live music.",
+      "description": "Join the Gurnee Holiday Market for a day of shopping local crafts, enjoying festive food, and meeting community members. The event is free and open to the public.",
       "link": "https://www.gurneeholidaymarket.com",
       "tags": [
         "holiday",
         "market",
-        "local"
+        "community"
       ],
       "event_date": "2025-12-05",
-      "found_date": "2025-11-23"
+      "found_date": "2025-11-24"
     },
     {
       "category": "News",
