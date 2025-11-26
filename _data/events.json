@@ -1,4 +1,19 @@
 {
+  "2025-11-26": [
+    {
+      "category": "Politics",
+      "title": "Gurnee City Council Meeting",
+      "description": "The Gurnee City Council will discuss upcoming budget proposals and community development projects.",
+      "link": "https://www.gurnee.il.us/government/city_council/meetings.php",
+      "tags": [
+        "city council",
+        "budget",
+        "development"
+      ],
+      "event_date": "2025-12-02",
+      "found_date": "2025-11-26"
+    }
+  ],
   "2025-11-25": [
     {
       "category": "Community",
@@ -11,7 +26,7 @@
         "community"
       ],
       "event_date": "2025-12-15",
-      "found_date": "2025-11-25"
+      "found_date": "2025-11-26"
     },
     {
       "category": "Business",
@@ -830,15 +845,15 @@
     {
       "category": "News",
       "title": "Traffic Accident on Route 41",
-      "description": "A multi-vehicle accident occurred on Route 41 near Grand Avenue, causing significant traffic delays. Police are investigating.",
+      "description": "A multi-vehicle accident occurred on Route 41 near Grand Avenue, causing significant delays. Police are investigating.",
       "link": "https://www.chicagotribune.com/suburbs/lake-county-news-sun/",
       "tags": [
         "accident",
         "traffic",
         "safety"
       ],
-      "event_date": "2025-11-25",
-      "found_date": "2025-11-25"
+      "event_date": "2025-11-26",
+      "found_date": "2025-11-26"
     },
     {
       "category": "Politics",
@@ -854,30 +869,30 @@
       "found_date": "2025-11-20"
     },
     {
-      "category": "Manufacturing",
-      "title": "Expansion of Local Factory",
-      "description": "ABC Manufacturing announced plans to expand its facility in Gurnee, creating new job opportunities.",
+      "category": "Business",
+      "title": "New Coffee Shop Opening",
+      "description": "A new artisan coffee shop, 'Brew & Co.', is set to open its doors in downtown Gurnee.",
       "link": "https://www.dailyherald.com/business/",
       "tags": [
-        "manufacturing",
-        "expansion",
-        "jobs"
+        "coffee",
+        "new business",
+        "opening"
       ],
-      "event_date": "2025-11-25",
-      "found_date": "2025-11-25"
+      "event_date": "2025-12-05",
+      "found_date": "2025-11-26"
     },
     {
       "category": "Manufacturing",
       "title": "Expansion of Local Factory",
-      "description": "A local manufacturing plant announced plans to expand its facilities, creating new job opportunities in the area.",
+      "description": "The Gurnee Manufacturing Plant announced plans to expand its facilities, creating new job opportunities.",
       "link": "https://www.lakecountyjournal.com/business/",
       "tags": [
         "manufacturing",
         "expansion",
         "jobs"
       ],
-      "event_date": "2025-11-09",
-      "found_date": "2025-11-09"
+      "event_date": "2025-11-26",
+      "found_date": "2025-11-26"
     },
     {
       "category": "Politics",
