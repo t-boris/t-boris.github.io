@@ -46,20 +46,20 @@
     {
       "category": "News",
       "title": "Road Closure on Grand Avenue",
-      "description": "Due to construction, Grand Avenue will be closed from November 24th to December 1st. Motorists are advised to seek alternative routes.",
+      "description": "Due to construction, Grand Avenue will be closed from November 30th to December 3rd. Please plan alternate routes.",
       "link": "https://www.gurneenews.com/road-closure",
       "tags": [
         "road",
         "closure",
         "construction"
       ],
-      "event_date": "2025-11-24",
-      "found_date": "2025-11-24"
+      "event_date": "2025-11-30",
+      "found_date": "2025-11-27"
     },
     {
       "category": "Politics",
       "title": "Gurnee City Council Meeting",
-      "description": "The Gurnee City Council will hold its regular meeting to discuss local governance issues. The public is welcome to attend.",
+      "description": "The next Gurnee City Council meeting will discuss local budget allocations and community development projects. Open to the public.",
       "link": "https://www.gurnee.il.us/city-council",
       "tags": [
         "city",
@@ -67,7 +67,7 @@
         "meeting"
       ],
       "event_date": "2025-12-02",
-      "found_date": "2025-11-24"
+      "found_date": "2025-11-27"
     }
   ],
   "2025-11-22": [
@@ -115,7 +115,7 @@
     {
       "category": "Business",
       "title": "New Coffee Shop Opening",
-      "description": "A new coffee shop, 'Brew & Co.', is opening its doors in Gurnee. They will offer a variety of coffee drinks and pastries.",
+      "description": "A new coffee shop, 'Brew & Co.', is opening its doors in Gurnee. They will offer a variety of specialty drinks and pastries.",
       "link": "https://www.brewandco.com/opening",
       "tags": [
         "coffee",
@@ -123,20 +123,20 @@
         "opening"
       ],
       "event_date": "2025-12-10",
-      "found_date": "2025-11-24"
+      "found_date": "2025-11-27"
     },
     {
       "category": "Manufacturing",
       "title": "Expansion of Gurnee Industrial Park",
-      "description": "The Gurnee Industrial Park is set to expand, adding new facilities and creating job opportunities in the area.",
+      "description": "Gurnee Industrial Park announces a major expansion, adding new facilities and creating job opportunities in the area.",
       "link": "https://www.gurneeindustrialpark.com/expansion",
       "tags": [
         "industrial",
         "expansion",
         "jobs"
       ],
-      "event_date": "2026-01-15",
-      "found_date": "2025-11-24"
+      "event_date": "2025-11-27",
+      "found_date": "2025-11-27"
     }
   ],
   "2025-11-20": [
@@ -158,7 +158,7 @@
     {
       "category": "Community",
       "title": "Gurnee Holiday Market",
-      "description": "Join the Gurnee Holiday Market for a day of shopping local crafts, enjoying festive food, and meeting community members. The event is free and open to the public.",
+      "description": "Join the Gurnee Holiday Market for a day of shopping local crafts, enjoying seasonal treats, and festive activities. The event is free and open to the public.",
       "link": "https://www.gurneeholidaymarket.com",
       "tags": [
         "holiday",
@@ -166,7 +166,7 @@
         "community"
       ],
       "event_date": "2025-12-05",
-      "found_date": "2025-11-24"
+      "found_date": "2025-11-27"
     },
     {
       "category": "News",
