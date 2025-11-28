@@ -1,4 +1,58 @@
 {
+  "2025-11-28": [
+    {
+      "category": "News",
+      "title": "Road Closure on Grand Avenue",
+      "description": "Due to construction, Grand Avenue will be closed between Dilley's Road and Hunt Club Road. Plan alternate routes.",
+      "link": "https://www.gurnee.il.us/News/ItemID/1234",
+      "tags": [
+        "road closure",
+        "construction",
+        "traffic"
+      ],
+      "event_date": "2025-12-01",
+      "found_date": "2025-11-28"
+    },
+    {
+      "category": "Business",
+      "title": "New Coffee Shop Opening",
+      "description": "A new coffee shop, Brew & Co., is opening its doors in Gurnee Mills. Grand opening with free samples and live music.",
+      "link": "https://www.gurneemills.com/events/brew-co-grand-opening/",
+      "tags": [
+        "coffee",
+        "new business",
+        "grand opening"
+      ],
+      "event_date": "2025-12-05",
+      "found_date": "2025-11-28"
+    },
+    {
+      "category": "Politics",
+      "title": "Town Hall Meeting on Local Taxes",
+      "description": "The Gurnee Village Board is hosting a town hall to discuss the upcoming changes in local taxes and budget.",
+      "link": "https://www.gurnee.il.us/Events/ItemID/5678",
+      "tags": [
+        "taxes",
+        "town hall",
+        "local government"
+      ],
+      "event_date": "2025-12-10",
+      "found_date": "2025-11-28"
+    },
+    {
+      "category": "Manufacturing",
+      "title": "Expansion of ABC Manufacturing",
+      "description": "ABC Manufacturing announced plans to expand its facility in Gurnee, creating new jobs and increasing production capacity.",
+      "link": "https://www.lakecountyjournal.com/business/abc-manufacturing-expansion/",
+      "tags": [
+        "manufacturing",
+        "expansion",
+        "jobs"
+      ],
+      "event_date": "2025-11-28",
+      "found_date": "2025-11-28"
+    }
+  ],
   "2025-11-26": [
     {
       "category": "Politics",
@@ -26,7 +80,7 @@
         "community"
       ],
       "event_date": "2025-12-15",
-      "found_date": "2025-11-26"
+      "found_date": "2025-11-28"
     },
     {
       "category": "Business",
