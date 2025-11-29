@@ -42,7 +42,7 @@ body {
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	color: rgb(var(--gray-dark));
-	font-size: 20px;
+	font-size: 16px;
 	line-height: 1.7;
 }
 main {
@@ -111,6 +111,7 @@ code {
 	padding: 2px 5px;
 	background-color: rgb(var(--gray-light));
 	border-radius: 2px;
+	font-size: 14px;
 }
 pre {
 	padding: 1.5em;
@@ -131,7 +132,7 @@ hr {
 }
 @media (max-width: 720px) {
 	body {
-		font-size: 18px;
+		font-size: 14px;
 	}
 	main {
 		padding: 1em;
