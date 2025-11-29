@@ -10,7 +10,7 @@ def load_config():
     config = {
         "openai_api_key": os.environ.get("OPENAI_API_KEY"),
         "google_api_key": os.environ.get("GOOGLE_API_KEY"),
-        "search_engine_id": os.environ.get("SEARCH_ENGINE_ID"),
+        "search_engine_id": os.environ.get("SEARCH_ENGINE_ID") or os.environ.get("GOOGLE_SEARCH_ENGINE_ID"),
         "target_address": os.environ.get("TARGET_ADDRESS"),
         "search_queries_raw": os.environ.get("SEARCH_QUERIES"),
     }

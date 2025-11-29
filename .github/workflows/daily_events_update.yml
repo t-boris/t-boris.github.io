@@ -27,7 +27,7 @@ jobs:
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
-          SEARCH_ENGINE_ID: ${{ secrets.SEARCH_ENGINE_ID }}
+          GOOGLE_SEARCH_ENGINE_ID: ${{ secrets.GOOGLE_SEARCH_ENGINE_ID }}
           TARGET_ADDRESS: ${{ secrets.TARGET_ADDRESS }}
           SEARCH_QUERIES: ${{ secrets.SEARCH_QUERIES }}
         run: python scripts/update_events.py
