@@ -44,9 +44,7 @@ There's also a philosophical side effect: when it's this easy to turn ideas into
 
 And hilariously, all of this grew out of something very mundane: I just needed a place to store course notes. Yet here we are, with a world where "I'm studying for my ML exam" can include spinning up a cloud app that hosts your study materials for anyone curious enough to click.
 
-So if you see a link like
-`https://ml-for-business-analytics-module-1-540582499585.us-west1.run.app/`
-in a course forum and think, "Wait, is this still just someone's notes?"—the answer is yes. It's notes. They just happen to compile and deploy now.
+So if you see a link like [this ML for Business Analytics study app](https://ml-for-business-analytics-module-1-540582499585.us-west1.run.app/) in a course forum and think, "Wait, is this still just someone's notes?"—the answer is yes. It's notes. They just happen to compile and deploy now.
 
 ---
 
