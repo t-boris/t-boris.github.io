@@ -17,13 +17,11 @@ const posts = (await getCollection('blog')).sort(
 // Get all unique tags
 const allTags = [...new Set(posts.flatMap(post => post.data.tags || []))].sort();
 
-// Compile post content for search
-const postsWithContent = await Promise.all(
-	posts.map(async (post) => {
-		const { Content } = await post.render();
-		return { ...post, compiledContent: post.body };
-	})
-);
+// Add post content for search
+const postsWithContent = posts.map((post) => ({
+	...post,
+	compiledContent: post.body
+}));
 ---
 
 <!doctype html>
