@@ -1,0 +1,60 @@
+{
+  "location": {
+    "address": "7612 Cascade Way, Gurnee, Illinois 60031",
+    "primary_city": "Gurnee"
+  },
+  "cities": {
+    "group_1": [
+      "Gurnee IL",
+      "Waukegan IL",
+      "Libertyville IL",
+      "Vernon Hills IL",
+      "Mundelein IL",
+      "Round Lake Beach IL",
+      "Lindenhurst IL"
+    ],
+    "group_2": [
+      "Grayslake IL",
+      "Wauconda IL",
+      "Park City IL",
+      "Gages Lake IL",
+      "Third Lake IL",
+      "Wadsworth IL",
+      "Beach Park IL"
+    ]
+  },
+  "schedule": {
+    "group_1_days": ["Monday", "Wednesday", "Friday"],
+    "group_2_days": ["Tuesday", "Thursday", "Saturday", "Sunday"]
+  },
+  "query_templates": [
+    "{city} events news this week",
+    "{city} restaurants entertainment",
+    "{city} community business updates",
+    "{city} manufacturing local updates"
+  ],
+  "google_config": {
+    "results_per_query": 10,
+    "total_results_limit": 280
+  },
+  "openai_config": {
+    "model": "gpt-5-mini",
+    "max_retries": 3,
+    "retry_delay_seconds": 2
+  },
+  "categories": [
+    "Culture",
+    "Community",
+    "News",
+    "Food",
+    "Entertainment",
+    "Business",
+    "Manufacturing",
+    "Politics",
+    "Economy"
+  ],
+  "data_retention": {
+    "keep_days": 365,
+    "cleanup_enabled": true
+  }
+}

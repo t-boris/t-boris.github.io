@@ -1,0 +1,151 @@
+/* ============================================
+   Responsive Utilities & Mobile Optimizations
+   ============================================ */
+
+@media (max-width: 768px) {
+  :root {
+    --text-3xl: 1.5rem;
+    --text-4xl: 1.875rem;
+    --text-5xl: 2.25rem;
+    --spacing-xl: 1.5rem;
+    --spacing-2xl: 2rem;
+  }
+
+  /* Disable hover effects on mobile */
+  .card:hover,
+  .post-preview:hover {
+    transform: none;
+  }
+
+  /* Hero adjustments */
+  .hero {
+    min-height: auto;
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+
+  .hero__title {
+    font-size: clamp(1.25rem, 5vw, 1.5rem);
+    padding: var(--spacing-xs) 0;
+  }
+
+  /* FAB menu adjustments */
+  .fab-container {
+    bottom: var(--spacing-md);
+    right: var(--spacing-md);
+  }
+
+  .fab {
+    width: 48px;
+    height: 48px;
+    font-size: 18px;
+  }
+
+  .fab--main {
+    width: 52px;
+    height: 52px;
+  }
+
+  .fab-menu .fab {
+    width: 44px;
+    height: 44px;
+  }
+
+  /* Post cards */
+  .post-preview {
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .post-preview__image {
+    height: 160px;
+  }
+
+  .post-preview__title {
+    font-size: var(--text-lg);
+  }
+
+  .post-content p {
+    font-size: 0.9rem !important;
+  }
+
+  /* Improve touch targets */
+  a,
+  button,
+  .btn {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Sidebar adjustments */
+  #sidebar a {
+    padding: 0.75rem 1rem !important;
+  }
+
+  /* Reading progress bar */
+  .reading-progress {
+    height: 4px;
+  }
+
+  /* Reduce padding */
+  body {
+    font-size: 16px;
+  }
+
+  h1 {
+    font-size: clamp(1.75rem, 6vw, 2.5rem);
+  }
+
+  h2 {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+  }
+
+  h3 {
+    font-size: clamp(1.25rem, 4vw, 1.75rem);
+  }
+}
+
+/* Tablet adjustments */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .hero {
+    min-height: auto;
+    padding: 1rem;
+  }
+
+  .post-preview__image {
+    height: 170px;
+  }
+
+  #core-wrapper {
+    max-width: 70% !important;
+    flex: 0 0 70% !important;
+  }
+
+  #panel-wrapper {
+    max-width: 27% !important;
+    flex: 0 0 27% !important;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  /* Disable hover animations on touch devices */
+  .card:hover,
+  .post-preview:hover,
+  .btn:hover,
+  .fab:hover {
+    transform: none;
+  }
+
+  /* Larger tap targets */
+  a,
+  button,
+  .tag,
+  .badge {
+    padding: 0.5rem 0.75rem;
+  }
+
+  /* Remove hover effects */
+  .post-preview__image::after {
+    display: none;
+  }
+}
+
