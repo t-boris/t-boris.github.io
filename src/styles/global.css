@@ -5,19 +5,19 @@
  */
 
 :root {
-	/* Dark theme - Emerald */
-	--accent: #10b981;
-	--accent-dark: #059669;
+	/* Dark theme - Classic tan/brown */
+	--accent: #c9a57b;
+	--accent-dark: #a88a68;
 	--black: 248, 250, 252;
 	--gray: 203, 213, 225;
-	--gray-light: 30, 41, 59;
-	--gray-dark: 226, 232, 240;
-	--gray-gradient: rgba(30, 41, 59, 0.5), #0f172a;
+	--gray-light: 30, 30, 30;
+	--gray-dark: 220, 220, 220;
+	--gray-gradient: rgba(30, 30, 30, 0.5), #1a1a1a;
 	--box-shadow:
 		0 2px 6px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.4), 0 16px 32px
 		rgba(0, 0, 0, 0.4);
-	--bg: #020617;
-	--surface: #0f172a;
+	--bg: #0a0a0a;
+	--surface: #1a1a1a;
 }
 @font-face {
 	font-family: "Atkinson";
