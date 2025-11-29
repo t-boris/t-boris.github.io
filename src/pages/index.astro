@@ -29,14 +29,15 @@ const allTags = [...new Set(posts.flatMap(post => post.data.tags || []))].sort()
 			main {
 				max-width: 100%;
 				margin: 0;
-				padding: 2rem 1rem;
+				padding: 2rem 0;
 				display: flex;
 				gap: 3rem;
 				align-items: flex-start;
 			}
 			.content-wrapper {
 				flex: 1;
-				padding-left: max(1rem, calc((100vw - 1600px) / 2));
+				padding-left: 2rem;
+				padding-right: 0;
 			}
 			.timeline-wrapper {
 				flex: 0 0 300px;
@@ -45,7 +46,7 @@ const allTags = [...new Set(posts.flatMap(post => post.data.tags || []))].sort()
 				height: fit-content;
 				max-height: calc(100vh - 4rem);
 				overflow-y: auto;
-				padding-right: max(1rem, calc((100vw - 1600px) / 2));
+				padding-right: 2rem;
 			}
 			.timeline {
 				background: rgb(var(--gray-light));
@@ -238,6 +239,7 @@ const allTags = [...new Set(posts.flatMap(post => post.data.tags || []))].sort()
 				main {
 					flex-direction: column;
 					gap: 2rem;
+					padding: 2rem 1rem;
 				}
 				.timeline-wrapper {
 					position: relative;
@@ -245,10 +247,10 @@ const allTags = [...new Set(posts.flatMap(post => post.data.tags || []))].sort()
 					width: 100%;
 					max-height: none;
 					top: 0;
-					padding-right: 1rem;
+					padding-right: 0;
 				}
 				.content-wrapper {
-					padding-left: 1rem;
+					padding-left: 0;
 				}
 			}
 
