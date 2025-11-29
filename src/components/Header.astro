@@ -5,7 +5,7 @@ import HeaderLink from './HeaderLink.astro';
 
 <header>
 	<nav>
-		<h2><a href="/">{SITE_TITLE}</a></h2>
+		<h2><a href="/" class="site-title">{SITE_TITLE}</a></h2>
 		<div class="internal-links">
 			<HeaderLink href="/about">About</HeaderLink>
 			<HeaderLink href="/events">Events</HeaderLink>
@@ -13,6 +13,8 @@ import HeaderLink from './HeaderLink.astro';
 	</nav>
 </header>
 <style>
+	@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap');
+
 	header {
 		margin: 0;
 		padding: 0 1em;
@@ -23,6 +25,34 @@ import HeaderLink from './HeaderLink.astro';
 	h2 {
 		margin: 0;
 		font-size: 1em;
+	}
+
+	.site-title {
+		font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+		font-weight: 700;
+		font-size: 1.35em;
+		letter-spacing: -0.02em;
+		background: linear-gradient(135deg, var(--accent) 0%, #e8d5b7 50%, var(--accent) 100%);
+		background-size: 200% auto;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+		animation: shimmer 3s ease-in-out infinite;
+		transition: all 0.3s ease;
+	}
+
+	.site-title:hover {
+		animation: shimmer 1.5s ease-in-out infinite;
+		transform: translateY(-1px);
+	}
+
+	@keyframes shimmer {
+		0%, 100% {
+			background-position: 0% 50%;
+		}
+		50% {
+			background-position: 100% 50%;
+		}
 	}
 
 	h2 a,
