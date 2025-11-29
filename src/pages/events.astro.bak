@@ -182,64 +182,38 @@ const targetAddress = 'Local Events';
 				<p>Last Update: {lastUpdate}</p>
 			</header>
 
-		<section>
-			<h2 class="section-title">Today's Events</h2>
-			{todayEvents.length > 0 ? (
-				todayEvents.map((event) => (
-					<div class="event-card">
-						<span class="category">{event.category}</span>
-						<h3>{event.title}</h3>
-						<p>{event.description}</p>
-						<p style="font-size: 0.875rem; color: rgb(var(--gray));">
-							Event Date: {event.event_date}
-						</p>
-						{event.link && (
-							<a href={event.link} target="_blank" rel="noopener noreferrer">
-								Source →
-							</a>
-						)}
+			<section>
+				<h2 class="section-title">Daily Reports Calendar</h2>
+				{sortedDays.length > 0 ? (
+					<div class="calendar">
+						{sortedDays.map((day) => (
+							<a href={`/events/${day}/`}>{day}</a>
+						))}
 					</div>
-				))
-			) : (
-				<p class="no-events">No events happening today.</p>
-			)}
-		</section>
+				) : (
+					<p class="no-events">No event reports available yet. Check back after the first automated run.</p>
+				)}
+			</section>
 
-		<section>
-			<h2 class="section-title">Upcoming Events</h2>
-			{upcomingEvents.length > 0 ? (
-				upcomingEvents.map((event) => (
-					<div class="event-card">
-						<span class="category">{event.category}</span>
-						<h3>{event.title}</h3>
-						<p>{event.description}</p>
-						<p style="font-size: 0.875rem; color: rgb(var(--gray));">
-							Event Date: {event.event_date}
-						</p>
-						{event.link && (
-							<a href={event.link} target="_blank" rel="noopener noreferrer">
-								Source →
-							</a>
-						)}
-					</div>
-				))
-			) : (
-				<p class="no-events">No upcoming events found yet.</p>
-			)}
-		</section>
-
-		<section>
-			<h2 class="section-title">Daily Reports Archive</h2>
-			{sortedDays.length > 0 ? (
-				<div class="calendar">
-					{sortedDays.map((day) => (
-						<a href={`/events/${day}/`}>{day}</a>
-					))}
-				</div>
-			) : (
-				<p class="no-events">No event reports available yet.</p>
-			)}
-		</section>
+			<section>
+				<h2 class="section-title">Upcoming Events</h2>
+				{upcomingEvents.length > 0 ? (
+					upcomingEvents.map((event) => (
+						<div class="event-card">
+							<span class="category">{event.category}</span>
+							<h3>{event.title}</h3>
+							<p>{event.description}</p>
+							{event.link && (
+								<a href={event.link} target="_blank" rel="noopener noreferrer">
+									Source →
+								</a>
+							)}
+						</div>
+					))
+				) : (
+					<p class="no-events">No upcoming events found yet.</p>
+				)}
+			</section>
 		</main>
 		<Footer />
 	</body>
