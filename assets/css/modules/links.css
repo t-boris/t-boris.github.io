@@ -1,0 +1,20 @@
+/* ============================================
+   Enhanced Links
+   ============================================ */
+
+a {
+  transition: color var(--transition-fast);
+}
+
+.post-content a:not(.btn):not(.anchor) {
+  position: relative;
+  color: var(--color-primary);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--transition-base);
+}
+
+.post-content a:not(.btn):not(.anchor):hover {
+  border-bottom-color: var(--color-primary);
+}
+

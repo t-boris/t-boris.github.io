@@ -1,0 +1,35 @@
+/* ============================================
+   Hero Section - Clean
+   ============================================ */
+
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem 0 2rem !important;
+  margin: 0 0 2rem !important;
+  overflow: visible;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.hero__background {
+  display: none;
+}
+
+.hero__content {
+  max-width: 100%;
+  z-index: 1;
+}
+
+.hero__title {
+  font-size: clamp(2rem, 4vw, 2.5rem) !important;
+  font-weight: 700 !important;
+  margin: 0 !important;
+  line-height: 1.2 !important;
+  padding: 0 !important;
+  color: var(--color-text-primary);
+  letter-spacing: -0.01em;
+}
+

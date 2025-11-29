@@ -1,0 +1,92 @@
+/* ============================================
+   Enhanced Sidebar - Make it smaller
+   ============================================ */
+
+#sidebar {
+  transition: transform var(--transition-base);
+  font-size: 0.85rem !important;
+}
+
+#sidebar .sidebar-bottom {
+  font-size: 0.8rem !important;
+  gap: 0.8rem !important;
+}
+
+/* Sidebar bottom icons - Simple purple circles, no animation */
+#sidebar .sidebar-bottom a {
+  background: var(--color-primary) !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border-radius: 50% !important;
+  opacity: 1 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 2.2rem !important;
+  height: 2.2rem !important;
+  min-width: 2.2rem !important;
+  min-height: 2.2rem !important;
+  max-width: 2.2rem !important;
+  max-height: 2.2rem !important;
+  flex-shrink: 0 !important;
+}
+
+#sidebar .sidebar-bottom a i,
+#sidebar .sidebar-bottom a svg {
+  font-size: 1rem !important;
+  width: 1rem !important;
+  height: 1rem !important;
+}
+
+#sidebar .sidebar-bottom a,
+#sidebar .sidebar-bottom a i,
+#sidebar .sidebar-bottom a svg,
+#sidebar .sidebar-bottom a svg path {
+  color: white !important;
+  fill: white !important;
+}
+
+/* No hover effects - keep same style */
+#sidebar .sidebar-bottom a:hover {
+  background: var(--color-primary) !important;
+}
+
+#sidebar .sidebar-bottom a:hover,
+#sidebar .sidebar-bottom a:hover i,
+#sidebar .sidebar-bottom a:hover svg,
+#sidebar .sidebar-bottom a:hover svg path {
+  color: white !important;
+  fill: white !important;
+}
+
+#sidebar .sidebar-bottom h3,
+#sidebar .sidebar-bottom .panel-heading {
+  font-size: 0.9rem !important;
+  padding: 0.5rem 0 !important;
+}
+
+#sidebar a {
+  transition: all var(--transition-fast);
+  border-radius: var(--radius-md);
+  padding: 0.4rem 0.8rem !important;
+  margin: 0.2rem 0;
+  font-size: 0.85rem !important;
+}
+
+#sidebar a:hover {
+  background: var(--color-surface-elevated);
+  transform: translateX(5px);
+}
+
+/* Make Recent Updated and Trending Tags more compact */
+#access-lastmod,
+#trending-tags {
+  margin-bottom: 1rem !important;
+}
+
+#access-lastmod .post-preview,
+#trending-tags a {
+  font-size: 0.8rem !important;
+  padding: 0.3rem 0.5rem !important;
+}
+

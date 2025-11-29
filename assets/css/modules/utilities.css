@@ -1,0 +1,17 @@
+/* ============================================
+   Utility Classes
+   ============================================ */
+
+.transition-all {
+  transition: all var(--transition-base);
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+

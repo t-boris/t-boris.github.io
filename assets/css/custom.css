@@ -1,0 +1,56 @@
+/**
+ * Custom Styles for blog.tsekinovsky.me
+ * Modern, Elegant, Animated
+ *
+ * This file imports all CSS modules to keep code organized and maintainable.
+ * Each module is under 250 lines for better readability.
+ */
+
+/* Core */
+@import 'modules/variables.css';
+@import 'modules/typography.css';
+
+/* Layout */
+@import 'modules/layout.css';
+@import 'modules/sidebar.css';
+@import 'modules/navbar.css';
+@import 'modules/progress-bar.css';
+
+/* Components */
+@import 'modules/buttons.css';
+@import 'modules/links.css';
+@import 'modules/tags.css';
+@import 'modules/images.css';
+@import 'modules/hero.css';
+@import 'modules/current-date.css';
+@import 'modules/toast.css';
+
+/* Posts */
+@import 'modules/post-cards.css';
+@import 'modules/post-filter.css';
+
+/* Events */
+@import 'modules/events-layout.css';
+@import 'modules/events-filters.css';
+@import 'modules/events-cards.css';
+@import 'modules/events-calendar.css';
+@import 'modules/events-archive.css';
+
+/* Code */
+@import 'modules/code-blocks.css';
+
+/* Effects */
+@import 'modules/glassmorphism.css';
+@import 'modules/gradient-text.css';
+@import 'modules/loading.css';
+
+/* Utilities */
+@import 'modules/utilities.css';
+@import 'modules/responsive.css';
+@import 'modules/smooth-scroll.css';
+@import 'modules/focus-visible.css';
+@import 'modules/scrollbar.css';
+@import 'modules/selection.css';
+
+/* Print */
+@import 'modules/print.css';

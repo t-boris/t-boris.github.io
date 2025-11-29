@@ -1,0 +1,31 @@
+/* ============================================
+   Print Styles
+   ============================================ */
+
+@media print {
+  .reading-progress,
+  #topbar-wrapper,
+  #sidebar,
+  .btn,
+  .code-copy-btn {
+    display: none !important;
+  }
+
+  body {
+    font-size: 12pt;
+    line-height: 1.6;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+
+  h1, h2, h3 {
+    page-break-after: avoid;
+  }
+
+  pre, code {
+    page-break-inside: avoid;
+  }
+}
+

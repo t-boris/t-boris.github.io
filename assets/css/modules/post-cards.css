@@ -1,0 +1,198 @@
+/* ============================================
+   Modern Post Cards - Emerald Clean Design
+   ============================================ */
+
+.card,
+.post-preview {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  height: auto !important;
+  border-radius: var(--radius-lg) !important;
+  overflow: hidden;
+  transition: all var(--transition-slow);
+  border: 1px solid transparent !important;
+  background: var(--color-surface);
+  margin-bottom: 0;
+  padding: 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.post-preview::before,
+.card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--color-primary);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.card:hover,
+.post-preview:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  border-color: transparent !important;
+}
+
+.card:hover::before,
+.post-preview:hover::before {
+  opacity: 1;
+}
+
+.card img,
+.post-preview img {
+  transition: transform 0.5s ease;
+}
+
+.card:hover img,
+.post-preview:hover img {
+  transform: scale(1.05);
+}
+
+/* Post Preview Image - Full width hero image */
+.post-preview__image {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  overflow: hidden;
+  background: var(--color-surface-elevated);
+}
+
+.post-preview__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.post-preview__image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top right, rgba(0, 0, 0, 0.4), transparent);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.post-preview:hover .post-preview__image::after {
+  opacity: 1;
+}
+
+/* Post Preview Content - Push categories/tags to bottom */
+.post-preview__content {
+  position: relative;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 1rem;
+  flex: 1 !important;
+  padding: 2rem !important;
+}
+
+.post-preview__title {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin: 0;
+  line-height: 1.3;
+  font-weight: 700;
+}
+
+.post-preview__title a {
+  color: var(--color-text-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.post-preview__title a:hover {
+  color: var(--color-primary);
+}
+
+/* Post Meta - Make it compact and single line */
+.post-meta {
+  font-size: 0.85rem !important;
+  color: var(--color-text-muted);
+  white-space: nowrap !important;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.post-meta i {
+  opacity: 0.6;
+  margin-right: 0.3rem;
+}
+
+.post-preview .post-meta {
+  font-size: 0.75rem !important;
+}
+
+/* Post Tags - Make them MUCH smaller */
+.post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.75rem !important;
+}
+
+.post-tags .tag {
+  font-size: 0.55rem !important;
+  padding: 0.1rem 0.3rem !important;
+  opacity: 0.7;
+  display: inline-block !important;
+  line-height: 1.2 !important;
+}
+
+/* Post Content - Clean excerpt */
+.post-preview .post-content {
+  flex: 1 !important;
+}
+
+.post-preview .post-content p {
+  font-size: 1.05rem !important;
+  line-height: 1.8 !important;
+  margin: 0 !important;
+  color: var(--color-text-secondary) !important;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Push categories and tags to bottom */
+.post-meta-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start !important;
+  justify-content: space-between;
+  margin-top: 1.35rem !important;
+  padding-top: 0.65rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  gap: 0.75rem;
+}
+
+.post-tags {
+  margin-bottom: 0 !important;
+}
+
+/* Single Column Post List (no max-width, uses core-wrapper width) */
+#post-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  width: 100%;
+  margin: 2rem 0;
+}
+
+@media (max-width: 768px) {
+  #post-list {
+    padding: 0 1rem;
+    gap: 2rem;
+  }
+
+  .post-preview__image {
+    height: 240px;
+  }
+}
