@@ -132,9 +132,35 @@ the machine.
 
 Here are some of the videos that came out of this experiment:
 
-- [Video 1](https://www.youtube.com/watch?v=o6filDUjmF8)
-- [Video 2](https://www.youtube.com/watch?v=byVUWekDfgM&t=21s)
-- [Video 3](https://www.youtube.com/watch?v=uhV7WH7RiG8)
+<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;max-width:100%;">
+  <iframe
+    style="position:absolute;top:0;left:0;width:100%;height:100%;"
+    src="https://www.youtube-nocookie.com/embed/o6filDUjmF8"
+    title="Russian poetry clip 1"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen></iframe>
+</div>
+
+<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;max-width:100%;margin-top:1rem;">
+  <iframe
+    style="position:absolute;top:0;left:0;width:100%;height:100%;"
+    src="https://www.youtube-nocookie.com/embed/byVUWekDfgM?start=21"
+    title="Russian poetry clip 2"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen></iframe>
+</div>
+
+<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;max-width:100%;margin-top:1rem;">
+  <iframe
+    style="position:absolute;top:0;left:0;width:100%;height:100%;"
+    src="https://www.youtube-nocookie.com/embed/uhV7WH7RiG8"
+    title="Russian poetry clip 3"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen></iframe>
+</div>
 
 Each combines my reading of Russian poetry with visuals generated using the
 tools above. They are different in mood but come from the same simple idea: give
