@@ -24,9 +24,9 @@ Then it went visual. NotebookLM generated **graphical representations of the mai
 
 And then there was the **video**. From the same documentation pile, NotebookLM generated an architecture explainer:
 
-<video controls style="width: 100%; max-width: 800px; margin: 2rem auto; display: block; border-radius: 8px;">
-  <source src="/videos/Luntra_s_Architecture.mp4" type="video/mp4">
-  Your browser does not support the video tag.
+<video controls preload="metadata" style="width: 100%; max-width: 800px; margin: 2rem auto; display: block; border-radius: 8px;" playsinline>
+  <source src="/videos/Luntra_s_Architecture.mp4" type="video/mp4; codecs=avc1.42E01E,mp4a.40.2">
+  <p>Your browser does not support HTML5 video. You can <a href="/videos/Luntra_s_Architecture.mp4">download the video</a> instead.</p>
 </video>
 
 The result wasn't some Hollywood trailer, but it was shockingly decent. It walked through the main components, explained the data flow, and highlighted the big ideas in a way that would take me hours to script and storyboard on my own.
