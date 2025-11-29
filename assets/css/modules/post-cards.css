@@ -4,23 +4,46 @@
 
 .card,
 .post-preview {
+  position: relative;
   display: flex;
-  flex-direction: column;
-  height: 100% !important;
-  min-height: 450px !important;
+  flex-direction: row;
+  gap: 1rem;
+  height: auto !important;
   border-radius: var(--radius-lg) !important;
   overflow: hidden;
-  transition: transform var(--transition-base), box-shadow var(--transition-base);
-  border: 1px solid var(--color-border) !important;
-  background: var(--color-surface) !important;
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+  border: 1px solid rgba(255, 255, 255, 0.04) !important;
+  background: linear-gradient(120deg, rgba(56, 189, 248, 0.05), rgba(8, 47, 73, 0.45));
+  backdrop-filter: blur(8px);
   margin-bottom: 0;
+  padding: 1rem;
+}
+
+.post-preview::before,
+.card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, rgba(56, 189, 248, 0.9), rgba(251, 191, 36, 0.8));
+  opacity: 0.3;
+  transition: opacity var(--transition-base), transform var(--transition-base);
+  transform: translateX(-6px);
 }
 
 .card:hover,
 .post-preview:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-xl);
-  border-color: var(--color-primary) !important;
+  transform: translateY(-3px);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
+  border-color: rgba(56, 189, 248, 0.45) !important;
+}
+
+.card:hover::before,
+.post-preview:hover::before {
+  opacity: 0.8;
+  transform: translateX(0);
 }
 
 .card img,
@@ -36,9 +59,13 @@
 /* Post Preview Image - Make cards more square */
 .post-preview__image {
   position: relative;
-  height: 180px;
+  width: 110px;
+  min-width: 110px;
+  height: 110px;
+  border-radius: var(--radius-md);
   overflow: hidden;
   background: var(--color-surface-elevated);
+  border: 1px solid rgba(255, 255, 255, 0.04);
 }
 
 .post-preview__image img {
@@ -51,7 +78,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+  background: linear-gradient(to top right, rgba(0, 0, 0, 0.4), transparent);
   opacity: 0;
   transition: opacity var(--transition-base);
 }
@@ -65,13 +92,15 @@
   position: relative;
   display: flex !important;
   flex-direction: column !important;
+  gap: 0.4rem;
   flex: 1 !important;
+  padding: 0 !important;
 }
 
 .post-preview__title {
-  font-size: var(--text-2xl);
-  margin: var(--spacing-md) 0;
-  line-height: 1.3;
+  font-size: var(--text-xl);
+  margin: 0.1rem 0;
+  line-height: 1.35;
 }
 
 .post-preview__title a {
@@ -86,9 +115,10 @@
 
 /* Post Meta - Make it compact and single line */
 .post-meta {
-  font-size: 0.85rem !important;
+  font-size: 0.9rem !important;
   color: var(--color-text-muted);
   white-space: nowrap !important;
+  letter-spacing: 0.01em;
 }
 
 .post-meta i {
@@ -122,20 +152,34 @@
 }
 
 .post-preview .post-content p {
-  font-size: 0.8rem !important;
-  line-height: 1.5 !important;
-  margin: 1rem 0 !important;
+  font-size: 0.95rem !important;
+  line-height: 1.6 !important;
+  margin: 0.35rem 0 !important;
   color: var(--color-text-primary) !important;
   max-height: none !important;
   overflow: visible !important;
+  opacity: 0.92;
 }
 
 /* Push categories and tags to bottom */
 .post-meta-footer {
-  margin-top: auto !important;
+  margin-top: 0.5rem !important;
+  gap: 0.5rem;
 }
 
 .post-tags {
   margin-bottom: 0 !important;
 }
 
+@media (max-width: 768px) {
+  .card,
+  .post-preview {
+    flex-direction: column;
+  }
+
+  .post-preview__image {
+    width: 100%;
+    min-width: auto;
+    height: 180px;
+  }
+}
