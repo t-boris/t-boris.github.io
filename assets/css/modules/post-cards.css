@@ -149,12 +149,13 @@
 /* Post Content - Smaller font, but MUCH more text */
 .post-preview .post-content {
   flex: 1 !important;
+  padding-bottom: 1.75rem;
 }
 
 .post-preview .post-content p {
   font-size: 0.95rem !important;
   line-height: 1.6 !important;
-  margin: 0.35rem 0 !important;
+  margin: 0.35rem 0 2.25rem !important; /* leave visual space for categories */
   color: var(--color-text-primary) !important;
   max-height: none !important;
   overflow: visible !important;
