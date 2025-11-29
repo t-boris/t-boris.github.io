@@ -2,34 +2,45 @@
    Main Content & Sidebar Layout Adjustments
    ============================================ */
 
-/* Professional Single Column Layout */
+/* Professional 2-Column Layout with Sidebar */
 #main-wrapper {
-  max-width: 100% !important;
+  max-width: 1400px !important;
   width: 100% !important;
-  padding: 0 !important;
+  margin: 0 auto !important;
+  padding: 0 2rem !important;
+  display: flex !important;
+  gap: 3rem !important;
 }
 
 #core-wrapper {
-  max-width: 100% !important;
-  flex: 1 1 100% !important;
-  padding: 0 !important;
+  flex: 1 1 70% !important;
+  max-width: 70% !important;
+  min-width: 0 !important;
 }
 
+/* Sidebar on the RIGHT */
 #panel-wrapper {
-  display: none !important;
+  display: block !important;
+  flex: 0 0 25% !important;
+  max-width: 25% !important;
+  position: sticky !important;
+  top: 6rem !important;
+  height: fit-content !important;
 }
 
-/* Always hide sidebar for clean professional look */
-.layout-home #core-wrapper,
-.layout-post #core-wrapper,
-.layout-page #core-wrapper {
-  max-width: 100% !important;
-  flex: 1 1 100% !important;
-  padding: 0 !important;
-}
+@media (max-width: 1024px) {
+  #main-wrapper {
+    flex-direction: column !important;
+  }
 
-.layout-home #panel-wrapper,
-.layout-post #panel-wrapper,
-.layout-page #panel-wrapper {
-  display: none !important;
+  #core-wrapper {
+    max-width: 100% !important;
+    flex: 1 1 100% !important;
+  }
+
+  #panel-wrapper {
+    max-width: 100% !important;
+    flex: 1 1 100% !important;
+    position: relative !important;
+  }
 }

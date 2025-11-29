@@ -58,7 +58,7 @@
 .post-preview__image {
   position: relative;
   width: 100%;
-  height: 400px;
+  height: 300px;
   border-radius: var(--radius-lg) var(--radius-lg) 0 0;
   overflow: hidden;
   background: var(--color-surface-elevated);
@@ -177,14 +177,13 @@
   margin-bottom: 0 !important;
 }
 
-/* Single Column Professional Layout */
+/* Single Column Post List (no max-width, uses core-wrapper width) */
 #post-list {
   display: flex;
   flex-direction: column;
   gap: 3rem;
-  max-width: 800px;
-  margin: 2rem auto;
-  padding: 0 2rem;
+  width: 100%;
+  margin: 2rem 0;
 }
 
 @media (max-width: 768px) {
