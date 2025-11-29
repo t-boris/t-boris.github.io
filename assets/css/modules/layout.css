@@ -2,37 +2,34 @@
    Main Content & Sidebar Layout Adjustments
    ============================================ */
 
-/* Make main content wider */
+/* Professional Single Column Layout */
 #main-wrapper {
-  max-width: 1400px !important;
+  max-width: 100% !important;
   width: 100% !important;
+  padding: 0 !important;
 }
 
 #core-wrapper {
-  max-width: 88% !important;
-  flex: 1 1 88% !important;
+  max-width: 100% !important;
+  flex: 1 1 100% !important;
+  padding: 0 !important;
 }
 
 #panel-wrapper {
-  max-width: 16% !important;
-  flex: 0 0 16% !important;
-  margin-left: 2% !important;
-}
-
-/* On home, use almost full width and hide the side panel for more real estate */
-.layout-home #core-wrapper {
-  max-width: 100% !important;
-  flex: 1 1 100% !important;
-  padding-right: 0 !important;
-}
-
-.layout-home #panel-wrapper {
   display: none !important;
 }
 
-/* Home post list as a single column */
-.layout-home #post-list {
-  display: flex !important;
-  flex-direction: column;
-  gap: 1.6rem;
+/* Always hide sidebar for clean professional look */
+.layout-home #core-wrapper,
+.layout-post #core-wrapper,
+.layout-page #core-wrapper {
+  max-width: 100% !important;
+  flex: 1 1 100% !important;
+  padding: 0 !important;
+}
+
+.layout-home #panel-wrapper,
+.layout-post #panel-wrapper,
+.layout-page #panel-wrapper {
+  display: none !important;
 }

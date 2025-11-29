@@ -1,14 +1,45 @@
 /* ============================================
-   Smart Navbar Enhancements
+   Professional Minimal Navbar
    ============================================ */
 
 #topbar-wrapper {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-background) !important;
 }
 
 #topbar-wrapper.navbar--scrolled {
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Hide search in topbar since we have filters in content */
+#topbar #search-trigger {
+  display: none !important;
+}
+
+/* Simplify topbar content */
+#topbar {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+#topbar-title {
+  font-weight: 700 !important;
+  font-size: 1.1rem !important;
+  letter-spacing: -0.01em;
+}
+
+/* Make nav links cleaner */
+#topbar .nav-link {
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color var(--transition-fast);
+}
+
+#topbar .nav-link:hover {
+  color: var(--color-primary) !important;
 }
 
