@@ -4,7 +4,7 @@ layout: page
 ---
 
 <!-- Hero Section -->
-<section class="hero" data-aos="fade-in" data-aos-duration="800">
+<section class="hero" data-aos="fade-in" data-aos-duration="600">
   <div class="hero__background"></div>
   <div class="hero__content">
     <h1 class="hero__title" data-aos="fade-up" data-aos-delay="100">
@@ -27,31 +27,8 @@ layout: page
 {% assign posts = posts | push: post %}
 {% endfor %}
 
-<!-- Current Date -->
-<div class="current-date" data-aos="fade-right">
-  <i class="far fa-calendar-alt"></i>
-  <span id="current-date-text"></span>
-</div>
-
 <!-- Post Filter and Sort -->
 {% include post-filter.html %}
-
-<!-- Trending Tags -->
-{% assign trending_tags = site.tags | sort %}
-<section class="trending-tags" data-aos="fade-up" data-aos-duration="600">
-  <div class="trending-tags__header">
-    <i class="fas fa-fire"></i>
-    <span>Trending tags</span>
-  </div>
-  <div class="trending-tags__list">
-    {% for tag in trending_tags limit: 12 %}
-    <a class="trending-tag" href="{{ '/tags/' | append: tag[0] | slugify | append: '/' | relative_url }}">
-      <span class="trending-tag__name">{{ tag[0] }}</span>
-      <span class="trending-tag__count">{{ tag[1].size }}</span>
-    </a>
-    {% endfor %}
-  </div>
-</section>
 
 <div id="post-list">
 
