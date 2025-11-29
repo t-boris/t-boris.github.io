@@ -137,6 +137,7 @@ But before that ensure that in your repository -> `Settings` `gh-pages` branch i
 
 Create file `./github/workflows/github-pages.yml` with content:
 
+{% raw %}
 ```yaml
 name: Build and deploy Jekyll site to GitHub Pages
 
@@ -170,6 +171,7 @@ jobs:
           actor: ''                  # Default is the GITHUB_ACTOR
           pre_build_commands: ''
 ```
+{% endraw %}
 
 ### Commit directory to the main branch 
 
@@ -194,7 +196,6 @@ Now the blog is available by URL: `https://<user-name>.github.io`
 Now each time I'll add Markup file to `_posts` directory the site will be updated, and it's available by custom DNS.
 
 Full code of the blog is available by URL [https://github.com/t-boris/t-boris.github.io](https://github.com/t-boris/t-boris.github.io)
-
 
 
 

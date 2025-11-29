@@ -37,7 +37,7 @@ layout: page
 {% include post-filter.html %}
 
 <!-- Trending Tags -->
-{% assign trending_tags = site.tags | sort: "last" | reverse %}
+{% assign trending_tags = site.tags | sort %}
 <section class="trending-tags" data-aos="fade-up" data-aos-duration="600">
   <div class="trending-tags__header">
     <i class="fas fa-fire"></i>
