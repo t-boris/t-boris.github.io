@@ -92,9 +92,9 @@
   position: relative;
   display: flex !important;
   flex-direction: column !important;
-  gap: 0.4rem;
+  gap: 0.6rem;
   flex: 1 !important;
-  padding: 0 !important;
+  padding: 0 0 0.35rem 0 !important;
 }
 
 .post-preview__title {
@@ -149,7 +149,7 @@
 /* Post Content - Smaller font, but MUCH more text */
 .post-preview .post-content {
   flex: 1 !important;
-  padding-bottom: 1.75rem;
+  padding-bottom: 2.25rem;
 }
 
 .post-preview .post-content p {
@@ -164,8 +164,12 @@
 
 /* Push categories and tags to bottom */
 .post-meta-footer {
-  margin-top: 0.5rem !important;
-  gap: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start !important;
+  justify-content: space-between;
+  margin-top: 1.25rem !important;
+  gap: 0.75rem;
 }
 
 .post-tags {
