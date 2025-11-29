@@ -3,6 +3,7 @@ title: 'System Design. Distributed Systems. Concepts'
 description: 'Collection of notes related to design of distributed software systems'
 pubDate: '2023-01-16'
 heroImage: ''
+tags: ['distributed-systems', 'architecture']
 ---
 
 This document contains some notes that I took while studying [educative.io course](https://www.educative.io/module/lOn30BIA1wV52NDAg/10370001/4527677663084544)

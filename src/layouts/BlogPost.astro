@@ -5,7 +5,6 @@ import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
-import TableOfContents from '../components/TableOfContents.astro';
 import Comments from '../components/Comments.astro';
 
 // Import default hero
@@ -15,49 +14,150 @@ type Props = CollectionEntry<'blog'>['data'] & {
 	headings?: any[];
 };
 
-const { title, description, pubDate, updatedDate, heroImage, headings } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, headings, tags } = Astro.props;
 ---
 
 <html lang="en">
 	<head>
 		<BaseHead title={title} description={description} />
 		<style>
+			body {
+				background: var(--bg, #020617);
+			}
 			main {
-				width: calc(100% - 2em);
+				width: 100%;
 				max-width: 100%;
 				margin: 0;
+				padding: 0;
 			}
 			.hero-image {
 				width: 100%;
+				max-height: 400px;
+				overflow: hidden;
 			}
 			.hero-image img {
 				display: block;
+				width: 100%;
+				height: 400px;
+				object-fit: cover;
+			}
+			.content-wrapper {
+				max-width: 1400px;
 				margin: 0 auto;
-				border-radius: 12px;
-				box-shadow: var(--box-shadow);
+				display: flex;
+				gap: 3rem;
+				padding: 2rem;
 			}
-			.prose {
-				width: 720px;
-				max-width: calc(100% - 2em);
-				margin: auto;
-				padding: 1em;
-				color: rgb(var(--gray-dark));
+			.article-content {
+				flex: 1;
+				max-width: 800px;
 			}
-			.title {
-				margin-bottom: 1em;
-				padding: 1em 0;
-				text-align: center;
-				line-height: 1;
+			.title-section {
+				margin-bottom: 2rem;
+				padding-bottom: 1rem;
+				border-bottom: 1px solid rgba(16, 185, 129, 0.2);
 			}
-			.title h1 {
-				margin: 0 0 0.5em 0;
+			.title-section h1 {
+				margin: 0 0 1rem 0;
+				font-size: 2.5rem;
+				line-height: 1.2;
+				color: rgb(var(--black));
 			}
 			.date {
-				margin-bottom: 0.5em;
+				margin-bottom: 0.5rem;
 				color: rgb(var(--gray));
+				font-size: 0.9rem;
+				text-transform: uppercase;
+				letter-spacing: 0.05em;
 			}
 			.last-updated-on {
 				font-style: italic;
+				margin-top: 0.25rem;
+			}
+			.post-tags {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.5rem;
+				margin-top: 1rem;
+			}
+			.post-tag {
+				padding: 0.35rem 0.85rem;
+				background: rgba(16, 185, 129, 0.1);
+				color: #10b981;
+				border-radius: 4px;
+				font-size: 0.85rem;
+				font-weight: 600;
+				border: 1px solid rgba(16, 185, 129, 0.3);
+			}
+			.prose {
+				color: rgb(var(--gray-dark));
+				font-size: 1.1rem;
+				line-height: 1.8;
+			}
+
+			/* Sidebar TOC */
+			.sidebar {
+				flex: 0 0 300px;
+				position: sticky;
+				top: 2rem;
+				height: fit-content;
+				max-height: calc(100vh - 4rem);
+				overflow-y: auto;
+			}
+			.toc {
+				background: rgb(var(--gray-light));
+				border-left: 4px solid #10b981;
+				padding: 1.5rem;
+				border-radius: 8px;
+			}
+			.toc h2 {
+				margin-top: 0;
+				margin-bottom: 1rem;
+				font-size: 1.25rem;
+				color: #10b981;
+			}
+			.toc ul {
+				list-style: none;
+				padding: 0;
+				margin: 0;
+			}
+			.toc li {
+				margin: 0.5rem 0;
+			}
+			.toc a {
+				text-decoration: none;
+				color: rgb(var(--gray-dark));
+				transition: color 0.2s;
+				font-size: 0.95rem;
+			}
+			.toc a:hover {
+				color: #10b981;
+			}
+
+			@media (max-width: 1024px) {
+				.content-wrapper {
+					flex-direction: column;
+					gap: 2rem;
+				}
+				.sidebar {
+					position: relative;
+					flex: none;
+					width: 100%;
+					max-height: none;
+					top: 0;
+				}
+				.article-content {
+					max-width: 100%;
+				}
+			}
+
+			@media (max-width: 768px) {
+				.content-wrapper {
+					padding: 1rem;
+				}
+				.title-section h1 {
+					font-size: 2rem;
+				}
 			}
 		</style>
 	</head>
@@ -67,25 +167,49 @@ const { title, description, pubDate, updatedDate, heroImage, headings } = Astro.
 		<main>
 			<article>
 				<div class="hero-image">
-					<Image width={1020} height={510} src={heroImage || defaultHero} alt={title} />
+					<Image width={1400} height={400} src={heroImage || defaultHero} alt={title} />
 				</div>
-				<div class="prose">
-					<div class="title">
-						<div class="date">
-							<FormattedDate date={pubDate} />
-							{
-								updatedDate && (
-									<div class="last-updated-on">
-										Last updated on <FormattedDate date={updatedDate} />
-									</div>
-								)
-							}
+				<div class="content-wrapper">
+					<div class="article-content">
+						<div class="title-section">
+							<div class="date">
+								<FormattedDate date={pubDate} />
+								{
+									updatedDate && (
+										<div class="last-updated-on">
+											Last updated on <FormattedDate date={updatedDate} />
+										</div>
+									)
+								}
+							</div>
+							<h1>{title}</h1>
+							{tags && tags.length > 0 && (
+								<div class="post-tags">
+									{tags.map(tag => (
+										<span class="post-tag">{tag}</span>
+									))}
+								</div>
+							)}
 						</div>
-						<h1>{title}</h1>
-						<hr />
+						<div class="prose">
+							<slot />
+						</div>
 					</div>
-					<TableOfContents headings={headings} />
-					<slot />
+
+					{headings && headings.length > 0 && (
+						<aside class="sidebar">
+							<nav class="toc">
+								<h2>Table of Contents</h2>
+								<ul>
+									{headings.map((heading: any) => (
+										<li style={`margin-left: ${(heading.depth - 2) * 1}rem`}>
+											<a href={`#${heading.slug}`}>{heading.text}</a>
+										</li>
+									))}
+								</ul>
+							</nav>
+						</aside>
+					)}
 				</div>
 			</article>
 			<Comments />

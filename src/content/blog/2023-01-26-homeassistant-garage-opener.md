@@ -3,6 +3,7 @@ title: 'Garage door opener with Home Assistant'
 description: 'Garage door opener with Shelly switch, sensors and Home Assistant '
 pubDate: '2023-01-11'
 heroImage: ''
+tags: ['homeassistant', 'automation', 'iot']
 ---
 
 # Problem definition

@@ -13,6 +13,9 @@ import defaultHero from '../assets/blog-placeholder-1.jpg';
 const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
+
+// Get all unique tags
+const allTags = [...new Set(posts.flatMap(post => post.data.tags || []))].sort();
 ---
 
 <!doctype html>
@@ -20,15 +23,63 @@ const posts = (await getCollection('blog')).sort(
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 		<style>
+			body {
+				background: var(--bg, #020617);
+			}
 			main {
-				max-width: 960px;
+				max-width: 1200px;
 				margin: 0 auto;
 				padding: 2rem 1rem;
+			}
+			.search-filter-section {
+				background: rgb(var(--gray-light));
+				border-radius: 12px;
+				padding: 2rem;
+				margin-bottom: 3rem;
+				border: 1px solid rgba(16, 185, 129, 0.2);
+			}
+			.search-box {
+				width: 100%;
+				padding: 1rem;
+				font-size: 1.1rem;
+				border-radius: 8px;
+				border: 2px solid rgba(16, 185, 129, 0.3);
+				background: var(--bg, #020617);
+				color: rgb(var(--gray-dark));
+				margin-bottom: 1.5rem;
+			}
+			.search-box:focus {
+				outline: none;
+				border-color: #10b981;
+			}
+			.tags-filter {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.75rem;
+			}
+			.tag-filter-btn {
+				padding: 0.5rem 1rem;
+				border-radius: 6px;
+				border: 1px solid rgba(16, 185, 129, 0.3);
+				background: var(--bg, #020617);
+				color: rgb(var(--gray));
+				cursor: pointer;
+				transition: all 0.2s;
+				font-size: 0.9rem;
+			}
+			.tag-filter-btn:hover {
+				background: rgba(16, 185, 129, 0.1);
+				border-color: #10b981;
+			}
+			.tag-filter-btn.active {
+				background: #10b981;
+				color: white;
+				border-color: #10b981;
 			}
 			.posts-grid {
 				display: flex;
 				flex-direction: column;
-				gap: 3rem;
+				gap: 2rem;
 				list-style-type: none;
 				margin: 0;
 				padding: 0;
@@ -42,10 +93,12 @@ const posts = (await getCollection('blog')).sort(
 				transition: all 0.3s ease;
 				text-decoration: none;
 				color: inherit;
+				border: 1px solid rgba(16, 185, 129, 0.1);
 			}
 			.post-card:hover {
 				transform: translateY(-4px);
-				box-shadow: var(--box-shadow);
+				box-shadow: 0 8px 24px rgba(16, 185, 129, 0.2);
+				border-color: #10b981;
 			}
 			.post-image {
 				flex: 0 0 280px;
@@ -84,8 +137,25 @@ const posts = (await getCollection('blog')).sort(
 				line-height: 1.6;
 				flex: 1;
 			}
+			.post-tags {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.5rem;
+				margin-top: 0.5rem;
+			}
+			.post-tag {
+				padding: 0.25rem 0.75rem;
+				background: rgba(16, 185, 129, 0.1);
+				color: #10b981;
+				border-radius: 4px;
+				font-size: 0.75rem;
+				font-weight: 600;
+			}
 			.post-card:hover .post-title {
-				color: rgb(var(--accent));
+				color: #10b981;
+			}
+			.post-card.hidden {
+				display: none;
 			}
 
 			@media (max-width: 768px) {
@@ -98,15 +168,33 @@ const posts = (await getCollection('blog')).sort(
 					width: 100%;
 					height: 200px;
 				}
+				.search-filter-section {
+					padding: 1rem;
+				}
 			}
 		</style>
 	</head>
 	<body>
 		<Header />
 		<main>
-			<ul class="posts-grid">
+			<div class="search-filter-section">
+				<input
+					type="text"
+					class="search-box"
+					id="search-input"
+					placeholder="Search posts..."
+				/>
+				<div class="tags-filter">
+					<button class="tag-filter-btn active" data-tag="all">All</button>
+					{allTags.map(tag => (
+						<button class="tag-filter-btn" data-tag={tag}>{tag}</button>
+					))}
+				</div>
+			</div>
+
+			<ul class="posts-grid" id="posts-list">
 				{posts.map((post) => (
-					<li>
+					<li class="post-item" data-tags={JSON.stringify(post.data.tags || [])}>
 						<a href={`/blog/${post.id}/`} class="post-card">
 							<div class="post-image">
 								<Image
@@ -125,6 +213,13 @@ const posts = (await getCollection('blog')).sort(
 								<p class="post-description">
 									{post.data.description}
 								</p>
+								{post.data.tags && post.data.tags.length > 0 && (
+									<div class="post-tags">
+										{post.data.tags.map(tag => (
+											<span class="post-tag">{tag}</span>
+										))}
+									</div>
+								)}
 							</div>
 						</a>
 					</li>
@@ -132,5 +227,54 @@ const posts = (await getCollection('blog')).sort(
 			</ul>
 		</main>
 		<Footer />
+
+		<script>
+			// Search functionality
+			const searchInput = document.getElementById('search-input');
+			const tagButtons = document.querySelectorAll('.tag-filter-btn');
+			const postItems = document.querySelectorAll('.post-item');
+
+			let activeTag = 'all';
+
+			// Search filter
+			searchInput?.addEventListener('input', (e) => {
+				const searchTerm = e.target.value.toLowerCase();
+				filterPosts(searchTerm, activeTag);
+			});
+
+			// Tag filter
+			tagButtons.forEach(btn => {
+				btn.addEventListener('click', () => {
+					// Update active tag
+					activeTag = btn.dataset.tag;
+
+					// Update button states
+					tagButtons.forEach(b => b.classList.remove('active'));
+					btn.classList.add('active');
+
+					// Filter posts
+					const searchTerm = searchInput?.value.toLowerCase() || '';
+					filterPosts(searchTerm, activeTag);
+				});
+			});
+
+			function filterPosts(searchTerm, tag) {
+				postItems.forEach(item => {
+					const card = item.querySelector('.post-card');
+					const title = item.querySelector('.post-title')?.textContent.toLowerCase() || '';
+					const description = item.querySelector('.post-description')?.textContent.toLowerCase() || '';
+					const tags = JSON.parse(item.dataset.tags || '[]');
+
+					const matchesSearch = !searchTerm || title.includes(searchTerm) || description.includes(searchTerm);
+					const matchesTag = tag === 'all' || tags.includes(tag);
+
+					if (matchesSearch && matchesTag) {
+						card?.classList.remove('hidden');
+					} else {
+						card?.classList.add('hidden');
+					}
+				});
+			}
+		</script>
 	</body>
 </html>
