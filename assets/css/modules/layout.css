@@ -2,19 +2,30 @@
    Main Content & Sidebar Layout Adjustments
    ============================================ */
 
-/* Make main content wider, sidebar narrower */
+/* Make main content wider */
 #main-wrapper {
-  max-width: none !important;
+  max-width: 1400px !important;
+  width: 100% !important;
 }
 
 #core-wrapper {
-  max-width: 75% !important;
-  flex: 0 0 75% !important;
+  max-width: 88% !important;
+  flex: 1 1 88% !important;
 }
 
 #panel-wrapper {
-  max-width: 22% !important;
-  flex: 0 0 22% !important;
-  margin-left: 3% !important;
+  max-width: 16% !important;
+  flex: 0 0 16% !important;
+  margin-left: 2% !important;
 }
 
+/* On home, use almost full width and hide the side panel for more real estate */
+.layout-home #core-wrapper {
+  max-width: 100% !important;
+  flex: 1 1 100% !important;
+  padding-right: 0 !important;
+}
+
+.layout-home #panel-wrapper {
+  display: none !important;
+}
