@@ -1,1 +1,978 @@
-{}
+{
+  "2025-11-28": [
+    {
+      "category": "News",
+      "title": "Road Closure on Grand Avenue",
+      "description": "Due to construction, Grand Avenue will be closed between Dilley's Road and Hunt Club Road. Plan alternate routes.",
+      "link": "https://www.gurnee.il.us/News/ItemID/1234",
+      "tags": [
+        "road closure",
+        "construction",
+        "traffic"
+      ],
+      "event_date": "2025-12-01",
+      "found_date": "2025-11-28"
+    },
+    {
+      "category": "Business",
+      "title": "New Coffee Shop Opening",
+      "description": "A new coffee shop, Brew & Co., is opening its doors in Gurnee Mills. Grand opening with free samples and live music.",
+      "link": "https://www.gurneemills.com/events/brew-co-grand-opening/",
+      "tags": [
+        "coffee",
+        "new business",
+        "grand opening"
+      ],
+      "event_date": "2025-12-05",
+      "found_date": "2025-11-28"
+    },
+    {
+      "category": "Politics",
+      "title": "Town Hall Meeting on Local Taxes",
+      "description": "The Gurnee Village Board is hosting a town hall to discuss the upcoming changes in local taxes and budget.",
+      "link": "https://www.gurnee.il.us/Events/ItemID/5678",
+      "tags": [
+        "taxes",
+        "town hall",
+        "local government"
+      ],
+      "event_date": "2025-12-10",
+      "found_date": "2025-11-28"
+    },
+    {
+      "category": "Manufacturing",
+      "title": "Expansion of ABC Manufacturing",
+      "description": "ABC Manufacturing announced plans to expand its facility in Gurnee, creating new jobs and increasing production capacity.",
+      "link": "https://www.lakecountyjournal.com/business/abc-manufacturing-expansion/",
+      "tags": [
+        "manufacturing",
+        "expansion",
+        "jobs"
+      ],
+      "event_date": "2025-11-28",
+      "found_date": "2025-11-28"
+    }
+  ],
+  "2025-11-26": [
+    {
+      "category": "Politics",
+      "title": "Gurnee City Council Meeting",
+      "description": "The Gurnee City Council will discuss upcoming budget proposals and community development projects.",
+      "link": "https://www.gurnee.il.us/government/city_council/meetings.php",
+      "tags": [
+        "city council",
+        "budget",
+        "development"
+      ],
+      "event_date": "2025-12-02",
+      "found_date": "2025-11-26"
+    }
+  ],
+  "2025-11-25": [
+    {
+      "category": "Community",
+      "title": "Gurnee Winter Festival",
+      "description": "Join the community for a day of winter fun including ice sculpting, hot cocoa stations, and live music at Viking Park.",
+      "link": "https://www.gurneeparkdistrict.com/events/winter-festival/",
+      "tags": [
+        "winter",
+        "festival",
+        "community"
+      ],
+      "event_date": "2025-12-15",
+      "found_date": "2025-11-29"
+    },
+    {
+      "category": "Business",
+      "title": "New Coffee Shop Opening",
+      "description": "A new local coffee shop, Brew & Co., is opening its doors on Grand Avenue, offering specialty drinks and pastries.",
+      "link": "https://www.gurneechamber.com/business-directory/",
+      "tags": [
+        "coffee",
+        "new business",
+        "opening"
+      ],
+      "event_date": "2025-12-05",
+      "found_date": "2025-11-25"
+    }
+  ],
+  "2025-11-24": [
+    {
+      "category": "News",
+      "title": "Road Closure on Grand Avenue",
+      "description": "Due to construction, Grand Avenue will be closed from November 30th to December 3rd. Please plan alternate routes.",
+      "link": "https://www.gurneenews.com/road-closure",
+      "tags": [
+        "road",
+        "closure",
+        "construction"
+      ],
+      "event_date": "2025-11-30",
+      "found_date": "2025-11-27"
+    },
+    {
+      "category": "Politics",
+      "title": "Gurnee City Council Meeting",
+      "description": "The next Gurnee City Council meeting will discuss local budget allocations and community development projects. Open to the public.",
+      "link": "https://www.gurnee.il.us/city-council",
+      "tags": [
+        "city",
+        "council",
+        "meeting"
+      ],
+      "event_date": "2025-12-02",
+      "found_date": "2025-11-27"
+    }
+  ],
+  "2025-11-22": [
+    {
+      "category": "News",
+      "title": "Traffic Accident on Route 41",
+      "description": "A multi-vehicle accident occurred on Route 41 near Gurnee. Police are advising drivers to seek alternate routes due to road closures.",
+      "link": "https://www.lakecountyjournal.com/traffic-accident-route-41",
+      "tags": [
+        "accident",
+        "traffic",
+        "safety"
+      ],
+      "event_date": "2025-11-22",
+      "found_date": "2025-11-22"
+    },
+    {
+      "category": "Business",
+      "title": "New Coffee Shop Opening",
+      "description": "A new coffee shop, Brew & Co., is opening its doors in Gurnee. They will offer a variety of specialty drinks and pastries.",
+      "link": "https://www.gurneenews.com/new-coffee-shop-opening",
+      "tags": [
+        "coffee",
+        "new business",
+        "opening"
+      ],
+      "event_date": "2025-12-01",
+      "found_date": "2025-11-22"
+    },
+    {
+      "category": "Manufacturing",
+      "title": "Expansion of Gurnee Industrial Park",
+      "description": "The Gurnee Industrial Park is set to expand, adding new facilities and creating job opportunities in the manufacturing sector.",
+      "link": "https://www.industrialnews.com/gurnee-industrial-park-expansion",
+      "tags": [
+        "industrial",
+        "expansion",
+        "manufacturing"
+      ],
+      "event_date": "2025-11-22",
+      "found_date": "2025-11-22"
+    }
+  ],
+  "2025-11-21": [
+    {
+      "category": "Business",
+      "title": "New Coffee Shop Opening",
+      "description": "A new coffee shop, 'Brew & Co.', is opening its doors in Gurnee. They will offer a variety of specialty drinks and pastries.",
+      "link": "https://www.brewandco.com/opening",
+      "tags": [
+        "coffee",
+        "shop",
+        "opening"
+      ],
+      "event_date": "2025-12-10",
+      "found_date": "2025-11-27"
+    },
+    {
+      "category": "Manufacturing",
+      "title": "Expansion of Gurnee Industrial Park",
+      "description": "Gurnee Industrial Park announces a major expansion, adding new facilities and creating job opportunities in the area.",
+      "link": "https://www.gurneeindustrialpark.com/expansion",
+      "tags": [
+        "industrial",
+        "expansion",
+        "jobs"
+      ],
+      "event_date": "2025-11-27",
+      "found_date": "2025-11-27"
+    }
+  ],
+  "2025-11-20": [
+    {
+      "category": "Community",
+      "title": "Gurnee Holiday Market",
+      "description": "Join the Gurnee Holiday Market for a day of shopping local crafts, enjoying seasonal treats, and festive activities. Located at Viking Park, this event is perfect for holiday shopping and family fun.",
+      "link": "https://www.gurneeparkdistrict.com/events/holiday-market/",
+      "tags": [
+        "holiday",
+        "market",
+        "family"
+      ],
+      "event_date": "2025-12-05",
+      "found_date": "2025-11-20"
+    }
+  ],
+  "2025-11-19": [
+    {
+      "category": "Community",
+      "title": "Gurnee Holiday Market",
+      "description": "Join the Gurnee Holiday Market for a day of shopping local crafts, enjoying seasonal treats, and festive activities. The event is free and open to the public.",
+      "link": "https://www.gurneeholidaymarket.com",
+      "tags": [
+        "holiday",
+        "market",
+        "community"
+      ],
+      "event_date": "2025-12-05",
+      "found_date": "2025-11-27"
+    },
+    {
+      "category": "News",
+      "title": "Traffic Accident on Route 41",
+      "description": "A multi-vehicle accident occurred on Route 41 near Gurnee, causing significant traffic delays. No serious injuries reported.",
+      "link": "https://www.chicagotribune.com/local/gurnee-accident-20251119",
+      "tags": [
+        "accident",
+        "traffic",
+        "safety"
+      ],
+      "event_date": "2025-11-19",
+      "found_date": "2025-11-19"
+    },
+    {
+      "category": "Business",
+      "title": "New Coffee Shop Opening",
+      "description": "A new coffee shop, 'Brew & Co.', is opening its doors in downtown Gurnee, offering specialty drinks and pastries.",
+      "link": "https://www.gurneenews.com/new-coffee-shop-2025",
+      "tags": [
+        "coffee",
+        "new business",
+        "opening"
+      ],
+      "event_date": "2025-11-28",
+      "found_date": "2025-11-19"
+    },
+    {
+      "category": "Manufacturing",
+      "title": "Expansion of Gurnee Industrial Park",
+      "description": "The Gurnee Industrial Park is set to expand, adding new facilities and creating job opportunities in the area.",
+      "link": "https://www.gurneeindustry.com/expansion-2025",
+      "tags": [
+        "industrial",
+        "expansion",
+        "jobs"
+      ],
+      "event_date": "2026-01-15",
+      "found_date": "2025-11-19"
+    }
+  ],
+  "2025-11-18": [
+    {
+      "category": "Community",
+      "title": "Gurnee Holiday Market",
+      "description": "Join the Gurnee Holiday Market for a day of shopping local crafts, enjoying seasonal treats, and festive activities. The event is free and open to the public.",
+      "link": "https://www.gurneeholidaymarket.com/event-details",
+      "tags": [
+        "holiday",
+        "market",
+        "community"
+      ],
+      "event_date": "2025-12-05",
+      "found_date": "2025-11-18"
+    },
+    {
+      "category": "News",
+      "title": "Traffic Accident on Route 41",
+      "description": "A multi-vehicle accident occurred on Route 41 near Gurnee. Police are investigating and advise avoiding the area.",
+      "link": "https://www.lakecountynews.com/traffic-accident-route-41",
+      "tags": [
+        "accident",
+        "traffic",
+        "police"
+      ],
+      "event_date": "2025-11-23",
+      "found_date": "2025-11-23"
+    },
+    {
+      "category": "Politics",
+      "title": "Gurnee City Council Meeting",
+      "description": "The Gurnee City Council will discuss upcoming budget proposals and community development projects.",
+      "link": "https://www.gurnee.il.us/city-council-meeting",
+      "tags": [
+        "city council",
+        "budget",
+        "development"
+      ],
+      "event_date": "2025-11-30",
+      "found_date": "2025-11-23"
+    },
+    {
+      "category": "Business",
+      "title": "Grand Opening of Gurnee Tech Hub",
+      "description": "Celebrate the grand opening of Gurnee's new technology hub, featuring tours, tech demonstrations, and networking opportunities for local entrepreneurs.",
+      "link": "https://www.gurneetechhub.com/grand-opening",
+      "tags": [
+        "business",
+        "technology",
+        "grand opening"
+      ],
+      "event_date": "2025-11-22",
+      "found_date": "2025-11-18"
+    },
+    {
+      "category": "Manufacturing",
+      "title": "Expansion of Gurnee Manufacturing Plant",
+      "description": "Gurnee Manufacturing Inc. announces the expansion of its facility, expected to create 50 new jobs and increase production capacity.",
+      "link": "https://www.gurneemanufacturing.com/expansion-announcement",
+      "tags": [
+        "manufacturing",
+        "expansion",
+        "jobs"
+      ],
+      "event_date": "2025-11-18",
+      "found_date": "2025-11-18"
+    }
+  ],
+  "2025-11-17": [
+    {
+      "category": "Community",
+      "title": "Gurnee Community Thanksgiving Dinner",
+      "description": "Join the Gurnee community for a free Thanksgiving dinner at the local community center. All are welcome to share in the festivities and enjoy a warm meal together.",
+      "link": "https://www.gurneecommunitycenter.org/events/thanksgiving-dinner",
+      "tags": [
+        "Thanksgiving",
+        "community",
+        "dinner"
+      ],
+      "event_date": "2025-11-28",
+      "found_date": "2025-11-17"
+    },
+    {
+      "category": "Entertainment",
+      "title": "Winter Lights Festival",
+      "description": "Experience the magic of the Winter Lights Festival at Six Flags Great America. Enjoy dazzling light displays, live performances, and seasonal treats.",
+      "link": "https://www.sixflags.com/greatamerica/events/winter-lights",
+      "tags": [
+        "festival",
+        "lights",
+        "winter"
+      ],
+      "event_date": "2025-12-01",
+      "found_date": "2025-11-17"
+    },
+    {
+      "category": "News",
+      "title": "Traffic Accident on Route 41",
+      "description": "A multi-vehicle accident occurred on Route 41 near Gurnee. Police are advising drivers to seek alternative routes due to road closures.",
+      "link": "https://www.chicagotribune.com/news/local/breaking/ct-gurnee-accident-route-41-20251117-story.html",
+      "tags": [
+        "accident",
+        "traffic",
+        "police"
+      ],
+      "event_date": "2025-11-17",
+      "found_date": "2025-11-17"
+    },
+    {
+      "category": "Politics",
+      "title": "Gurnee City Council Meeting",
+      "description": "The Gurnee City Council will hold its regular meeting to discuss local governance issues, including budget planning and community development projects.",
+      "link": "https://www.gurnee.il.us/government/city-council/meetings",
+      "tags": [
+        "city council",
+        "meeting",
+        "politics"
+      ],
+      "event_date": "2025-11-20",
+      "found_date": "2025-11-17"
+    },
+    {
+      "category": "Business",
+      "title": "Grand Opening of Gurnee Tech Hub",
+      "description": "Celebrate the grand opening of Gurnee's new technology hub, featuring tours, tech demonstrations, and networking opportunities for local entrepreneurs and businesses.",
+      "link": "https://www.gurneetechhub.com/events/grand-opening",
+      "tags": [
+        "technology",
+        "business",
+        "grand opening"
+      ],
+      "event_date": "2025-11-25",
+      "found_date": "2025-11-17"
+    },
+    {
+      "category": "Manufacturing",
+      "title": "Expansion of Gurnee Industrial Park",
+      "description": "Gurnee Industrial Park announces a major expansion project, adding new facilities and creating job opportunities in the manufacturing sector.",
+      "link": "https://www.gurneeindustrialpark.com/news/expansion-2025",
+      "tags": [
+        "manufacturing",
+        "expansion",
+        "jobs"
+      ],
+      "event_date": "2025-12-15",
+      "found_date": "2025-11-17"
+    }
+  ],
+  "2025-11-15": [
+    {
+      "category": "Business",
+      "title": "New Coffee Shop Opening",
+      "description": "A new artisan coffee shop, Brew & Co., is opening its doors in downtown Gurnee with a grand opening event.",
+      "link": "https://www.gurneechamber.com/new-businesses/",
+      "tags": [
+        "business",
+        "coffee",
+        "opening"
+      ],
+      "event_date": "2025-11-22",
+      "found_date": "2025-11-15"
+    }
+  ],
+  "2025-11-14": [
+    {
+      "category": "Politics",
+      "title": "Gurnee City Council Meeting",
+      "description": "The Gurnee City Council will discuss upcoming budget proposals and community development projects.",
+      "link": "https://www.gurnee.il.us/185/City-Council",
+      "tags": [
+        "city council",
+        "politics",
+        "budget"
+      ],
+      "event_date": "2025-11-18",
+      "found_date": "2025-11-14"
+    }
+  ],
+  "2025-11-13": [
+    {
+      "category": "Politics",
+      "title": "Gurnee City Council Meeting",
+      "description": "The Gurnee City Council will discuss upcoming budget proposals and community development projects.",
+      "link": "https://www.gurnee.il.us/281/City-Council",
+      "tags": [
+        "city council",
+        "politics",
+        "budget"
+      ],
+      "event_date": "2025-11-18",
+      "found_date": "2025-11-13"
+    }
+  ],
+  "2025-11-12": [
+    {
+      "category": "Politics",
+      "title": "Gurnee City Council Meeting",
+      "description": "The Gurnee City Council will discuss upcoming budget proposals and community development projects.",
+      "link": "https://www.gurnee.il.us/289/City-Council",
+      "tags": [
+        "city council",
+        "politics",
+        "budget"
+      ],
+      "event_date": "2025-11-13",
+      "found_date": "2025-11-12"
+    },
+    {
+      "category": "Manufacturing",
+      "title": "Expansion of Local Factory",
+      "description": "A local manufacturing plant in Gurnee is expanding its facilities, expected to create new job opportunities.",
+      "link": "https://www.manufacturing.net/",
+      "tags": [
+        "manufacturing",
+        "expansion",
+        "jobs"
+      ],
+      "event_date": "2025-11-12",
+      "found_date": "2025-11-12"
+    }
+  ],
+  "2025-11-10": [
+    {
+      "category": "Manufacturing",
+      "title": "Expansion of Gurnee Industrial Park",
+      "description": "The Gurnee Industrial Park is undergoing a significant expansion, adding new facilities and creating job opportunities in the manufacturing sector.",
+      "link": "https://www.lakecountyil.gov/",
+      "tags": [
+        "industrial",
+        "expansion",
+        "jobs"
+      ],
+      "event_date": "2025-11-20",
+      "found_date": "2025-11-20"
+    }
+  ],
+  "2025-11-07": [
+    {
+      "category": "Politics",
+      "title": "Gurnee Town Hall Meeting",
+      "description": "Local officials will discuss upcoming projects and community issues at the Gurnee Village Hall. Public is invited to attend.",
+      "link": "https://www.gurnee.il.us/",
+      "tags": [
+        "politics",
+        "town hall",
+        "community"
+      ],
+      "event_date": "2025-11-12",
+      "found_date": "2025-11-07"
+    }
+  ],
+  "2025-11-06": [
+    {
+      "category": "News",
+      "title": "Traffic Accident on Route 41",
+      "description": "A multi-vehicle accident occurred on Route 41 near Gurnee, causing significant traffic delays. Police are investigating.",
+      "link": "https://www.chicagotribune.com/news/local/breaking/ct-accident-route-41-gurnee-20251106-story.html",
+      "tags": [
+        "accident",
+        "traffic",
+        "safety"
+      ],
+      "event_date": "2025-11-06",
+      "found_date": "2025-11-06"
+    },
+    {
+      "category": "Politics",
+      "title": "Gurnee City Council Meeting",
+      "description": "The Gurnee City Council will discuss upcoming budget proposals and community development projects.",
+      "link": "https://www.gurnee.il.us/government/city_council/meetings/",
+      "tags": [
+        "city council",
+        "politics",
+        "budget"
+      ],
+      "event_date": "2025-11-10",
+      "found_date": "2025-11-06"
+    },
+    {
+      "category": "Business",
+      "title": "New Coffee Shop Opening",
+      "description": "A new local coffee shop, Brew & Co., is set to open its doors in downtown Gurnee, offering specialty drinks and pastries.",
+      "link": "https://www.dailyherald.com/business/new-coffee-shop-in-gurnee/",
+      "tags": [
+        "business",
+        "coffee",
+        "opening"
+      ],
+      "event_date": "2025-11-20",
+      "found_date": "2025-11-06"
+    },
+    {
+      "category": "Manufacturing",
+      "title": "Expansion of Gurnee Industrial Park",
+      "description": "The Gurnee Industrial Park is undergoing an expansion to accommodate new manufacturing facilities, expected to create over 100 jobs.",
+      "link": "https://www.lakecountygazette.com/business/industrial-park-expansion/",
+      "tags": [
+        "manufacturing",
+        "expansion",
+        "jobs"
+      ],
+      "event_date": "2025-11-06",
+      "found_date": "2025-11-06"
+    }
+  ],
+  "2025-11-05": [
+    {
+      "category": "Politics",
+      "title": "Gurnee Town Hall Meeting",
+      "description": "Local officials will discuss upcoming projects and community concerns at the Gurnee Village Hall.",
+      "link": "https://www.gurnee.il.us/calendar/",
+      "tags": [
+        "politics",
+        "town hall",
+        "community"
+      ],
+      "event_date": "2025-11-10",
+      "found_date": "2025-11-05"
+    },
+    {
+      "category": "Business",
+      "title": "New Coffee Shop Opening",
+      "description": "A new artisan coffee shop, Brew & Co., is opening its doors in downtown Gurnee with a grand opening event.",
+      "link": "https://www.dailyherald.com/",
+      "tags": [
+        "coffee",
+        "new business",
+        "opening"
+      ],
+      "event_date": "2025-12-05",
+      "found_date": "2025-11-29"
+    },
+    {
+      "category": "Manufacturing",
+      "title": "Expansion of Local Factory",
+      "description": "The ABC Manufacturing plant in Gurnee is expanding its facilities, expected to create 50 new jobs.",
+      "link": "https://www.lakecountyjournal.com/",
+      "tags": [
+        "manufacturing",
+        "expansion",
+        "jobs"
+      ],
+      "event_date": "2025-11-29",
+      "found_date": "2025-11-29"
+    }
+  ],
+  "2025-11-04": [
+    {
+      "category": "Politics",
+      "title": "Gurnee Town Hall Meeting",
+      "description": "Local officials will discuss upcoming projects and community concerns at the Gurnee Village Hall.",
+      "link": "https://www.gurnee.il.us/calendar.aspx?EID=1234",
+      "tags": [
+        "politics",
+        "town hall",
+        "community"
+      ],
+      "event_date": "2025-11-10",
+      "found_date": "2025-11-04"
+    },
+    {
+      "category": "Business",
+      "title": "Grand Opening of Gurnee Tech Hub",
+      "description": "Celebrate the opening of a new technology hub in Gurnee, featuring tours, networking, and a ribbon-cutting ceremony.",
+      "link": "https://www.gurneetechhub.com/events/grand-opening/",
+      "tags": [
+        "business",
+        "technology",
+        "grand opening"
+      ],
+      "event_date": "2025-11-15",
+      "found_date": "2025-11-04"
+    }
+  ],
+  "2025-11-03": [
+    {
+      "category": "Politics",
+      "title": "Gurnee City Council Meeting",
+      "description": "The Gurnee City Council will meet to discuss local ordinances and community development plans.",
+      "link": "https://www.gurnee.il.us/218/City-Council",
+      "tags": [
+        "city council",
+        "meeting",
+        "politics"
+      ],
+      "event_date": "2025-11-10",
+      "found_date": "2025-11-03"
+    },
+    {
+      "category": "Business",
+      "title": "Grand Opening of Gurnee Tech Hub",
+      "description": "Celebrate the opening of Gurnee's new technology hub, featuring tours, tech demos, and networking opportunities.",
+      "link": "https://www.gurneechamber.com/events/",
+      "tags": [
+        "business",
+        "technology",
+        "grand opening"
+      ],
+      "event_date": "2025-11-15",
+      "found_date": "2025-11-03"
+    }
+  ],
+  "2025-11-02": [
+    {
+      "category": "News",
+      "title": "Village of Grayslake — Civic Alerts (News Flash)",
+      "description": "CivicAlerts page listing the village's current events, reminders, and community notifications. Residents can review recent and ongoing notices including roadwork, public meetings, and service updates. ",
+      "link": "https://www.villageofgrayslake.com/CivicAlerts.aspx?sort=date",
+      "tags": [
+        "alerts",
+        "public notices",
+        "village updates",
+        "Grayslake"
+      ],
+      "event_date": "2025-11-02",
+      "found_date": "2025-11-02"
+    },
+    {
+      "category": "Culture",
+      "title": "Grayslake Central to Present 'Sideways Stories' Production",
+      "description": "Grayslake Central High School will be presenting a theatrical production of 'Sideways Stories' as part of their cultural programming. This event showcases student talent and creativity.",
+      "link": "https://patch.com/illinois/grayslake/grayslake-central-to-present-sideways-stories-production",
+      "tags": [
+        "theater",
+        "students",
+        "Grayslake"
+      ],
+      "event_date": "2025-11-02",
+      "found_date": "2025-11-02"
+    },
+    {
+      "category": "Entertainment",
+      "title": "Visit Lake County — Regional Events Calendar",
+      "description": "Visit Lake County's events calendar aggregates festivals, performances, and seasonal attractions across Lake County. Use this calendar to find upcoming entertainment, family activities, and ticketed events. ",
+      "link": "https://www.visitlakecounty.org/events",
+      "tags": [
+        "Lake County",
+        "calendar",
+        "festivals",
+        "tourism"
+      ],
+      "event_date": "2025-11-02",
+      "found_date": "2025-11-02"
+    },
+    {
+      "category": "News",
+      "title": "Medline Celebrates New Flagship Distribution Center in Grayslake",
+      "description": "Medline has opened a new flagship distribution center in Grayslake, enhancing local employment opportunities and supporting the community's economy.",
+      "link": "https://newsroom.medline.com/company-news/medline-celebrates-new-flagship-distribution-center-in-grayslake-illinois/",
+      "tags": [
+        "business",
+        "employment",
+        "Grayslake"
+      ],
+      "event_date": "2022-08-03",
+      "found_date": "2025-11-02"
+    },
+    {
+      "category": "Community",
+      "title": "Grayslake Community Garden",
+      "description": "The Grayslake Community Garden is a local initiative aimed at promoting gardening and community involvement. Residents are encouraged to participate and grow their own plants in a supportive environment.",
+      "link": "https://www.villageofgrayslake.com/CivicAlerts.aspx",
+      "tags": [
+        "community",
+        "gardening",
+        "Grayslake"
+      ],
+      "event_date": "2025-11-02",
+      "found_date": "2025-11-02"
+    },
+    {
+      "category": "Business",
+      "title": "Building Pathways: Grayslake D127's Summer Manufacturing Camps",
+      "description": "Grayslake D127 is hosting summer manufacturing camps aimed at empowering students and strengthening ties with the local industry. This initiative focuses on education and career readiness.",
+      "link": "https://www.lakecountypartners.com/building-pathways-grayslake-d127s-summer-manufacturing-camps-empower-students-and-strengthen-industry-ties/",
+      "tags": [
+        "education",
+        "manufacturing",
+        "students"
+      ],
+      "event_date": "2025-08-25",
+      "found_date": "2025-11-02"
+    },
+    {
+      "category": "Business",
+      "title": "Grayslake Chamber of Commerce — Events & Business Programming",
+      "description": "Grayslake Chamber provides networking, promotional programs, and an events calendar for local businesses and community members. Visit the chamber site for upcoming mixers, expos, and member events. ",
+      "link": "https://grayslakechamber.com/",
+      "tags": [
+        "chamber",
+        "business",
+        "networking",
+        "events"
+      ],
+      "event_date": "2025-11-02",
+      "found_date": "2025-11-02"
+    },
+    {
+      "category": "Manufacturing",
+      "title": "Governor Pritzker announces Cache Energy expansion in Illinois",
+      "description": "State press release: Cache Energy plans an expansion that includes new manufacturing equipment and an on-site production line, emphasizing use of Illinois-based vendors and boosting local workforce opportunities. The announcement highlights state support for manufacturing growth in the region.",
+      "link": "https://www.illinois.gov/news/release.html",
+      "tags": [
+        "manufacturing",
+        "economic development",
+        "jobs",
+        "Cache Energy"
+      ],
+      "event_date": "2025-11-02",
+      "found_date": "2025-11-02"
+    },
+    {
+      "category": "Community",
+      "title": "SWALCO — Shoes, Shred, and Seeds Partnership with Village of Wauconda",
+      "description": "The Solid Waste Agency of Lake County (SWALCO) is partnering with the Village of Wauconda on a Shoes, Shred, and Seeds community recycling event. Check SWALCO for scheduling, drop-off details, and participation instructions. ",
+      "link": "https://www.swalco.org/",
+      "tags": [
+        "recycling",
+        "community event",
+        "Wauconda",
+        "SWALCO"
+      ],
+      "event_date": "2025-11-02",
+      "found_date": "2025-11-02"
+    },
+    {
+      "category": "Business",
+      "title": "Grayslake Central Range Development — Project Updates",
+      "description": "Village page for the Central Range area outlines ongoing development plans expected to generate significant property tax revenue and economic activity. The project page provides updates on planning, approvals, and anticipated local impacts. ",
+      "link": "https://www.villageofgrayslake.com/100/Central-Range",
+      "tags": [
+        "development",
+        "economic development",
+        "Grayslake",
+        "planning"
+      ],
+      "event_date": "2025-11-02",
+      "found_date": "2025-11-02"
+    },
+    {
+      "category": "News",
+      "title": "College of Lake County — News & Events (Grayslake Campus)",
+      "description": "College of Lake County posts campus news, exhibitions, and upcoming programs at its Grayslake campus and other sites. The news & events page lists academic events, community offerings, and public lectures. ",
+      "link": "https://www.clcillinois.edu/news-and-events",
+      "tags": [
+        "education",
+        "college events",
+        "Grayslake",
+        "community"
+      ],
+      "event_date": "2025-11-02",
+      "found_date": "2025-11-02"
+    },
+    {
+      "category": "Community",
+      "title": "Grayslake Community Grant Program",
+      "description": "Ongoing Village of Grayslake program providing public support to local nonprofit organizations delivering services to residents. Application and program details are maintained on the village site for upcoming grant cycles. ",
+      "link": "http://www.villageofgrayslake.com/588/Community-Grant-Program",
+      "tags": [
+        "grant",
+        "nonprofit",
+        "funding",
+        "community"
+      ],
+      "event_date": "2025-11-02",
+      "found_date": "2025-11-02"
+    },
+    {
+      "category": "Culture",
+      "title": "Lake County Forest Preserves — Events & Recreation",
+      "description": "Lake County Forest Preserves maintains listings of nature programs, facility reservations, and seasonal events across county preserves. Check the site for upcoming guided hikes, educational programs, and outdoor events. ",
+      "link": "https://www.lcfpd.org/",
+      "tags": [
+        "outdoors",
+        "nature programs",
+        "Lake County",
+        "events"
+      ],
+      "event_date": "2025-11-02",
+      "found_date": "2025-11-02"
+    },
+    {
+      "category": "Entertainment",
+      "title": "Kristof's Entertainment Center — Ongoing Attractions & Special Events",
+      "description": "Kristof's in Round Lake Beach is a family entertainment complex offering go-karts, bowling, mini golf, arcades and regular special events or group packages. The venue lists current promotions and event nights on its site.",
+      "link": "https://www.kristofs.net/",
+      "tags": [
+        "entertainment",
+        "family",
+        "attractions"
+      ],
+      "event_date": "2025-11-02",
+      "found_date": "2025-11-02"
+    },
+    {
+      "category": "Community",
+      "title": "Village of Grayslake — News & Trending Topics",
+      "description": "Official Village of Grayslake news page with current announcements, community updates, and municipal information. Check the site for rotating alerts, seasonal programs, and upcoming local items. ",
+      "link": "https://www.villageofgrayslake.com/",
+      "tags": [
+        "Grayslake",
+        "municipal",
+        "announcements",
+        "community"
+      ],
+      "event_date": "2025-11-02",
+      "found_date": "2025-11-02"
+    },
+    {
+      "category": "Community",
+      "title": "Wauconda Area Chamber — Community Events Calendar",
+      "description": "Local events calendar listing business and community events in the Wauconda area, including expos, park district activities, and seasonal programming. Use the calendar to discover upcoming local happenings and registration info. ",
+      "link": "https://business.waucondachamber.org/events/catgid/3",
+      "tags": [
+        "Wauconda",
+        "calendar",
+        "community events",
+        "chamber"
+      ],
+      "event_date": "2025-11-02",
+      "found_date": "2025-11-02"
+    },
+    {
+      "category": "Community",
+      "title": "Gurnee Fall Festival",
+      "description": "Join the community for a day of fun with local vendors, live music, and family-friendly activities at Viking Park.",
+      "link": "https://www.gurneeparkdistrict.com/events/fall-festival/",
+      "tags": [
+        "festival",
+        "community",
+        "family"
+      ],
+      "event_date": "2025-11-20",
+      "found_date": "2025-11-16"
+    },
+    {
+      "category": "News",
+      "title": "Traffic Accident on Route 41",
+      "description": "A multi-vehicle accident occurred on Route 41 near Grand Avenue, causing significant traffic delays. Police are investigating.",
+      "link": "https://www.chicagotribune.com/suburbs/lake-county-news-sun/",
+      "tags": [
+        "accident",
+        "traffic",
+        "safety"
+      ],
+      "event_date": "2025-11-29",
+      "found_date": "2025-11-29"
+    },
+    {
+      "category": "Politics",
+      "title": "Gurnee City Council Meeting",
+      "description": "The Gurnee City Council will discuss the upcoming budget and community development projects.",
+      "link": "https://www.gurnee.il.us/27/Government",
+      "tags": [
+        "city council",
+        "meeting",
+        "budget"
+      ],
+      "event_date": "2025-12-03",
+      "found_date": "2025-11-29"
+    },
+    {
+      "category": "Business",
+      "title": "New Coffee Shop Opening",
+      "description": "A new artisan coffee shop, 'Brew & Co.', is set to open its doors in downtown Gurnee.",
+      "link": "https://www.dailyherald.com/business/",
+      "tags": [
+        "coffee",
+        "new business",
+        "opening"
+      ],
+      "event_date": "2025-12-05",
+      "found_date": "2025-11-26"
+    },
+    {
+      "category": "Manufacturing",
+      "title": "Expansion of Local Factory",
+      "description": "The Gurnee Manufacturing Plant announced plans to expand its facilities, creating new job opportunities.",
+      "link": "https://www.lakecountyjournal.com/business/",
+      "tags": [
+        "manufacturing",
+        "expansion",
+        "jobs"
+      ],
+      "event_date": "2025-11-26",
+      "found_date": "2025-11-26"
+    },
+    {
+      "category": "Politics",
+      "title": "Gurnee City Council Meeting",
+      "description": "The Gurnee City Council will discuss upcoming budget proposals and community development projects.",
+      "link": "https://www.gurnee.il.us/government/city_council/",
+      "tags": [
+        "city council",
+        "meeting",
+        "politics"
+      ],
+      "event_date": "2025-12-02",
+      "found_date": "2025-11-25"
+    },
+    {
+      "category": "Manufacturing",
+      "title": "Expansion of Gurnee Industrial Park",
+      "description": "The Gurnee Industrial Park is set to expand, adding new facilities and creating job opportunities.",
+      "link": "https://www.lakecountyil.gov/industrial-development/",
+      "tags": [
+        "manufacturing",
+        "expansion",
+        "jobs"
+      ],
+      "event_date": "2025-11-15",
+      "found_date": "2025-11-15"
+    }
+  ]
+}
