@@ -16,6 +16,14 @@ const posts = (await getCollection('blog')).sort(
 
 // Get all unique tags
 const allTags = [...new Set(posts.flatMap(post => post.data.tags || []))].sort();
+
+// Compile post content for search
+const postsWithContent = await Promise.all(
+	posts.map(async (post) => {
+		const { Content } = await post.render();
+		return { ...post, compiledContent: post.body };
+	})
+);
 ---
 
 <!doctype html>
@@ -292,8 +300,8 @@ const allTags = [...new Set(posts.flatMap(post => post.data.tags || []))].sort()
 			</div>
 
 			<ul class="posts-grid" id="posts-list">
-				{posts.map((post) => (
-					<li class="post-item" data-tags={JSON.stringify(post.data.tags || [])}>
+				{postsWithContent.map((post) => (
+					<li class="post-item" data-tags={JSON.stringify(post.data.tags || [])} data-content={post.compiledContent}>
 						<a href={`/blog/${post.id}/`} class="post-card">
 							<div class="post-image">
 								<Image
@@ -381,9 +389,10 @@ const allTags = [...new Set(posts.flatMap(post => post.data.tags || []))].sort()
 					const card = item.querySelector('.post-card');
 					const title = item.querySelector('.post-title')?.textContent.toLowerCase() || '';
 					const description = item.querySelector('.post-description')?.textContent.toLowerCase() || '';
+					const content = item.dataset.content?.toLowerCase() || '';
 					const tags = JSON.parse(item.dataset.tags || '[]');
 
-					const matchesSearch = !searchTerm || title.includes(searchTerm) || description.includes(searchTerm);
+					const matchesSearch = !searchTerm || title.includes(searchTerm) || description.includes(searchTerm) || content.includes(searchTerm);
 					const matchesTag = tag === 'all' || tags.includes(tag);
 
 					if (matchesSearch && matchesTag) {
