@@ -5,10 +5,17 @@ import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
+import TableOfContents from '../components/TableOfContents.astro';
+import Comments from '../components/Comments.astro';
 
-type Props = CollectionEntry<'blog'>['data'];
+// Import default hero
+import defaultHero from '../assets/blog-placeholder-1.jpg';
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+type Props = CollectionEntry<'blog'>['data'] & {
+	headings?: any[];
+};
+
+const { title, description, pubDate, updatedDate, heroImage, headings } = Astro.props;
 ---
 
 <html lang="en">
@@ -60,7 +67,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 		<main>
 			<article>
 				<div class="hero-image">
-					{heroImage && <Image width={1020} height={510} src={heroImage} alt="" />}
+					<Image width={1020} height={510} src={heroImage || defaultHero} alt={title} />
 				</div>
 				<div class="prose">
 					<div class="title">
@@ -77,9 +84,11 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 						<h1>{title}</h1>
 						<hr />
 					</div>
+					<TableOfContents headings={headings} />
 					<slot />
 				</div>
 			</article>
+			<Comments />
 		</main>
 		<Footer />
 	</body>
