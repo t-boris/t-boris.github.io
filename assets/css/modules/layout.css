@@ -29,3 +29,10 @@
 .layout-home #panel-wrapper {
   display: none !important;
 }
+
+/* Home post list as a single column */
+.layout-home #post-list {
+  display: flex !important;
+  flex-direction: column;
+  gap: 1.6rem;
+}

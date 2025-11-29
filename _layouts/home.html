@@ -36,6 +36,23 @@ layout: page
 <!-- Post Filter and Sort -->
 {% include post-filter.html %}
 
+<!-- Trending Tags -->
+{% assign trending_tags = site.tags | sort: "last" | reverse %}
+<section class="trending-tags" data-aos="fade-up" data-aos-duration="600">
+  <div class="trending-tags__header">
+    <i class="fas fa-fire"></i>
+    <span>Trending tags</span>
+  </div>
+  <div class="trending-tags__list">
+    {% for tag in trending_tags limit: 12 %}
+    <a class="trending-tag" href="{{ '/tags/' | append: tag[0] | slugify | append: '/' | relative_url }}">
+      <span class="trending-tag__name">{{ tag[0] }}</span>
+      <span class="trending-tag__count">{{ tag[1].size }}</span>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+
 <div id="post-list">
 
     {% for post in posts %}
