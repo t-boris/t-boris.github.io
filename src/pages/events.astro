@@ -11,6 +11,7 @@ let eventsData: Record<string, any[]> = {};
 let lastUpdate = 'No data yet';
 let todayEvents: any[] = [];
 let upcomingEvents: any[] = [];
+let allCategories: string[] = [];
 
 try {
 	const dataPath = path.join(process.cwd(), 'public/events-data/events.json');
@@ -58,6 +59,15 @@ try {
 	upcomingEvents = allEvents.filter(event => {
 		return event.event_date_obj > today;
 	}).sort((a, b) => a.event_date_obj.getTime() - b.event_date_obj.getTime());
+
+	// Extract all unique categories
+	const categoriesSet = new Set<string>();
+	allEvents.forEach(event => {
+		if (event.category) {
+			categoriesSet.add(event.category);
+		}
+	});
+	allCategories = Array.from(categoriesSet).sort();
 
 } catch (error) {
 	console.error('Failed to load events data:', error);
@@ -172,7 +182,112 @@ const targetAddress = 'Local Events';
 				text-align: center;
 				padding: 2rem;
 			}
+
+			/* Category filter */
+			.category-filter {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.75rem;
+				margin: 2rem 0 1.5rem 0;
+				padding: 1rem;
+				background: rgb(var(--gray-light));
+				border-radius: 8px;
+				border: 1px solid rgba(201, 165, 123, 0.2);
+			}
+			.category-filter button {
+				padding: 0.5rem 1rem;
+				border: 1px solid rgba(201, 165, 123, 0.3);
+				background: transparent;
+				color: rgb(var(--gray-dark));
+				border-radius: 6px;
+				cursor: pointer;
+				font-size: 0.875rem;
+				font-weight: 500;
+				transition: all 0.2s ease;
+			}
+			.category-filter button:hover {
+				border-color: var(--accent);
+				color: var(--accent);
+				transform: translateY(-1px);
+			}
+			.category-filter button.active {
+				background: var(--accent);
+				color: white;
+				border-color: var(--accent);
+			}
+
+			/* Category-specific colors */
+			.category.Politics {
+				background-color: rgba(239, 68, 68, 0.15);
+				color: #dc2626;
+			}
+			.category.Business {
+				background-color: rgba(59, 130, 246, 0.15);
+				color: #2563eb;
+			}
+			.category.Community {
+				background-color: rgba(16, 185, 129, 0.15);
+				color: #059669;
+			}
+			.category.News {
+				background-color: rgba(245, 158, 11, 0.15);
+				color: #d97706;
+			}
+			.category.Manufacturing {
+				background-color: rgba(139, 92, 246, 0.15);
+				color: #7c3aed;
+			}
+			.category.Culture {
+				background-color: rgba(236, 72, 153, 0.15);
+				color: #db2777;
+			}
+			.category.Entertainment {
+				background-color: rgba(20, 184, 166, 0.15);
+				color: #0d9488;
+			}
+
+			/* Hidden events */
+			.event-card.hidden {
+				display: none;
+			}
 		</style>
+
+		<script>
+			// Category filter functionality
+			document.addEventListener('DOMContentLoaded', () => {
+				const filterButtons = document.querySelectorAll('.category-filter button');
+				const eventCards = document.querySelectorAll('.event-card');
+
+				filterButtons.forEach(button => {
+					button.addEventListener('click', () => {
+						const category = button.dataset.category;
+
+						// Toggle active state
+						if (button.classList.contains('active') && category !== 'all') {
+							button.classList.remove('active');
+							// Show all events
+							eventCards.forEach(card => card.classList.remove('hidden'));
+							// Activate "All" button
+							document.querySelector('[data-category="all"]')?.classList.add('active');
+						} else {
+							// Remove active from all buttons
+							filterButtons.forEach(btn => btn.classList.remove('active'));
+							// Add active to clicked button
+							button.classList.add('active');
+
+							// Filter events
+							eventCards.forEach(card => {
+								if (category === 'all' || card.dataset.category === category) {
+									card.classList.remove('hidden');
+								} else {
+									card.classList.add('hidden');
+								}
+							});
+						}
+					});
+				});
+			});
+		</script>
 	</head>
 	<body>
 		<Header />
@@ -182,12 +297,21 @@ const targetAddress = 'Local Events';
 				<p>Last Update: {lastUpdate}</p>
 			</header>
 
+			{allCategories.length > 0 && (
+				<div class="category-filter">
+					<button data-category="all" class="active">All</button>
+					{allCategories.map((cat) => (
+						<button data-category={cat}>{cat}</button>
+					))}
+				</div>
+			)}
+
 		<section>
 			<h2 class="section-title">Today's Events</h2>
 			{todayEvents.length > 0 ? (
 				todayEvents.map((event) => (
-					<div class="event-card">
-						<span class="category">{event.category}</span>
+					<div class="event-card" data-category={event.category}>
+						<span class={`category ${event.category}`}>{event.category}</span>
 						<h3>{event.title}</h3>
 						<p>{event.description}</p>
 						<p style="font-size: 0.875rem; color: rgb(var(--gray));">
@@ -209,8 +333,8 @@ const targetAddress = 'Local Events';
 			<h2 class="section-title">Upcoming Events</h2>
 			{upcomingEvents.length > 0 ? (
 				upcomingEvents.map((event) => (
-					<div class="event-card">
-						<span class="category">{event.category}</span>
+					<div class="event-card" data-category={event.category}>
+						<span class={`category ${event.category}`}>{event.category}</span>
 						<h3>{event.title}</h3>
 						<p>{event.description}</p>
 						<p style="font-size: 0.875rem; color: rgb(var(--gray));">

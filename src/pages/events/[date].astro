@@ -113,6 +113,46 @@ const targetAddress = 'Local Events';
 			.event-card a:hover {
 				text-decoration: underline;
 			}
+			.category-badge {
+				display: inline-block;
+				padding: 0.4rem 0.8rem;
+				border-radius: 12px;
+				font-size: 0.75rem;
+				font-weight: 600;
+				margin-bottom: 0.75rem;
+				text-transform: uppercase;
+				letter-spacing: 0.05em;
+			}
+
+			/* Category-specific colors */
+			.category-badge.Politics {
+				background-color: rgba(239, 68, 68, 0.15);
+				color: #dc2626;
+			}
+			.category-badge.Business {
+				background-color: rgba(59, 130, 246, 0.15);
+				color: #2563eb;
+			}
+			.category-badge.Community {
+				background-color: rgba(16, 185, 129, 0.15);
+				color: #059669;
+			}
+			.category-badge.News {
+				background-color: rgba(245, 158, 11, 0.15);
+				color: #d97706;
+			}
+			.category-badge.Manufacturing {
+				background-color: rgba(139, 92, 246, 0.15);
+				color: #7c3aed;
+			}
+			.category-badge.Culture {
+				background-color: rgba(236, 72, 153, 0.15);
+				color: #db2777;
+			}
+			.category-badge.Entertainment {
+				background-color: rgba(20, 184, 166, 0.15);
+				color: #0d9488;
+			}
 		</style>
 	</head>
 	<body>
@@ -130,6 +170,7 @@ const targetAddress = 'Local Events';
 					<h2 class="category-title">{category}</h2>
 					{categoryEvents.map((event) => (
 						<div class="event-card">
+							<span class={`category-badge ${category}`}>{category}</span>
 							<h3>{event.title}</h3>
 							<p>{event.description}</p>
 							{event.link && (
