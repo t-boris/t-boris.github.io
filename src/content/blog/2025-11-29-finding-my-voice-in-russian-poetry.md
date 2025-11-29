@@ -2,7 +2,7 @@
 title: 'Finding My Voice in Russian Poetry'
 description: 'Recording Russian poems with a condenser mic and pairing them with AI-generated visuals turned a small audio experiment into a mini video series.'
 pubDate: '2025-11-29'
-heroImage: ''
+heroImage: '../../assets/blog-placeholder-5.jpg'
 tags: ['poetry', 'creative', 'audio']
 ---
 

@@ -2,7 +2,7 @@
 title: 'Blog with GitHub Pages and Jekyll'
 description: 'In this article I show how to set up a blog using GitHub Pages and Jekyll tool'
 pubDate: '2023-01-10'
-heroImage: ''
+heroImage: '../../assets/blog-placeholder-1.jpg'
 tags: ['blogging', 'jekyll']
 ---
 

@@ -2,7 +2,7 @@
 title: 'System Design. Distributed Systems. Concepts'
 description: 'Collection of notes related to design of distributed software systems'
 pubDate: '2023-01-16'
-heroImage: ''
+heroImage: '../../assets/blog-placeholder-4.jpg'
 tags: ['distributed-systems', 'architecture']
 ---
 
