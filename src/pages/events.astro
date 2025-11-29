@@ -1,19 +1,188 @@
 ---
-// Redirect to GitHub repository
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE } from '../consts';
+import fs from 'fs/promises';
+import path from 'path';
+
+// Load events data from JSON file
+let eventsData: Record<string, any[]> = {};
+let lastUpdate = 'No data yet';
+let upcomingEvents: any[] = [];
+
+try {
+	const dataPath = path.join(process.cwd(), 'public/events-data/events.json');
+	const fileContent = await fs.readFile(dataPath, 'utf-8');
+	eventsData = JSON.parse(fileContent);
+
+	const sortedDays = Object.keys(eventsData).sort().reverse();
+	lastUpdate = sortedDays[0] || 'No data yet';
+
+	// Collect all upcoming events
+	for (const dayEvents of Object.values(eventsData)) {
+		for (const event of dayEvents) {
+			if (event.category === 'Upcoming Events') {
+				upcomingEvents.push(event);
+			}
+		}
+	}
+} catch (error) {
+	console.error('Failed to load events data:', error);
+}
+
+const sortedDays = Object.keys(eventsData).sort().reverse();
+const targetAddress = 'Local Events';
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<meta http-equiv="refresh" content="0;url=https://github.com/t-boris/my-local-events" />
-		<title>Redirecting to Events...</title>
+		<BaseHead title={`Events | ${SITE_TITLE}`} description="Daily aggregated local events and news" />
+		<style>
+			body {
+				background: var(--bg, #020617);
+			}
+			main {
+				width: 100%;
+				max-width: 900px;
+				margin: 0 auto;
+				padding: 3em 1em;
+			}
+			.page-header {
+				margin-bottom: 2rem;
+				padding-bottom: 1.5rem;
+				border-bottom: 2px solid rgba(201, 165, 123, 0.3);
+			}
+			.page-header h1 {
+				color: rgb(var(--black));
+				margin-bottom: 0.5rem;
+			}
+			.page-header p {
+				color: rgb(var(--gray));
+				font-size: 0.9rem;
+			}
+			.section-title {
+				color: rgb(var(--black));
+				font-size: 1.8rem;
+				margin: 2rem 0 1.5rem 0;
+				padding-bottom: 0.5rem;
+				border-bottom: 2px solid rgba(201, 165, 123, 0.2);
+			}
+			.calendar {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+				gap: 12px;
+				margin-bottom: 3rem;
+			}
+			.calendar a {
+				display: block;
+				padding: 1.2rem;
+				border: 1px solid rgba(201, 165, 123, 0.3);
+				text-decoration: none;
+				color: var(--accent);
+				border-radius: 8px;
+				text-align: center;
+				transition: all 0.2s ease;
+				background: rgb(var(--gray-light));
+				font-weight: 600;
+			}
+			.calendar a:hover {
+				background-color: var(--accent);
+				color: white;
+				border-color: var(--accent);
+				transform: translateY(-2px);
+				box-shadow: 0 4px 12px rgba(201, 165, 123, 0.3);
+			}
+			.event-card {
+				border: 1px solid rgba(201, 165, 123, 0.2);
+				padding: 1.5rem;
+				margin-bottom: 1.5rem;
+				border-radius: 8px;
+				background: rgb(var(--gray-light));
+				transition: all 0.2s ease;
+			}
+			.event-card:hover {
+				border-color: var(--accent);
+				box-shadow: 0 4px 12px rgba(201, 165, 123, 0.2);
+			}
+			.event-card h3 {
+				margin-top: 0;
+				margin-bottom: 0.75rem;
+				color: rgb(var(--black));
+			}
+			.event-card p {
+				color: rgb(var(--gray-dark));
+				margin-bottom: 1rem;
+			}
+			.event-card a {
+				color: var(--accent);
+				text-decoration: none;
+			}
+			.event-card a:hover {
+				text-decoration: underline;
+			}
+			.category {
+				display: inline-block;
+				background-color: rgba(201, 165, 123, 0.2);
+				color: var(--accent);
+				padding: 0.4rem 0.8rem;
+				border-radius: 12px;
+				font-size: 0.75rem;
+				font-weight: 600;
+				margin-bottom: 0.75rem;
+				text-transform: uppercase;
+				letter-spacing: 0.05em;
+			}
+			.no-events {
+				color: rgb(var(--gray));
+				font-style: italic;
+				text-align: center;
+				padding: 2rem;
+			}
+		</style>
 	</head>
 	<body>
-		<p>Redirecting to <a href="https://github.com/t-boris/my-local-events">my-local-events repository</a>...</p>
-		<script>
-			window.location.href = "https://github.com/t-boris/my-local-events";
-		</script>
+		<Header />
+		<main>
+			<header class="page-header">
+				<h1>Event Aggregator: {targetAddress}</h1>
+				<p>Last Update: {lastUpdate}</p>
+			</header>
+
+			<section>
+				<h2 class="section-title">Daily Reports Calendar</h2>
+				{sortedDays.length > 0 ? (
+					<div class="calendar">
+						{sortedDays.map((day) => (
+							<a href={`/events/${day}/`}>{day}</a>
+						))}
+					</div>
+				) : (
+					<p class="no-events">No event reports available yet. Check back after the first automated run.</p>
+				)}
+			</section>
+
+			<section>
+				<h2 class="section-title">Upcoming Events</h2>
+				{upcomingEvents.length > 0 ? (
+					upcomingEvents.map((event) => (
+						<div class="event-card">
+							<span class="category">{event.category}</span>
+							<h3>{event.title}</h3>
+							<p>{event.description}</p>
+							{event.link && (
+								<a href={event.link} target="_blank" rel="noopener noreferrer">
+									Source →
+								</a>
+							)}
+						</div>
+					))
+				) : (
+					<p class="no-events">No upcoming events found yet.</p>
+				)}
+			</section>
+		</main>
+		<Footer />
 	</body>
 </html>

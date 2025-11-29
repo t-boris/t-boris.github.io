@@ -1,0 +1,49 @@
+name: Daily Events Update
+
+on:
+  schedule:
+    # Runs every day at 3:00 UTC
+    - cron: '0 3 * * *'
+  workflow_dispatch: # Allows manual triggering from the GitHub UI
+
+jobs:
+  update-events:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r scripts/requirements.txt
+
+      - name: Run events update script
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+          SEARCH_ENGINE_ID: ${{ secrets.SEARCH_ENGINE_ID }}
+          TARGET_ADDRESS: ${{ secrets.TARGET_ADDRESS }}
+          SEARCH_QUERIES: ${{ secrets.SEARCH_QUERIES }}
+        run: python scripts/update_events.py
+
+      - name: Commit and push updated events data
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add public/events-data/
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Update events data - $(date -u +'%Y-%m-%d')"
+            git push
+          fi
+
+      - name: Trigger Astro rebuild
+        run: |
+          echo "Events data updated. Astro will rebuild on next deployment."

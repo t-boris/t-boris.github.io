@@ -1,0 +1,147 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { SITE_TITLE } from '../../consts';
+
+export async function getStaticPaths() {
+	// Load all available dates from events.json
+	let eventsData: Record<string, any[]> = {};
+	try {
+		const fs = await import('fs/promises');
+		const path = await import('path');
+		const dataPath = path.join(process.cwd(), 'public/events-data/events.json');
+		const fileContent = await fs.readFile(dataPath, 'utf-8');
+		eventsData = JSON.parse(fileContent);
+	} catch (error) {
+		console.log('No events data found yet');
+		return [];
+	}
+
+	return Object.keys(eventsData).map((date) => ({
+		params: { date },
+		props: { events: eventsData[date], date },
+	}));
+}
+
+const { events, date } = Astro.props;
+
+// Group events by category
+const eventsByCategory: Record<string, any[]> = {};
+for (const event of events) {
+	if (!eventsByCategory[event.category]) {
+		eventsByCategory[event.category] = [];
+	}
+	eventsByCategory[event.category].push(event);
+}
+
+const targetAddress = 'Local Events';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`Events for ${date} | ${SITE_TITLE}`} description={`Local events for ${date}`} />
+		<style>
+			body {
+				background: var(--bg, #020617);
+			}
+			main {
+				width: 100%;
+				max-width: 900px;
+				margin: 0 auto;
+				padding: 3em 1em;
+			}
+			.back-link {
+				display: inline-block;
+				margin-bottom: 2rem;
+				color: var(--accent);
+				text-decoration: none;
+				font-weight: 600;
+				transition: all 0.2s ease;
+			}
+			.back-link:hover {
+				transform: translateX(-4px);
+			}
+			.page-header {
+				margin-bottom: 2rem;
+				padding-bottom: 1.5rem;
+				border-bottom: 2px solid rgba(201, 165, 123, 0.3);
+			}
+			.page-header h1 {
+				color: rgb(var(--black));
+				margin-bottom: 0.5rem;
+			}
+			.page-header p {
+				color: rgb(var(--gray));
+			}
+			.category-section {
+				margin-bottom: 3rem;
+			}
+			.category-title {
+				color: rgb(var(--black));
+				font-size: 1.5rem;
+				margin: 2rem 0 1.5rem 0;
+				padding-bottom: 0.5rem;
+				border-bottom: 2px solid rgba(201, 165, 123, 0.2);
+			}
+			.event-card {
+				border: 1px solid rgba(201, 165, 123, 0.2);
+				padding: 1.5rem;
+				margin-bottom: 1.5rem;
+				border-radius: 8px;
+				background: rgb(var(--gray-light));
+				transition: all 0.2s ease;
+			}
+			.event-card:hover {
+				border-color: var(--accent);
+				box-shadow: 0 4px 12px rgba(201, 165, 123, 0.2);
+			}
+			.event-card h3 {
+				margin-top: 0;
+				margin-bottom: 0.75rem;
+				color: rgb(var(--black));
+			}
+			.event-card p {
+				color: rgb(var(--gray-dark));
+				margin-bottom: 1rem;
+			}
+			.event-card a {
+				color: var(--accent);
+				text-decoration: none;
+			}
+			.event-card a:hover {
+				text-decoration: underline;
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<a href="/events/" class="back-link">← Back to Events</a>
+
+			<header class="page-header">
+				<h1>Events for {date}</h1>
+				<p>A summary of news and events around: <strong>{targetAddress}</strong></p>
+			</header>
+
+			{Object.entries(eventsByCategory).map(([category, categoryEvents]) => (
+				<section class="category-section">
+					<h2 class="category-title">{category}</h2>
+					{categoryEvents.map((event) => (
+						<div class="event-card">
+							<h3>{event.title}</h3>
+							<p>{event.description}</p>
+							{event.link && (
+								<a href={event.link} target="_blank" rel="noopener noreferrer">
+									Read more... →
+								</a>
+							)}
+						</div>
+					))}
+				</section>
+			))}
+		</main>
+		<Footer />
+	</body>
+</html>
