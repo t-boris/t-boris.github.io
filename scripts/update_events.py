@@ -59,19 +59,19 @@ def load_config():
 
 def fetch_google_search_results(api_key, cx_id, query):
     """Performs a Google search and returns the results."""
-    print(f"Searching for: {query}...")
+    logger.info(f"Searching for: {query}...")
     url = f"https://www.googleapis.com/customsearch/v1?key={api_key}&cx={cx_id}&q={query}"
     try:
         response = requests.get(url)
         response.raise_for_status()
         return response.json().get("items", [])
     except requests.exceptions.RequestException as e:
-        print(f"Error during search: {e}")
+        logger.error(f"Error during search: {e}")
         return []
 
 def analyze_with_openai(client, search_results, address):
     """Analyzes search results with OpenAI and generates structured JSON."""
-    print("Analyzing results with OpenAI...")
+    logger.info("Analyzing results with OpenAI...")
 
     simplified_results = [{"title": item.get("title"), "link": item.get("link"), "snippet": item.get("snippet")} for item in search_results[:15]]
 
@@ -135,7 +135,7 @@ def analyze_with_openai(client, search_results, address):
         # Fallback: wrap in array
         return [data] if data else []
     except Exception as e:
-        print(f"Error with OpenAI API: {e}")
+        logger.error(f"Error with OpenAI API: {e}")
         return []
 
 def generate_event_key(title, event_date):
@@ -225,7 +225,7 @@ def geocode_location(location, google_api_key, cache):
         return coords["lat"], coords["lng"]
 
     # Step 3: Call Google Geocoding API
-    print(f"Geocoding new location via API: {location}")
+    logger.info(f"Geocoding new location via API: {location}")
     url = "https://maps.googleapis.com/maps/api/geocode/json"
     params = {
         "address": f"{location}, Lake County, Illinois",
@@ -245,18 +245,18 @@ def geocode_location(location, google_api_key, cache):
             cache[location_key] = {"lat": lat, "lng": lng}
             save_geocode_cache(cache)
 
-            print(f"Geocoded {location} -> ({lat}, {lng})")
+            logger.info(f"Geocoded {location} -> ({lat}, {lng})")
             return lat, lng
         else:
-            print(f"Geocoding failed for {location}: {data['status']}")
+            logger.warning(f"Geocoding failed for {location}: {data['status']}")
             return None, None
     except Exception as e:
-        print(f"Error geocoding {location}: {e}")
+        logger.error(f"Error geocoding {location}: {e}")
         return None, None
 
 def update_events_data(new_events, google_api_key=None):
     """Updates the events with idempotency and freshness validation."""
-    print("Updating events data with idempotency...")
+    logger.info("Updating events data with idempotency...")
     today_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     today_date = datetime.now(timezone.utc).date()
 
@@ -284,7 +284,7 @@ def update_events_data(new_events, google_api_key=None):
         # Check if event already exists
         if event_key in active_events:
             # Update existing event
-            print(f"Updating existing event: {event['title']}")
+            logger.info(f"Updating existing event: {event['title']}")
             active_events[event_key]["found_date"] = today_str  # Update last seen date
             active_events[event_key]["description"] = event.get("description", "")
             active_events[event_key]["link"] = event.get("link", "")
@@ -292,7 +292,7 @@ def update_events_data(new_events, google_api_key=None):
                 active_events[event_key]["location"] = event["location"]
         else:
             # Add new event
-            print(f"Adding new event: {event['title']}")
+            logger.info(f"Adding new event: {event['title']}")
 
             # Geocode location if provided
             lat, lng = None, None
@@ -319,14 +319,14 @@ def update_events_data(new_events, google_api_key=None):
 
         # Remove if not seen in 3 days (validation rule)
         if days_since_found >= 3:
-            print(f"Removing stale event (not seen in {days_since_found} days): {event_data['title']}")
+            logger.info(f"Removing stale event (not seen in {days_since_found} days): {event_data['title']}")
             events_to_remove.append(event_key)
             continue
 
         # Remove if event date is in the past
         event_date = datetime.strptime(event_data["event_date"], "%Y-%m-%d").date()
         if event_date < today_date:
-            print(f"Removing past event: {event_data['title']} ({event_data['event_date']})")
+            logger.info(f"Removing past event: {event_data['title']} ({event_data['event_date']})")
             events_to_remove.append(event_key)
 
     # Remove stale/past events
@@ -343,10 +343,10 @@ def update_events_data(new_events, google_api_key=None):
     with open(day_path, 'w', encoding='utf-8') as f:
         json.dump(daily_events, f, ensure_ascii=False, indent=2)
 
-    print(f"Events data updated successfully. Active events: {len(active_events)}, Trusted sources: {len(trusted_sources)}")
+    logger.info(f"Events data updated successfully. Active events: {len(active_events)}, Trusted sources: {len(trusted_sources)}")
 
 if __name__ == "__main__":
-    print("Starting daily events update process...")
+    logger.info("Starting daily events update process...")
     config = load_config()
     all_results = []
 
@@ -375,8 +375,8 @@ if __name__ == "__main__":
 
         if newly_generated_events:
             update_events_data(newly_generated_events, google_api_key=config["google_api_key"])
-            print("Process completed successfully.")
+            logger.info("Process completed successfully.")
         else:
-            print("Failed to generate content from OpenAI.")
+            logger.warning("Failed to generate content from OpenAI.")
     else:
-        print("No search results found. Exiting.")
+        logger.warning("No search results found. Exiting.")
