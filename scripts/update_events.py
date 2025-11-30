@@ -2,9 +2,11 @@ import os
 import json
 import requests
 import logging
+import time
 from datetime import datetime, timezone
 from openai import OpenAI
 from collections import defaultdict
+from functools import wraps
 
 # Setup logging
 logging.basicConfig(
@@ -42,6 +44,37 @@ KNOWN_LOCATIONS = {
 # Valid event categories
 CATEGORIES = ["Business", "Manufacturing", "Community", "Culture", "Sports", "News", "Incidents"]
 
+def retry_with_exponential_backoff(max_retries=3, initial_delay=1, backoff_factor=2):
+    """
+    Decorator that retries a function with exponential backoff.
+
+    Args:
+        max_retries: Maximum number of retry attempts
+        initial_delay: Initial delay in seconds before first retry
+        backoff_factor: Multiplier for delay after each retry
+    """
+    def decorator(func):
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            delay = initial_delay
+            last_exception = None
+
+            for attempt in range(max_retries + 1):
+                try:
+                    return func(*args, **kwargs)
+                except Exception as e:
+                    last_exception = e
+                    if attempt < max_retries:
+                        logger.warning(f"{func.__name__} failed (attempt {attempt + 1}/{max_retries + 1}): {e}. Retrying in {delay}s...")
+                        time.sleep(delay)
+                        delay *= backoff_factor
+                    else:
+                        logger.error(f"{func.__name__} failed after {max_retries + 1} attempts: {e}")
+
+            raise last_exception
+        return wrapper
+    return decorator
+
 def load_config():
     """Loads configuration from environment variables."""
     config = {
@@ -57,6 +90,7 @@ def load_config():
     config["search_queries"] = [q.strip() for q in config["search_queries_raw"].split(',')]
     return config
 
+@retry_with_exponential_backoff(max_retries=3, initial_delay=2, backoff_factor=2)
 def fetch_google_search_results(api_key, cx_id, query):
     """Performs a Google search and returns the results."""
     logger.info(f"Searching for: {query}...")
@@ -69,6 +103,7 @@ def fetch_google_search_results(api_key, cx_id, query):
         logger.error(f"Error during search: {e}")
         return []
 
+@retry_with_exponential_backoff(max_retries=3, initial_delay=2, backoff_factor=2)
 def analyze_with_openai(client, search_results, address):
     """Analyzes search results with OpenAI and generates structured JSON."""
     logger.info("Analyzing results with OpenAI...")
@@ -145,47 +180,78 @@ def generate_event_key(title, event_date):
 def load_active_events():
     """Load active events from storage."""
     events_path = "public/events-data/active-events.json"
-    if os.path.exists(events_path):
-        with open(events_path, 'r', encoding='utf-8') as f:
-            return json.load(f)
+    try:
+        if os.path.exists(events_path):
+            with open(events_path, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+                if not isinstance(data, dict):
+                    logger.warning(f"Invalid active events format, resetting to empty dict")
+                    return {}
+                return data
+    except (json.JSONDecodeError, IOError) as e:
+        logger.error(f"Error loading active events: {e}. Starting with empty dict.")
     return {}
 
 def save_active_events(events):
     """Save active events to storage."""
     events_path = "public/events-data/active-events.json"
-    os.makedirs("public/events-data", exist_ok=True)
-    with open(events_path, 'w', encoding='utf-8') as f:
-        json.dump(events, f, ensure_ascii=False, indent=2)
+    try:
+        os.makedirs("public/events-data", exist_ok=True)
+        with open(events_path, 'w', encoding='utf-8') as f:
+            json.dump(events, f, ensure_ascii=False, indent=2)
+        logger.info(f"Saved {len(events)} active events to {events_path}")
+    except (IOError, OSError) as e:
+        logger.error(f"Error saving active events: {e}")
 
 def load_geocode_cache():
     """Load geocoding cache."""
     cache_path = "public/events-data/geocode-cache.json"
-    if os.path.exists(cache_path):
-        with open(cache_path, 'r', encoding='utf-8') as f:
-            return json.load(f)
+    try:
+        if os.path.exists(cache_path):
+            with open(cache_path, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+                if not isinstance(data, dict):
+                    logger.warning(f"Invalid geocode cache format, resetting to empty dict")
+                    return {}
+                return data
+    except (json.JSONDecodeError, IOError) as e:
+        logger.error(f"Error loading geocode cache: {e}. Starting with empty dict.")
     return {}
 
 def save_geocode_cache(cache):
     """Save geocoding cache."""
     cache_path = "public/events-data/geocode-cache.json"
-    os.makedirs("public/events-data", exist_ok=True)
-    with open(cache_path, 'w', encoding='utf-8') as f:
-        json.dump(cache, f, ensure_ascii=False, indent=2)
+    try:
+        os.makedirs("public/events-data", exist_ok=True)
+        with open(cache_path, 'w', encoding='utf-8') as f:
+            json.dump(cache, f, ensure_ascii=False, indent=2)
+    except (IOError, OSError) as e:
+        logger.error(f"Error saving geocode cache: {e}")
 
 def load_trusted_sources():
     """Load trusted sources tracking."""
     sources_path = "public/events-data/trusted-sources.json"
-    if os.path.exists(sources_path):
-        with open(sources_path, 'r', encoding='utf-8') as f:
-            return json.load(f)
+    try:
+        if os.path.exists(sources_path):
+            with open(sources_path, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+                if not isinstance(data, dict):
+                    logger.warning(f"Invalid trusted sources format, resetting to empty dict")
+                    return {}
+                return data
+    except (json.JSONDecodeError, IOError) as e:
+        logger.error(f"Error loading trusted sources: {e}. Starting with empty dict.")
     return {}
 
 def save_trusted_sources(sources):
     """Save trusted sources tracking."""
     sources_path = "public/events-data/trusted-sources.json"
-    os.makedirs("public/events-data", exist_ok=True)
-    with open(sources_path, 'w', encoding='utf-8') as f:
-        json.dump(sources, f, ensure_ascii=False, indent=2)
+    try:
+        os.makedirs("public/events-data", exist_ok=True)
+        with open(sources_path, 'w', encoding='utf-8') as f:
+            json.dump(sources, f, ensure_ascii=False, indent=2)
+    except (IOError, OSError) as e:
+        logger.error(f"Error saving trusted sources: {e}")
 
 def extract_domain(url):
     """Extract domain from URL for source tracking."""
@@ -340,43 +406,59 @@ def update_events_data(new_events, google_api_key=None):
     # Also create daily snapshot for historical reference
     daily_events = [event for event in active_events.values()]
     day_path = f"public/events-data/{today_str}.json"
-    with open(day_path, 'w', encoding='utf-8') as f:
-        json.dump(daily_events, f, ensure_ascii=False, indent=2)
+    try:
+        with open(day_path, 'w', encoding='utf-8') as f:
+            json.dump(daily_events, f, ensure_ascii=False, indent=2)
+        logger.info(f"Created daily snapshot: {day_path}")
+    except (IOError, OSError) as e:
+        logger.error(f"Error saving daily snapshot: {e}")
 
     logger.info(f"Events data updated successfully. Active events: {len(active_events)}, Trusted sources: {len(trusted_sources)}")
 
 if __name__ == "__main__":
-    logger.info("Starting daily events update process...")
-    config = load_config()
-    all_results = []
+    try:
+        logger.info("Starting daily events update process...")
+        config = load_config()
+        all_results = []
 
-    # Build search queries for each suburb
-    search_queries = []
-    for suburb in SUBURBS:
-        # Create queries with explicit OR operators for all suburbs
-        suburbs_string = " OR ".join(SUBURBS)
-        search_queries.extend([
-            f"events today ({suburbs_string}) Lake County Illinois",
-            f"news today ({suburbs_string}) Lake County Illinois",
-            f"community events ({suburbs_string}) Lake County",
-            f"business news ({suburbs_string}) Lake County Illinois"
-        ])
-        break  # Only need to run once since suburbs_string contains all suburbs
+        # Build search queries for each suburb
+        search_queries = []
+        for suburb in SUBURBS:
+            # Create queries with explicit OR operators for all suburbs
+            suburbs_string = " OR ".join(SUBURBS)
+            search_queries.extend([
+                f"events today ({suburbs_string}) Lake County Illinois",
+                f"news today ({suburbs_string}) Lake County Illinois",
+                f"community events ({suburbs_string}) Lake County",
+                f"business news ({suburbs_string}) Lake County Illinois"
+            ])
+            break  # Only need to run once since suburbs_string contains all suburbs
 
-    # Execute searches
-    for query in search_queries:
-        all_results.extend(fetch_google_search_results(
-            config["google_api_key"], config["search_engine_id"], query
-        ))
+        # Execute searches
+        for query in search_queries:
+            try:
+                results = fetch_google_search_results(
+                    config["google_api_key"], config["search_engine_id"], query
+                )
+                all_results.extend(results)
+            except Exception as e:
+                logger.error(f"Failed to fetch results for query '{query}': {e}")
+                # Continue with other queries even if one fails
 
-    if all_results:
-        openai_client = OpenAI(api_key=config["openai_api_key"])
-        newly_generated_events = analyze_with_openai(openai_client, all_results, config["target_address"])
+        if all_results:
+            openai_client = OpenAI(api_key=config["openai_api_key"])
+            try:
+                newly_generated_events = analyze_with_openai(openai_client, all_results, config["target_address"])
 
-        if newly_generated_events:
-            update_events_data(newly_generated_events, google_api_key=config["google_api_key"])
-            logger.info("Process completed successfully.")
+                if newly_generated_events:
+                    update_events_data(newly_generated_events, google_api_key=config["google_api_key"])
+                    logger.info("Process completed successfully.")
+                else:
+                    logger.warning("Failed to generate content from OpenAI.")
+            except Exception as e:
+                logger.error(f"Failed to analyze events with OpenAI: {e}")
         else:
-            logger.warning("Failed to generate content from OpenAI.")
-    else:
-        logger.warning("No search results found. Exiting.")
+            logger.warning("No search results found. Exiting.")
+    except Exception as e:
+        logger.critical(f"Critical error in main process: {e}", exc_info=True)
+        raise
