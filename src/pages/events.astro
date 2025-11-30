@@ -928,7 +928,7 @@ const GOOGLE_MAPS_API_KEY = import.meta.env.PUBLIC_GOOGLE_MAPS_API_KEY || '';
 					}
 
 					// Hide all current event cards
-					eventCards.forEach(card => card.style.display = 'none');
+					eventCards.forEach(card => card.classList.add('hidden'));
 
 					// Create and insert snapshot header if not exists
 					let snapshotSection = document.querySelector('.snapshot-section');
@@ -978,8 +978,21 @@ const GOOGLE_MAPS_API_KEY = import.meta.env.PUBLIC_GOOGLE_MAPS_API_KEY || '';
 							categoryFilter.style.display = 'flex';
 						}
 
-						// Show all event cards
-						eventCards.forEach(card => card.style.display = 'block');
+						// Restore event cards visibility based on current filter
+						const activeFilter = document.querySelector('.category-filter button.active');
+						const activeCategory = activeFilter ? activeFilter.dataset.category : 'all';
+
+						eventCards.forEach(card => {
+							// Remove inline style that was added
+							card.style.display = '';
+
+							// Apply filter
+							if (activeCategory === 'all' || card.dataset.category === activeCategory) {
+								card.classList.remove('hidden');
+							} else {
+								card.classList.add('hidden');
+							}
+						});
 					});
 
 					// Show snapshot section
