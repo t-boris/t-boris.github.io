@@ -865,22 +865,29 @@ const GOOGLE_MAPS_API_KEY = import.meta.env.PUBLIC_GOOGLE_MAPS_API_KEY || '';
 				const filterButtons = document.querySelectorAll('.category-filter button');
 				const eventCards = document.querySelectorAll('.event-card');
 
+				console.log('Found filter buttons:', filterButtons.length);
+				console.log('Found event cards:', eventCards.length);
+
 				filterButtons.forEach(button => {
 					button.addEventListener('click', () => {
 						const category = button.dataset.category;
+						console.log('Filter clicked:', category);
 
 						// Toggle active state
 						filterButtons.forEach(btn => btn.classList.remove('active'));
 						button.classList.add('active');
 
 						// Filter events
+						let visibleCount = 0;
 						eventCards.forEach(card => {
 							if (category === 'all' || card.dataset.category === category) {
 								card.classList.remove('hidden');
+								visibleCount++;
 							} else {
 								card.classList.add('hidden');
 							}
 						});
+						console.log(`Filtered to ${visibleCount} events for category: ${category}`);
 					});
 				});
 
