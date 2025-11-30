@@ -1,4 +1,37 @@
 {
+  "road closure on grand avenue|2025-12-01": {
+    "title": "Road Closure on Grand Avenue",
+    "event_date": "2025-12-01",
+    "found_date": "2025-11-28",
+    "description": "Due to construction, Grand Avenue will be closed between Dilley's Road and Hunt Club Road. Plan alternate routes.",
+    "link": "https://www.gurnee.il.us/News/ItemID/1234",
+    "location": null,
+    "category": "News",
+    "lat": null,
+    "lng": null
+  },
+  "new coffee shop opening|2025-12-05": {
+    "title": "New Coffee Shop Opening",
+    "event_date": "2025-12-05",
+    "found_date": "2025-11-28",
+    "description": "A new coffee shop, Brew & Co., is opening its doors in Gurnee Mills. Grand opening with free samples and live music.",
+    "link": "https://www.gurneemills.com/events/brew-co-grand-opening/",
+    "location": null,
+    "category": "Business",
+    "lat": null,
+    "lng": null
+  },
+  "town hall meeting on local taxes|2025-12-10": {
+    "title": "Town Hall Meeting on Local Taxes",
+    "event_date": "2025-12-10",
+    "found_date": "2025-11-28",
+    "description": "The Gurnee Village Board is hosting a town hall to discuss the upcoming changes in local taxes and budget.",
+    "link": "https://www.gurnee.il.us/Events/ItemID/5678",
+    "location": null,
+    "category": "News",
+    "lat": null,
+    "lng": null
+  },
   "holiday market and entertainment|2025-11-30": {
     "title": "Holiday Market and Entertainment",
     "event_date": "2025-11-30",
@@ -6,7 +39,84 @@
     "description": "Explore Events @ Hawthorn, including a holiday market and entertainment events on Nov. 29.",
     "link": "https://www.visitlakecounty.org/events",
     "location": null,
-    "category": "Upcoming Events",
+    "category": "Community",
+    "lat": null,
+    "lng": null
+  },
+  "planning & zoning commission meeting|2025-12-04": {
+    "title": "Planning & Zoning Commission Meeting",
+    "event_date": "2025-12-04",
+    "found_date": "2025-11-30",
+    "description": "A scheduled municipal Planning & Zoning Commission meeting for the Village of Round Lake Beach.",
+    "link": "https://www.roundlakebeachil.gov/",
+    "location": "Round Lake Beach",
+    "category": "Community",
+    "lat": 42.3714,
+    "lng": -88.0901
+  },
+  "committee of the whole meeting|2025-12-08": {
+    "title": "Committee of the Whole Meeting",
+    "event_date": "2025-12-08",
+    "found_date": "2025-11-30",
+    "description": "A Committee of the Whole meeting held by the Village of Round Lake Beach.",
+    "link": "https://www.roundlakebeachil.gov/",
+    "location": "Round Lake Beach",
+    "category": "Community",
+    "lat": 42.3714,
+    "lng": -88.0901
+  },
+  "council meeting|2025-12-15": {
+    "title": "Council Meeting",
+    "event_date": "2025-12-15",
+    "found_date": "2025-11-30",
+    "description": "A regular Council Meeting for the Village of Round Lake Beach.",
+    "link": "https://www.roundlakebeachil.gov/",
+    "location": "Round Lake Beach",
+    "category": "Community",
+    "lat": 42.3714,
+    "lng": -88.0901
+  },
+  "board of police commission meeting|2025-12-18": {
+    "title": "Board of Police Commission Meeting",
+    "event_date": "2025-12-18",
+    "found_date": "2025-11-30",
+    "description": "A Board of Police Commission meeting scheduled by the Village of Round Lake Beach.",
+    "link": "https://www.roundlakebeachil.gov/",
+    "location": "Round Lake Beach",
+    "category": "Community",
+    "lat": 42.3714,
+    "lng": -88.0901
+  },
+  "village hall closed|2025-12-24": {
+    "title": "Village Hall Closed",
+    "event_date": "2025-12-24",
+    "found_date": "2025-11-30",
+    "description": "Round Lake Beach Village Hall will be closed.",
+    "link": "https://www.roundlakebeachil.gov/",
+    "location": "Round Lake Beach",
+    "category": "Community",
+    "lat": 42.3714,
+    "lng": -88.0901
+  },
+  "lake county budget approved for fiscal year 2026|2025-11-30": {
+    "title": "Lake County Budget Approved for Fiscal Year 2026",
+    "event_date": "2025-11-30",
+    "found_date": "2025-11-30",
+    "description": "The Lake County Board approved a $676.6 million budget for Fiscal Year 2026.",
+    "link": "https://www.lakecountyil.gov/",
+    "location": "Lake County",
+    "category": "News",
+    "lat": null,
+    "lng": null
+  },
+  "lake county events calendar|2025-11-30": {
+    "title": "Lake County Events Calendar",
+    "event_date": "2025-11-30",
+    "found_date": "2025-11-30",
+    "description": "General listing of community events across Lake County communities including Gurnee.",
+    "link": "https://www.visitlakecounty.org/events",
+    "location": "Lake County",
+    "category": "Community",
     "lat": null,
     "lng": null
   }
