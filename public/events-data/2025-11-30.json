@@ -108,5 +108,16 @@
     "category": "News",
     "lat": null,
     "lng": null
+  },
+  {
+    "title": "Lake County Events Calendar",
+    "event_date": "2025-11-30",
+    "found_date": "2025-11-30",
+    "description": "General listing of community events across Lake County communities including Gurnee.",
+    "link": "https://www.visitlakecounty.org/events",
+    "location": "Lake County",
+    "category": "Community",
+    "lat": null,
+    "lng": null
   }
 ]
