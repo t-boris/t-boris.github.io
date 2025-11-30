@@ -483,6 +483,14 @@ def update_events_data(new_events, google_api_key=None):
             active_events[event_key]["link"] = event.get("link", "")
             if event.get("location"):
                 active_events[event_key]["location"] = event["location"]
+
+            # Extract image if not already present
+            if not active_events[event_key].get("image") and event.get("link"):
+                image_url = extract_image_from_url(event["link"])
+                if image_url:
+                    image_filename = download_and_save_image(image_url, event["title"])
+                    if image_filename:
+                        active_events[event_key]["image"] = image_filename
         else:
             # Add new event
             logger.info(f"Adding new event: {event['title']}")
