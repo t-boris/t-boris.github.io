@@ -318,9 +318,10 @@ const GOOGLE_MAPS_API_KEY = import.meta.env.PUBLIC_GOOGLE_MAPS_API_KEY || '';
 				width: 180px;
 				height: 180px;
 				min-width: 180px;
-				object-fit: cover;
+				object-fit: contain;
 				display: block;
 				flex-shrink: 0;
+				background: rgba(201, 165, 123, 0.05);
 			}
 
 			.event-content {
@@ -625,9 +626,10 @@ const GOOGLE_MAPS_API_KEY = import.meta.env.PUBLIC_GOOGLE_MAPS_API_KEY || '';
 				width: 180px;
 				height: 180px;
 				min-width: 180px;
-				object-fit: cover;
+				object-fit: contain;
 				display: block;
 				flex-shrink: 0;
+				background: rgba(201, 165, 123, 0.05);
 			}
 
 			.snapshot-section .event-content {
@@ -959,10 +961,10 @@ const GOOGLE_MAPS_API_KEY = import.meta.env.PUBLIC_GOOGLE_MAPS_API_KEY || '';
 
 				// Helper function to create event card HTML
 				function createEventCard(event) {
-					const imageHtml = event.image ? `<img src="/events-images/${event.image}" alt="${event.title}" class="event-image" loading="lazy" />` : '';
+					const imageSrc = event.image ? `/events-images/${event.image}` : `/events-images/placeholders/${event.category}.svg`;
 					return `
 						<div class="event-card" data-category="${event.category}" data-event-date="${event.event_date}">
-							${imageHtml}
+							<img src="${imageSrc}" alt="${event.title}" class="event-image" loading="lazy" />
 							<div class="event-content">
 								<div class="event-header">
 									<span class="category-badge ${event.category}">${event.category}</span>
@@ -1271,9 +1273,12 @@ const GOOGLE_MAPS_API_KEY = import.meta.env.PUBLIC_GOOGLE_MAPS_API_KEY || '';
 						{todayEvents.length > 0 ? (
 							todayEvents.map(event => (
 								<div class="event-card" data-category={event.category} data-event-date={event.event_date}>
-									{event.image && (
-										<img src={`/events-images/${event.image}`} alt={event.title} class="event-image" loading="lazy" />
-									)}
+									<img
+										src={event.image ? `/events-images/${event.image}` : `/events-images/placeholders/${event.category}.svg`}
+										alt={event.title}
+										class="event-image"
+										loading="lazy"
+									/>
 									<div class="event-content">
 										<div class="event-header">
 											<span class={`category-badge ${event.category}`}>{event.category}</span>
@@ -1313,9 +1318,12 @@ const GOOGLE_MAPS_API_KEY = import.meta.env.PUBLIC_GOOGLE_MAPS_API_KEY || '';
 					{futureEvents.length > 0 ? (
 						futureEvents.map(event => (
 							<div class="event-card" data-category={event.category} data-event-date={event.event_date}>
-								{event.image && (
-									<img src={`/events-images/${event.image}`} alt={event.title} class="event-image" loading="lazy" />
-								)}
+								<img
+									src={event.image ? `/events-images/${event.image}` : `/events-images/placeholders/${event.category}.svg`}
+									alt={event.title}
+									class="event-image"
+									loading="lazy"
+								/>
 								<div class="event-content">
 									<div class="event-header">
 										<span class={`category-badge ${event.category}`}>{event.category}</span>

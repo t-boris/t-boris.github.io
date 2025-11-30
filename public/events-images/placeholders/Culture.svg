@@ -1,0 +1,9 @@
+<svg width="180" height="180" viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg">
+  <rect width="180" height="180" fill="#f59e0b" opacity="0.15"/>
+  <g transform="translate(90, 90)">
+    <circle cx="0" cy="-10" r="15" fill="#d97706" opacity="0.6"/>
+    <path d="M-20,10 Q-20,-5 0,-5 Q20,-5 20,10 L15,25 L-15,25 Z" fill="#d97706" opacity="0.5"/>
+    <rect x="-3" y="-35" width="6" height="20" fill="#d97706" opacity="0.4"/>
+  </g>
+  <text x="90" y="150" font-family="Arial, sans-serif" font-size="14" fill="#d97706" text-anchor="middle" font-weight="bold">CULTURE</text>
+</svg>

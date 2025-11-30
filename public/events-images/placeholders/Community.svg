@@ -1,0 +1,12 @@
+<svg width="180" height="180" viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg">
+  <rect width="180" height="180" fill="#10b981" opacity="0.15"/>
+  <g transform="translate(90, 90)">
+    <circle cx="-15" cy="-15" r="10" fill="#059669" opacity="0.6"/>
+    <circle cx="15" cy="-15" r="10" fill="#059669" opacity="0.6"/>
+    <circle cx="0" cy="-15" r="10" fill="#059669" opacity="0.6"/>
+    <path d="M-25,0 L-25,25 L-10,25 L-10,0 Z" fill="#059669" opacity="0.5"/>
+    <path d="M-5,0 L-5,25 L5,25 L5,0 Z" fill="#059669" opacity="0.5"/>
+    <path d="M10,0 L10,25 L25,25 L25,0 Z" fill="#059669" opacity="0.5"/>
+  </g>
+  <text x="90" y="150" font-family="Arial, sans-serif" font-size="14" fill="#059669" text-anchor="middle" font-weight="bold">COMMUNITY</text>
+</svg>
