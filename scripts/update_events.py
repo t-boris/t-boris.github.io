@@ -3,10 +3,13 @@ import json
 import requests
 import logging
 import time
+import hashlib
 from datetime import datetime, timezone
 from openai import OpenAI
 from collections import defaultdict
 from functools import wraps
+from urllib.parse import urljoin, urlparse
+from bs4 import BeautifulSoup
 
 # Setup logging
 logging.basicConfig(
@@ -320,6 +323,130 @@ def geocode_location(location, google_api_key, cache):
         logger.error(f"Error geocoding {location}: {e}")
         return None, None
 
+@retry_with_exponential_backoff(max_retries=2, initial_delay=1, backoff_factor=2)
+def extract_image_from_url(url):
+    """
+    Extract Open Graph image or first suitable image from a URL.
+    Returns the image URL if found, None otherwise.
+    """
+    if not url:
+        return None
+
+    try:
+        logger.info(f"Extracting image from URL: {url}")
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+        }
+        response = requests.get(url, headers=headers, timeout=10)
+        response.raise_for_status()
+
+        soup = BeautifulSoup(response.content, 'html.parser')
+
+        # Try Open Graph image first (og:image)
+        og_image = soup.find('meta', property='og:image')
+        if og_image and og_image.get('content'):
+            image_url = og_image['content']
+            # Make absolute URL if relative
+            if not image_url.startswith('http'):
+                image_url = urljoin(url, image_url)
+            logger.info(f"Found Open Graph image: {image_url}")
+            return image_url
+
+        # Try Twitter card image
+        twitter_image = soup.find('meta', attrs={'name': 'twitter:image'})
+        if twitter_image and twitter_image.get('content'):
+            image_url = twitter_image['content']
+            if not image_url.startswith('http'):
+                image_url = urljoin(url, image_url)
+            logger.info(f"Found Twitter card image: {image_url}")
+            return image_url
+
+        # Try finding first large image in content
+        images = soup.find_all('img')
+        for img in images:
+            src = img.get('src') or img.get('data-src')
+            if src:
+                # Skip small images (icons, logos, etc.)
+                width = img.get('width')
+                height = img.get('height')
+                if width and height:
+                    try:
+                        if int(width) >= 400 and int(height) >= 300:
+                            if not src.startswith('http'):
+                                src = urljoin(url, src)
+                            logger.info(f"Found content image: {src}")
+                            return src
+                    except ValueError:
+                        pass
+                else:
+                    # If no size specified, check if it's not an icon/logo
+                    if 'icon' not in src.lower() and 'logo' not in src.lower():
+                        if not src.startswith('http'):
+                            src = urljoin(url, src)
+                        logger.info(f"Found content image: {src}")
+                        return src
+
+        logger.warning(f"No suitable image found at {url}")
+        return None
+
+    except Exception as e:
+        logger.error(f"Error extracting image from {url}: {e}")
+        return None
+
+@retry_with_exponential_backoff(max_retries=2, initial_delay=1, backoff_factor=2)
+def download_and_save_image(image_url, event_title):
+    """
+    Download an image and save it locally.
+    Returns the filename if successful, None otherwise.
+    """
+    if not image_url:
+        return None
+
+    # Create a hash of the event title for unique filename
+    event_hash = hashlib.md5(event_title.encode()).hexdigest()[:12]
+
+    # Detect image extension from URL
+    parsed = urlparse(image_url)
+    path = parsed.path.lower()
+    if path.endswith('.jpg') or path.endswith('.jpeg'):
+        ext = 'jpg'
+    elif path.endswith('.png'):
+        ext = 'png'
+    elif path.endswith('.webp'):
+        ext = 'webp'
+    else:
+        ext = 'jpg'  # Default to jpg
+
+    image_filename = f"{event_hash}.{ext}"
+    image_path = f"public/events-images/{image_filename}"
+
+    # Check if image already exists
+    if os.path.exists(image_path):
+        logger.info(f"Image already exists: {image_filename}")
+        return image_filename
+
+    # Create image directory if it doesn't exist
+    os.makedirs("public/events-images", exist_ok=True)
+
+    try:
+        logger.info(f"Downloading image: {image_url}")
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+        }
+        response = requests.get(image_url, headers=headers, timeout=10)
+        response.raise_for_status()
+
+        # Save the image
+        with open(image_path, 'wb') as f:
+            f.write(response.content)
+
+        logger.info(f"Successfully saved image: {image_filename}")
+        return image_filename
+
+    except Exception as e:
+        logger.error(f"Error downloading image from {image_url}: {e}")
+        return None
+
 def update_events_data(new_events, google_api_key=None):
     """Updates the events with idempotency and freshness validation."""
     logger.info("Updating events data with idempotency...")
@@ -365,6 +492,13 @@ def update_events_data(new_events, google_api_key=None):
             if event.get("location") and google_api_key:
                 lat, lng = geocode_location(event["location"], google_api_key, geocode_cache)
 
+            # Extract and download image from event URL
+            image_filename = None
+            if event.get("link"):
+                image_url = extract_image_from_url(event["link"])
+                if image_url:
+                    image_filename = download_and_save_image(image_url, event["title"])
+
             active_events[event_key] = {
                 "title": event["title"],
                 "event_date": event["event_date"],
@@ -374,7 +508,8 @@ def update_events_data(new_events, google_api_key=None):
                 "location": event.get("location"),
                 "category": event.get("category", "News"),
                 "lat": lat,
-                "lng": lng
+                "lng": lng,
+                "image": image_filename
             }
 
     # Apply 3-day freshness rule: remove events not seen in 3 days

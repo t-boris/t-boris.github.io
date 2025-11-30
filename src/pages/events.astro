@@ -293,11 +293,12 @@ const GOOGLE_MAPS_API_KEY = import.meta.env.PUBLIC_GOOGLE_MAPS_API_KEY || '';
 
 			.event-card {
 				border: 1px solid rgba(201, 165, 123, 0.2);
-				padding: 1.5rem;
+				padding: 0;
 				margin-bottom: 1.5rem;
 				border-radius: 12px;
 				background: rgb(var(--gray-light));
 				transition: all 0.3s ease;
+				overflow: hidden;
 			}
 
 			.event-card:hover {
@@ -308,6 +309,17 @@ const GOOGLE_MAPS_API_KEY = import.meta.env.PUBLIC_GOOGLE_MAPS_API_KEY || '';
 
 			.event-card.hidden {
 				display: none;
+			}
+
+			.event-image {
+				width: 100%;
+				height: 200px;
+				object-fit: cover;
+				display: block;
+			}
+
+			.event-content {
+				padding: 1.5rem;
 			}
 
 			.event-header {
@@ -573,17 +585,29 @@ const GOOGLE_MAPS_API_KEY = import.meta.env.PUBLIC_GOOGLE_MAPS_API_KEY || '';
 		<style is:global>
 			.snapshot-section .event-card {
 				border: 1px solid rgba(201, 165, 123, 0.2);
-				padding: 1.5rem;
+				padding: 0;
 				margin-bottom: 1.5rem;
 				border-radius: 12px;
 				background: rgb(var(--gray-light));
 				transition: all 0.3s ease;
+				overflow: hidden;
 			}
 
 			.snapshot-section .event-card:hover {
 				border-color: var(--accent);
 				box-shadow: 0 4px 16px rgba(201, 165, 123, 0.3);
 				transform: translateY(-2px);
+			}
+
+			.snapshot-section .event-image {
+				width: 100%;
+				height: 200px;
+				object-fit: cover;
+				display: block;
+			}
+
+			.snapshot-section .event-content {
+				padding: 1.5rem;
 			}
 
 			.snapshot-section .event-header {
@@ -897,17 +921,21 @@ const GOOGLE_MAPS_API_KEY = import.meta.env.PUBLIC_GOOGLE_MAPS_API_KEY || '';
 
 				// Helper function to create event card HTML
 				function createEventCard(event) {
+					const imageHtml = event.image ? `<img src="/events-images/${event.image}" alt="${event.title}" class="event-image" loading="lazy" />` : '';
 					return `
 						<div class="event-card" data-category="${event.category}" data-event-date="${event.event_date}">
-							<div class="event-header">
-								<span class="category-badge ${event.category}">${event.category}</span>
-								<span class="event-date-badge">${event.event_date}</span>
-							</div>
-							<h3 class="event-title">${event.title}</h3>
-							<p class="event-description">${event.description}</p>
-							<div class="event-footer">
-								${event.location ? `<span class="event-location">📍 ${event.location}</span>` : ''}
-								${event.link ? `<a href="${event.link}" target="_blank" rel="noopener noreferrer" class="event-link">Read more →</a>` : ''}
+							${imageHtml}
+							<div class="event-content">
+								<div class="event-header">
+									<span class="category-badge ${event.category}">${event.category}</span>
+									<span class="event-date-badge">${event.event_date}</span>
+								</div>
+								<h3 class="event-title">${event.title}</h3>
+								<p class="event-description">${event.description}</p>
+								<div class="event-footer">
+									${event.location ? `<span class="event-location">📍 ${event.location}</span>` : ''}
+									${event.link ? `<a href="${event.link}" target="_blank" rel="noopener noreferrer" class="event-link">Read more →</a>` : ''}
+								</div>
 							</div>
 						</div>
 					`;
@@ -1205,21 +1233,26 @@ const GOOGLE_MAPS_API_KEY = import.meta.env.PUBLIC_GOOGLE_MAPS_API_KEY || '';
 						{todayEvents.length > 0 ? (
 							todayEvents.map(event => (
 								<div class="event-card" data-category={event.category} data-event-date={event.event_date}>
-									<div class="event-header">
-										<span class={`category-badge ${event.category}`}>{event.category}</span>
-										<span class="event-date-badge">{event.event_date}</span>
-									</div>
-									<h3 class="event-title">{event.title}</h3>
-									<p class="event-description">{event.description}</p>
-									<div class="event-footer">
-										{event.location && (
-											<span class="event-location">📍 {event.location}</span>
-										)}
-										{event.link && (
-											<a href={event.link} target="_blank" rel="noopener noreferrer" class="event-link">
-												Read more →
-											</a>
-										)}
+									{event.image && (
+										<img src={`/events-images/${event.image}`} alt={event.title} class="event-image" loading="lazy" />
+									)}
+									<div class="event-content">
+										<div class="event-header">
+											<span class={`category-badge ${event.category}`}>{event.category}</span>
+											<span class="event-date-badge">{event.event_date}</span>
+										</div>
+										<h3 class="event-title">{event.title}</h3>
+										<p class="event-description">{event.description}</p>
+										<div class="event-footer">
+											{event.location && (
+												<span class="event-location">📍 {event.location}</span>
+											)}
+											{event.link && (
+												<a href={event.link} target="_blank" rel="noopener noreferrer" class="event-link">
+													Read more →
+												</a>
+											)}
+										</div>
 									</div>
 								</div>
 							))
@@ -1242,21 +1275,26 @@ const GOOGLE_MAPS_API_KEY = import.meta.env.PUBLIC_GOOGLE_MAPS_API_KEY || '';
 					{futureEvents.length > 0 ? (
 						futureEvents.map(event => (
 							<div class="event-card" data-category={event.category} data-event-date={event.event_date}>
-								<div class="event-header">
-									<span class={`category-badge ${event.category}`}>{event.category}</span>
-									<span class="event-date-badge">{event.event_date}</span>
-								</div>
-								<h3 class="event-title">{event.title}</h3>
-								<p class="event-description">{event.description}</p>
-								<div class="event-footer">
-									{event.location && (
-										<span class="event-location">📍 {event.location}</span>
-									)}
-									{event.link && (
-										<a href={event.link} target="_blank" rel="noopener noreferrer" class="event-link">
-											Read more →
-										</a>
-									)}
+								{event.image && (
+									<img src={`/events-images/${event.image}`} alt={event.title} class="event-image" loading="lazy" />
+								)}
+								<div class="event-content">
+									<div class="event-header">
+										<span class={`category-badge ${event.category}`}>{event.category}</span>
+										<span class="event-date-badge">{event.event_date}</span>
+									</div>
+									<h3 class="event-title">{event.title}</h3>
+									<p class="event-description">{event.description}</p>
+									<div class="event-footer">
+										{event.location && (
+											<span class="event-location">📍 {event.location}</span>
+										)}
+										{event.link && (
+											<a href={event.link} target="_blank" rel="noopener noreferrer" class="event-link">
+												Read more →
+											</a>
+										)}
+									</div>
 								</div>
 							</div>
 						))
