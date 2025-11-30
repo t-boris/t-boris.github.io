@@ -492,9 +492,21 @@ const GOOGLE_MAPS_API_KEY = import.meta.env.PUBLIC_GOOGLE_MAPS_API_KEY || '';
 				cursor: pointer;
 			}
 
+			.calendar-day.has-snapshot {
+				background: rgba(100, 200, 255, 0.15);
+				cursor: pointer;
+				border-color: rgba(100, 200, 255, 0.4);
+			}
+
 			.calendar-day.has-events:hover {
 				background: var(--accent);
 				transform: scale(1.05);
+			}
+
+			.calendar-day.has-snapshot:hover {
+				background: rgba(100, 200, 255, 0.3);
+				transform: scale(1.05);
+				border-color: rgba(100, 200, 255, 0.6);
 			}
 
 			.calendar-day:not(.empty):not(.has-events):hover {
@@ -508,7 +520,8 @@ const GOOGLE_MAPS_API_KEY = import.meta.env.PUBLIC_GOOGLE_MAPS_API_KEY || '';
 				pointer-events: none;
 			}
 
-			.calendar-day.has-events:hover .calendar-day-number {
+			.calendar-day.has-events:hover .calendar-day-number,
+			.calendar-day.has-snapshot:hover .calendar-day-number {
 				color: white;
 			}
 
@@ -527,6 +540,10 @@ const GOOGLE_MAPS_API_KEY = import.meta.env.PUBLIC_GOOGLE_MAPS_API_KEY || '';
 				justify-content: center;
 				font-weight: 700;
 				pointer-events: none;
+			}
+
+			.calendar-day.has-snapshot .calendar-day-badge {
+				background: rgba(100, 200, 255, 0.8);
 			}
 
 			.no-events {
@@ -723,10 +740,11 @@ const GOOGLE_MAPS_API_KEY = import.meta.env.PUBLIC_GOOGLE_MAPS_API_KEY || '';
 			}
 		</script>
 
-		<script define:vars={{ calendarEventCounts }}>
+		<script define:vars={{ calendarEventCounts, snapshotsByDate }}>
 			// Category filter functionality
 			document.addEventListener('DOMContentLoaded', () => {
 				console.log('Calendar event counts:', calendarEventCounts);
+				console.log('Snapshots by date:', snapshotsByDate);
 				console.log('Total event dates:', Object.keys(calendarEventCounts).length);
 
 				const filterButtons = document.querySelectorAll('.category-filter button');
@@ -921,10 +939,17 @@ const GOOGLE_MAPS_API_KEY = import.meta.env.PUBLIC_GOOGLE_MAPS_API_KEY || '';
 							dayEl.classList.add('today');
 						}
 
+						// Check if has snapshot (historical events)
+						const hasSnapshot = snapshotsByDate[dateStr] && snapshotsByDate[dateStr] > 0;
+
 						// Check if has events (from snapshots or active events)
 						const eventCount = calendarEventCounts[dateStr] || 0;
 						if (eventCount > 0) {
-							dayEl.classList.add('has-events');
+							if (hasSnapshot) {
+								dayEl.classList.add('has-snapshot');
+							} else {
+								dayEl.classList.add('has-events');
+							}
 						}
 
 						// Day number
