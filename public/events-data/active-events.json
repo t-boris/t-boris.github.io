@@ -1,0 +1,167 @@
+{
+  "road closure on grand avenue|2025-12-01": {
+    "title": "Road Closure on Grand Avenue",
+    "event_date": "2025-12-01",
+    "found_date": "2025-11-28",
+    "description": "Due to construction, Grand Avenue will be closed between Dilley's Road and Hunt Club Road. Plan alternate routes.",
+    "link": "https://www.gurnee.il.us/News/ItemID/1234",
+    "location": null,
+    "category": "News",
+    "lat": null,
+    "lng": null
+  },
+  "new coffee shop opening|2025-12-05": {
+    "title": "New Coffee Shop Opening",
+    "event_date": "2025-12-05",
+    "found_date": "2025-11-28",
+    "description": "A new coffee shop, Brew & Co., is opening its doors in Gurnee Mills. Grand opening with free samples and live music.",
+    "link": "https://www.gurneemills.com/events/brew-co-grand-opening/",
+    "location": null,
+    "category": "Business",
+    "lat": null,
+    "lng": null
+  },
+  "town hall meeting on local taxes|2025-12-10": {
+    "title": "Town Hall Meeting on Local Taxes",
+    "event_date": "2025-12-10",
+    "found_date": "2025-11-28",
+    "description": "The Gurnee Village Board is hosting a town hall to discuss the upcoming changes in local taxes and budget.",
+    "link": "https://www.gurnee.il.us/Events/ItemID/5678",
+    "location": null,
+    "category": "News",
+    "lat": null,
+    "lng": null
+  },
+  "gurnee city council meeting|2025-12-02": {
+    "title": "Gurnee City Council Meeting",
+    "event_date": "2025-12-02",
+    "found_date": "2025-11-26",
+    "description": "The Gurnee City Council will discuss upcoming budget proposals and community development projects.",
+    "link": "https://www.gurnee.il.us/government/city_council/meetings.php",
+    "location": null,
+    "category": "News",
+    "lat": null,
+    "lng": null
+  },
+  "gurnee winter festival|2025-12-15": {
+    "title": "Gurnee Winter Festival",
+    "event_date": "2025-12-15",
+    "found_date": "2025-11-25",
+    "description": "Join the community for a day of winter fun including ice sculpting, hot cocoa stations, and live music at Viking Park.",
+    "link": "https://www.gurneeparkdistrict.com/events/winter-festival/",
+    "location": null,
+    "category": "Community",
+    "lat": null,
+    "lng": null
+  },
+  "road closure on grand avenue|2025-11-30": {
+    "title": "Road Closure on Grand Avenue",
+    "event_date": "2025-11-30",
+    "found_date": "2025-11-24",
+    "description": "Due to construction, Grand Avenue will be closed from November 30th to December 3rd. Please plan alternate routes.",
+    "link": "https://www.gurneenews.com/road-closure",
+    "location": null,
+    "category": "News",
+    "lat": null,
+    "lng": null
+  },
+  "new coffee shop opening|2025-12-01": {
+    "title": "New Coffee Shop Opening",
+    "event_date": "2025-12-01",
+    "found_date": "2025-11-22",
+    "description": "A new coffee shop, Brew & Co., is opening its doors in Gurnee. They will offer a variety of specialty drinks and pastries.",
+    "link": "https://www.gurneenews.com/new-coffee-shop-opening",
+    "location": null,
+    "category": "Business",
+    "lat": null,
+    "lng": null
+  },
+  "new coffee shop opening|2025-12-10": {
+    "title": "New Coffee Shop Opening",
+    "event_date": "2025-12-10",
+    "found_date": "2025-11-21",
+    "description": "A new coffee shop, 'Brew & Co.', is opening its doors in Gurnee. They will offer a variety of specialty drinks and pastries.",
+    "link": "https://www.brewandco.com/opening",
+    "location": null,
+    "category": "Business",
+    "lat": null,
+    "lng": null
+  },
+  "gurnee holiday market|2025-12-05": {
+    "title": "Gurnee Holiday Market",
+    "event_date": "2025-12-05",
+    "found_date": "2025-11-20",
+    "description": "Join the Gurnee Holiday Market for a day of shopping local crafts, enjoying seasonal treats, and festive activities. Located at Viking Park, this event is perfect for holiday shopping and family fun.",
+    "link": "https://www.gurneeparkdistrict.com/events/holiday-market/",
+    "location": null,
+    "category": "Community",
+    "lat": null,
+    "lng": null
+  },
+  "expansion of gurnee industrial park|2026-01-15": {
+    "title": "Expansion of Gurnee Industrial Park",
+    "event_date": "2026-01-15",
+    "found_date": "2025-11-19",
+    "description": "The Gurnee Industrial Park is set to expand, adding new facilities and creating job opportunities in the area.",
+    "link": "https://www.gurneeindustry.com/expansion-2025",
+    "location": null,
+    "category": "Manufacturing",
+    "lat": null,
+    "lng": null
+  },
+  "gurnee city council meeting|2025-11-30": {
+    "title": "Gurnee City Council Meeting",
+    "event_date": "2025-11-30",
+    "found_date": "2025-11-18",
+    "description": "The Gurnee City Council will discuss upcoming budget proposals and community development projects.",
+    "link": "https://www.gurnee.il.us/city-council-meeting",
+    "location": null,
+    "category": "News",
+    "lat": null,
+    "lng": null
+  },
+  "winter lights festival|2025-12-01": {
+    "title": "Winter Lights Festival",
+    "event_date": "2025-12-01",
+    "found_date": "2025-11-17",
+    "description": "Experience the magic of the Winter Lights Festival at Six Flags Great America. Enjoy dazzling light displays, live performances, and seasonal treats.",
+    "link": "https://www.sixflags.com/greatamerica/events/winter-lights",
+    "location": null,
+    "category": "Culture",
+    "lat": null,
+    "lng": null
+  },
+  "expansion of gurnee industrial park|2025-12-15": {
+    "title": "Expansion of Gurnee Industrial Park",
+    "event_date": "2025-12-15",
+    "found_date": "2025-11-17",
+    "description": "Gurnee Industrial Park announces a major expansion project, adding new facilities and creating job opportunities in the manufacturing sector.",
+    "link": "https://www.gurneeindustrialpark.com/news/expansion-2025",
+    "location": null,
+    "category": "Manufacturing",
+    "lat": null,
+    "lng": null
+  },
+  "gurnee city council meeting|2025-12-03": {
+    "title": "Gurnee City Council Meeting",
+    "event_date": "2025-12-03",
+    "found_date": "2025-11-02",
+    "description": "The Gurnee City Council will discuss the upcoming budget and community development projects.",
+    "link": "https://www.gurnee.il.us/27/Government",
+    "location": null,
+    "category": "News",
+    "lat": null,
+    "lng": null
+  },
+  "holiday market and entertainment|2025-11-30": {
+    "title": "Holiday Market and Entertainment",
+    "event_date": "2025-11-30",
+    "found_date": "2025-11-30",
+    "description": "Explore Events @ Hawthorn, including a holiday market and entertainment events on Nov. 29.",
+    "link": "https://www.visitlakecounty.org/events",
+    "location": null,
+    "category": "Community",
+    "lat": null,
+    "lng": null
+  }
+}

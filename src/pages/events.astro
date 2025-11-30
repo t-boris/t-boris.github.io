@@ -63,13 +63,18 @@ const allCategories = [...new Set(activeEvents.map(e => e.category).filter(Boole
 
 const HOME_LAT = 42.3703;
 const HOME_LNG = -87.9023;
+
+// Google Maps API key from environment (optional - map won't load if missing)
+const GOOGLE_MAPS_API_KEY = import.meta.env.PUBLIC_GOOGLE_MAPS_API_KEY || '';
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
 		<BaseHead title={`Events | ${SITE_TITLE}`} description="Daily aggregated local events and news" />
-		<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&callback=initMap" async defer></script>
+		{GOOGLE_MAPS_API_KEY && (
+			<script src={`https://maps.googleapis.com/maps/api/js?key=${GOOGLE_MAPS_API_KEY}&callback=initMap`} async defer></script>
+		)}
 		<style>
 			body {
 				background: var(--bg, #020617);
@@ -497,7 +502,13 @@ const HOME_LNG = -87.9023;
 			</header>
 
 			<!-- Google Maps -->
-			<div id="map"></div>
+			<div id="map">
+				{!GOOGLE_MAPS_API_KEY && (
+					<div style="display: flex; align-items: center; justify-content: center; height: 100%; background: rgb(var(--gray-light)); color: rgb(var(--gray)); border-radius: 12px; border: 2px solid rgba(201, 165, 123, 0.3);">
+						<p>Google Maps API key not configured. Events list below.</p>
+					</div>
+				)}
+			</div>
 
 			<!-- 3-column layout -->
 			<div class="content-grid">
