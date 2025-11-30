@@ -451,7 +451,7 @@ const GOOGLE_MAPS_API_KEY = import.meta.env.PUBLIC_GOOGLE_MAPS_API_KEY || '';
 				gap: 6px;
 			}
 
-			.calendar-day-header {
+			:global(.calendar-day-header) {
 				text-align: center;
 				font-size: 0.7rem;
 				font-weight: 600;
@@ -460,7 +460,7 @@ const GOOGLE_MAPS_API_KEY = import.meta.env.PUBLIC_GOOGLE_MAPS_API_KEY || '';
 				text-transform: uppercase;
 			}
 
-			.calendar-day {
+			:global(.calendar-day) {
 				position: relative;
 				aspect-ratio: 1;
 				min-height: 42px;
@@ -476,56 +476,56 @@ const GOOGLE_MAPS_API_KEY = import.meta.env.PUBLIC_GOOGLE_MAPS_API_KEY || '';
 				user-select: none;
 			}
 
-			.calendar-day.empty {
+			:global(.calendar-day.empty) {
 				background: transparent;
 				border-color: transparent;
 				cursor: default;
 			}
 
-			.calendar-day.today {
+			:global(.calendar-day.today) {
 				border-color: var(--accent);
 				border-width: 2px;
 			}
 
-			.calendar-day.has-events {
+			:global(.calendar-day.has-events) {
 				background: rgba(201, 165, 123, 0.1);
 				cursor: pointer;
 			}
 
-			.calendar-day.has-snapshot {
+			:global(.calendar-day.has-snapshot) {
 				background: rgba(100, 200, 255, 0.15);
 				cursor: pointer;
 				border-color: rgba(100, 200, 255, 0.4);
 			}
 
-			.calendar-day.has-events:hover {
+			:global(.calendar-day.has-events:hover) {
 				background: var(--accent);
 				transform: scale(1.05);
 			}
 
-			.calendar-day.has-snapshot:hover {
+			:global(.calendar-day.has-snapshot:hover) {
 				background: rgba(100, 200, 255, 0.3);
 				transform: scale(1.05);
 				border-color: rgba(100, 200, 255, 0.6);
 			}
 
-			.calendar-day:not(.empty):not(.has-events):hover {
+			:global(.calendar-day:not(.empty):not(.has-events):hover) {
 				background: rgba(201, 165, 123, 0.05);
 			}
 
-			.calendar-day-number {
+			:global(.calendar-day-number) {
 				font-size: 0.75rem;
 				font-weight: 600;
 				color: rgb(var(--gray-dark));
 				pointer-events: none;
 			}
 
-			.calendar-day.has-events:hover .calendar-day-number,
-			.calendar-day.has-snapshot:hover .calendar-day-number {
+			:global(.calendar-day.has-events:hover .calendar-day-number),
+			:global(.calendar-day.has-snapshot:hover .calendar-day-number) {
 				color: white;
 			}
 
-			.calendar-day-badge {
+			:global(.calendar-day-badge) {
 				position: absolute;
 				bottom: 4px;
 				right: 4px;
@@ -546,7 +546,7 @@ const GOOGLE_MAPS_API_KEY = import.meta.env.PUBLIC_GOOGLE_MAPS_API_KEY || '';
 				box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 			}
 
-			.calendar-day.has-snapshot .calendar-day-badge {
+			:global(.calendar-day.has-snapshot .calendar-day-badge) {
 				background: rgba(100, 200, 255, 0.8);
 			}
 
