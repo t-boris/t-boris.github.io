@@ -54,13 +54,44 @@ const today = new Date();
 const currentMonth = today.getMonth();
 const currentYear = today.getFullYear();
 
-// Get events grouped by date
+// Load ALL snapshot files to build calendar
+const snapshotsByDate = {};
+try {
+	const eventsDataDir = path.join(process.cwd(), 'public/events-data');
+	const files = await fs.readdir(eventsDataDir);
+
+	// Find all YYYY-MM-DD.json files
+	const snapshotFiles = files.filter(f => /^\d{4}-\d{2}-\d{2}\.json$/.test(f));
+
+	for (const file of snapshotFiles) {
+		const dateStr = file.replace('.json', '');
+		const filePath = path.join(eventsDataDir, file);
+		try {
+			const content = await fs.readFile(filePath, 'utf-8');
+			const data = JSON.parse(content);
+			// Count events in this snapshot
+			snapshotsByDate[dateStr] = Object.keys(data).length;
+		} catch (err) {
+			console.error(`Failed to load snapshot ${file}:`, err);
+		}
+	}
+} catch (err) {
+	console.error('Failed to load snapshots:', err);
+}
+
+// Get events grouped by date (for future events)
 const eventsByDate = {};
 activeEvents.forEach(event => {
 	if (!eventsByDate[event.event_date]) {
 		eventsByDate[event.event_date] = 0;
 	}
 	eventsByDate[event.event_date]++;
+});
+
+// Merge snapshots and active events for calendar
+const calendarEventCounts = { ...snapshotsByDate };
+Object.keys(eventsByDate).forEach(date => {
+	calendarEventCounts[date] = (calendarEventCounts[date] || 0) + eventsByDate[date];
 });
 
 // Get events with coordinates for map
@@ -538,7 +569,7 @@ const GOOGLE_MAPS_API_KEY = import.meta.env.PUBLIC_GOOGLE_MAPS_API_KEY || '';
 					// Initialize map centered on home
 					map = new google.maps.Map(document.getElementById('map'), {
 						center: { lat: HOME_LAT, lng: HOME_LNG },
-						zoom: 15,  // Close street level - shows individual buildings
+						zoom: 14,  // Street level view
 						mapTypeId: 'roadmap',
 						styles: [
 							// Dark background
@@ -691,11 +722,11 @@ const GOOGLE_MAPS_API_KEY = import.meta.env.PUBLIC_GOOGLE_MAPS_API_KEY || '';
 			}
 		</script>
 
-		<script define:vars={{ eventsByDate }}>
+		<script define:vars={{ calendarEventCounts }}>
 			// Category filter functionality
 			document.addEventListener('DOMContentLoaded', () => {
-				console.log('Events by date:', eventsByDate);
-				console.log('Total event dates:', Object.keys(eventsByDate).length);
+				console.log('Calendar event counts:', calendarEventCounts);
+				console.log('Total event dates:', Object.keys(calendarEventCounts).length);
 
 				const filterButtons = document.querySelectorAll('.category-filter button');
 				const eventCards = document.querySelectorAll('.event-card');
@@ -722,6 +753,81 @@ const GOOGLE_MAPS_API_KEY = import.meta.env.PUBLIC_GOOGLE_MAPS_API_KEY || '';
 				// Calendar functionality
 				let currentMonth = new Date().getMonth();
 				let currentYear = new Date().getFullYear();
+
+				// Helper function to create event card HTML
+				function createEventCard(event) {
+					return `
+						<div class="event-card" data-category="${event.category}" data-event-date="${event.event_date}">
+							<div class="event-header">
+								<span class="category-badge ${event.category}">${event.category}</span>
+								<span class="event-date-badge">${event.event_date}</span>
+							</div>
+							<h3 class="event-title">${event.title}</h3>
+							<p class="event-description">${event.description}</p>
+							<div class="event-footer">
+								${event.location ? `<span class="event-location">📍 ${event.location}</span>` : ''}
+								${event.link ? `<a href="${event.link}" target="_blank" rel="noopener noreferrer" class="event-link">Read more →</a>` : ''}
+							</div>
+						</div>
+					`;
+				}
+
+				// Display snapshot events for a specific date
+				function displaySnapshotEvents(dateStr, events) {
+					const eventsContent = document.querySelector('.events-content');
+					if (!eventsContent) return;
+
+					// Create header
+					const header = `
+						<div class="snapshot-header" style="margin-bottom: 2rem; padding: 1.5rem; background: rgb(var(--gray-light)); border-radius: 12px; border: 2px solid var(--accent);">
+							<h2 style="margin: 0 0 0.5rem 0; color: var(--accent);">Events Snapshot: ${dateStr}</h2>
+							<p style="margin: 0; color: rgb(var(--gray)); font-size: 0.9rem;">${events.length} event(s) found on this date</p>
+							<button id="back-to-current" style="margin-top: 1rem; padding: 0.5rem 1rem; background: var(--accent); color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600;">← Back to Current Events</button>
+						</div>
+					`;
+
+					// Create event cards
+					const eventsHtml = events.map(event => createEventCard(event)).join('');
+
+					// Replace content
+					eventsContent.innerHTML = header + eventsHtml;
+
+					// Add back button handler
+					document.getElementById('back-to-current').addEventListener('click', () => {
+						location.reload(); // Simple reload to restore original view
+					});
+
+					// Scroll to top of events
+					eventsContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
+				}
+
+				// Filter current events by date
+				function filterEventsByDate(dateStr) {
+					filterButtons.forEach(btn => btn.classList.remove('active'));
+					const allButton = document.querySelector('[data-category="all"]');
+					if (allButton) allButton.classList.add('active');
+
+					let firstMatchingCard = null;
+					let matchedCount = 0;
+					eventCards.forEach(card => {
+						if (card.dataset.eventDate === dateStr) {
+							card.classList.remove('hidden');
+							if (!firstMatchingCard) firstMatchingCard = card;
+							matchedCount++;
+						} else {
+							card.classList.add('hidden');
+						}
+					});
+
+					console.log(`Filtered ${matchedCount} current event cards for ${dateStr}`);
+
+					// Scroll to first matching event
+					if (firstMatchingCard) {
+						setTimeout(() => {
+							firstMatchingCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+						}, 100);
+					}
+				}
 
 				function renderCalendar(month, year) {
 					const calendarGrid = document.getElementById('calendar-grid');
@@ -767,8 +873,8 @@ const GOOGLE_MAPS_API_KEY = import.meta.env.PUBLIC_GOOGLE_MAPS_API_KEY || '';
 							dayEl.classList.add('today');
 						}
 
-						// Check if has events
-						const eventCount = eventsByDate[dateStr] || 0;
+						// Check if has events (from snapshots or active events)
+						const eventCount = calendarEventCounts[dateStr] || 0;
 						if (eventCount > 0) {
 							dayEl.classList.add('has-events');
 						}
@@ -787,38 +893,31 @@ const GOOGLE_MAPS_API_KEY = import.meta.env.PUBLIC_GOOGLE_MAPS_API_KEY || '';
 							dayEl.appendChild(badge);
 						}
 
-						// Click handler
-						dayEl.addEventListener('click', (e) => {
+						// Click handler - load snapshot for this date
+						dayEl.addEventListener('click', async (e) => {
 							console.log('Calendar day clicked:', dateStr, 'eventCount:', eventCount);
 							if (eventCount > 0) {
-								console.log('Filtering events for date:', dateStr);
-								// Filter events by date
-								filterButtons.forEach(btn => btn.classList.remove('active'));
-								const allButton = document.querySelector('[data-category="all"]');
-								if (allButton) allButton.classList.add('active');
+								// Try to load snapshot file for this date
+								const snapshotUrl = `/events-data/${dateStr}.json`;
 
-								let firstMatchingCard = null;
-								let matchedCount = 0;
-								eventCards.forEach(card => {
-									if (card.dataset.eventDate === dateStr) {
-										card.classList.remove('hidden');
-										if (!firstMatchingCard) firstMatchingCard = card;
-										matchedCount++;
-										console.log('Matched event card:', card.dataset.eventDate);
+								try {
+									const response = await fetch(snapshotUrl);
+									if (response.ok) {
+										const snapshotData = await response.json();
+										const snapshotEvents = Object.values(snapshotData);
+										console.log(`Loaded ${snapshotEvents.length} events from snapshot ${dateStr}`);
+
+										// Replace events content with snapshot
+										displaySnapshotEvents(dateStr, snapshotEvents);
 									} else {
-										card.classList.add('hidden');
+										// No snapshot, filter current events
+										console.log('No snapshot found, filtering current events for:', dateStr);
+										filterEventsByDate(dateStr);
 									}
-								});
-
-								console.log(`Matched ${matchedCount} event cards for ${dateStr}`);
-
-								// Scroll to first matching event
-								if (firstMatchingCard) {
-									setTimeout(() => {
-										firstMatchingCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
-									}, 100);
-								} else {
-									console.warn('No matching event card found for date:', dateStr);
+								} catch (err) {
+									console.error('Failed to load snapshot:', err);
+									// Fallback to filtering current events
+									filterEventsByDate(dateStr);
 								}
 							}
 						});
