@@ -42,11 +42,23 @@ jobs:
           git add public/events-data/
           if git diff --staged --quiet; then
             echo "No changes to commit"
+            echo "HAS_CHANGES=false" >> $GITHUB_ENV
           else
             git commit -m "Update events data - $(date -u +'%Y-%m-%d')"
             git push
+            echo "HAS_CHANGES=true" >> $GITHUB_ENV
           fi
 
-      - name: Trigger Astro rebuild
-        run: |
-          echo "Events data updated. Astro will rebuild on next deployment."
+      - name: Trigger deploy workflow
+        if: env.HAS_CHANGES == 'true'
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            await github.rest.actions.createWorkflowDispatch({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              workflow_id: 'deploy.yml',
+              ref: 'main'
+            });
+            console.log('Triggered deploy workflow');
