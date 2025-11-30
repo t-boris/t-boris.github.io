@@ -102,6 +102,10 @@ const GOOGLE_MAPS_API_KEY = import.meta.env.PUBLIC_GOOGLE_MAPS_API_KEY || '';
 				width: 100%;
 				max-width: 100%;
 				margin: 0;
+				padding: 0;
+			}
+
+			.page-content {
 				padding: 2rem;
 			}
 
@@ -123,22 +127,19 @@ const GOOGLE_MAPS_API_KEY = import.meta.env.PUBLIC_GOOGLE_MAPS_API_KEY || '';
 				font-size: 0.9rem;
 			}
 
-			/* Google Maps */
+			/* Google Maps - Full width */
 			#map {
 				width: 100%;
-				height: 400px;
-				margin-bottom: 2rem;
-				border-radius: 12px;
-				border: 2px solid rgba(201, 165, 123, 0.3);
+				height: 500px;
+				margin-bottom: 0;
 			}
 
 			/* 3-column layout */
 			.content-grid {
 				display: grid;
-				grid-template-columns: 280px minmax(400px, 600px) 320px;
+				grid-template-columns: 280px 1fr 320px;
 				gap: 2rem;
 				align-items: start;
-				justify-content: center;
 			}
 
 			/* Left sidebar - Trusted Sources */
@@ -440,6 +441,7 @@ const GOOGLE_MAPS_API_KEY = import.meta.env.PUBLIC_GOOGLE_MAPS_API_KEY || '';
 				cursor: pointer;
 				transition: all 0.2s;
 				position: relative;
+				user-select: none;
 			}
 
 			.calendar-day.empty {
@@ -455,20 +457,26 @@ const GOOGLE_MAPS_API_KEY = import.meta.env.PUBLIC_GOOGLE_MAPS_API_KEY || '';
 
 			.calendar-day.has-events {
 				background: rgba(201, 165, 123, 0.1);
+				cursor: pointer;
 			}
 
-			.calendar-day:not(.empty):hover {
+			.calendar-day.has-events:hover {
 				background: var(--accent);
 				transform: scale(1.05);
+			}
+
+			.calendar-day:not(.empty):not(.has-events):hover {
+				background: rgba(201, 165, 123, 0.05);
 			}
 
 			.calendar-day-number {
 				font-size: 0.75rem;
 				font-weight: 600;
 				color: rgb(var(--gray-dark));
+				pointer-events: none;
 			}
 
-			.calendar-day:hover .calendar-day-number {
+			.calendar-day.has-events:hover .calendar-day-number {
 				color: white;
 			}
 
@@ -486,6 +494,7 @@ const GOOGLE_MAPS_API_KEY = import.meta.env.PUBLIC_GOOGLE_MAPS_API_KEY || '';
 				align-items: center;
 				justify-content: center;
 				font-weight: 700;
+				pointer-events: none;
 			}
 
 			.no-events {
@@ -529,7 +538,7 @@ const GOOGLE_MAPS_API_KEY = import.meta.env.PUBLIC_GOOGLE_MAPS_API_KEY || '';
 					// Initialize map centered on home
 					map = new google.maps.Map(document.getElementById('map'), {
 						center: { lat: HOME_LAT, lng: HOME_LNG },
-						zoom: 13,  // Street level - shows individual streets and neighborhoods
+						zoom: 15,  // Close street level - shows individual buildings
 						mapTypeId: 'roadmap',
 						styles: [
 							// Dark background
@@ -833,22 +842,23 @@ const GOOGLE_MAPS_API_KEY = import.meta.env.PUBLIC_GOOGLE_MAPS_API_KEY || '';
 	<body>
 		<Header />
 		<main>
-			<header class="page-header">
-				<h1>Lake County Events</h1>
-				<p>Last Update: {lastUpdate}</p>
-			</header>
-
-			<!-- Google Maps -->
+			<!-- Google Maps - Full Width -->
 			<div id="map">
 				{!GOOGLE_MAPS_API_KEY && (
-					<div style="display: flex; align-items: center; justify-content: center; height: 100%; background: rgb(var(--gray-light)); color: rgb(var(--gray)); border-radius: 12px; border: 2px solid rgba(201, 165, 123, 0.3);">
+					<div style="display: flex; align-items: center; justify-content: center; height: 100%; background: rgb(var(--gray-light)); color: rgb(var(--gray));">
 						<p>Google Maps API key not configured. Events list below.</p>
 					</div>
 				)}
 			</div>
 
-			<!-- 3-column layout -->
-			<div class="content-grid">
+			<div class="page-content">
+				<header class="page-header">
+					<h1>Lake County Events</h1>
+					<p>Last Update: {lastUpdate}</p>
+				</header>
+
+				<!-- 3-column layout -->
+				<div class="content-grid">
 				<!-- Left sidebar - Trusted Sources -->
 				<aside class="sidebar-left">
 					<div class="sources-panel">
@@ -950,6 +960,7 @@ const GOOGLE_MAPS_API_KEY = import.meta.env.PUBLIC_GOOGLE_MAPS_API_KEY || '';
 						</div>
 					</div>
 				</aside>
+			</div>
 			</div>
 		</main>
 		<Footer />
