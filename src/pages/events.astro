@@ -694,6 +694,9 @@ const GOOGLE_MAPS_API_KEY = import.meta.env.PUBLIC_GOOGLE_MAPS_API_KEY || '';
 		<script define:vars={{ eventsByDate }}>
 			// Category filter functionality
 			document.addEventListener('DOMContentLoaded', () => {
+				console.log('Events by date:', eventsByDate);
+				console.log('Total event dates:', Object.keys(eventsByDate).length);
+
 				const filterButtons = document.querySelectorAll('.category-filter button');
 				const eventCards = document.querySelectorAll('.event-card');
 
@@ -785,28 +788,37 @@ const GOOGLE_MAPS_API_KEY = import.meta.env.PUBLIC_GOOGLE_MAPS_API_KEY || '';
 						}
 
 						// Click handler
-						dayEl.addEventListener('click', () => {
+						dayEl.addEventListener('click', (e) => {
+							console.log('Calendar day clicked:', dateStr, 'eventCount:', eventCount);
 							if (eventCount > 0) {
+								console.log('Filtering events for date:', dateStr);
 								// Filter events by date
 								filterButtons.forEach(btn => btn.classList.remove('active'));
 								const allButton = document.querySelector('[data-category="all"]');
 								if (allButton) allButton.classList.add('active');
 
 								let firstMatchingCard = null;
+								let matchedCount = 0;
 								eventCards.forEach(card => {
 									if (card.dataset.eventDate === dateStr) {
 										card.classList.remove('hidden');
 										if (!firstMatchingCard) firstMatchingCard = card;
+										matchedCount++;
+										console.log('Matched event card:', card.dataset.eventDate);
 									} else {
 										card.classList.add('hidden');
 									}
 								});
+
+								console.log(`Matched ${matchedCount} event cards for ${dateStr}`);
 
 								// Scroll to first matching event
 								if (firstMatchingCard) {
 									setTimeout(() => {
 										firstMatchingCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
 									}, 100);
+								} else {
+									console.warn('No matching event card found for date:', dateStr);
 								}
 							}
 						});
