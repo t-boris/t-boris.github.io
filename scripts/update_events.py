@@ -103,7 +103,7 @@ def analyze_with_openai(client, search_results, address):
 
     try:
         response = client.chat.completions.create(
-            model="gpt-5.1-codex-mini",
+            model="gpt-4o-mini",  # Using gpt-4o-mini for cost efficiency with Chat Completions API
             response_format={"type": "json_object"},
             messages=[
                 {"role": "system", "content": "You are a helpful assistant that returns structured JSON."},
