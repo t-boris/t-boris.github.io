@@ -65,14 +65,24 @@ def analyze_with_openai(client, search_results, address):
             ]
         )
         data = json.loads(response.choices[0].message.content)
+
+        # Handle dict wrapper from OpenAI
         if isinstance(data, dict):
             for key in data:
                 if isinstance(data[key], list):
                     return data[key]
-        return data
+            # If dict has no list values, wrap the dict in an array
+            return [data]
+
+        # If data is already a list, return it
+        if isinstance(data, list):
+            return data
+
+        # Fallback: wrap in array
+        return [data] if data else []
     except Exception as e:
         print(f"Error with OpenAI API: {e}")
-        return None
+        return []
 
 def update_events_data(new_events):
     """Updates the events JSON file for Astro to consume."""
