@@ -974,5 +974,11 @@
       "event_date": "2025-11-15",
       "found_date": "2025-11-15"
     }
-  ]
+  ],
+  "2025-11-30": {
+    "category": "Upcoming Events",
+    "title": "Holiday Market and Entertainment",
+    "description": "Explore Events @ Hawthorn, including a holiday market and entertainment events on Nov. 29.",
+    "link": "https://www.visitlakecounty.org/events"
+  }
 }
