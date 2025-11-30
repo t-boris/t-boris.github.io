@@ -1,0 +1,24 @@
+{
+  "gurnee city council meeting|2025-11-10": {
+    "title": "Gurnee City Council Meeting",
+    "event_date": "2025-11-10",
+    "found_date": "2025-11-03",
+    "description": "The Gurnee City Council will meet to discuss local ordinances and community development plans.",
+    "link": "https://www.gurnee.il.us/218/City-Council",
+    "location": null,
+    "category": "Politics",
+    "lat": null,
+    "lng": null
+  },
+  "grand opening of gurnee tech hub|2025-11-15": {
+    "title": "Grand Opening of Gurnee Tech Hub",
+    "event_date": "2025-11-15",
+    "found_date": "2025-11-03",
+    "description": "Celebrate the opening of Gurnee's new technology hub, featuring tours, tech demos, and networking opportunities.",
+    "link": "https://www.gurneechamber.com/events/",
+    "location": null,
+    "category": "Business",
+    "lat": null,
+    "lng": null
+  }
+}

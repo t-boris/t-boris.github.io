@@ -1,0 +1,46 @@
+{
+  "road closure on grand avenue|2025-12-01": {
+    "title": "Road Closure on Grand Avenue",
+    "event_date": "2025-12-01",
+    "found_date": "2025-11-28",
+    "description": "Due to construction, Grand Avenue will be closed between Dilley's Road and Hunt Club Road. Plan alternate routes.",
+    "link": "https://www.gurnee.il.us/News/ItemID/1234",
+    "location": null,
+    "category": "News",
+    "lat": null,
+    "lng": null
+  },
+  "new coffee shop opening|2025-12-05": {
+    "title": "New Coffee Shop Opening",
+    "event_date": "2025-12-05",
+    "found_date": "2025-11-28",
+    "description": "A new coffee shop, Brew & Co., is opening its doors in Gurnee Mills. Grand opening with free samples and live music.",
+    "link": "https://www.gurneemills.com/events/brew-co-grand-opening/",
+    "location": null,
+    "category": "Business",
+    "lat": null,
+    "lng": null
+  },
+  "town hall meeting on local taxes|2025-12-10": {
+    "title": "Town Hall Meeting on Local Taxes",
+    "event_date": "2025-12-10",
+    "found_date": "2025-11-28",
+    "description": "The Gurnee Village Board is hosting a town hall to discuss the upcoming changes in local taxes and budget.",
+    "link": "https://www.gurnee.il.us/Events/ItemID/5678",
+    "location": null,
+    "category": "Politics",
+    "lat": null,
+    "lng": null
+  },
+  "expansion of abc manufacturing|2025-11-28": {
+    "title": "Expansion of ABC Manufacturing",
+    "event_date": "2025-11-28",
+    "found_date": "2025-11-28",
+    "description": "ABC Manufacturing announced plans to expand its facility in Gurnee, creating new jobs and increasing production capacity.",
+    "link": "https://www.lakecountyjournal.com/business/abc-manufacturing-expansion/",
+    "location": null,
+    "category": "Manufacturing",
+    "lat": null,
+    "lng": null
+  }
+}

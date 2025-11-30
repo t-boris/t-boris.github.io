@@ -783,7 +783,7 @@ const GOOGLE_MAPS_API_KEY = import.meta.env.PUBLIC_GOOGLE_MAPS_API_KEY || '';
 						if (eventCount > 0) {
 							const badge = document.createElement('span');
 							badge.className = 'calendar-day-badge';
-							badge.textContent = eventCount;
+							badge.textContent = String(eventCount);
 							dayEl.appendChild(badge);
 						}
 

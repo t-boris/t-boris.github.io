@@ -1,0 +1,24 @@
+{
+  "road closure on grand avenue|2025-11-30": {
+    "title": "Road Closure on Grand Avenue",
+    "event_date": "2025-11-30",
+    "found_date": "2025-11-24",
+    "description": "Due to construction, Grand Avenue will be closed from November 30th to December 3rd. Please plan alternate routes.",
+    "link": "https://www.gurneenews.com/road-closure",
+    "location": null,
+    "category": "News",
+    "lat": null,
+    "lng": null
+  },
+  "gurnee city council meeting|2025-12-02": {
+    "title": "Gurnee City Council Meeting",
+    "event_date": "2025-12-02",
+    "found_date": "2025-11-24",
+    "description": "The next Gurnee City Council meeting will discuss local budget allocations and community development projects. Open to the public.",
+    "link": "https://www.gurnee.il.us/city-council",
+    "location": null,
+    "category": "Politics",
+    "lat": null,
+    "lng": null
+  }
+}

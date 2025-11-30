@@ -1,0 +1,24 @@
+{
+  "gurnee city council meeting|2025-11-13": {
+    "title": "Gurnee City Council Meeting",
+    "event_date": "2025-11-13",
+    "found_date": "2025-11-12",
+    "description": "The Gurnee City Council will discuss upcoming budget proposals and community development projects.",
+    "link": "https://www.gurnee.il.us/289/City-Council",
+    "location": null,
+    "category": "Politics",
+    "lat": null,
+    "lng": null
+  },
+  "expansion of local factory|2025-11-12": {
+    "title": "Expansion of Local Factory",
+    "event_date": "2025-11-12",
+    "found_date": "2025-11-12",
+    "description": "A local manufacturing plant in Gurnee is expanding its facilities, expected to create new job opportunities.",
+    "link": "https://www.manufacturing.net/",
+    "location": null,
+    "category": "Manufacturing",
+    "lat": null,
+    "lng": null
+  }
+}

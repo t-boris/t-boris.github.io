@@ -1,0 +1,24 @@
+{
+  "new coffee shop opening|2025-12-10": {
+    "title": "New Coffee Shop Opening",
+    "event_date": "2025-12-10",
+    "found_date": "2025-11-21",
+    "description": "A new coffee shop, 'Brew & Co.', is opening its doors in Gurnee. They will offer a variety of specialty drinks and pastries.",
+    "link": "https://www.brewandco.com/opening",
+    "location": null,
+    "category": "Business",
+    "lat": null,
+    "lng": null
+  },
+  "expansion of gurnee industrial park|2025-11-27": {
+    "title": "Expansion of Gurnee Industrial Park",
+    "event_date": "2025-11-27",
+    "found_date": "2025-11-21",
+    "description": "Gurnee Industrial Park announces a major expansion, adding new facilities and creating job opportunities in the area.",
+    "link": "https://www.gurneeindustrialpark.com/expansion",
+    "location": null,
+    "category": "Manufacturing",
+    "lat": null,
+    "lng": null
+  }
+}

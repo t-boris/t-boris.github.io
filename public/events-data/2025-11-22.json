@@ -1,0 +1,35 @@
+{
+  "traffic accident on route 41|2025-11-22": {
+    "title": "Traffic Accident on Route 41",
+    "event_date": "2025-11-22",
+    "found_date": "2025-11-22",
+    "description": "A multi-vehicle accident occurred on Route 41 near Gurnee. Police are advising drivers to seek alternate routes due to road closures.",
+    "link": "https://www.lakecountyjournal.com/traffic-accident-route-41",
+    "location": null,
+    "category": "News",
+    "lat": null,
+    "lng": null
+  },
+  "new coffee shop opening|2025-12-01": {
+    "title": "New Coffee Shop Opening",
+    "event_date": "2025-12-01",
+    "found_date": "2025-11-22",
+    "description": "A new coffee shop, Brew & Co., is opening its doors in Gurnee. They will offer a variety of specialty drinks and pastries.",
+    "link": "https://www.gurneenews.com/new-coffee-shop-opening",
+    "location": null,
+    "category": "Business",
+    "lat": null,
+    "lng": null
+  },
+  "expansion of gurnee industrial park|2025-11-22": {
+    "title": "Expansion of Gurnee Industrial Park",
+    "event_date": "2025-11-22",
+    "found_date": "2025-11-22",
+    "description": "The Gurnee Industrial Park is set to expand, adding new facilities and creating job opportunities in the manufacturing sector.",
+    "link": "https://www.industrialnews.com/gurnee-industrial-park-expansion",
+    "location": null,
+    "category": "Manufacturing",
+    "lat": null,
+    "lng": null
+  }
+}

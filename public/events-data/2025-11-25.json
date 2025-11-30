@@ -1,0 +1,24 @@
+{
+  "gurnee winter festival|2025-12-15": {
+    "title": "Gurnee Winter Festival",
+    "event_date": "2025-12-15",
+    "found_date": "2025-11-25",
+    "description": "Join the community for a day of winter fun including ice sculpting, hot cocoa stations, and live music at Viking Park.",
+    "link": "https://www.gurneeparkdistrict.com/events/winter-festival/",
+    "location": null,
+    "category": "Community",
+    "lat": null,
+    "lng": null
+  },
+  "new coffee shop opening|2025-12-05": {
+    "title": "New Coffee Shop Opening",
+    "event_date": "2025-12-05",
+    "found_date": "2025-11-25",
+    "description": "A new local coffee shop, Brew & Co., is opening its doors on Grand Avenue, offering specialty drinks and pastries.",
+    "link": "https://www.gurneechamber.com/business-directory/",
+    "location": null,
+    "category": "Business",
+    "lat": null,
+    "lng": null
+  }
+}

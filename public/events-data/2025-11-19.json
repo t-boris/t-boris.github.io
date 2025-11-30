@@ -1,0 +1,46 @@
+{
+  "gurnee holiday market|2025-12-05": {
+    "title": "Gurnee Holiday Market",
+    "event_date": "2025-12-05",
+    "found_date": "2025-11-19",
+    "description": "Join the Gurnee Holiday Market for a day of shopping local crafts, enjoying seasonal treats, and festive activities. The event is free and open to the public.",
+    "link": "https://www.gurneeholidaymarket.com",
+    "location": null,
+    "category": "Community",
+    "lat": null,
+    "lng": null
+  },
+  "traffic accident on route 41|2025-11-19": {
+    "title": "Traffic Accident on Route 41",
+    "event_date": "2025-11-19",
+    "found_date": "2025-11-19",
+    "description": "A multi-vehicle accident occurred on Route 41 near Gurnee, causing significant traffic delays. No serious injuries reported.",
+    "link": "https://www.chicagotribune.com/local/gurnee-accident-20251119",
+    "location": null,
+    "category": "News",
+    "lat": null,
+    "lng": null
+  },
+  "new coffee shop opening|2025-11-28": {
+    "title": "New Coffee Shop Opening",
+    "event_date": "2025-11-28",
+    "found_date": "2025-11-19",
+    "description": "A new coffee shop, 'Brew & Co.', is opening its doors in downtown Gurnee, offering specialty drinks and pastries.",
+    "link": "https://www.gurneenews.com/new-coffee-shop-2025",
+    "location": null,
+    "category": "Business",
+    "lat": null,
+    "lng": null
+  },
+  "expansion of gurnee industrial park|2026-01-15": {
+    "title": "Expansion of Gurnee Industrial Park",
+    "event_date": "2026-01-15",
+    "found_date": "2025-11-19",
+    "description": "The Gurnee Industrial Park is set to expand, adding new facilities and creating job opportunities in the area.",
+    "link": "https://www.gurneeindustry.com/expansion-2025",
+    "location": null,
+    "category": "Manufacturing",
+    "lat": null,
+    "lng": null
+  }
+}

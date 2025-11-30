@@ -1,0 +1,46 @@
+{
+  "traffic accident on route 41|2025-11-06": {
+    "title": "Traffic Accident on Route 41",
+    "event_date": "2025-11-06",
+    "found_date": "2025-11-06",
+    "description": "A multi-vehicle accident occurred on Route 41 near Gurnee, causing significant traffic delays. Police are investigating.",
+    "link": "https://www.chicagotribune.com/news/local/breaking/ct-accident-route-41-gurnee-20251106-story.html",
+    "location": null,
+    "category": "News",
+    "lat": null,
+    "lng": null
+  },
+  "gurnee city council meeting|2025-11-10": {
+    "title": "Gurnee City Council Meeting",
+    "event_date": "2025-11-10",
+    "found_date": "2025-11-06",
+    "description": "The Gurnee City Council will discuss upcoming budget proposals and community development projects.",
+    "link": "https://www.gurnee.il.us/government/city_council/meetings/",
+    "location": null,
+    "category": "Politics",
+    "lat": null,
+    "lng": null
+  },
+  "new coffee shop opening|2025-11-20": {
+    "title": "New Coffee Shop Opening",
+    "event_date": "2025-11-20",
+    "found_date": "2025-11-06",
+    "description": "A new local coffee shop, Brew & Co., is set to open its doors in downtown Gurnee, offering specialty drinks and pastries.",
+    "link": "https://www.dailyherald.com/business/new-coffee-shop-in-gurnee/",
+    "location": null,
+    "category": "Business",
+    "lat": null,
+    "lng": null
+  },
+  "expansion of gurnee industrial park|2025-11-06": {
+    "title": "Expansion of Gurnee Industrial Park",
+    "event_date": "2025-11-06",
+    "found_date": "2025-11-06",
+    "description": "The Gurnee Industrial Park is undergoing an expansion to accommodate new manufacturing facilities, expected to create over 100 jobs.",
+    "link": "https://www.lakecountygazette.com/business/industrial-park-expansion/",
+    "location": null,
+    "category": "Manufacturing",
+    "lat": null,
+    "lng": null
+  }
+}

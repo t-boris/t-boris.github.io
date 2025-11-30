@@ -1,0 +1,35 @@
+{
+  "gurnee town hall meeting|2025-11-10": {
+    "title": "Gurnee Town Hall Meeting",
+    "event_date": "2025-11-10",
+    "found_date": "2025-11-05",
+    "description": "Local officials will discuss upcoming projects and community concerns at the Gurnee Village Hall.",
+    "link": "https://www.gurnee.il.us/calendar/",
+    "location": null,
+    "category": "Politics",
+    "lat": null,
+    "lng": null
+  },
+  "new coffee shop opening|2025-12-05": {
+    "title": "New Coffee Shop Opening",
+    "event_date": "2025-12-05",
+    "found_date": "2025-11-05",
+    "description": "A new artisan coffee shop, Brew & Co., is opening its doors in downtown Gurnee with a grand opening event.",
+    "link": "https://www.dailyherald.com/",
+    "location": null,
+    "category": "Business",
+    "lat": null,
+    "lng": null
+  },
+  "expansion of local factory|2025-11-29": {
+    "title": "Expansion of Local Factory",
+    "event_date": "2025-11-29",
+    "found_date": "2025-11-05",
+    "description": "The ABC Manufacturing plant in Gurnee is expanding its facilities, expected to create 50 new jobs.",
+    "link": "https://www.lakecountyjournal.com/",
+    "location": null,
+    "category": "Manufacturing",
+    "lat": null,
+    "lng": null
+  }
+}
