@@ -119,5 +119,29 @@
     "category": "Community",
     "lat": null,
     "lng": null
+  },
+  "local events in lake county|2025-11-30": {
+    "title": "Local Events in Lake County",
+    "event_date": "2025-11-30",
+    "found_date": "2025-11-30",
+    "description": "General listing of events for communities including Gurnee as provided by Visit Lake County.",
+    "link": "https://www.visitlakecounty.org/events",
+    "location": "Gurnee",
+    "category": "Community",
+    "lat": 42.3703,
+    "lng": -87.9023,
+    "image": null
+  },
+  "round lake beach public meetings|2025-11-30": {
+    "title": "Round Lake Beach Public Meetings",
+    "event_date": "2025-11-30",
+    "found_date": "2025-11-30",
+    "description": "Regularly scheduled public meetings such as Planning & Zoning, Committee of the Whole, and Council Meetings. Specific dates not provided in snippet.",
+    "link": "https://www.roundlakebeachil.gov/",
+    "location": "Round Lake Beach",
+    "category": "Community",
+    "lat": 42.3714,
+    "lng": -88.0901,
+    "image": "e62d76427d50.png"
   }
 }
