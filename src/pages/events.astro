@@ -461,6 +461,7 @@ const GOOGLE_MAPS_API_KEY = import.meta.env.PUBLIC_GOOGLE_MAPS_API_KEY || '';
 			}
 
 			.calendar-day {
+				position: relative;
 				aspect-ratio: 1;
 				display: flex;
 				flex-direction: column;
@@ -774,31 +775,78 @@ const GOOGLE_MAPS_API_KEY = import.meta.env.PUBLIC_GOOGLE_MAPS_API_KEY || '';
 
 				// Display snapshot events for a specific date
 				function displaySnapshotEvents(dateStr, events) {
-					const eventsContent = document.querySelector('.events-content');
-					if (!eventsContent) return;
+					// Hide "Today's Events" section
+					const todaySection = document.querySelector('.today-section');
+					if (todaySection) {
+						todaySection.style.display = 'none';
+					}
 
-					// Create header
+					// Hide category filter
+					const categoryFilter = document.querySelector('.category-filter');
+					if (categoryFilter) {
+						categoryFilter.style.display = 'none';
+					}
+
+					// Hide all current event cards
+					eventCards.forEach(card => card.style.display = 'none');
+
+					// Create and insert snapshot header if not exists
+					let snapshotSection = document.querySelector('.snapshot-section');
+					if (!snapshotSection) {
+						snapshotSection = document.createElement('div');
+						snapshotSection.className = 'snapshot-section';
+						snapshotSection.style.marginBottom = '2rem';
+
+						// Insert after category filter or at beginning
+						const eventsContent = document.querySelector('.events-content');
+						if (categoryFilter) {
+							categoryFilter.after(snapshotSection);
+						} else if (todaySection) {
+							todaySection.after(snapshotSection);
+						} else if (eventsContent.firstChild) {
+							eventsContent.insertBefore(snapshotSection, eventsContent.firstChild);
+						}
+					}
+
+					// Build snapshot content
 					const header = `
 						<div class="snapshot-header" style="margin-bottom: 2rem; padding: 1.5rem; background: rgb(var(--gray-light)); border-radius: 12px; border: 2px solid var(--accent);">
 							<h2 style="margin: 0 0 0.5rem 0; color: var(--accent);">Events Snapshot: ${dateStr}</h2>
-							<p style="margin: 0; color: rgb(var(--gray)); font-size: 0.9rem;">${events.length} event(s) found on this date</p>
-							<button id="back-to-current" style="margin-top: 1rem; padding: 0.5rem 1rem; background: var(--accent); color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600;">← Back to Current Events</button>
+							<p style="margin: 0 0 1rem 0; color: rgb(var(--gray)); font-size: 0.9rem;">${events.length} event(s) found on this date</p>
+							<button id="back-to-current" style="padding: 0.5rem 1rem; background: var(--accent); color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600;">← Back to Current Events</button>
 						</div>
 					`;
 
 					// Create event cards
 					const eventsHtml = events.map(event => createEventCard(event)).join('');
 
-					// Replace content
-					eventsContent.innerHTML = header + eventsHtml;
+					// Update snapshot section
+					snapshotSection.innerHTML = header + eventsHtml;
 
 					// Add back button handler
 					document.getElementById('back-to-current').addEventListener('click', () => {
-						location.reload(); // Simple reload to restore original view
+						// Hide snapshot section
+						snapshotSection.style.display = 'none';
+
+						// Show "Today's Events" section
+						if (todaySection) {
+							todaySection.style.display = 'block';
+						}
+
+						// Show category filter
+						if (categoryFilter) {
+							categoryFilter.style.display = 'flex';
+						}
+
+						// Show all event cards
+						eventCards.forEach(card => card.style.display = 'block');
 					});
 
-					// Scroll to top of events
-					eventsContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
+					// Show snapshot section
+					snapshotSection.style.display = 'block';
+
+					// Scroll to snapshot section
+					snapshotSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
 				}
 
 				// Filter current events by date
