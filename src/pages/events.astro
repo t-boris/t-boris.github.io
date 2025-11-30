@@ -569,6 +569,117 @@ const GOOGLE_MAPS_API_KEY = import.meta.env.PUBLIC_GOOGLE_MAPS_API_KEY || '';
 			}
 		</style>
 
+		<!-- Global styles for dynamically created snapshot event cards -->
+		<style is:global>
+			.snapshot-section .event-card {
+				border: 1px solid rgba(201, 165, 123, 0.2);
+				padding: 1.5rem;
+				margin-bottom: 1.5rem;
+				border-radius: 12px;
+				background: rgb(var(--gray-light));
+				transition: all 0.3s ease;
+			}
+
+			.snapshot-section .event-card:hover {
+				border-color: var(--accent);
+				box-shadow: 0 4px 16px rgba(201, 165, 123, 0.3);
+				transform: translateY(-2px);
+			}
+
+			.snapshot-section .event-header {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				margin-bottom: 0.75rem;
+			}
+
+			.snapshot-section .category-badge {
+				display: inline-block;
+				padding: 0.4rem 0.8rem;
+				border-radius: 12px;
+				font-size: 0.75rem;
+				font-weight: 700;
+				text-transform: uppercase;
+				letter-spacing: 0.05em;
+			}
+
+			.snapshot-section .category-badge.Business {
+				background-color: rgba(59, 130, 246, 0.15);
+				color: #2563eb;
+			}
+			.snapshot-section .category-badge.Manufacturing {
+				background-color: rgba(139, 92, 246, 0.15);
+				color: #7c3aed;
+			}
+			.snapshot-section .category-badge.Community {
+				background-color: rgba(16, 185, 129, 0.15);
+				color: #059669;
+			}
+			.snapshot-section .category-badge.Culture {
+				background-color: rgba(236, 72, 153, 0.15);
+				color: #db2777;
+			}
+			.snapshot-section .category-badge.Sports {
+				background-color: rgba(234, 88, 12, 0.15);
+				color: #ea580c;
+			}
+			.snapshot-section .category-badge.News {
+				background-color: rgba(245, 158, 11, 0.15);
+				color: #d97706;
+			}
+			.snapshot-section .category-badge.Incidents {
+				background-color: rgba(239, 68, 68, 0.15);
+				color: #dc2626;
+			}
+			.snapshot-section .category-badge.Politics {
+				background-color: rgba(239, 68, 68, 0.15);
+				color: #dc2626;
+			}
+			.snapshot-section .category-badge.Entertainment {
+				background-color: rgba(20, 184, 166, 0.15);
+				color: #0d9488;
+			}
+
+			.snapshot-section .event-date-badge {
+				font-size: 0.75rem;
+				color: rgb(var(--gray));
+				font-weight: 600;
+			}
+
+			.snapshot-section .event-title {
+				margin: 0 0 0.75rem 0;
+				color: rgb(var(--black));
+				font-size: 1.25rem;
+			}
+
+			.snapshot-section .event-description {
+				color: rgb(var(--gray-dark));
+				margin-bottom: 1rem;
+				line-height: 1.6;
+			}
+
+			.snapshot-section .event-footer {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				font-size: 0.85rem;
+			}
+
+			.snapshot-section .event-location {
+				color: rgb(var(--gray));
+			}
+
+			.snapshot-section .event-link {
+				color: var(--accent);
+				text-decoration: none;
+				font-weight: 600;
+			}
+
+			.snapshot-section .event-link:hover {
+				text-decoration: underline;
+			}
+		</style>
+
 		<script is:inline define:vars={{ eventsWithCoords, HOME_LAT, HOME_LNG, GOOGLE_MAPS_API_KEY }}>
 			let map;
 			let markers = [];
