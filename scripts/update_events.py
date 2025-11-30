@@ -389,7 +389,7 @@ def update_events_data(new_events, google_api_key=None):
             events_to_remove.append(event_key)
             continue
 
-        # Remove if event date is in the past
+        # Remove if event date is in the past (keep today's events, remove yesterday and earlier)
         event_date = datetime.strptime(event_data["event_date"], "%Y-%m-%d").date()
         if event_date < today_date:
             logger.info(f"Removing past event: {event_data['title']} ({event_data['event_date']})")
@@ -403,12 +403,11 @@ def update_events_data(new_events, google_api_key=None):
     save_active_events(active_events)
     save_trusted_sources(trusted_sources)
 
-    # Also create daily snapshot for historical reference
-    daily_events = [event for event in active_events.values()]
+    # Also create daily snapshot for historical reference (same format as active-events.json)
     day_path = f"public/events-data/{today_str}.json"
     try:
         with open(day_path, 'w', encoding='utf-8') as f:
-            json.dump(daily_events, f, ensure_ascii=False, indent=2)
+            json.dump(active_events, f, ensure_ascii=False, indent=2)
         logger.info(f"Created daily snapshot: {day_path}")
     except (IOError, OSError) as e:
         logger.error(f"Error saving daily snapshot: {e}")
