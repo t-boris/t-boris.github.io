@@ -526,10 +526,10 @@ const GOOGLE_MAPS_API_KEY = import.meta.env.PUBLIC_GOOGLE_MAPS_API_KEY || '';
 					console.log('Initializing Google Maps...');
 					console.log('Events with coords:', eventsWithCoords.length);
 
-					// Initialize map centered on home (30 mile radius)
+					// Initialize map centered on home
 					map = new google.maps.Map(document.getElementById('map'), {
 						center: { lat: HOME_LAT, lng: HOME_LNG },
-						zoom: 10,  // Zoom 10 = approximately 30 mile radius
+						zoom: 13,  // Street level - shows individual streets and neighborhoods
 						mapTypeId: 'roadmap',
 						styles: [
 							// Dark background
