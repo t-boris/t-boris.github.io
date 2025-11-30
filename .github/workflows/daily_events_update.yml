@@ -31,8 +31,8 @@ jobs:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
           GOOGLE_SEARCH_ENGINE_ID: ${{ secrets.GOOGLE_SEARCH_ENGINE_ID }}
-          TARGET_ADDRESS: ${{ secrets.TARGET_ADDRESS }}
-          SEARCH_QUERIES: ${{ secrets.SEARCH_QUERIES }}
+          TARGET_ADDRESS: "Gurnee, IL"
+          SEARCH_QUERIES: "placeholder"  # No longer used - queries built dynamically in script
         run: python scripts/update_events.py
 
       - name: Commit and push updated events data

@@ -6,194 +6,174 @@ import { SITE_TITLE } from '../consts';
 import fs from 'fs/promises';
 import path from 'path';
 
-// Load events data from JSON file
-let eventsData: Record<string, any[]> = {};
+// Load active events from new data structure
+let activeEvents: any[] = [];
+let trustedSources: Record<string, any> = {};
 let lastUpdate = 'No data yet';
-let todayEvents: any[] = [];
-let upcomingEvents: any[] = [];
-let allCategories: string[] = [];
 
 try {
-	const dataPath = path.join(process.cwd(), 'public/events-data/events.json');
-	const fileContent = await fs.readFile(dataPath, 'utf-8');
-	eventsData = JSON.parse(fileContent);
+	const activeEventsPath = path.join(process.cwd(), 'public/events-data/active-events.json');
+	const trustedSourcesPath = path.join(process.cwd(), 'public/events-data/trusted-sources.json');
 
-	const sortedDays = Object.keys(eventsData).sort().reverse();
-	lastUpdate = sortedDays[0] || 'No data yet';
+	// Load active events
+	const activeEventsContent = await fs.readFile(activeEventsPath, 'utf-8');
+	const activeEventsData = JSON.parse(activeEventsContent);
+	activeEvents = Object.values(activeEventsData);
 
-	// Get today's date
-	const today = new Date();
-	today.setHours(0, 0, 0, 0);
-	const todayStr = today.toISOString().split('T')[0];
-
-	// Collect all events and filter by event_date
-	const allEvents: any[] = [];
-	for (const [foundDate, dayEvents] of Object.entries(eventsData)) {
-		for (const event of dayEvents) {
-			// Skip events without event_date
-			if (!event.event_date) continue;
-
-			// Check if event was found within last 3 days
-			const foundDateObj = new Date(foundDate);
-			const eventDateObj = new Date(event.event_date);
-			const daysDiff = Math.floor((today.getTime() - foundDateObj.getTime()) / (1000 * 60 * 60 * 24));
-
-			// Ignore events if not found in last 3 days
-			if (daysDiff > 3) continue;
-
-			allEvents.push({
-				...event,
-				found_date: foundDate,
-				event_date_obj: eventDateObj
-			});
-		}
+	// Load trusted sources
+	try {
+		const trustedSourcesContent = await fs.readFile(trustedSourcesPath, 'utf-8');
+		trustedSources = JSON.parse(trustedSourcesContent);
+	} catch (e) {
+		console.log('No trusted sources file yet');
 	}
 
-	// Filter today's events (event_date = today)
-	todayEvents = allEvents.filter(event => {
-		const eventDate = event.event_date.split('T')[0];
-		return eventDate === todayStr;
-	});
-
-	// Filter upcoming events (event_date > today)
-	upcomingEvents = allEvents.filter(event => {
-		return event.event_date_obj > today;
-	}).sort((a, b) => a.event_date_obj.getTime() - b.event_date_obj.getTime());
-
-	// Extract all unique categories
-	const categoriesSet = new Set<string>();
-	allEvents.forEach(event => {
-		if (event.category) {
-			categoriesSet.add(event.category);
+	// Find last update
+	if (activeEvents.length > 0) {
+		const dates = activeEvents.map(e => e.found_date).filter(Boolean);
+		if (dates.length > 0) {
+			lastUpdate = dates.sort().reverse()[0];
 		}
-	});
-	allCategories = Array.from(categoriesSet).sort();
-
+	}
 } catch (error) {
 	console.error('Failed to load events data:', error);
 }
 
-const sortedDays = Object.keys(eventsData).sort().reverse();
-const targetAddress = 'Local Events';
+// Sort events by date
+activeEvents.sort((a, b) => {
+	const dateA = new Date(a.event_date);
+	const dateB = new Date(b.event_date);
+	return dateA.getTime() - dateB.getTime();
+});
+
+// Get unique dates for calendar
+const eventDates = [...new Set(activeEvents.map(e => e.event_date))].sort();
+
+// Get events with coordinates for map
+const eventsWithCoords = activeEvents.filter(e => e.lat && e.lng);
+
+// Sort trusted sources by count
+const sortedSources = Object.entries(trustedSources)
+	.map(([domain, data]) => ({ domain, ...data }))
+	.sort((a, b) => b.count - a.count)
+	.slice(0, 10); // Top 10
+
+// Get all unique categories
+const allCategories = [...new Set(activeEvents.map(e => e.category).filter(Boolean))].sort();
+
+const HOME_LAT = 42.3703;
+const HOME_LNG = -87.9023;
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
 		<BaseHead title={`Events | ${SITE_TITLE}`} description="Daily aggregated local events and news" />
+		<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&callback=initMap" async defer></script>
 		<style>
 			body {
 				background: var(--bg, #020617);
 			}
+
 			main {
 				width: 100%;
-				max-width: 900px;
-				margin: 0 auto;
-				padding: 3em 1em;
+				max-width: 100%;
+				margin: 0;
+				padding: 2rem;
 			}
+
 			.page-header {
 				margin-bottom: 2rem;
 				padding-bottom: 1.5rem;
 				border-bottom: 2px solid rgba(201, 165, 123, 0.3);
+				text-align: center;
 			}
+
 			.page-header h1 {
 				color: rgb(var(--black));
 				margin-bottom: 0.5rem;
+				font-size: 2.5rem;
 			}
+
 			.page-header p {
 				color: rgb(var(--gray));
 				font-size: 0.9rem;
 			}
-			.section-title {
-				color: rgb(var(--black));
-				font-size: 1.8rem;
-				margin: 2rem 0 1.5rem 0;
-				padding-bottom: 0.5rem;
-				border-bottom: 2px solid rgba(201, 165, 123, 0.2);
-			}
-			.calendar {
-				display: grid;
-				grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-				gap: 12px;
-				margin-bottom: 3rem;
-			}
-			.calendar a {
-				display: block;
-				padding: 1.2rem;
-				border: 1px solid rgba(201, 165, 123, 0.3);
-				text-decoration: none;
-				color: var(--accent);
-				border-radius: 8px;
-				text-align: center;
-				transition: all 0.2s ease;
-				background: rgb(var(--gray-light));
-				font-weight: 600;
-			}
-			.calendar a:hover {
-				background-color: var(--accent);
-				color: white;
-				border-color: var(--accent);
-				transform: translateY(-2px);
-				box-shadow: 0 4px 12px rgba(201, 165, 123, 0.3);
-			}
-			.event-card {
-				border: 1px solid rgba(201, 165, 123, 0.2);
-				padding: 1.5rem;
-				margin-bottom: 1.5rem;
-				border-radius: 8px;
-				background: rgb(var(--gray-light));
-				transition: all 0.2s ease;
-			}
-			.event-card:hover {
-				border-color: var(--accent);
-				box-shadow: 0 4px 12px rgba(201, 165, 123, 0.2);
-			}
-			.event-card h3 {
-				margin-top: 0;
-				margin-bottom: 0.75rem;
-				color: rgb(var(--black));
-			}
-			.event-card p {
-				color: rgb(var(--gray-dark));
-				margin-bottom: 1rem;
-			}
-			.event-card a {
-				color: var(--accent);
-				text-decoration: none;
-			}
-			.event-card a:hover {
-				text-decoration: underline;
-			}
-			.category {
-				display: inline-block;
-				background-color: rgba(201, 165, 123, 0.2);
-				color: var(--accent);
-				padding: 0.4rem 0.8rem;
+
+			/* Google Maps */
+			#map {
+				width: 100%;
+				height: 400px;
+				margin-bottom: 2rem;
 				border-radius: 12px;
-				font-size: 0.75rem;
-				font-weight: 600;
-				margin-bottom: 0.75rem;
-				text-transform: uppercase;
-				letter-spacing: 0.05em;
-			}
-			.no-events {
-				color: rgb(var(--gray));
-				font-style: italic;
-				text-align: center;
-				padding: 2rem;
+				border: 2px solid rgba(201, 165, 123, 0.3);
 			}
 
-			/* Category filter */
+			/* 3-column layout */
+			.content-grid {
+				display: grid;
+				grid-template-columns: 280px 1fr 320px;
+				gap: 2rem;
+				align-items: start;
+			}
+
+			/* Left sidebar - Trusted Sources */
+			.sidebar-left {
+				position: sticky;
+				top: 2rem;
+			}
+
+			.sources-panel {
+				background: rgb(var(--gray-light));
+				border-radius: 12px;
+				padding: 1.5rem;
+				border: 1px solid rgba(201, 165, 123, 0.2);
+			}
+
+			.sources-panel h2 {
+				margin-top: 0;
+				margin-bottom: 1rem;
+				color: rgb(var(--black));
+				font-size: 1.2rem;
+			}
+
+			.source-item {
+				padding: 0.75rem 0;
+				border-bottom: 1px solid rgba(201, 165, 123, 0.1);
+			}
+
+			.source-item:last-child {
+				border-bottom: none;
+			}
+
+			.source-domain {
+				font-weight: 600;
+				color: rgb(var(--gray-dark));
+				font-size: 0.85rem;
+			}
+
+			.source-count {
+				color: var(--accent);
+				font-size: 0.75rem;
+				font-weight: 700;
+			}
+
+			/* Center - Events list */
+			.events-content {
+				min-height: 400px;
+			}
+
 			.category-filter {
 				display: flex;
 				flex-wrap: wrap;
 				gap: 0.75rem;
-				margin: 2rem 0 1.5rem 0;
+				margin-bottom: 2rem;
 				padding: 1rem;
 				background: rgb(var(--gray-light));
-				border-radius: 8px;
+				border-radius: 12px;
 				border: 1px solid rgba(201, 165, 123, 0.2);
 			}
+
 			.category-filter button {
 				padding: 0.5rem 1rem;
 				border: 1px solid rgba(201, 165, 123, 0.3);
@@ -205,52 +185,265 @@ const targetAddress = 'Local Events';
 				font-weight: 500;
 				transition: all 0.2s ease;
 			}
+
 			.category-filter button:hover {
 				border-color: var(--accent);
 				color: var(--accent);
-				transform: translateY(-1px);
 			}
+
 			.category-filter button.active {
 				background: var(--accent);
 				color: white;
 				border-color: var(--accent);
 			}
 
-			/* Category-specific colors */
-			.category.Politics {
-				background-color: rgba(239, 68, 68, 0.15);
-				color: #dc2626;
-			}
-			.category.Business {
-				background-color: rgba(59, 130, 246, 0.15);
-				color: #2563eb;
-			}
-			.category.Community {
-				background-color: rgba(16, 185, 129, 0.15);
-				color: #059669;
-			}
-			.category.News {
-				background-color: rgba(245, 158, 11, 0.15);
-				color: #d97706;
-			}
-			.category.Manufacturing {
-				background-color: rgba(139, 92, 246, 0.15);
-				color: #7c3aed;
-			}
-			.category.Culture {
-				background-color: rgba(236, 72, 153, 0.15);
-				color: #db2777;
-			}
-			.category.Entertainment {
-				background-color: rgba(20, 184, 166, 0.15);
-				color: #0d9488;
+			.event-card {
+				border: 1px solid rgba(201, 165, 123, 0.2);
+				padding: 1.5rem;
+				margin-bottom: 1.5rem;
+				border-radius: 12px;
+				background: rgb(var(--gray-light));
+				transition: all 0.3s ease;
 			}
 
-			/* Hidden events */
+			.event-card:hover {
+				border-color: var(--accent);
+				box-shadow: 0 4px 16px rgba(201, 165, 123, 0.3);
+				transform: translateY(-2px);
+			}
+
 			.event-card.hidden {
 				display: none;
 			}
+
+			.event-header {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				margin-bottom: 0.75rem;
+			}
+
+			.category-badge {
+				display: inline-block;
+				padding: 0.4rem 0.8rem;
+				border-radius: 12px;
+				font-size: 0.75rem;
+				font-weight: 700;
+				text-transform: uppercase;
+				letter-spacing: 0.05em;
+			}
+
+			.category-badge.Business {
+				background-color: rgba(59, 130, 246, 0.15);
+				color: #2563eb;
+			}
+			.category-badge.Manufacturing {
+				background-color: rgba(139, 92, 246, 0.15);
+				color: #7c3aed;
+			}
+			.category-badge.Community {
+				background-color: rgba(16, 185, 129, 0.15);
+				color: #059669;
+			}
+			.category-badge.Culture {
+				background-color: rgba(236, 72, 153, 0.15);
+				color: #db2777;
+			}
+			.category-badge.Sports {
+				background-color: rgba(234, 88, 12, 0.15);
+				color: #ea580c;
+			}
+			.category-badge.News {
+				background-color: rgba(245, 158, 11, 0.15);
+				color: #d97706;
+			}
+			.category-badge.Incidents {
+				background-color: rgba(239, 68, 68, 0.15);
+				color: #dc2626;
+			}
+
+			.event-date-badge {
+				font-size: 0.75rem;
+				color: rgb(var(--gray));
+				font-weight: 600;
+			}
+
+			.event-title {
+				margin: 0 0 0.75rem 0;
+				color: rgb(var(--black));
+				font-size: 1.25rem;
+			}
+
+			.event-description {
+				color: rgb(var(--gray-dark));
+				margin-bottom: 1rem;
+				line-height: 1.6;
+			}
+
+			.event-footer {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				font-size: 0.85rem;
+			}
+
+			.event-location {
+				color: rgb(var(--gray));
+			}
+
+			.event-link {
+				color: var(--accent);
+				text-decoration: none;
+				font-weight: 600;
+			}
+
+			.event-link:hover {
+				text-decoration: underline;
+			}
+
+			/* Right sidebar - Calendar */
+			.sidebar-right {
+				position: sticky;
+				top: 2rem;
+			}
+
+			.calendar-panel {
+				background: rgb(var(--gray-light));
+				border-radius: 12px;
+				padding: 1.5rem;
+				border: 1px solid rgba(201, 165, 123, 0.2);
+			}
+
+			.calendar-panel h2 {
+				margin-top: 0;
+				margin-bottom: 1rem;
+				color: rgb(var(--black));
+				font-size: 1.2rem;
+			}
+
+			.calendar-dates {
+				display: flex;
+				flex-direction: column;
+				gap: 0.5rem;
+			}
+
+			.calendar-date-item {
+				padding: 0.75rem;
+				background: var(--bg, #020617);
+				border: 1px solid rgba(201, 165, 123, 0.2);
+				border-radius: 8px;
+				text-decoration: none;
+				color: rgb(var(--gray-dark));
+				font-weight: 600;
+				transition: all 0.2s ease;
+				cursor: pointer;
+			}
+
+			.calendar-date-item:hover {
+				background: var(--accent);
+				color: white;
+				border-color: var(--accent);
+				transform: translateX(4px);
+			}
+
+			.no-events {
+				color: rgb(var(--gray));
+				font-style: italic;
+				text-align: center;
+				padding: 2rem;
+			}
+
+			@media (max-width: 1200px) {
+				.content-grid {
+					grid-template-columns: 1fr;
+				}
+
+				.sidebar-left, .sidebar-right {
+					position: relative;
+					top: 0;
+				}
+			}
 		</style>
+
+		<script is:inline define:vars={{ eventsWithCoords, HOME_LAT, HOME_LNG }}>
+			let map;
+			let markers = [];
+
+			window.initMap = function() {
+				// Initialize map centered on home
+				map = new google.maps.Map(document.getElementById('map'), {
+					center: { lat: HOME_LAT, lng: HOME_LNG },
+					zoom: 11,
+					styles: [
+						{
+							featureType: 'all',
+							elementType: 'geometry',
+							stylers: [{ color: '#242f3e' }]
+						},
+						{
+							featureType: 'all',
+							elementType: 'labels.text.stroke',
+							stylers: [{ color: '#242f3e' }]
+						},
+						{
+							featureType: 'all',
+							elementType: 'labels.text.fill',
+							stylers: [{ color: '#746855' }]
+						}
+					]
+				});
+
+				// Add home marker
+				new google.maps.Marker({
+					position: { lat: HOME_LAT, lng: HOME_LNG },
+					map: map,
+					title: 'Home',
+					icon: {
+						url: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
+					}
+				});
+
+				// Add event markers
+				eventsWithCoords.forEach(event => {
+					const marker = new google.maps.Marker({
+						position: { lat: event.lat, lng: event.lng },
+						map: map,
+						title: event.title,
+						icon: getCategoryIcon(event.category)
+					});
+
+					const infoWindow = new google.maps.InfoWindow({
+						content: `
+							<div style="color: #333; max-width: 200px;">
+								<h3 style="margin: 0 0 0.5rem 0; font-size: 1rem;">${event.title}</h3>
+								<p style="margin: 0 0 0.5rem 0; font-size: 0.85rem;">${event.description}</p>
+								<p style="margin: 0; font-size: 0.75rem; color: #666;">${event.event_date}</p>
+							</div>
+						`
+					});
+
+					marker.addListener('click', () => {
+						infoWindow.open(map, marker);
+					});
+
+					markers.push(marker);
+				});
+			};
+
+			function getCategoryIcon(category) {
+				const colors = {
+					'Business': 'red',
+					'Manufacturing': 'purple',
+					'Community': 'green',
+					'Culture': 'pink',
+					'Sports': 'orange',
+					'News': 'yellow',
+					'Incidents': 'red'
+				};
+				const color = colors[category] || 'red';
+				return `http://maps.google.com/mapfiles/ms/icons/${color}-dot.png`;
+			}
+		</script>
 
 		<script>
 			// Category filter functionality
@@ -263,27 +456,33 @@ const targetAddress = 'Local Events';
 						const category = button.dataset.category;
 
 						// Toggle active state
-						if (button.classList.contains('active') && category !== 'all') {
-							button.classList.remove('active');
-							// Show all events
-							eventCards.forEach(card => card.classList.remove('hidden'));
-							// Activate "All" button
-							document.querySelector('[data-category="all"]')?.classList.add('active');
-						} else {
-							// Remove active from all buttons
-							filterButtons.forEach(btn => btn.classList.remove('active'));
-							// Add active to clicked button
-							button.classList.add('active');
+						filterButtons.forEach(btn => btn.classList.remove('active'));
+						button.classList.add('active');
 
-							// Filter events
-							eventCards.forEach(card => {
-								if (category === 'all' || card.dataset.category === category) {
-									card.classList.remove('hidden');
-								} else {
-									card.classList.add('hidden');
-								}
-							});
-						}
+						// Filter events
+						eventCards.forEach(card => {
+							if (category === 'all' || card.dataset.category === category) {
+								card.classList.remove('hidden');
+							} else {
+								card.classList.add('hidden');
+							}
+						});
+					});
+				});
+
+				// Date filter functionality
+				const dateButtons = document.querySelectorAll('.calendar-date-item');
+				dateButtons.forEach(button => {
+					button.addEventListener('click', (e) => {
+						e.preventDefault();
+						const targetDate = button.dataset.date;
+
+						eventCards.forEach(card => {
+							if (card.dataset.eventDate === targetDate) {
+								card.classList.remove('hidden');
+								card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+							}
+						});
 					});
 				});
 			});
@@ -293,77 +492,87 @@ const targetAddress = 'Local Events';
 		<Header />
 		<main>
 			<header class="page-header">
-				<h1>Event Aggregator: {targetAddress}</h1>
+				<h1>Lake County Events</h1>
 				<p>Last Update: {lastUpdate}</p>
 			</header>
 
-			{allCategories.length > 0 && (
-				<div class="category-filter">
-					<button data-category="all" class="active">All</button>
-					{allCategories.map((cat) => (
-						<button data-category={cat}>{cat}</button>
-					))}
-				</div>
-			)}
+			<!-- Google Maps -->
+			<div id="map"></div>
 
-		<section>
-			<h2 class="section-title">Today's Events</h2>
-			{todayEvents.length > 0 ? (
-				todayEvents.map((event) => (
-					<div class="event-card" data-category={event.category}>
-						<span class={`category ${event.category}`}>{event.category}</span>
-						<h3>{event.title}</h3>
-						<p>{event.description}</p>
-						<p style="font-size: 0.875rem; color: rgb(var(--gray));">
-							Event Date: {event.event_date}
-						</p>
-						{event.link && (
-							<a href={event.link} target="_blank" rel="noopener noreferrer">
-								Source →
-							</a>
+			<!-- 3-column layout -->
+			<div class="content-grid">
+				<!-- Left sidebar - Trusted Sources -->
+				<aside class="sidebar-left">
+					<div class="sources-panel">
+						<h2>Trusted Sources</h2>
+						{sortedSources.length > 0 ? (
+							sortedSources.map(source => (
+								<div class="source-item">
+									<div class="source-domain">{source.domain}</div>
+									<div class="source-count">{source.count} events</div>
+								</div>
+							))
+						) : (
+							<p style="color: rgb(var(--gray)); font-size: 0.85rem;">No sources yet</p>
 						)}
 					</div>
-				))
-			) : (
-				<p class="no-events">No events happening today.</p>
-			)}
-		</section>
+				</aside>
 
-		<section>
-			<h2 class="section-title">Upcoming Events</h2>
-			{upcomingEvents.length > 0 ? (
-				upcomingEvents.map((event) => (
-					<div class="event-card" data-category={event.category}>
-						<span class={`category ${event.category}`}>{event.category}</span>
-						<h3>{event.title}</h3>
-						<p>{event.description}</p>
-						<p style="font-size: 0.875rem; color: rgb(var(--gray));">
-							Event Date: {event.event_date}
-						</p>
-						{event.link && (
-							<a href={event.link} target="_blank" rel="noopener noreferrer">
-								Source →
-							</a>
-						)}
-					</div>
-				))
-			) : (
-				<p class="no-events">No upcoming events found yet.</p>
-			)}
-		</section>
+				<!-- Center - Events list -->
+				<div class="events-content">
+					{allCategories.length > 0 && (
+						<div class="category-filter">
+							<button data-category="all" class="active">All</button>
+							{allCategories.map((cat) => (
+								<button data-category={cat}>{cat}</button>
+							))}
+						</div>
+					)}
 
-		<section>
-			<h2 class="section-title">Daily Reports Archive</h2>
-			{sortedDays.length > 0 ? (
-				<div class="calendar">
-					{sortedDays.map((day) => (
-						<a href={`/events/${day}/`}>{day}</a>
-					))}
+					{activeEvents.length > 0 ? (
+						activeEvents.map(event => (
+							<div class="event-card" data-category={event.category} data-event-date={event.event_date}>
+								<div class="event-header">
+									<span class={`category-badge ${event.category}`}>{event.category}</span>
+									<span class="event-date-badge">{event.event_date}</span>
+								</div>
+								<h3 class="event-title">{event.title}</h3>
+								<p class="event-description">{event.description}</p>
+								<div class="event-footer">
+									{event.location && (
+										<span class="event-location">📍 {event.location}</span>
+									)}
+									{event.link && (
+										<a href={event.link} target="_blank" rel="noopener noreferrer" class="event-link">
+											Read more →
+										</a>
+									)}
+								</div>
+							</div>
+						))
+					) : (
+						<p class="no-events">No events found. Check back later!</p>
+					)}
 				</div>
-			) : (
-				<p class="no-events">No event reports available yet.</p>
-			)}
-		</section>
+
+				<!-- Right sidebar - Calendar -->
+				<aside class="sidebar-right">
+					<div class="calendar-panel">
+						<h2>Event Dates</h2>
+						<div class="calendar-dates">
+							{eventDates.length > 0 ? (
+								eventDates.map(date => (
+									<button class="calendar-date-item" data-date={date}>
+										{date}
+									</button>
+								))
+							) : (
+								<p style="color: rgb(var(--gray)); font-size: 0.85rem;">No dates available</p>
+							)}
+						</div>
+					</div>
+				</aside>
+			</div>
 		</main>
 		<Footer />
 	</body>
