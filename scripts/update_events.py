@@ -1,9 +1,17 @@
 import os
 import json
 import requests
+import logging
 from datetime import datetime, timezone
 from openai import OpenAI
 from collections import defaultdict
+
+# Setup logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s'
+)
+logger = logging.getLogger(__name__)
 
 # Target suburbs within 20-mile radius of Gurnee, IL
 SUBURBS = [

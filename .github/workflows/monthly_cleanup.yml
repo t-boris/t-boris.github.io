@@ -1,0 +1,60 @@
+name: Monthly Events Cleanup
+
+on:
+  schedule:
+    # Runs on the 1st day of each month at 00:00 UTC
+    - cron: '0 0 1 * *'
+  workflow_dispatch: # Allows manual triggering
+
+permissions:
+  contents: write
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Run monthly cleanup
+        run: |
+          echo "Starting monthly cleanup..."
+
+          # Archive old daily snapshots (keep last 90 days)
+          cd public/events-data
+
+          # Count files before cleanup
+          BEFORE=$(ls -1 20*.json 2>/dev/null | wc -l)
+          echo "Daily snapshot files before cleanup: $BEFORE"
+
+          # Keep only last 90 days of daily snapshots
+          find . -name "20*.json" -type f -mtime +90 -delete
+
+          # Count files after cleanup
+          AFTER=$(ls -1 20*.json 2>/dev/null | wc -l)
+          echo "Daily snapshot files after cleanup: $AFTER"
+          echo "Deleted $(($BEFORE - $AFTER)) old snapshot files"
+
+          cd ../..
+
+      - name: Commit cleanup results
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add public/events-data/
+          if git diff --staged --quiet; then
+            echo "No files to delete"
+          else
+            git commit -m "Monthly cleanup: Archive old event snapshots (90+ days)"
+            git push
+          fi
+
+      - name: Summary
+        run: |
+          echo "Monthly cleanup completed successfully"
+          echo "Kept last 90 days of daily event snapshots"

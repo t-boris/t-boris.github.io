@@ -49,6 +49,20 @@ activeEvents.sort((a, b) => {
 // Get unique dates for calendar
 const eventDates = [...new Set(activeEvents.map(e => e.event_date))].sort();
 
+// Build calendar data for current month
+const today = new Date();
+const currentMonth = today.getMonth();
+const currentYear = today.getFullYear();
+
+// Get events grouped by date
+const eventsByDate = {};
+activeEvents.forEach(event => {
+	if (!eventsByDate[event.event_date]) {
+		eventsByDate[event.event_date] = 0;
+	}
+	eventsByDate[event.event_date]++;
+});
+
 // Get events with coordinates for map
 const eventsWithCoords = activeEvents.filter(e => e.lat && e.lng);
 
@@ -321,34 +335,114 @@ const GOOGLE_MAPS_API_KEY = import.meta.env.PUBLIC_GOOGLE_MAPS_API_KEY || '';
 
 			.calendar-panel h2 {
 				margin-top: 0;
-				margin-bottom: 1rem;
+				margin-bottom: 0.5rem;
 				color: rgb(var(--black));
 				font-size: 1.2rem;
 			}
 
-			.calendar-dates {
+			.calendar-nav {
 				display: flex;
-				flex-direction: column;
-				gap: 0.5rem;
+				justify-content: space-between;
+				align-items: center;
+				margin-bottom: 1rem;
+				padding: 0.5rem;
+				background: var(--bg, #020617);
+				border-radius: 6px;
 			}
 
-			.calendar-date-item {
-				padding: 0.75rem;
-				background: var(--bg, #020617);
-				border: 1px solid rgba(201, 165, 123, 0.2);
-				border-radius: 8px;
-				text-decoration: none;
+			.calendar-nav button {
+				background: none;
+				border: none;
+				color: var(--accent);
+				cursor: pointer;
+				font-size: 1.2rem;
+				padding: 0.25rem 0.5rem;
+				transition: transform 0.2s;
+			}
+
+			.calendar-nav button:hover {
+				transform: scale(1.2);
+			}
+
+			.calendar-month {
 				color: rgb(var(--gray-dark));
 				font-weight: 600;
-				transition: all 0.2s ease;
-				cursor: pointer;
+				font-size: 0.9rem;
 			}
 
-			.calendar-date-item:hover {
+			.calendar-grid {
+				display: grid;
+				grid-template-columns: repeat(7, 1fr);
+				gap: 4px;
+			}
+
+			.calendar-day-header {
+				text-align: center;
+				font-size: 0.7rem;
+				font-weight: 600;
+				color: rgb(var(--gray));
+				padding: 0.25rem;
+				text-transform: uppercase;
+			}
+
+			.calendar-day {
+				aspect-ratio: 1;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				background: var(--bg, #020617);
+				border: 1px solid rgba(201, 165, 123, 0.2);
+				border-radius: 4px;
+				cursor: pointer;
+				transition: all 0.2s;
+				position: relative;
+			}
+
+			.calendar-day.empty {
+				background: transparent;
+				border-color: transparent;
+				cursor: default;
+			}
+
+			.calendar-day.today {
+				border-color: var(--accent);
+				border-width: 2px;
+			}
+
+			.calendar-day.has-events {
+				background: rgba(201, 165, 123, 0.1);
+			}
+
+			.calendar-day:not(.empty):hover {
+				background: var(--accent);
+				transform: scale(1.05);
+			}
+
+			.calendar-day-number {
+				font-size: 0.75rem;
+				font-weight: 600;
+				color: rgb(var(--gray-dark));
+			}
+
+			.calendar-day:hover .calendar-day-number {
+				color: white;
+			}
+
+			.calendar-day-badge {
+				position: absolute;
+				bottom: 2px;
+				right: 2px;
 				background: var(--accent);
 				color: white;
-				border-color: var(--accent);
-				transform: translateX(4px);
+				font-size: 0.6rem;
+				border-radius: 50%;
+				width: 14px;
+				height: 14px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-weight: 700;
 			}
 
 			.no-events {
@@ -450,7 +544,7 @@ const GOOGLE_MAPS_API_KEY = import.meta.env.PUBLIC_GOOGLE_MAPS_API_KEY || '';
 			}
 		</script>
 
-		<script>
+		<script define:vars={{ eventsByDate }}>
 			// Category filter functionality
 			document.addEventListener('DOMContentLoaded', () => {
 				const filterButtons = document.querySelectorAll('.category-filter button');
@@ -475,20 +569,116 @@ const GOOGLE_MAPS_API_KEY = import.meta.env.PUBLIC_GOOGLE_MAPS_API_KEY || '';
 					});
 				});
 
-				// Date filter functionality
-				const dateButtons = document.querySelectorAll('.calendar-date-item');
-				dateButtons.forEach(button => {
-					button.addEventListener('click', (e) => {
-						e.preventDefault();
-						const targetDate = button.dataset.date;
+				// Calendar functionality
+				let currentMonth = new Date().getMonth();
+				let currentYear = new Date().getFullYear();
 
-						eventCards.forEach(card => {
-							if (card.dataset.eventDate === targetDate) {
-								card.classList.remove('hidden');
-								card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+				function renderCalendar(month, year) {
+					const calendarGrid = document.getElementById('calendar-grid');
+					const currentMonthEl = document.getElementById('current-month');
+
+					// Clear calendar
+					calendarGrid.innerHTML = '';
+
+					// Set month name
+					const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
+						'July', 'August', 'September', 'October', 'November', 'December'];
+					currentMonthEl.textContent = `${monthNames[month]} ${year}`;
+
+					// Day headers
+					const dayHeaders = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
+					dayHeaders.forEach(day => {
+						const header = document.createElement('div');
+						header.className = 'calendar-day-header';
+						header.textContent = day;
+						calendarGrid.appendChild(header);
+					});
+
+					// First day of month
+					const firstDay = new Date(year, month, 1).getDay();
+					const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+					// Empty cells before first day
+					for (let i = 0; i < firstDay; i++) {
+						const emptyDay = document.createElement('div');
+						emptyDay.className = 'calendar-day empty';
+						calendarGrid.appendChild(emptyDay);
+					}
+
+					// Days of month
+					const today = new Date();
+					for (let day = 1; day <= daysInMonth; day++) {
+						const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+						const dayEl = document.createElement('div');
+						dayEl.className = 'calendar-day';
+
+						// Check if today
+						if (day === today.getDate() && month === today.getMonth() && year === today.getFullYear()) {
+							dayEl.classList.add('today');
+						}
+
+						// Check if has events
+						const eventCount = eventsByDate[dateStr] || 0;
+						if (eventCount > 0) {
+							dayEl.classList.add('has-events');
+						}
+
+						// Day number
+						const dayNumber = document.createElement('span');
+						dayNumber.className = 'calendar-day-number';
+						dayNumber.textContent = day;
+						dayEl.appendChild(dayNumber);
+
+						// Event badge
+						if (eventCount > 0) {
+							const badge = document.createElement('span');
+							badge.className = 'calendar-day-badge';
+							badge.textContent = eventCount;
+							dayEl.appendChild(badge);
+						}
+
+						// Click handler
+						dayEl.addEventListener('click', () => {
+							if (eventCount > 0) {
+								// Filter events by date
+								filterButtons.forEach(btn => btn.classList.remove('active'));
+								document.querySelector('[data-category="all"]').classList.add('active');
+
+								eventCards.forEach(card => {
+									if (card.dataset.eventDate === dateStr) {
+										card.classList.remove('hidden');
+										card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+									} else {
+										card.classList.add('hidden');
+									}
+								});
 							}
 						});
-					});
+
+						calendarGrid.appendChild(dayEl);
+					}
+				}
+
+				// Initial render
+				renderCalendar(currentMonth, currentYear);
+
+				// Navigation buttons
+				document.getElementById('prev-month').addEventListener('click', () => {
+					currentMonth--;
+					if (currentMonth < 0) {
+						currentMonth = 11;
+						currentYear--;
+					}
+					renderCalendar(currentMonth, currentYear);
+				});
+
+				document.getElementById('next-month').addEventListener('click', () => {
+					currentMonth++;
+					if (currentMonth > 11) {
+						currentMonth = 0;
+						currentYear++;
+					}
+					renderCalendar(currentMonth, currentYear);
 				});
 			});
 		</script>
@@ -569,17 +759,14 @@ const GOOGLE_MAPS_API_KEY = import.meta.env.PUBLIC_GOOGLE_MAPS_API_KEY || '';
 				<!-- Right sidebar - Calendar -->
 				<aside class="sidebar-right">
 					<div class="calendar-panel">
-						<h2>Event Dates</h2>
-						<div class="calendar-dates">
-							{eventDates.length > 0 ? (
-								eventDates.map(date => (
-									<button class="calendar-date-item" data-date={date}>
-										{date}
-									</button>
-								))
-							) : (
-								<p style="color: rgb(var(--gray)); font-size: 0.85rem;">No dates available</p>
-							)}
+						<h2>Calendar</h2>
+						<div class="calendar-nav">
+							<button id="prev-month">‹</button>
+							<span class="calendar-month" id="current-month"></span>
+							<button id="next-month">›</button>
+						</div>
+						<div class="calendar-grid" id="calendar-grid">
+							<!-- Calendar will be populated by JavaScript -->
 						</div>
 					</div>
 				</aside>
