@@ -136,12 +136,24 @@
     "title": "Round Lake Beach Public Meetings",
     "event_date": "2025-11-30",
     "found_date": "2025-11-30",
-    "description": "Regularly scheduled public meetings such as Planning & Zoning, Committee of the Whole, and Council Meetings. Specific dates not provided in snippet.",
+    "description": "Regular civic meetings such as the Planning & Zoning Commission Meeting, Committee of the Whole Meeting, and Council Meeting.",
     "link": "https://www.roundlakebeachil.gov/",
     "location": "Round Lake Beach",
     "category": "Community",
     "lat": 42.3714,
     "lng": -88.0901,
     "image": "e62d76427d50.png"
+  },
+  "lake county events calendar (including gurnee listings)|2025-11-30": {
+    "title": "Lake County Events Calendar (including Gurnee listings)",
+    "event_date": "2025-11-30",
+    "found_date": "2025-11-30",
+    "description": "General listing of community events across Lake County, including Gurnee. Specific event details are not provided in the search snippet.",
+    "link": "https://www.visitlakecounty.org/events",
+    "location": "Gurnee",
+    "category": "Community",
+    "lat": 42.3703,
+    "lng": -87.9023,
+    "image": null
   }
 }
