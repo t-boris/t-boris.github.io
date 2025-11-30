@@ -484,21 +484,72 @@ const GOOGLE_MAPS_API_KEY = import.meta.env.PUBLIC_GOOGLE_MAPS_API_KEY || '';
 					map = new google.maps.Map(document.getElementById('map'), {
 						center: { lat: HOME_LAT, lng: HOME_LNG },
 						zoom: 11,
+						mapTypeId: 'roadmap',
 						styles: [
+							// Dark background
 							{
 								featureType: 'all',
 								elementType: 'geometry',
-								stylers: [{ color: '#242f3e' }]
+								stylers: [{ color: '#1a1a2e' }]
+							},
+							// Water
+							{
+								featureType: 'water',
+								elementType: 'geometry',
+								stylers: [{ color: '#0f3460' }]
+							},
+							// Roads - make them visible
+							{
+								featureType: 'road',
+								elementType: 'geometry',
+								stylers: [{ color: '#38414e' }]
+							},
+							{
+								featureType: 'road',
+								elementType: 'geometry.stroke',
+								stylers: [{ color: '#212a37' }]
+							},
+							{
+								featureType: 'road',
+								elementType: 'labels.text.fill',
+								stylers: [{ color: '#9ca5b3' }]
+							},
+							{
+								featureType: 'road.highway',
+								elementType: 'geometry',
+								stylers: [{ color: '#746855' }]
+							},
+							{
+								featureType: 'road.highway',
+								elementType: 'geometry.stroke',
+								stylers: [{ color: '#1f2835' }]
+							},
+							{
+								featureType: 'road.highway',
+								elementType: 'labels.text.fill',
+								stylers: [{ color: '#f3d19c' }]
+							},
+							// Labels
+							{
+								featureType: 'all',
+								elementType: 'labels.text.fill',
+								stylers: [{ color: '#c9a57b' }]
 							},
 							{
 								featureType: 'all',
 								elementType: 'labels.text.stroke',
-								stylers: [{ color: '#242f3e' }]
+								stylers: [{ color: '#1a1a2e' }]
+							},
+							// Parks
+							{
+								featureType: 'poi.park',
+								elementType: 'geometry',
+								stylers: [{ color: '#263c3f' }]
 							},
 							{
-								featureType: 'all',
+								featureType: 'poi.park',
 								elementType: 'labels.text.fill',
-								stylers: [{ color: '#746855' }]
+								stylers: [{ color: '#6b9a76' }]
 							}
 						]
 					});
