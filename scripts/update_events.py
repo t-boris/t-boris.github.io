@@ -38,21 +38,33 @@ def analyze_with_openai(client, search_results, address):
 
     simplified_results = [{"title": item.get("title"), "link": item.get("link"), "snippet": item.get("snippet")} for item in search_results[:15]]
 
+    today_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+
     prompt = f"""
     Analyze the following search results related to events around the address "{address}".
+    Today's date is {today_str}.
 
     Search Results:
     {json.dumps(simplified_results, indent=2, ensure_ascii=False)}
 
     Your task is to return a JSON object containing a list of key events.
-    Each event must have the fields: "category", "title", "description", and "link".
-    Use the following categories: "Culture", "Sports", "Community News", "Upcoming Events", "Incidents", "Society".
+    Each event must have the fields: "category", "title", "description", "link", and "event_date".
 
-    Return ONLY the JSON array, without any extra text.
+    For event_date:
+    - If the event mentions a specific date, use that date in YYYY-MM-DD format
+    - If the event is described as "today" or "happening now", use {today_str}
+    - If the event is "upcoming" or "this weekend" or similar, estimate a date within the next 7 days
+    - If no date can be determined, use {today_str}
+
+    Use the following categories: "Culture", "Sports", "Community", "News", "Upcoming Events", "Incidents".
+
+    Return ONLY a JSON object with an "events" key containing the array, without any extra text.
     Example:
-    [
-      {{ "category": "Upcoming Events", "title": "Fair in the Park", "description": "An autumn fair will be held this weekend.", "link": "http://example.com" }}
-    ]
+    {{
+      "events": [
+        {{ "category": "Upcoming Events", "title": "Fair in the Park", "description": "An autumn fair will be held this weekend.", "link": "http://example.com", "event_date": "2025-12-01" }}
+      ]
+    }}
     """
 
     try:
