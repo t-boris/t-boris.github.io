@@ -33,7 +33,7 @@ I found out that:
 ## Switch
 
 Installation didn't take a lot of time. It looks like:
-![](/assets/Pasted image 20230118164301.png)
+![](/assets/Pasted-image-20230118164301.png)
 
 After Shelly 1 installation, a new WiFi network `shelly-<id>` is available that you can connect and configure the device by opening URL http://192.168.33.1
 I configured WiFi network on the device to use my home network and found new device in home assistant
@@ -48,8 +48,8 @@ Installation of these sensors where very easy:
 4. Click on "Add Device" button
 5. Attach sensors to the garage door
 
-![](/assets/Pasted image 20230114213212.png)
-![](/assets/Pasted image 20230114213307.png)
+![](/assets/Pasted-image-20230114213212.png)
+![](/assets/Pasted-image-20230114213307.png)
 
 
 
@@ -66,18 +66,18 @@ In addition to the HA core I installed
 
 Main dashboard looks like:
 
-![](/assets/Pasted image 20230126194144.png)
+![](/assets/Pasted-image-20230126194144.png)
 
 
 ## Automations
 
 First I notice that when I enable the switch one time it disable the button in the garage that opens the door. It requires to toggle the Shelly switch one more time to enable the button on a wall.
 So, I decided to create a button on main dashboard that toggle the switch twice with 1/2 second delay. In order to create the button I added helper button:
-![](/assets/Pasted image 20230126193331.png)
+![](/assets/Pasted-image-20230126193331.png)
 
 The flow in Node Red looks like:
 
-![](/assets/Pasted image 20230126193951.png)
+![](/assets/Pasted-image-20230126193951.png)
 
 1. Event:state node "Button was pressed" is associated with the created button
 2. Call service node "Toggle garage door"
@@ -96,7 +96,7 @@ Second automation that I decided to create is inception of security system.
 
 The flow looks like
 
-![](/assets/Pasted image 20230126194438.png)
+![](/assets/Pasted-image-20230126194438.png)
 
 1. evant:state node "Garage door got opened" monitors if sensor detects open door
 2. current state "Alarm system enabled" retrieves value of `input_boolean.enable_security` (the toggle that I created before)
@@ -110,7 +110,7 @@ Not bad solution for under `40$`. Well, if we take into account also Raspberry P
 
 Also I decided to buy subscription https://www.home-assistant.io/cloud/ `65$` / year; it allows me to expose my home assistant to the internet. As a result I can use Home Assistant application on my phone anywhere:
 
-![](/assets/Screenshot 2023-01-26 at 7.55.58 PM.jpeg)
+![](/assets/Screenshot-2023-01-26-at-7.55.58-PM.jpeg)
 
 
 
