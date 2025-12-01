@@ -77,7 +77,7 @@ gem install jekyll bundler
 
 ### Create new repository
 
-![add new repository](/assets/github-new-repo.png){: width="200" }
+![add new repository](/assets/github-new-repo.png)
 
 Give a name to the repository like `<github-user-name>.github.io`
 
@@ -101,7 +101,7 @@ jekyll new --skip-bundle .
 ```
 
 It will create default version of the blog. I did several changes and my project looks like:
-![jekyll project](/assets/jekyll-project.png){: width="300" }
+![jekyll project](/assets/jekyll-project.png)
 
 #### Theme selection
 I didn't like the `minima` theme provided out of the box, so I was looking for a prettier design. 
@@ -131,7 +131,7 @@ GitHub provides an "actions" functionality, that allows to execute a build/task 
 write a workflow that builds the site, merges the changes to `gh-pages` branch, and deploy the site to GitHub pages.
 
 But before that ensure that in your repository -> `Settings` `gh-pages` branch is selected:
-![gh-pages branch](/assets/gh-pages-branch.png){: width="500" }
+![gh-pages branch](/assets/gh-pages-branch.png)
 
 Create file `./github/workflows/github-pages.yml` with content:
 

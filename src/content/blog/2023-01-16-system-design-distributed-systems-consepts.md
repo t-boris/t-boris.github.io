@@ -36,7 +36,7 @@ There are a lot of different algorithms we can use to perform horizontal partiti
 
 **Range partitioning** is a technique where we split a dataset into ranges according to the value of a specific attribute. We then store each range in a separate node.
 
-![](/assets/Pasted%20image%2020230113145045.png){: width="400" }
+![](/assets/Pasted image 20230113145045.png)
 
 ### Hash partitioning
 
@@ -46,7 +46,7 @@ There are a lot of different algorithms we can use to perform horizontal partiti
 
 **Consistent hashing** is a partitioning technique that is very similar to hash partitioning, but solves the increased data movement problem caused by hash partitioning.
 
-![](/assets/Pasted%20image%2020230113145631.png){: width="600" }
+![](/assets/Pasted image 20230113145631.png)
 
 > For further discussion on this concept, feel free to read the Dynamo paper. Another widely-used system that uses consistent hashing is Apache Cassandra.
 
