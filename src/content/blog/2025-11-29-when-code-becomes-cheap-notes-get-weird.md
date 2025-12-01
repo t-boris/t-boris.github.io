@@ -1,7 +1,7 @@
 ---
 title: 'When Code Becomes Cheap, Notes Get Weird'
 description: 'Recently I realized I have stopped taking notes in the usual sense. Instead of opening a doc and typing bullet points, I open a code editor and build a tiny website.'
-pubDate: '2024-11-29'
+pubDate: '2025-11-29'
 heroImage: './code-becomes-cheap-notes-get-weird-hero.png'
 tags: ['ai-tools', 'workflow', 'notes']
 ---

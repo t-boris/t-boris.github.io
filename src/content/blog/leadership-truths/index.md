@@ -1,7 +1,7 @@
 ---
 title: '7 Counter-Intuitive Truths About Leadership That Will Change How You See Your Team'
 description: 'Distilled lessons from my iMBA program on leadership, teaming, and psychological safety — and how they led to creating Team Synergy Analytics.'
-pubDate: '2024-11-30'
+pubDate: '2025-11-30'
 heroImage: './team-cover.png'
 tags: ['leadership', 'teams', 'psychology', 'business']
 ---

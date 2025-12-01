@@ -1,7 +1,7 @@
 ---
 title: 'When Your Project Starts Explaining Itself'
 description: 'Experimenting with NotebookLM from Google to turn messy project documentation into organized diagrams, summaries, and even architecture explanation videos.'
-pubDate: '2024-11-29'
+pubDate: '2025-11-29'
 heroImage: './project-explains-itself-hero.png'
 tags: ['ai-tools', 'workflow', 'notes']
 ---
