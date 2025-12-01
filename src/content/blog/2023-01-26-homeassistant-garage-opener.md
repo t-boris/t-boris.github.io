@@ -48,7 +48,7 @@ Installation of these sensors where very easy:
 4. Click on "Add Device" button
 5. Attach sensors to the garage door
 
-![](/assets/Pasted image 20230114213212.png){: width="500" }
+![](/assets/Pasted image 20230114213212.png)
 ![](/assets/Pasted image 20230114213307.png)
 
 
@@ -110,7 +110,7 @@ Not bad solution for under `40$`. Well, if we take into account also Raspberry P
 
 Also I decided to buy subscription https://www.home-assistant.io/cloud/ `65$` / year; it allows me to expose my home assistant to the internet. As a result I can use Home Assistant application on my phone anywhere:
 
-![](/assets/Screenshot 2023-01-26 at 7.55.58 PM.jpeg){: width="300" }
+![](/assets/Screenshot 2023-01-26 at 7.55.58 PM.jpeg)
 
 
 

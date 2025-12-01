@@ -23,7 +23,7 @@ This document contains some notes that I took while studying [educative.io cours
 1. Vertical Partitioning
 2. Horizontal partitioning (**Sharding**)
 
-![](/assets/Pasted%20image%2020230113144612.png){: width="400" }
+![](/assets/Pasted image 20230113144612.png)
 
 In a **vertically partitioned system**, requests that need to combine data from different tables (i.e., join operations) become less efficient. This is because these requests may now have to access data from multiple nodes.
 
@@ -73,7 +73,7 @@ Single-master replication is a technique where we designate a single node amongs
 
 > This technique is also known as **primary-backup replication**.
 
-![](/assets/Pasted image 20230113150329.png){: width="600" }
+![](/assets/Pasted image 20230113150329.png)
 
 
 ### Techniques for propagating updates
@@ -82,13 +82,13 @@ Single-master replication is a technique where we designate a single node amongs
 
 In **synchronous replication**, the node replies to the client to indicate the update is complete—only after receiving acknowledgments from the other replicas that they’ve also performed the update on their local storage. This guarantees that the client is able to view the update in a subsequent read after acknowledging it, no matter which replica the client reads from.
 
-![](/assets/Pasted image 20230113150518.png){: width="500" }
+![](/assets/Pasted image 20230113150518.png)
 
 #### Asynchronous replication
 
 In **asynchronous replication**, the node replies to the client as soon as it performs the update in its local storage, without waiting for responses from the other replicas.
 
-![](/assets/Pasted image 20230113150614.png){: width="500" }
+![](/assets/Pasted image 20230113150614.png)
 
 ### Multi-Master Replication
 
@@ -108,7 +108,7 @@ Let’s consider an example. In a system of three replicas, we can say that writ
 
 # Safety guarantors (ACID)
 
-![](/assets/Pasted image 20230116101619.png){: width="400" }
+![](/assets/Pasted image 20230116101619.png)
 
 ## Atomicity
 
@@ -142,7 +142,7 @@ According to the initial statement of the CAP theorem, it is impossible for a di
 
 ### Proof
 
-![](/assets/Pasted image 20230116103259.png){: width="400" }
+![](/assets/Pasted image 20230116103259.png)
 
 Now, let’s assume that there is a network failure that results in a network partition between the two nodes of the system at some point. A user of the system performs a write, and then a read—even two different users may perform these operations.
 
@@ -207,13 +207,13 @@ A **lost update** occurs when two transactions read the same value and then try 
 
 A **read skew** occurs when there are integrity constraints between two data items that seem to be violated because a transaction can only see partial results of another transaction.
 
-![](/assets/Pasted image 20230116112650.png){: width="400" }
+![](/assets/Pasted image 20230116112650.png)
 
 ### Anomaly: Write skew
 
 A **write skew** occurs when two transactions read the same data, but then modify disjoint sets of data.
 
-![](/assets/Pasted image 20230116112923.png){: width="400" }
+![](/assets/Pasted image 20230116112923.png)
 
 ![](/assets/Pasted image 20230116120348.png)
 
