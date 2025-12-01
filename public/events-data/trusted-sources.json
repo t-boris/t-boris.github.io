@@ -1,17 +1,17 @@
 {
   "roundlakebeachil.gov": {
-    "count": 16,
+    "count": 17,
     "first_seen": "2025-11-30",
     "last_seen": "2025-12-01"
   },
   "lakecountyil.gov": {
-    "count": 1,
-    "first_seen": "2025-11-30",
-    "last_seen": "2025-11-30"
-  },
-  "visitlakecounty.org": {
     "count": 4,
     "first_seen": "2025-11-30",
-    "last_seen": "2025-11-30"
+    "last_seen": "2025-12-01"
+  },
+  "visitlakecounty.org": {
+    "count": 6,
+    "first_seen": "2025-11-30",
+    "last_seen": "2025-12-01"
   }
 }

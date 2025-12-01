@@ -58,5 +58,53 @@
     "lat": 42.3714,
     "lng": -88.0901,
     "image": "3fd195ea5251.png"
+  },
+  "lake county calendar of events (includes gurnee)|2025-12-01": {
+    "title": "Lake County Calendar of Events (includes Gurnee)",
+    "event_date": "2025-12-01",
+    "found_date": "2025-12-01",
+    "description": "Aggregated calendar listing events across Lake County municipalities (Antioch, Deerfield, Fox Lake, Grayslake, Gurnee, etc.) — local festivals, seasonal programming, and community activities.",
+    "link": "https://www.visitlakecounty.org/events",
+    "location": "Gurnee",
+    "category": "Community",
+    "lat": 42.3703,
+    "lng": -87.9023,
+    "image": null
+  },
+  "beach monitoring and advisories — lake county|2025-12-01": {
+    "title": "Beach Monitoring and Advisories — Lake County",
+    "event_date": "2025-12-01",
+    "found_date": "2025-12-01",
+    "description": "Lake County Health Department's Lakes Management Unit samples Lake Michigan beaches four days a week from May through September and posts advisories as needed.",
+    "link": "https://www.lakecountyil.gov/2385/Beach-Monitoring-and-Advisories",
+    "location": "Lake Michigan beaches",
+    "category": "News",
+    "lat": null,
+    "lng": null,
+    "image": null
+  },
+  "lake county board approves fy2026 budget|2025-12-01": {
+    "title": "Lake County Board approves FY2026 budget",
+    "event_date": "2025-12-01",
+    "found_date": "2025-12-01",
+    "description": "Lake County Board approved a $676.6 million budget for Fiscal Year 2026 (effective December 1, 2025 – November 30, 2026).",
+    "link": "https://www.lakecountyil.gov/",
+    "location": "Lake County",
+    "category": "News",
+    "lat": null,
+    "lng": null,
+    "image": null
+  },
+  "round lake beach municipal meetings (planning & zoning, council, police commission)|2025-12-01": {
+    "title": "Round Lake Beach municipal meetings (Planning & Zoning, Council, Police Commission)",
+    "event_date": "2025-12-01",
+    "found_date": "2025-12-01",
+    "description": "Municipal calendar listing Planning & Zoning Commission, Committee of the Whole, Council, and Board of Police Commission meetings and other village notices.",
+    "link": "https://www.roundlakebeachil.gov/",
+    "location": "Round Lake Beach",
+    "category": "Community",
+    "lat": 42.3714,
+    "lng": -88.0901,
+    "image": "9e1213a0e19b.png"
   }
 }
