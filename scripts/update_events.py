@@ -149,7 +149,7 @@ def analyze_with_openai(client, search_results, address):
 
     try:
         response = client.chat.completions.create(
-            model="gpt-5.1-chat-latest",  # Latest GPT-5.1 model for Chat Completions API
+            model="gpt-5-mini",  # Using GPT-5 mini for cost-effective event extraction
             response_format={"type": "json_object"},
             messages=[
                 {"role": "system", "content": "You are a helpful assistant that returns structured JSON."},
