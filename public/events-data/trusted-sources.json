@@ -1,28 +1,28 @@
 {
   "roundlakebeachil.gov": {
-    "count": 46,
+    "count": 47,
     "first_seen": "2025-11-30",
-    "last_seen": "2025-12-21"
+    "last_seen": "2025-12-22"
   },
   "lakecountyil.gov": {
-    "count": 43,
+    "count": 45,
     "first_seen": "2025-11-30",
-    "last_seen": "2025-12-21"
+    "last_seen": "2025-12-22"
   },
   "visitlakecounty.org": {
-    "count": 40,
+    "count": 42,
     "first_seen": "2025-11-30",
-    "last_seen": "2025-12-21"
+    "last_seen": "2025-12-22"
   },
   "dnr.illinois.gov": {
-    "count": 13,
+    "count": 14,
     "first_seen": "2025-12-02",
-    "last_seen": "2025-12-20"
+    "last_seen": "2025-12-22"
   },
   "lcfpd.org": {
-    "count": 16,
+    "count": 17,
     "first_seen": "2025-12-02",
-    "last_seen": "2025-12-20"
+    "last_seen": "2025-12-22"
   },
   "clcillinois.edu": {
     "count": 6,
@@ -30,18 +30,18 @@
     "last_seen": "2025-12-20"
   },
   "19thcircuitcourt.state.il.us": {
-    "count": 5,
+    "count": 6,
     "first_seen": "2025-12-02",
-    "last_seen": "2025-12-12"
+    "last_seen": "2025-12-22"
   },
   "illinoisbeachhotel.com": {
-    "count": 3,
+    "count": 4,
     "first_seen": "2025-12-09",
-    "last_seen": "2025-12-15"
+    "last_seen": "2025-12-22"
   },
   "chicagoparkdistrict.com": {
-    "count": 2,
+    "count": 3,
     "first_seen": "2025-12-15",
-    "last_seen": "2025-12-17"
+    "last_seen": "2025-12-22"
   }
 }
