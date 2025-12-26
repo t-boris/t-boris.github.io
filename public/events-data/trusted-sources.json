@@ -1,38 +1,38 @@
 {
   "roundlakebeachil.gov": {
-    "count": 50,
+    "count": 51,
     "first_seen": "2025-11-30",
-    "last_seen": "2025-12-25"
+    "last_seen": "2025-12-26"
   },
   "lakecountyil.gov": {
-    "count": 52,
+    "count": 55,
     "first_seen": "2025-11-30",
-    "last_seen": "2025-12-25"
+    "last_seen": "2025-12-26"
   },
   "visitlakecounty.org": {
-    "count": 47,
+    "count": 49,
     "first_seen": "2025-11-30",
-    "last_seen": "2025-12-25"
+    "last_seen": "2025-12-26"
   },
   "dnr.illinois.gov": {
-    "count": 16,
+    "count": 17,
     "first_seen": "2025-12-02",
-    "last_seen": "2025-12-25"
+    "last_seen": "2025-12-26"
   },
   "lcfpd.org": {
-    "count": 19,
+    "count": 20,
     "first_seen": "2025-12-02",
-    "last_seen": "2025-12-25"
+    "last_seen": "2025-12-26"
   },
   "clcillinois.edu": {
-    "count": 7,
-    "first_seen": "2025-12-02",
-    "last_seen": "2025-12-24"
-  },
-  "19thcircuitcourt.state.il.us": {
     "count": 8,
     "first_seen": "2025-12-02",
-    "last_seen": "2025-12-25"
+    "last_seen": "2025-12-26"
+  },
+  "19thcircuitcourt.state.il.us": {
+    "count": 9,
+    "first_seen": "2025-12-02",
+    "last_seen": "2025-12-26"
   },
   "illinoisbeachhotel.com": {
     "count": 5,
