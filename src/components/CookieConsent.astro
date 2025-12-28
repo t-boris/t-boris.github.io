@@ -1,0 +1,132 @@
+---
+// Cookie Consent Banner with Google Consent Mode integration
+---
+
+<div id="cookie-consent-banner" class="cookie-banner" style="display: none;">
+	<div class="cookie-content">
+		<p>This site uses cookies for analytics to improve your experience.</p>
+		<div class="cookie-buttons">
+			<button id="cookie-accept" class="cookie-btn accept">Accept</button>
+			<button id="cookie-reject" class="cookie-btn reject">Reject</button>
+		</div>
+	</div>
+</div>
+
+<style>
+	.cookie-banner {
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background: #1a1a1a;
+		border-top: 1px solid rgba(201, 165, 123, 0.3);
+		padding: 1rem;
+		z-index: 9999;
+		box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+	}
+
+	.cookie-content {
+		max-width: 900px;
+		margin: 0 auto;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+		flex-wrap: wrap;
+	}
+
+	.cookie-content p {
+		margin: 0;
+		color: #e0e0e0;
+		font-size: 0.95rem;
+	}
+
+	.cookie-buttons {
+		display: flex;
+		gap: 0.75rem;
+	}
+
+	.cookie-btn {
+		padding: 0.6rem 1.25rem;
+		border: none;
+		border-radius: 6px;
+		font-size: 0.9rem;
+		font-weight: 500;
+		cursor: pointer;
+		transition: all 0.2s ease;
+	}
+
+	.cookie-btn.accept {
+		background: #c9a57b;
+		color: #1a1a1a;
+	}
+
+	.cookie-btn.accept:hover {
+		background: #d4b68a;
+		transform: translateY(-1px);
+	}
+
+	.cookie-btn.reject {
+		background: transparent;
+		color: #999;
+		border: 1px solid #444;
+	}
+
+	.cookie-btn.reject:hover {
+		background: #2a2a2a;
+		color: #ccc;
+	}
+
+	@media (max-width: 600px) {
+		.cookie-content {
+			flex-direction: column;
+			text-align: center;
+		}
+
+		.cookie-buttons {
+			width: 100%;
+			justify-content: center;
+		}
+	}
+</style>
+
+<script is:inline>
+(function() {
+	const CONSENT_KEY = 'cookie_consent';
+	const banner = document.getElementById('cookie-consent-banner');
+	const acceptBtn = document.getElementById('cookie-accept');
+	const rejectBtn = document.getElementById('cookie-reject');
+
+	// Check existing consent
+	const consent = localStorage.getItem(CONSENT_KEY);
+
+	if (consent === null) {
+		// No consent stored, show banner
+		banner.style.display = 'block';
+	} else if (consent === 'granted') {
+		// User previously accepted, update consent mode
+		updateConsent(true);
+	}
+	// If consent === 'denied', analytics stays blocked (default)
+
+	acceptBtn.addEventListener('click', function() {
+		localStorage.setItem(CONSENT_KEY, 'granted');
+		updateConsent(true);
+		banner.style.display = 'none';
+	});
+
+	rejectBtn.addEventListener('click', function() {
+		localStorage.setItem(CONSENT_KEY, 'denied');
+		updateConsent(false);
+		banner.style.display = 'none';
+	});
+
+	function updateConsent(granted) {
+		if (typeof gtag === 'function') {
+			gtag('consent', 'update', {
+				'analytics_storage': granted ? 'granted' : 'denied'
+			});
+		}
+	}
+})();
+</script>

@@ -56,11 +56,29 @@ const { title, description, image = FallbackImage } = Astro.props;
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image.src, Astro.url)} />
 
-<!-- Google Analytics -->
-<script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-YCZXJ9FFBL"></script>
+<!-- Google Consent Mode (default: denied until user accepts) -->
 <script is:inline>
 	window.dataLayer = window.dataLayer || [];
 	function gtag(){dataLayer.push(arguments);}
+
+	// Set default consent to denied
+	gtag('consent', 'default', {
+		'analytics_storage': 'denied',
+		'ad_storage': 'denied',
+		'wait_for_update': 500
+	});
+
+	// Check if user previously granted consent
+	if (localStorage.getItem('cookie_consent') === 'granted') {
+		gtag('consent', 'update', {
+			'analytics_storage': 'granted'
+		});
+	}
+</script>
+
+<!-- Google Analytics -->
+<script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-YCZXJ9FFBL"></script>
+<script is:inline>
 	gtag('js', new Date());
 	gtag('config', 'G-YCZXJ9FFBL');
 </script>
