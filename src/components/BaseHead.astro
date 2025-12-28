@@ -77,8 +77,22 @@ const { title, description, image = FallbackImage } = Astro.props;
 		"cookiePolicyId": 52439821,
 		"lang": "en",
 		"storage": {"useSiteId": true},
-		"googleConsentMode": "template"
+		"googleConsentMode": "template",
+		"banner": {
+			"acceptButtonDisplay": true,
+			"customizeButtonDisplay": true,
+			"rejectButtonDisplay": true,
+			"position": "float-bottom-center",
+			"acceptButtonColor": "#0073CE",
+			"acceptButtonCaptionColor": "white",
+			"customizeButtonColor": "#DADADA",
+			"customizeButtonCaptionColor": "#4D4D4D",
+			"rejectButtonColor": "#0073CE",
+			"rejectButtonCaptionColor": "white",
+			"closeButtonDisplay": false
+		}
 	};
+	_iub.csLangConfiguration = {"en": {"cookiePolicyId": 52439821}};
 </script>
 <script is:inline src="https://cs.iubenda.com/autoblocking/4367433.js"></script>
 <script is:inline src="//cdn.iubenda.com/cs/gpp/stub.js"></script>
