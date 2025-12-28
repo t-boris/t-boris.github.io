@@ -1,5 +1,5 @@
 ---
-title: 'The Physics of a Guitar Pickup's Soul'
+title: "The Physics of a Guitar Pickup's Soul"
 description: 'Every pickup has a soul. And that soul does not live in words like "warm," "glassy," or "aggressive." It lives in a handful of numbers—resonant frequency and Q factor.'
 pubDate: '2025-12-27'
 heroImage: '../../assets/pickup-physics-hero.png'
