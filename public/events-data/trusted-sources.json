@@ -1,33 +1,33 @@
 {
   "roundlakebeachil.gov": {
-    "count": 80,
+    "count": 81,
     "first_seen": "2025-11-30",
-    "last_seen": "2026-01-25"
+    "last_seen": "2026-01-26"
   },
   "lakecountyil.gov": {
-    "count": 115,
+    "count": 117,
     "first_seen": "2025-11-30",
-    "last_seen": "2026-01-25"
+    "last_seen": "2026-01-26"
   },
   "visitlakecounty.org": {
-    "count": 114,
+    "count": 117,
     "first_seen": "2025-11-30",
-    "last_seen": "2026-01-25"
+    "last_seen": "2026-01-26"
   },
   "dnr.illinois.gov": {
-    "count": 30,
+    "count": 31,
     "first_seen": "2025-12-02",
-    "last_seen": "2026-01-21"
+    "last_seen": "2026-01-26"
   },
   "lcfpd.org": {
-    "count": 32,
+    "count": 33,
     "first_seen": "2025-12-02",
-    "last_seen": "2026-01-16"
+    "last_seen": "2026-01-26"
   },
   "clcillinois.edu": {
-    "count": 11,
+    "count": 12,
     "first_seen": "2025-12-02",
-    "last_seen": "2026-01-07"
+    "last_seen": "2026-01-26"
   },
   "19thcircuitcourt.state.il.us": {
     "count": 12,
@@ -45,8 +45,8 @@
     "last_seen": "2026-01-25"
   },
   "lakecountycircuitclerk.org": {
-    "count": 3,
+    "count": 4,
     "first_seen": "2026-01-15",
-    "last_seen": "2026-01-17"
+    "last_seen": "2026-01-26"
   }
 }
