@@ -1,18 +1,18 @@
 {
   "roundlakebeachil.gov": {
-    "count": 83,
+    "count": 84,
     "first_seen": "2025-11-30",
-    "last_seen": "2026-01-28"
+    "last_seen": "2026-01-29"
   },
   "lakecountyil.gov": {
-    "count": 119,
+    "count": 120,
     "first_seen": "2025-11-30",
-    "last_seen": "2026-01-28"
+    "last_seen": "2026-01-29"
   },
   "visitlakecounty.org": {
-    "count": 123,
+    "count": 126,
     "first_seen": "2025-11-30",
-    "last_seen": "2026-01-28"
+    "last_seen": "2026-01-29"
   },
   "dnr.illinois.gov": {
     "count": 31,
@@ -20,9 +20,9 @@
     "last_seen": "2026-01-26"
   },
   "lcfpd.org": {
-    "count": 35,
+    "count": 36,
     "first_seen": "2025-12-02",
-    "last_seen": "2026-01-28"
+    "last_seen": "2026-01-29"
   },
   "clcillinois.edu": {
     "count": 12,
@@ -40,13 +40,18 @@
     "last_seen": "2025-12-24"
   },
   "chicagoparkdistrict.com": {
-    "count": 10,
+    "count": 11,
     "first_seen": "2025-12-15",
-    "last_seen": "2026-01-27"
+    "last_seen": "2026-01-29"
   },
   "lakecountycircuitclerk.org": {
-    "count": 5,
+    "count": 6,
     "first_seen": "2026-01-15",
-    "last_seen": "2026-01-28"
+    "last_seen": "2026-01-29"
+  },
+  "lfparksandrec.com": {
+    "count": 1,
+    "first_seen": "2026-01-29",
+    "last_seen": "2026-01-29"
   }
 }
