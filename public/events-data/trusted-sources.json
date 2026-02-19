@@ -1,23 +1,23 @@
 {
   "roundlakebeachil.gov": {
-    "count": 103,
+    "count": 104,
     "first_seen": "2025-11-30",
-    "last_seen": "2026-02-18"
+    "last_seen": "2026-02-19"
   },
   "lakecountyil.gov": {
-    "count": 140,
+    "count": 141,
     "first_seen": "2025-11-30",
-    "last_seen": "2026-02-18"
+    "last_seen": "2026-02-19"
   },
   "visitlakecounty.org": {
-    "count": 186,
+    "count": 188,
     "first_seen": "2025-11-30",
-    "last_seen": "2026-02-18"
+    "last_seen": "2026-02-19"
   },
   "dnr.illinois.gov": {
-    "count": 40,
+    "count": 41,
     "first_seen": "2025-12-02",
-    "last_seen": "2026-02-16"
+    "last_seen": "2026-02-19"
   },
   "lcfpd.org": {
     "count": 48,
@@ -30,14 +30,14 @@
     "last_seen": "2026-01-26"
   },
   "19thcircuitcourt.state.il.us": {
-    "count": 14,
+    "count": 15,
     "first_seen": "2025-12-02",
-    "last_seen": "2026-02-18"
+    "last_seen": "2026-02-19"
   },
   "illinoisbeachhotel.com": {
-    "count": 6,
+    "count": 7,
     "first_seen": "2025-12-09",
-    "last_seen": "2026-02-07"
+    "last_seen": "2026-02-19"
   },
   "chicagoparkdistrict.com": {
     "count": 11,
@@ -50,13 +50,18 @@
     "last_seen": "2026-02-05"
   },
   "lfparksandrec.com": {
-    "count": 6,
+    "count": 7,
     "first_seen": "2026-01-29",
-    "last_seen": "2026-02-16"
+    "last_seen": "2026-02-19"
   },
   "sixflags.com": {
     "count": 1,
     "first_seen": "2026-02-13",
     "last_seen": "2026-02-13"
+  },
+  "mealsonwheelsnei.org": {
+    "count": 1,
+    "first_seen": "2026-02-19",
+    "last_seen": "2026-02-19"
   }
 }
