@@ -1,18 +1,18 @@
 {
   "roundlakebeachil.gov": {
-    "count": 194,
+    "count": 195,
     "first_seen": "2025-11-30",
-    "last_seen": "2026-04-17"
+    "last_seen": "2026-04-18"
   },
   "lakecountyil.gov": {
-    "count": 189,
+    "count": 190,
     "first_seen": "2025-11-30",
-    "last_seen": "2026-04-17"
+    "last_seen": "2026-04-18"
   },
   "visitlakecounty.org": {
-    "count": 303,
+    "count": 304,
     "first_seen": "2025-11-30",
-    "last_seen": "2026-04-17"
+    "last_seen": "2026-04-18"
   },
   "dnr.illinois.gov": {
     "count": 63,
@@ -75,8 +75,8 @@
     "last_seen": "2026-03-21"
   },
   "swalco.org": {
-    "count": 11,
+    "count": 14,
     "first_seen": "2026-03-12",
-    "last_seen": "2026-04-17"
+    "last_seen": "2026-04-18"
   }
 }
