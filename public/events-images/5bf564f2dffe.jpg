@@ -1,0 +1,7 @@
+<svg id="Search" xmlns="http://www.w3.org/2000/svg" width="53" height="53" viewBox="0 0 53 53">
+  <rect id="Rectangle_1546" data-name="Rectangle 1546" width="53" height="53" rx="12" fill="none"/>
+  <g id="Group_7915" data-name="Group 7915" transform="translate(15 15)">
+    <path id="Path_3254" data-name="Path 3254" d="M234.409,1359.461a9.969,9.969,0,1,0-9.971-9.967,9.979,9.979,0,0,0,9.971,9.967Zm0-17.937a7.969,7.969,0,1,1-7.969,7.97,7.984,7.984,0,0,1,7.969-7.97Z" transform="translate(-221.53 -1339.524)" fill="#fff"/>
+    <path id="Path_3255" data-name="Path 3255" d="M240.716,1362.757a1,1,0,0,0,.707-.293l5.568-5.568a1,1,0,0,0-1.414-1.414l-5.568,5.568a1,1,0,0,0,.707,1.707Z" transform="translate(-239.716 -1339.524)" fill="#fff"/>
+  </g>
+</svg>
