@@ -1,0 +1,8 @@
+<svg id="Search" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+  <rect id="Rectangle_739" data-name="Rectangle 739" width="40" height="40" fill="#0073bb"/>
+  <g id="Group_9960" data-name="Group 9960" transform="translate(10 10)">
+    <ellipse id="Ellipse_1" data-name="Ellipse 1" cx="7.484" cy="7.478" rx="7.484" ry="7.478" transform="translate(0 0)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    <path id="Path_6486" data-name="Path 6486" d="M33.1,30.645l-1.962-1.961a4.5,4.5,0,0,0-2.694-1.29l-.086-.009a.918.918,0,0,0-1.015.992l.025.29A3.575,3.575,0,0,0,28.4,30.887l2.28,2.279a1.748,1.748,0,0,0,2.586-.127A1.8,1.8,0,0,0,33.1,30.645Z" transform="translate(-13.647 -13.677)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    <line id="Line_4" data-name="Line 4" x1="1.194" y1="1.193" transform="translate(12.776 12.766)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+  </g>
+</svg>
