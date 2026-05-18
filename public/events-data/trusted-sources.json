@@ -1,28 +1,28 @@
 {
   "roundlakebeachil.gov": {
-    "count": 225,
+    "count": 226,
     "first_seen": "2025-11-30",
-    "last_seen": "2026-05-17"
+    "last_seen": "2026-05-18"
   },
   "lakecountyil.gov": {
-    "count": 228,
+    "count": 231,
     "first_seen": "2025-11-30",
-    "last_seen": "2026-05-17"
+    "last_seen": "2026-05-18"
   },
   "visitlakecounty.org": {
-    "count": 362,
+    "count": 364,
     "first_seen": "2025-11-30",
-    "last_seen": "2026-05-17"
+    "last_seen": "2026-05-18"
   },
   "dnr.illinois.gov": {
-    "count": 81,
+    "count": 82,
     "first_seen": "2025-12-02",
-    "last_seen": "2026-05-14"
+    "last_seen": "2026-05-18"
   },
   "lcfpd.org": {
-    "count": 97,
+    "count": 98,
     "first_seen": "2025-12-02",
-    "last_seen": "2026-05-17"
+    "last_seen": "2026-05-18"
   },
   "clcillinois.edu": {
     "count": 15,
@@ -30,9 +30,9 @@
     "last_seen": "2026-03-17"
   },
   "19thcircuitcourt.state.il.us": {
-    "count": 27,
+    "count": 28,
     "first_seen": "2025-12-02",
-    "last_seen": "2026-05-12"
+    "last_seen": "2026-05-18"
   },
   "illinoisbeachhotel.com": {
     "count": 7,
@@ -45,9 +45,9 @@
     "last_seen": "2026-02-27"
   },
   "lakecountycircuitclerk.org": {
-    "count": 42,
+    "count": 43,
     "first_seen": "2026-01-15",
-    "last_seen": "2026-05-15"
+    "last_seen": "2026-05-18"
   },
   "lfparksandrec.com": {
     "count": 32,
@@ -60,9 +60,9 @@
     "last_seen": "2026-02-26"
   },
   "mealsonwheelsnei.org": {
-    "count": 16,
+    "count": 17,
     "first_seen": "2026-02-19",
-    "last_seen": "2026-05-13"
+    "last_seen": "2026-05-18"
   },
   "dhs.state.il.us": {
     "count": 1,
@@ -80,8 +80,8 @@
     "last_seen": "2026-04-19"
   },
   "fishlakebeach.com": {
-    "count": 1,
+    "count": 2,
     "first_seen": "2026-05-17",
-    "last_seen": "2026-05-17"
+    "last_seen": "2026-05-18"
   }
 }
